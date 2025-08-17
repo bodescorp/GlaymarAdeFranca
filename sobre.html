@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Mim - Glaymar de França</title>
+    <meta name="description" content="Conheça a pessoa por trás do desenvolvedor. Minha história, paixões, sonhos e o que me move no dia a dia.">
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" as="style">
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #0f172a;
+            --success-color: #059669;
+            --bg-dark: #0f172a;
+            --bg-darker: #020617;
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #64748b;
+            --gradient-1: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            --gradient-2: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            --gradient-3: linear-gradient(135deg, var(--success-color), var(--primary-color));
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-darker);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--gradient-1);
+            z-index: 1000;
+            transition: width 0.3s ease;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: rgba(0, 0, 0, 0.95);
+            padding: 0.8rem 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.5px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .back-home {
+            background: var(--gradient-1);
+            color: white !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none !important;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .back-home:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        .back-home::after {
+            display: none;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 120px;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .about-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            text-align: center;
+            margin-bottom: 5rem;
+            padding: 2rem 0;
+        }
+
+        .about-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -1px;
+        }
+
+        .about-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.3rem;
+            max-width: 650px;
+            margin: 0 auto 2rem auto;
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-color);
+            margin: 0 auto 2rem auto;
+            display: block;
+            object-fit: cover;
+            box-shadow: 0 8px 32px rgba(37, 99, 235, 0.3);
+        }
+
+        /* Section Cards */
+        .about-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gradient-1);
+            opacity: 0.5;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-title i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 10px;
+        }
+
+        .section-content {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .section-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .section-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Quick Facts */
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .fact-item {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .fact-item:hover {
+            transform: translateY(-5px);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .fact-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .fact-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 1rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-1);
+            border-radius: 1px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+            padding-left: 1rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.7rem;
+            top: 0.5rem;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--bg-darker);
+            box-shadow: 0 0 0 2px var(--primary-color);
+        }
+
+        .timeline-year {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .timeline-content {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            font-weight: 400;
+        }
+
+        /* Values Grid */
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--gradient-1);
+            opacity: 0.5;
+        }
+
+        .value-item:hover {
+            transform: translateY(-8px);
+            border-color: rgba(37, 99, 235, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 15px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .value-title {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .value-description {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 4rem 2rem 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 5rem;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            font-size: 1.1rem;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+            border-color: var(--primary-color);
+        }
+
+        /* Special styling for Linktree */
+        .social-link.linktree {
+            background: linear-gradient(135deg, #00d4aa, #00c7be);
+            border: none;
+        }
+
+        .social-link.linktree:hover {
+            background: linear-gradient(135deg, #00c7be, #00d4aa);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 212, 170, 0.4);
+        }
+
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Mobile menu toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .about-title {
+                font-size: 2.5rem;
+            }
+
+            .about-container {
+                padding: 0 1rem;
+            }
+
+            .about-section {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+
+            .section-title i {
+                margin-bottom: 0.5rem;
+            }
+
+            .quick-facts {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1.5rem;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .timeline {
+                padding-left: 1.5rem;
+            }
+
+            .timeline::before {
+                left: 0.75rem;
+            }
+
+            .timeline-item::before {
+                left: -1.4rem;
+            }
+
+            .social-links {
+                gap: 1rem;
+            }
+
+            .social-link {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-title {
+                font-size: 2rem;
+            }
+
+            .about-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .about-section {
+                padding: 1.5rem 1rem;
+            }
+
+            .header {
+                padding: 0.8rem 1rem;
+            }
+
+            .nav {
+                padding: 0;
+            }
+
+            .main-content {
+                padding-top: 100px;
+            }
+        }
+
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress"></div>
+
+     <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="logo">Glaymar.dev</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="./index.html" class="active">Início</a></li>
+                <li><a href="./index.html#professional">Profissional</a></li>
+                <li><a href="./index.html#cv">Currículo</a></li>
+                <li><a href="./index.html#experience">Experiência</a></li>
+                <li><a href="./index.html#personal">Pessoal</a></li>
+                <li><a href="./sobre.html">Sobre Mim</a></li>
+                <li><a href="./index.html#contact">Contato</a></li>
+            </ul>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="about-container">
+            <!-- Hero Section -->
+            <section class="about-hero">
+                <!-- <img src="assets/profile-picture.jpg" alt="Glaymar de França" class="profile-image"> -->
+                <h1 class="about-title">Sobre Mim</h1>
+                <p class="about-subtitle">Conheça a pessoa por trás do desenvolvedor. Minha história, paixões, sonhos e o que me move no dia a dia.</p>
+            </section>
+
+            <!-- Quem Sou -->
+            <section class="about-section">
+                <h2 class="section-title">
+                    <i class="fas fa-user"></i>
+                    Quem Sou
+                </h2>
+                <div class="section-content">
+                    <p>Olá! Sou Glaymar de França, desenvolvedor full-stack de 25 anos e fundador da Alttab Corp. Minha jornada começou aos 16 anos numa lan house, quando escrevi meu primeiro "Hello World" e descobri que havia encontrado minha linguagem.</p>
+                    
+                    <p>Hoje, combino paixão por tecnologia com empreendedorismo, sempre buscando soluções inovadoras e construindo produtos que fazem a diferença. Acredito que código é arte, e cada projeto é uma nova oportunidade de criar algo extraordinário.</p>
+                </div>
+            </section>
+
+            <!-- Alguns Números -->
+            <section class="about-section">
+                <h2 class="section-title">
+                    <i class="fas fa-chart-line"></i>
+                    Em Números
+                </h2>
+                <div class="quick-facts">
+                    <div class="fact-item">
+                        <span class="fact-number">25</span>
+                        <span class="fact-label">Anos de Idade</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-number">9+</span>
+                        <span class="fact-label">Anos Programando</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-number">500k+</span>
+                        <span class="fact-label">Transações Processadas</span>
+                    </div>
+                    <div class="fact-item">
+                        <span class="fact-number">1</span>
+                        <span class="fact-label">Empresa Fundada</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minha Jornada -->
+            <section class="about-section">
+                <h2 class="section-title">
+                    <i class="fas fa-road"></i>
+                    Minha Jornada
+                </h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2016</div>
+                        <div class="timeline-content">
+                            Primeiro contato com programação numa lan house. Escrevi "Hello World" e soube que havia encontrado meu caminho.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018-2020</div>
+                        <div class="timeline-content">
+                            Mergulhei de cabeça nos estudos. JavaScript, Python, bancos de dados - cada nova tecnologia era uma descoberta empolgante.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2021</div>
+                        <div class="timeline-content">
+                            Primeiros projetos freelance. Aprendi que programar é só o começo - entender o negócio do cliente é fundamental.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            Fundação da Alttab Corp. Transformei paixão em negócio, sempre focando em soluções que realmente importam.
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            Hoje: Desenvolvedor full-stack, empreendedor e sempre aprendendo. Cada projeto é uma nova aventura.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- O Que Me Move -->
+            <section class="about-section">
+                <h2 class="section-title">
+                    <i class="fas fa-heart"></i>
+                    O Que Me Move
+                </h2>
+                <div class="values-grid">
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="value-title">Inovação</div>
+                        <div class="value-description">
+                            Sempre buscando formas criativas de resolver problemas e criar soluções que fazem a diferença.
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="value-title">Colaboração</div>
+                        <div class="value-description">
+                            Acredito que os melhores resultados vêm do trabalho em equipe e da troca de conhecimentos.
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="value-title">Desafios</div>
+                        <div class="value-description">
+                            Cada problema é uma oportunidade de crescer. Quanto maior o desafio, maior a satisfação de resolvê-lo.
+                        </div>
+                    </div>
+                    <div class="value-item">
+                        <div class="value-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="value-title">Crescimento</div>
+                        <div class="value-description">
+                            Aprendizado constante, sempre evoluindo tanto como pessoa quanto como profissional.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Além do Código -->
+            <section class="about-section">
+                <h2 class="section-title">
+                    <i class="fas fa-gamepad"></i>
+                    Além do Código
+                </h2>
+                <div class="section-content">
+                    <p>Quando não estou programando, você pode me encontrar coordenando equipes de e-sports. Descobri que liderar jogadores me ensinou tanto sobre gestão quanto qualquer curso formal - cada player tem sua personalidade, medos e ambições únicos.</p>
+                    
+                    <p>Também sou apaixonado por tecnologia em geral. Adoro ficar por dentro das últimas tendências, seja em desenvolvimento, hardware ou startups. Acredito que curiosidade é o combustível da inovação.</p>
+                    
+                    <p>E claro, não posso esquecer do meu setup de trabalho - cada componente escolhido com carinho, desde o monitor até o teclado mecânico que me acompanha nas madrugadas de código.</p>
+                </div>
+            </section>
+
+            <!-- Vamos Conversar -->
+            <section class="about-section">
+                <h2 class="section-title">
+                    <i class="fas fa-comments"></i>
+                    Vamos Conversar?
+                </h2>
+                <div class="section-content">
+                    <p>Adoro trocar ideias sobre tecnologia, empreendedorismo, e-sports ou qualquer assunto interessante. Se você tem um projeto em mente, quer colaborar em algo ou simplesmente bater um papo, não hesite em entrar em contato!</p>
+                    
+                    <p>Você pode me encontrar em várias plataformas - cada uma com seu propósito. Do LinkedIn para conversas profissionais ao Instagram para o dia a dia. Escolha sua preferida e vamos conversar!</p>
+                </div>
+            </section>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 Glaymar Albuquerque de França | CEO & Founder | <a href="https://www.alttabcorp.com.br" target="_blank">Alttab Corp</a></p>
+
+        <div class="social-links">
+            <a href="https://linkedin.com/in/glaymar-de-franca" target="_blank" class="social-link">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://github.com/GlaymarAdeFranca" target="_blank" class="social-link">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://instagram.com/glaymar.dev" target="_blank" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linktr.ee/Glaymar" target="_blank" class="social-link linktree">
+                <i class="fas fa-link"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Scroll progress bar
+        function updateScrollProgress() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            document.querySelector('.scroll-progress').style.width = scrollPercent + '%';
+        }
+
+        // Header scroll effect
+        function handleHeaderScroll() {
+            const header = document.querySelector('.header');
+            if (window.pageYOffset > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // Back to top button visibility
+        function handleBackToTop() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+
+        // Scroll to top function
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Observe sections for animation
+            document.querySelectorAll('.about-section, .about-hero').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+
+            // Stagger animation for fact items
+            document.querySelectorAll('.fact-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(item);
+            });
+
+            // Stagger animation for value items
+            document.querySelectorAll('.value-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(item);
+            });
+
+            // Timeline items animation
+            document.querySelectorAll('.timeline-item').forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-30px)';
+                item.style.transition = `opacity 0.6s ease ${index * 0.2}s, transform 0.6s ease ${index * 0.2}s`;
+                observer.observe(item);
+            });
+        });
+
+        // Event listeners
+        window.addEventListener('scroll', function() {
+            updateScrollProgress();
+            handleHeaderScroll();
+            handleBackToTop();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu functionality (if needed in future)
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        if (mobileToggle) {
+            mobileToggle.addEventListener('click', function() {
+                // Mobile menu logic can be added here
+                console.log('Mobile menu clicked');
+            });
+        }
+
+        // Add hover effects to social links
+        document.querySelectorAll('.social-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-3px) scale(1.05)';
+            });
+            
+            link.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('linktree')) {
+                    this.style.transform = '';
+                }
+            });
+        });
+
+        // Performance optimization: throttle scroll events
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    updateScrollProgress();
+                    handleHeaderScroll();
+                    handleBackToTop();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', requestTick);
+    </script>
+</body>
+</html>
