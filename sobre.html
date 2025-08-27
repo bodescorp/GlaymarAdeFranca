@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sobre Mim - Glaymar de França</title>
-    <meta name="description" content="Conheça a pessoa por trás do desenvolvedor. Minha história, paixões, sonhos e o que me move no dia a dia.">
-    
+    <meta name="description"
+        content="Conheça a pessoa por trás do desenvolvedor. Minha história, paixões, sonhos e o que me move no dia a dia.">
+
     <!-- Preload critical resources -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" as="style">
+    <link rel="preload"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        as="style">
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-    
+
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
             --primary-color: #2563eb;
@@ -116,7 +122,8 @@
             padding: 0.5rem 0;
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--primary-color);
         }
 
@@ -131,7 +138,8 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
         }
 
@@ -648,6 +656,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -659,21 +668,22 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Scroll Progress Bar -->
     <div class="scroll-progress"></div>
 
-     <!-- Header -->
+    <!-- Header -->
     <header class="header" id="header">
         <nav class="nav">
             <div class="logo">Glaymar.dev</div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="./index.html" class="active">Início</a></li>
+                <li><a href="./index.html">Início</a></li>
                 <li><a href="./index.html#professional">Profissional</a></li>
                 <li><a href="./index.html#cv">Currículo</a></li>
                 <li><a href="./index.html#experience">Experiência</a></li>
-                <li><a href="./index.html#personal">Pessoal</a></li>
-                <li><a href="./sobre.html">Sobre Mim</a></li>
+                <li><a href="./index.html#personal">Links</a></li>
+                <li><a href="./sobre.html" class="active">Sobre Mim</a></li>
                 <li><a href="./index.html#contact">Contato</a></li>
             </ul>
             <button class="mobile-menu-toggle" id="mobileMenuToggle">
@@ -688,161 +698,132 @@
         <div class="about-container">
             <!-- Hero Section -->
             <section class="about-hero">
-                <!-- <img src="assets/profile-picture.jpg" alt="Glaymar de França" class="profile-image"> -->
                 <h1 class="about-title">Sobre Mim</h1>
-                <p class="about-subtitle">Conheça a pessoa por trás do desenvolvedor. Minha história, paixões, sonhos e o que me move no dia a dia.</p>
+                <p class="about-subtitle">Conheça a pessoa por trás do desenvolvedor. Minha história, paixões, sonhos e
+                    o que me move no dia a dia.</p>
             </section>
 
             <!-- Quem Sou -->
             <section class="about-section">
                 <h2 class="section-title">
                     <i class="fas fa-user"></i>
-                    Quem Sou
+                    Quem é Glaymar?
                 </h2>
                 <div class="section-content">
-                    <p>Olá! Sou Glaymar de França, desenvolvedor full-stack de 25 anos e fundador da Alttab Corp. Minha jornada começou aos 16 anos numa lan house, quando escrevi meu primeiro "Hello World" e descobri que havia encontrado minha linguagem.</p>
-                    
-                    <p>Hoje, combino paixão por tecnologia com empreendedorismo, sempre buscando soluções inovadoras e construindo produtos que fazem a diferença. Acredito que código é arte, e cada projeto é uma nova oportunidade de criar algo extraordinário.</p>
-                </div>
-            </section>
+                    <p>Sou Glaymar de França, CEO da Alttab Corp, 25 anos, natural de João Pessoa/PB. Meu nome, que
+                        curiosamente era a senha do computador da biblioteca onde minha mãe estudava, carrega uma
+                        história interessante. Como primogênito de 5 irmãos "Glay", desenvolvi desde cedo um forte senso
+                        de responsabilidade. No mundo dos games, onde sou conhecido como Glayterra, encontrei uma paixão
+                        jogando como Top laner tank no League of Legends.</p>
 
-            <!-- Alguns Números -->
-            <section class="about-section">
-                <h2 class="section-title">
-                    <i class="fas fa-chart-line"></i>
-                    Em Números
-                </h2>
-                <div class="quick-facts">
-                    <div class="fact-item">
-                        <span class="fact-number">25</span>
-                        <span class="fact-label">Anos de Idade</span>
-                    </div>
-                    <div class="fact-item">
-                        <span class="fact-number">9+</span>
-                        <span class="fact-label">Anos Programando</span>
-                    </div>
-                    <div class="fact-item">
-                        <span class="fact-number">500k+</span>
-                        <span class="fact-label">Transações Processadas</span>
-                    </div>
-                    <div class="fact-item">
-                        <span class="fact-number">1</span>
-                        <span class="fact-label">Empresa Fundada</span>
-                    </div>
+                    <p>Foi jogando LoL por diversão que desenvolvi minha filosofia "O Tank Tem Que Tankar". Cheguei a
+                        participar de um time amador, onde aprendi que ser tank é mais que aguentar dano - é sobre criar
+                        espaços e proteger a equipe. São lições que acabei trazendo para minha vida profissional na
+                        Alttab Corp, onde lidero projetos ao lado dos meus irmãos. Nas horas livres, faço lives
+                        ocasionais como Glayterra, compartilhando momentos divertidos com a comunidade.</p>
                 </div>
             </section>
 
             <!-- Minha Jornada -->
             <section class="about-section">
                 <h2 class="section-title">
-                    <i class="fas fa-road"></i>
-                    Minha Jornada
+                    <i class="fas fa-lightbulb"></i>
+                    Curiosidades
                 </h2>
                 <div class="timeline">
                     <div class="timeline-item">
-                        <div class="timeline-year">2016</div>
+                        <div class="timeline-year">Meu Nome</div>
                         <div class="timeline-content">
-                            Primeiro contato com programação numa lan house. Escrevi "Hello World" e soube que havia encontrado meu caminho.
+                            Meu nome tem uma origem curiosa: Glaymar era a senha do computador da biblioteca onde minha
+                            mãe estudava!
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2018-2020</div>
+                        <div class="timeline-year">Irmãos "Glay"</div>
                         <div class="timeline-content">
-                            Mergulhei de cabeça nos estudos. JavaScript, Python, bancos de dados - cada nova tecnologia era uma descoberta empolgante.
+                            Sou o mais velho de 5 irmãos, e todos nós temos nomes que começam com "Glay".
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2021</div>
+                        <div class="timeline-year">Gamer</div>
                         <div class="timeline-content">
-                            Primeiros projetos freelance. Aprendi que programar é só o começo - entender o negócio do cliente é fundamental.
+                            No mundo dos games, sou conhecido como "Glayterra". Escolhi esse nick combinando meu nome
+                            com "terra", um dos cinco elementos da natureza.
                         </div>
                     </div>
                     <div class="timeline-item">
-                        <div class="timeline-year">2023</div>
+                        <div class="timeline-year">LoL</div>
                         <div class="timeline-content">
-                            Fundação da Alttab Corp. Transformei paixão em negócio, sempre focando em soluções que realmente importam.
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-year">2025</div>
-                        <div class="timeline-content">
-                            Hoje: Desenvolvedor full-stack, empreendedor e sempre aprendendo. Cada projeto é uma nova aventura.
+                            No League of Legends, jogo exclusivamente como Tank na Top Lane. Minha filosofia "O Tank Tem
+                            Que Tankar" virou até mantra pessoal!
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- O Que Me Move -->
+            <!-- Minha Filosofia -->
             <section class="about-section">
                 <h2 class="section-title">
-                    <i class="fas fa-heart"></i>
-                    O Que Me Move
-                </h2>
-                <div class="values-grid">
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <div class="value-title">Inovação</div>
-                        <div class="value-description">
-                            Sempre buscando formas criativas de resolver problemas e criar soluções que fazem a diferença.
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-users"></i>
-                        </div>
-                        <div class="value-title">Colaboração</div>
-                        <div class="value-description">
-                            Acredito que os melhores resultados vêm do trabalho em equipe e da troca de conhecimentos.
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-mountain"></i>
-                        </div>
-                        <div class="value-title">Desafios</div>
-                        <div class="value-description">
-                            Cada problema é uma oportunidade de crescer. Quanto maior o desafio, maior a satisfação de resolvê-lo.
-                        </div>
-                    </div>
-                    <div class="value-item">
-                        <div class="value-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <div class="value-title">Crescimento</div>
-                        <div class="value-description">
-                            Aprendizado constante, sempre evoluindo tanto como pessoa quanto como profissional.
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Além do Código -->
-            <section class="about-section">
-                <h2 class="section-title">
-                    <i class="fas fa-gamepad"></i>
-                    Além do Código
+                    <i class="fas fa-brain"></i>
+                    Minha Filosofia
                 </h2>
                 <div class="section-content">
-                    <p>Quando não estou programando, você pode me encontrar coordenando equipes de e-sports. Descobri que liderar jogadores me ensinou tanto sobre gestão quanto qualquer curso formal - cada player tem sua personalidade, medos e ambições únicos.</p>
-                    
-                    <p>Também sou apaixonado por tecnologia em geral. Adoro ficar por dentro das últimas tendências, seja em desenvolvimento, hardware ou startups. Acredito que curiosidade é o combustível da inovação.</p>
-                    
-                    <p>E claro, não posso esquecer do meu setup de trabalho - cada componente escolhido com carinho, desde o monitor até o teclado mecânico que me acompanha nas madrugadas de código.</p>
+                    <p
+                        style="font-size: 1.5rem; font-weight: 700; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">
+                        "O Tank Tem Que Tankar"</p>
+
+                    <p>Jogando League of Legends por diversão, principalmente como tank na Top Lane, desenvolvi uma
+                        filosofia que acabou fazendo muito sentido na vida: "O Tank Tem Que Tankar". No jogo, isso
+                        significa mais que apenas aguentar dano - é sobre criar espaço para o time, escolher os momentos
+                        certos de agir e, principalmente, proteger quem precisa.</p>
+
+                    <p>Essa forma de pensar acabou se tornando parte de quem eu sou. É uma filosofia simples que nasceu nos games, mas que faz todo
+                        sentido no meu dia a dia.</p>
                 </div>
             </section>
 
-            <!-- Vamos Conversar -->
+            <!-- Alttab Corp -->
+            <section class="about-section">
+                <h2 class="section-title">
+                    <i class="fas fa-building"></i>
+                    Alttab Corp
+                </h2>
+                <div class="section-content">
+                    <p
+                        style="font-size: 1.2rem; font-weight: 500; color: var(--primary-color); margin-bottom: 1.5rem; text-align: center;">
+                        Uma Empresa, Uma Família</p>
+
+                    <p>A Alttab Corp representa a convergência entre inovação tecnológica e gestão familiar estratégica.
+                        Como CEO, lidero uma estrutura organizacional única onde cada um dos irmãos "Glay" contribui com
+                        expertise específica. Nossa sinergia familiar se traduz em vantagens competitivas concretas:
+                        governança transparente, comunicação eficiente e compromisso integral com a excelência
+                        operacional.</p>
+
+                    <p>Aplicando princípios de liderança desenvolvidos tanto no ambiente corporativo quanto no cenário
+                        competitivo de eSports, implementamos uma cultura organizacional que valoriza a inovação
+                        sustentável e o desenvolvimento coletivo.</p>
+                </div>
+            </section>
+
+            <!-- Vamos Trocar Ideia? -->
             <section class="about-section">
                 <h2 class="section-title">
                     <i class="fas fa-comments"></i>
-                    Vamos Conversar?
+                    Vamos Trocar Ideia?
                 </h2>
                 <div class="section-content">
-                    <p>Adoro trocar ideias sobre tecnologia, empreendedorismo, e-sports ou qualquer assunto interessante. Se você tem um projeto em mente, quer colaborar em algo ou simplesmente bater um papo, não hesite em entrar em contato!</p>
-                    
-                    <p>Você pode me encontrar em várias plataformas - cada uma com seu propósito. Do LinkedIn para conversas profissionais ao Instagram para o dia a dia. Escolha sua preferida e vamos conversar!</p>
+                    <p>Estou sempre disposto a discutir inovação tecnológica, estratégias empresariais e oportunidades
+                        de colaboração. Como CEO da Alttab Corp, mantenho-me aberto a parcerias estratégicas que
+                        agreguem valor ao ecossistema tecnológico. Minha experiência única, unindo gestão empresarial e
+                        conhecimento em eSports, oferece perspectivas diferenciadas sobre liderança e trabalho em
+                        equipe.</p>
+
+                    <p>Adoro trocar ideias sobre tecnologia, empreendedorismo, games ou qualquer assunto interessante!
+                        Como CEO da Alttab Corp, mantenho as portas abertas para novas conexões e parcerias.</p>
+
+                    <p>Para assuntos profissionais e novidades da Alttab Corp, me encontre no LinkedIn. Para acompanhar
+                        meu dia a dia, partidas de LoL e lives ocasionais, fique de olho nas minhas outras redes
+                        sociais. Vamos trocar uma ideia!</p>
                 </div>
             </section>
         </div>
@@ -926,7 +907,7 @@
         }, observerOptions);
 
         // Initialize when DOM is loaded
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Observe sections for animation
             document.querySelectorAll('.about-section, .about-hero').forEach(section => {
                 section.style.opacity = '0';
@@ -961,7 +942,7 @@
         });
 
         // Event listeners
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             updateScrollProgress();
             handleHeaderScroll();
             handleBackToTop();
@@ -984,7 +965,7 @@
         // Mobile menu functionality (if needed in future)
         const mobileToggle = document.querySelector('.mobile-menu-toggle');
         if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
+            mobileToggle.addEventListener('click', function () {
                 // Mobile menu logic can be added here
                 console.log('Mobile menu clicked');
             });
@@ -992,11 +973,11 @@
 
         // Add hover effects to social links
         document.querySelectorAll('.social-link').forEach(link => {
-            link.addEventListener('mouseenter', function() {
+            link.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-3px) scale(1.05)';
             });
-            
-            link.addEventListener('mouseleave', function() {
+
+            link.addEventListener('mouseleave', function () {
                 if (!this.classList.contains('linktree')) {
                     this.style.transform = '';
                 }
@@ -1007,7 +988,7 @@
         let ticking = false;
         function requestTick() {
             if (!ticking) {
-                requestAnimationFrame(function() {
+                requestAnimationFrame(function () {
                     updateScrollProgress();
                     handleHeaderScroll();
                     handleBackToTop();
@@ -1020,4 +1001,5 @@
         window.addEventListener('scroll', requestTick);
     </script>
 </body>
+
 </html>
