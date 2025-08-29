@@ -1,0 +1,270 @@
+/* animations.css - Animações compartilhadas entre todas as páginas */
+
+/* Efeito suave de transição para o menu mobile */
+.nav-links {
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    transform-origin: top;
+}
+
+.nav-links.open {
+    animation: slideDown 0.4s forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeito de revelação para seções ao rolar a página */
+.reveal-section {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.reveal-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Efeito de hover aprimorado para dispositivos de toque */
+@media (hover: hover) {
+    .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .social-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+    
+    .experience-card:hover {
+        transform: translateY(-5px);
+    }
+}
+
+/* Efeito de toque para dispositivos móveis */
+@media (hover: none) {
+    .btn:active {
+        transform: translateY(1px);
+    }
+    
+    .social-card:active {
+        background: rgba(20, 20, 40, 0.8);
+    }
+}
+
+/* Animação para o botão de menu mobile */
+.mobile-menu-toggle {
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle:active {
+    transform: rotate(180deg);
+}
+
+/* Efeito pulsante para elementos de destaque */
+.highlight-pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Loader para carregamento de conteúdo */
+.content-loader {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: var(--primary-color);
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+    display: none;
+}
+
+.loading .content-loader {
+    display: block;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Scroll suave para elementos âncora */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Efeito de flutuação */
+.float-animation {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Efeito de aparecimento com fade */
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Efeito de escrita de texto */
+.typing-text {
+    overflow: hidden;
+    border-right: 2px solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    animation: typing 3.5s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--primary-color);
+    }
+}
+
+/* Animação de destaque de card */
+.card-highlight {
+    transition: all 0.3s ease;
+}
+
+.card-highlight:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Animação de entrada para elementos em lista */
+.stagger-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stagger-item.visible {
+    animation: staggerIn 0.5s ease forwards;
+}
+
+@keyframes staggerIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efeito de brilho em hover */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+}
+
+.shine-effect:hover::before {
+    left: 100%;
+}
+
+/* Animação de escala em hover */
+.scale-hover {
+    transition: transform 0.3s ease;
+}
+
+.scale-hover:hover {
+    transform: scale(1.05);
+}
+
+/* Animação de rotação */
+.rotate-hover {
+    transition: transform 0.5s ease;
+}
+
+.rotate-hover:hover {
+    transform: rotate(5deg);
+}
+
+/* Barra de progresso */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.2s ease;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(10, 10, 30, 0.9);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-color);
+}
