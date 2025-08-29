@@ -66,22 +66,31 @@ document.addEventListener('DOMContentLoaded', function() {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const counter = entry.target;
-                    const target = parseInt(counter.getAttribute('data-target'));
-                    const duration = 2000; // 2 segundos
                     
+                    // Verifica se é um stat de texto (sem animação numérica)
+                    if (counter.classList.contains('stat-text')) {
+                        observer.unobserve(counter);
+                        return;
+                    }
+
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    if (!target) return; // Skip se não tiver um target válido
+                    
+                    const duration = 2000; // 2 segundos
                     let startTime;
+                    
                     function updateCounter(timestamp) {
                         if (!startTime) startTime = timestamp;
                         
                         const progress = Math.min((timestamp - startTime) / duration, 1);
                         const currentValue = Math.floor(progress * target);
                         
-                        counter.textContent = currentValue;
+                        counter.textContent = currentValue + (target >= 20 ? '+' : ''); // Adiciona o + para valores >= 20
                         
                         if (progress < 1) {
                             requestAnimationFrame(updateCounter);
                         } else {
-                            counter.textContent = target;
+                            counter.textContent = target + (target >= 20 ? '+' : ''); // Adiciona o + no valor final
                         }
                     }
                     
