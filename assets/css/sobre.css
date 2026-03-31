@@ -4,7 +4,7 @@
 .quote-text {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     text-align: center;
 }
@@ -12,7 +12,7 @@
 .subquote-text {
     font-size: 1.2rem;
     font-weight: 500;
-    color: var(--primary-color);
+    color: var(--text-secondary);
     margin-bottom: 1.5rem;
     text-align: center;
 }
@@ -32,53 +32,113 @@
 
 /* Hero Section */
 .about-hero {
-    text-align: center;
     margin-bottom: 4rem;
-    padding: 2rem 0;
+    padding: 2rem 0 3rem;
     position: relative;
 }
 
 .about-hero::after {
     content: '';
     position: absolute;
-    bottom: -2rem;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
+    width: 110px;
+    height: 3px;
     background: var(--gradient-1);
-    border-radius: 2px;
+    border-radius: 999px;
     opacity: 0.5;
 }
 
+.about-hero-grid {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 3rem;
+}
+
+.about-hero-main {
+    flex: 2;
+}
+
 .about-title {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    letter-spacing: -1px;
+    font-size: 3.2rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+    letter-spacing: -0.5px;
 }
 
 .about-subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-secondary);
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 640px;
     line-height: 1.6;
+}
+
+.about-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.about-badge {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    color: var(--text-secondary);
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.about-hero-aside {
+    flex: 1.2;
+    background: rgba(15, 23, 42, 0.95);
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.8);
+}
+
+.about-hero-aside-title {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+}
+
+.about-hero-meta-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    font-size: 0.95rem;
+}
+
+.about-hero-meta-label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.about-hero-meta-value {
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 /* Section Styles */
 .about-section {
-    background: rgba(255, 255, 255, 0.02);
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.25);
     border-radius: 20px;
     padding: 3.5rem;
     margin-bottom: 4rem;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
     transition: all 0.4s ease;
     position: relative;
     overflow: hidden;
@@ -97,9 +157,9 @@
 }
 
 .about-section:hover {
-    transform: translateY(-8px);
-    border-color: rgba(37, 99, 235, 0.3);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    border-color: rgba(37, 99, 235, 0.25);
+    box-shadow: 0 14px 32px rgba(15, 23, 42, 0.8);
 }
 
 .about-section:hover::before {
@@ -147,6 +207,18 @@
 
 .section-content p:last-child {
     margin-bottom: 0;
+}
+
+/* Two-column layouts */
+.about-layout {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+}
+
+.about-column {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Timeline Styles */
@@ -202,11 +274,11 @@
 }
 
 .timeline-content {
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(15, 23, 42, 0.9);
     padding: 1.5rem;
     border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.7);
     transition: all 0.3s ease;
     font-size: 1.05rem;
     line-height: 1.6;
@@ -222,16 +294,28 @@
 }
 
 .timeline-content:hover {
-    transform: translateX(8px);
-    border-color: rgba(37, 99, 235, 0.2);
-    background: rgba(255, 255, 255, 0.04);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    transform: translateX(4px);
+    border-color: rgba(37, 99, 235, 0.25);
+    background: rgba(15, 23, 42, 0.95);
+    box-shadow: 0 10px 26px rgba(15, 23, 42, 0.85);
 }
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
     .about-title {
-        font-size: 2.8rem;
+        font-size: 2.4rem;
+    }
+
+    .about-hero-grid {
+        flex-direction: column;
+    }
+
+    .about-hero-aside {
+        width: 100%;
+    }
+
+    .about-layout {
+        grid-template-columns: 1fr;
     }
 
     .section-title {

@@ -50,7 +50,7 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: var(--bg-darker);
+    background: radial-gradient(circle at top, #0b1120 0%, #020617 55%, #000000 100%);
 }
 
 /* Hero Section */
@@ -90,7 +90,6 @@
     border: 4px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    animation: profileFloat 6s ease-in-out infinite;
 }
 
 .profile-image:hover {
@@ -142,10 +141,7 @@
     font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
     margin-bottom: 1rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
     animation: slideInUp 1s ease-out;
     letter-spacing: -1px;
 }
@@ -246,10 +242,7 @@
     font-size: 3.2rem;
     font-weight: 800;
     margin-bottom: 2rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
     letter-spacing: -1px;
     line-height: 1.1;
 }
@@ -400,10 +393,10 @@
 }
 
 .stat-card:hover .stat-icon {
-    background: var(--gradient-1);
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.18), rgba(37, 99, 235, 0.08));
     color: white;
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    transform: scale(1.03);
+    box-shadow: 0 6px 18px rgba(15, 23, 42, 0.5);
 }
 
 /* Personal Section */
@@ -443,10 +436,7 @@
     font-weight: 800;
     text-align: center;
     margin-bottom: 1rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
 }
 
 .personal-subtitle {
@@ -527,10 +517,7 @@
     font-size: 3rem;
     margin-bottom: 1rem;
     text-align: center;
-    background: var(--gradient-2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
 }
 
 .cv-subtitle {
@@ -622,10 +609,7 @@
     font-weight: 800;
     text-align: center;
     margin-bottom: 1rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
     letter-spacing: -0.02em;
 }
 
@@ -959,8 +943,8 @@
 /* Contact Section Enhanced */
 .social-section {
     padding: 5rem 2rem;
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(5, 150, 105, 0.1));
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--bg-dark);
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
 }
 
 .contact-container {
@@ -972,10 +956,7 @@
 .social-title {
     font-size: 3rem;
     margin-bottom: 1rem;
-    background: var(--gradient-1);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: var(--text-primary);
 }
 
 .contact-subtitle {
