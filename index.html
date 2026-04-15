@@ -1,448 +1,737 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfólio de Glaymar A. de França – Desenvolvedor Full-Stack e CEO da Alttab Corp, especialista em Node.js, React, Python e AWS, focado em soluções digitais escaláveis e orientadas a resultados.">
-    <meta name="keywords"
-        content="desenvolvedor full-stack, desenvolvedor, Node.js, React, Python, AWS, CEO, Alttab Corp, tecnologia, produtos digitais">
-    <meta name="author" content="Glaymar Albuquerque de França">
-    <meta property="og:title" content="Glaymar A. de França | Full-Stack Developer & CEO na Alttab Corp">
-    <meta property="og:description"
-        content="Desenvolvedor Full-Stack, CEO da Alttab Corp, entregando soluções digitais robustas para empresas e instituições.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://glaymar.dev">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Glaymar A. de França | Full-Stack Developer & CEO na Alttab Corp">
-    <meta name="twitter:description" content="Desenvolvedor Full-Stack e CEO da Alttab Corp, especialista em Node.js, React, Python e AWS.">
-    <title>Glaymar A. de França | Full-Stack Developer & Tech Leader</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glaymar França — Desenvolvedor Full-Stack Sênior & AI Specialist</title>
+<meta name="description" content="Desenvolvedor Full-Stack Sênior com 6+ anos de experiência em sistemas críticos para saúde, educação e tecnologia. Fundador da AlttabCorp. Especializado em Node.js, TypeScript, React e IA aplicada.">
+<meta name="keywords" content="desenvolvedor full-stack, node.js, typescript, react, ai engineer, software engineer, cajazeiras, paraiba, alttabcorp">
+<meta property="og:title" content="Glaymar França — Full-Stack Developer & AI Specialist">
+<meta property="og:description" content="6+ anos construindo sistemas críticos. Fundador da AlttabCorp. Node.js, TypeScript, React, IA em produção.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0A0E17;
+  --bg2:#0F1420;
+  --bg3:#151C2E;
+  --surface:#1A2338;
+  --surface2:#1F2B42;
+  --border:#263047;
+  --border2:#2E3B57;
+  --text:#E8EDF5;
+  --text2:#8B9AB5;
+  --text3:#556080;
+  --gold:#C8A96E;
+  --gold2:#E0C080;
+  --blue:#4A90D9;
+  --teal:#3DBFA8;
+  --radius:10px;
+  --font:'DM Sans',sans-serif;
+  --mono:'DM Mono',monospace;
+  --serif:'Playfair Display',serif;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--font);font-weight:400;line-height:1.6;overflow-x:hidden}
 
-    <!-- Preload critical resources -->
-    <link rel="preload"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
-        as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
+/* Scroll bar */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
 
-    <!-- Fonts -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
-        rel="stylesheet">
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:all .3s}
+nav.scrolled{background:rgba(10,14,23,.92);backdrop-filter:blur(16px);border-color:var(--border)}
+.nav-logo{font-family:var(--mono);font-size:14px;color:var(--gold);letter-spacing:.05em;text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;letter-spacing:.03em;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{padding:8px 20px;border:1px solid var(--gold);border-radius:6px;font-size:13px;color:var(--gold);text-decoration:none;transition:all .2s;font-family:var(--mono)}
+.nav-cta:hover{background:var(--gold);color:var(--bg)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all .3s}
+.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,14,23,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99}
+.mobile-nav.open{display:block}
+.mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.mobile-nav a{color:var(--text2);text-decoration:none;font-size:15px}
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;align-items:center;padding:5rem 2rem 4rem;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(200,169,110,.06) 0%,transparent 70%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-10%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(74,144,217,.05) 0%,transparent 70%);pointer-events:none}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-label{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
+.hero-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
+.hero-name{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);line-height:1.1;margin-bottom:.8rem;color:var(--text)}
+.hero-role{font-size:1.05rem;color:var(--text2);margin-bottom:1.8rem;line-height:1.5}
+.hero-role strong{color:var(--gold);font-weight:500}
+.hero-desc{font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:2.4rem;max-width:460px}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{padding:12px 28px;background:var(--gold);color:var(--bg);border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.btn-outline{padding:12px 28px;border:1px solid var(--border2);color:var(--text2);border-radius:7px;font-size:14px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-right{display:flex;flex-direction:column;gap:1rem}
+.hero-stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s}
+.hero-stat-card:hover{border-color:var(--border2)}
+.hero-stat-icon{width:40px;height:40px;border-radius:8px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.hero-stat-num{font-size:1.5rem;font-weight:600;color:var(--text);line-height:1}
+.hero-stat-label{font-size:12px;color:var(--text3);margin-top:2px}
+.status-pill{display:inline-flex;align-items:center;gap:.4rem;padding:5px 12px;background:rgba(61,191,168,.1);border:1px solid rgba(61,191,168,.2);border-radius:20px;font-size:12px;color:var(--teal);margin-bottom:2rem}
+.status-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="assets/css/main.css">
-    <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/responsive.css">
-    <link rel="stylesheet" href="assets/css/animations.css">
+/* ── SECTION BASE ── */
+section{padding:5rem 2rem}
+.section-inner{max-width:1100px;margin:0 auto;width:100%}
+.section-label{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
+.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;color:var(--text);margin-bottom:1rem;line-height:1.2}
+.section-sub{font-size:.95rem;color:var(--text2);max-width:560px;line-height:1.7;margin-bottom:3rem}
+hr.divider{border:none;border-top:1px solid var(--border);margin:0 0 3rem}
+
+/* ── STACK ── */
+.stack-section{background:var(--bg2)}
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
+.stack-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.4rem;transition:all .2s}
+.stack-card:hover{border-color:var(--border2);transform:translateY(-2px)}
+.stack-cat{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.7rem}
+.stack-chips{display:flex;flex-wrap:wrap;gap:.4rem}
+.chip{padding:4px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:5px;font-family:var(--mono);font-size:12px;color:var(--text2)}
+
+/* ── EXPERIENCE ── */
+.exp-list{display:flex;flex-direction:column;gap:1px;border-left:1px solid var(--border);margin-left:.5rem}
+.exp-item{padding:1.6rem 0 1.6rem 2rem;position:relative;cursor:default}
+.exp-item::before{content:'';position:absolute;left:-5px;top:2rem;width:9px;height:9px;border-radius:50%;background:var(--surface2);border:2px solid var(--border2);transition:all .2s}
+.exp-item:hover::before{background:var(--gold);border-color:var(--gold)}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.3rem}
+.exp-title{font-size:1rem;font-weight:600;color:var(--text)}
+.exp-period{font-family:var(--mono);font-size:11px;color:var(--text3);padding:3px 8px;background:var(--surface);border-radius:4px;white-space:nowrap}
+.exp-company{font-size:.9rem;color:var(--gold);margin-bottom:.6rem;font-weight:500}
+.exp-desc{font-size:.88rem;color:var(--text2);line-height:1.65}
+.exp-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem}
+.exp-tag{padding:3px 9px;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:var(--mono);font-size:11px;color:var(--text3)}
+
+/* ── PROJECTS ── */
+.projects-section{background:var(--bg2)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem}
+.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;gap:1rem;transition:all .2s;text-decoration:none}
+.project-card:hover{border-color:var(--gold);transform:translateY(-3px)}
+.project-top{display:flex;justify-content:space-between;align-items:flex-start}
+.project-name{font-size:1rem;font-weight:600;color:var(--text)}
+.project-link-icon{color:var(--text3);font-size:14px;transition:color .2s}
+.project-card:hover .project-link-icon{color:var(--gold)}
+.project-desc{font-size:.875rem;color:var(--text2);line-height:1.65;flex:1}
+.project-stack{display:flex;flex-wrap:wrap;gap:.35rem}
+.project-chip{padding:3px 9px;border-radius:4px;font-family:var(--mono);font-size:11px;background:var(--surface2);border:1px solid var(--border);color:var(--text3)}
+
+/* ── RAG PIPELINE ── */
+.rag-section{border-top:1px solid var(--border)}
+.rag-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;overflow-x:auto}
+.rag-flow{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center}
+.rag-node{background:var(--surface2);border:1px solid var(--border2);border-radius:7px;padding:8px 14px;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
+.rag-node.highlight{border-color:var(--gold);color:var(--gold)}
+.rag-arrow{color:var(--text3);font-size:13px}
+.rag-table{width:100%;border-collapse:collapse;font-size:.875rem}
+.rag-table th{text-align:left;padding:8px 12px;color:var(--text3);font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-family:var(--mono);border-bottom:1px solid var(--border)}
+.rag-table td{padding:10px 12px;color:var(--text2);border-bottom:1px solid var(--border)}
+.rag-table td:first-child{color:var(--text);font-weight:500}
+.rag-table tr:last-child td{border-bottom:none}
+
+/* ── EDUCATION ── */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem}
+.edu-status{display:inline-flex;align-items:center;gap:.4rem;padding:3px 10px;border-radius:20px;font-size:11px;font-family:var(--mono);margin-bottom:.8rem}
+.edu-status.ongoing{background:rgba(74,144,217,.1);color:var(--blue);border:1px solid rgba(74,144,217,.2)}
+.edu-status.done{background:rgba(61,191,168,.1);color:var(--teal);border:1px solid rgba(61,191,168,.2)}
+.edu-degree{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
+.edu-inst{font-size:.85rem;color:var(--text3);font-family:var(--mono)}
+.edu-hours{font-size:.8rem;color:var(--gold);margin-top:.4rem;font-family:var(--mono)}
+
+/* ── CONTACT ── */
+.contact-section{background:var(--bg2)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact-text p{font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:1rem}
+.contact-list{list-style:none;display:flex;flex-direction:column;gap:.8rem}
+.contact-list li{display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:var(--text2)}
+.contact-list li a{color:var(--text2);text-decoration:none;transition:color .2s}
+.contact-list li a:hover{color:var(--gold)}
+.contact-icon{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
+.avail-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem}
+.avail-title{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.avail-items{display:flex;flex-direction:column;gap:.6rem}
+.avail-item{display:flex;align-items:center;gap:.6rem;font-size:.875rem;color:var(--text2)}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{padding:2rem;border-top:1px solid var(--border);text-align:center}
+footer p{font-size:.8rem;color:var(--text3);font-family:var(--mono)}
+footer a{color:var(--text3);text-decoration:none;transition:color .2s}
+footer a:hover{color:var(--gold)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-right{display:none}
+  .edu-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  section{padding:3.5rem 1.2rem}
+  .hero{padding:5rem 1.2rem 3rem}
+}
+</style>
 </head>
-
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loading-spinner">
-            <div class="spinner"></div>
-            <p>Carregando...</p>
-        </div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#home" class="nav-logo">glaymar.dev</a>
+  <ul class="nav-links">
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#experience">Experiência</a></li>
+    <li><a href="#projects">Projetos</a></li>
+    <li><a href="#education">Formação</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="#contact" class="nav-cta">Contato</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <ul>
+    <li><a href="#stack">Stack</a></li>
+    <li><a href="#experience">Experiência</a></li>
+    <li><a href="#projects">Projetos</a></li>
+    <li><a href="#education">Formação</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="#contact">Contato</a></li>
+  </ul>
+</div>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        Disponível para novas oportunidades
+      </div>
+      <div class="hero-label">Desenvolvedor Full-Stack · AI Specialist</div>
+      <h1 class="hero-name">Glaymar<br>Albuquerque<br>de França</h1>
+      <p class="hero-role">
+        <strong>Software Engineer Sênior</strong> com 6+ anos de experiência em<br>
+        sistemas críticos para saúde, educação e tecnologia.
+      </p>
+      <p class="hero-desc">
+        Fundador e CEO da <strong style="color:var(--gold)">AlttabCorp</strong>. Pesquisador P&D no LAVID/UFPB.
+        Especializado em arquiteturas escaláveis, pipelines de IA em produção e DevOps.
+        Cajazeiras, PB — disponível para trabalho remoto no Brasil e exterior.
+      </p>
+      <div class="hero-btns">
+        <a href="assets/Curriculo.pdf" download class="btn-primary">
+          ↓ Baixar Currículo
+        </a>
+        <a href="#contact" class="btn-outline">Entrar em contato →</a>
+      </div>
     </div>
-
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress" id="scrollProgress"></div>
-
-    <!-- Animated Background -->
-    <div class="animated-bg"></div>
-
-    <!-- Header -->
-    <header class="header" id="header">
-        <nav class="nav">
-            <div class="logo">Glaymar.dev</div>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="#home" class="active">Início</a></li>
-                <li><a href="#professional">Profissional</a></li>
-                <li><a href="#cv">Currículo</a></li>
-                <li><a href="#experience">Experiência</a></li>
-                <li><a href="#personal">Links</a></li>
-                <li><a href="sobre.html">Sobre Mim</a></li>
-                <li><a href="#contact">Iniciar Projeto</a></li>
-            </ul>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-profile">
-                <div class="profile-image-container">
-                    <img src="assets/me.jpg" alt="Glaymar Albuquerque de França" class="profile-image">
-                    <div class="profile-status">
-                        <div class="status-dot"></div>
-                        <span>Disponível</span>
-                    </div>
-                </div>
-                <div class="hero-text">
-                    <h1 class="hero-title">Glaymar A. de França</h1>
-                    <p class="hero-subtitle">Desenvolvedor Full-Stack & CEO na Alttab Corp</p>
-                    <p class="hero-description">
-                        <strong>Transformo desafios de negócio em soluções digitais robustas.</strong><br>
-                        Atuação em <strong>Node.js, React, Python e AWS</strong>, com foco em performance, segurança e escalabilidade.<br>
-                        Disponível para liderar projetos estratégicos ou fortalecer o seu time de tecnologia.
-                    </p>
-                </div>
-            </div>
-
-            <div class="hero-stats">
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-building"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number stat-text">CEO</div>
-                        <div class="stat-label">Alttab Corp</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" data-target="5">0</div>
-                        <div class="stat-label">Anos de Experiência</div>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-content">
-                        <div class="stat-number" data-target="20">0</div>
-                        <div class="stat-label">Clientes Atendidos</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="cta-buttons">
-                <a href="#cv" class="btn btn-primary">
-                    <i class="fas fa-file-pdf"></i>
-                    Ver Currículo
-                </a>
-                <a href="#experience" class="btn btn-secondary">
-                    <i class="fas fa-briefcase"></i>
-                    Experiência
-                </a>
-                <a href="mailto:glaymar2010@gmail.com" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i>
-                    Contato
-                </a>
-            </div>
+    <div class="hero-right">
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon">🏢</div>
+        <div>
+          <div class="hero-stat-num">CEO</div>
+          <div class="hero-stat-label">AlttabCorp — fundador desde 2023</div>
         </div>
-    </section>
-
-
-
-    <!-- Professional Section -->
-    <section id="professional" class="about">
-        <div class="about-content">
-            <div class="about-text">
-                <h2>Perfil Profissional</h2>
-                <p>
-                    <strong>Desenvolvedor Full-Stack</strong> e <strong>CEO da Alttab Corp</strong>,
-                    focado em soluções digitais que conectam estratégia de negócio e tecnologia.
-                </p>
-                <p>
-                    Experiência prática em <strong>Node.js, React, Python e AWS</strong>,
-                    construindo sistemas escaláveis para empresas de diferentes segmentos.
-                </p>
-
-                <div class="cta-buttons">
-                    <a href="mailto:glaymar2010@gmail.com" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i>
-                        Contato
-                    </a>
-                    <a href="https://www.alttabcorp.com.br" class="btn btn-secondary" target="_blank">
-                        <i class="fas fa-building"></i>
-                        Alttab Corp
-                    </a>
-                </div>
-            </div>
-
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <i class="fab fa-node-js"></i>
-                    <div>Node.js</div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-react"></i>
-                    <div>React</div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-python"></i>
-                    <div>Python</div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-aws"></i>
-                    <div>AWS</div>
-                </div>
-                <div class="skill-item">
-                    <i class="fab fa-docker"></i>
-                    <div>Docker</div>
-                </div>
-                <div class="skill-item">
-                    <i class="fas fa-database"></i>
-                    <div>PostgreSQL</div>
-                </div>
-            </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon">⚡</div>
+        <div>
+          <div class="hero-stat-num">6+</div>
+          <div class="hero-stat-label">Anos de experiência em desenvolvimento</div>
         </div>
-    </section>
-
-    <!-- CV Viewer Section -->
-    <section id="cv" class="cv-viewer">
-        <div class="cv-viewer-container">
-            <h2>Currículo Profissional</h2>
-            <p class="cv-subtitle">Baixe ou visualize meu currículo completo em formato PDF</p>
-
-            <div class="cv-actions">
-                <a href="assets/Curriculo.pdf" class="btn-download" download="Curriculo_Glaymar_AlbuquerqueFranca.pdf">
-                    <i class="fas fa-download"></i>
-                    Download PDF
-                </a>
-                <button class="btn-download cv-preview-toggle" id="previewBtn">
-                    <i class="fas fa-eye-slash"></i>
-                    Ocultar
-                </button>
-            </div>
-
-            <!-- CV Embed -->
-            <div class="cv-embed" id="cvEmbed">
-                <div class="cv-fallback">
-                    <iframe src="assets/Curriculo.pdf" class="cv-iframe" type="application/pdf">
-                        <p>Seu navegador não suporta visualização de PDF.
-                            <a href="assets/Curriculo.pdf" download="Curriculo_Glaymar_AlbuquerqueFranca.pdf">Clique
-                                aqui para baixar o currículo.</a>
-                        </p>
-                    </iframe>
-                </div>
-            </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon">🔬</div>
+        <div>
+          <div class="hero-stat-num">P&D</div>
+          <div class="hero-stat-label">Pesquisador FAPESQ / LAVID — UFPB</div>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience-modern">
-        <div class="experience-container">
-            <h2>Experiência Profissional</h2>
-            <p class="experience-subtitle">
-                Mais de 6 anos entregando soluções digitais para empresas e instituições, do protótipo à operação em produção.
-            </p>
-
-            <div class="experience-grid">
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-date">2023 - Presente</div>
-                    </div>
-                    <h3>Pesquisador em Sistemas</h3>
-                    <h4>LAVID/UFPB</h4>
-                    <p>Projeto P&D desenvolvendo soluções inovadoras em gestão de dispositivos móveis com <strong>React
-                            Native</strong> e <strong>Next.js</strong></p>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-date">2023 - Presente</div>
-                    </div>
-                    <h3>Fundador & CEO</h3>
-                    <h4>Alttab Corp</h4>
-                    <p>Empresa de tecnologia com 3 linhas de negócio: impressão 3D, consultoria em TI e e-sports</p>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-date">2023 - Presente</div>
-                    </div>
-                    <h3>Técnico de Suporte</h3>
-                    <h4>Hospital Universitário - Life Tecnologia</h4>
-                    <p>Suporte crítico em ambiente hospitalar com sistemas institucionais</p>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-date">2022</div>
-                    </div>
-                    <h3>Desenvolvedor Full-Stack</h3>
-                    <h4>LOOP3</h4>
-                    <p>Desenvolvimento de sistemas web e mobile com <strong>Node.js</strong>, <strong>React</strong>,
-                        <strong>Mongodb</strong> e
-                        integração com <strong>sistema de pagamentos</strong>
-                    </p>
-                </div>
-
-                <div class="experience-card">
-                    <div class="experience-header">
-                        <div class="experience-date">2021 - 2023</div>
-                    </div>
-                    <h3>Técnico em Informática</h3>
-                    <h4>Faculdade Santa Maria</h4>
-                    <p>Sistema completo de atendimento estudantil com <strong>TypeScript</strong>,
-                        <strong>Docker</strong> e <strong>AWS</strong>
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="experience-summary">
-                <div class="summary-stats">
-                    <div class="summary-stat">
-                        <span class="stat-number">6+</span>
-                        <span class="stat-label">Anos de Experiência</span>
-                    </div>
-                    <div class="summary-stat">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Sistemas Desenvolvidos</span>
-                    </div>
-
-                </div>
-            </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon">🤖</div>
+        <div>
+          <div class="hero-stat-num">RAG</div>
+          <div class="hero-stat-label">Pipeline de IA em produção — servidor próprio</div>
         </div>
-    </section>
-
-    <!-- Personal Section -->
-    <section id="personal" class="personal">
-        <div class="personal-container">
-            <h2>Conecte-se Comigo</h2>
-            <p class="personal-subtitle">
-                Acompanhe meus projetos, publicações técnicas e iniciativas profissionais nas redes
-            </p>
-
-            <div class="social-grid">
-                <!--
-
-                    <a href="https://www.instagram.com/glayterra/" target="_blank" class="social-card">
-                        <i class="fab fa-instagram"></i>
-                        <h3>Instagram</h3>
-                        <p>@glayterra</p>
-                        <span class="social-description">Lifestyle e bastidores</span>
-                    </a>
-
-                -->
-
-                <a href="https://www.linkedin.com/in/glaymar-albuquerque-de-frança" target="_blank" class="social-card">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>LinkedIn</h3>
-                    <p>Glaymar de França</p>
-                    <span class="social-description">Carreira, liderança técnica e networking</span>
-                </a>
-
-                <a href="https://github.com/bodescorp" target="_blank" class="social-card">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <p>@bodescorp</p>
-                    <span class="social-description">Código, projetos e experimentos técnicos</span>
-                </a>
-                <!--
-                    <a href="https://www.twitch.tv/bodescorp" target="_blank" class="social-card">
-                        <i class="fab fa-twitch"></i>
-                        <h3>Twitch</h3>
-                        <p>@glayterra</p>
-                        <span class="social-description">Gaming e streams</span>
-                    </a>
-                
-                    <a href="https://www.youtube.com/@bodescorp" target="_blank" class="social-card">
-                        <i class="fab fa-youtube"></i>
-                        <h3>YouTube</h3>
-                        <p>Glaymar Terra</p>
-                        <span class="social-description">Vídeos e tutoriais</span>
-                    </a>
-
-                    <a href="https://twitter.com/glayterra" target="_blank" class="social-card">
-                        <i class="fab fa-twitter"></i>
-                        <h3>Twitter</h3>
-                        <p>@glayterra</p>
-                        <span class="social-description">Pensamentos rápidos</span>
-                    </a>
-                -->
-
-                <a href="https://linktr.ee/Glaymar" target="_blank" class="social-card linktree-card">
-                    <i class="fas fa-link"></i>
-                    <h3>Linktree</h3>
-                    <p>Todos os Links</p>
-                    <span class="social-description">Portfólio completo e principais canais</span>
-                </a>
-                
-                <!--
-                    <a href="https://discord.com/invite/6FUNCUyCNX" target="_blank" class="social-card">
-                        <i class="fab fa-discord"></i>
-                        <h3>Discord</h3>
-                        <p>@glayterra</p>
-                        <span class="social-description">Comunidade e networking</span>
-                    </a>
-                -->
-
-            </div>
+      </div>
+      <div class="hero-stat-card">
+        <div class="hero-stat-icon">📚</div>
+        <div>
+          <div class="hero-stat-num">2.060h</div>
+          <div class="hero-stat-label">Pós-graduação em andamento (3 especializações)</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="social-section">
-        <div class="contact-container">
-            <h2 class="social-title">Vamos Conversar?</h2>
-            <p class="contact-subtitle">
-                Aberto a novas oportunidades, projetos estratégicos e conexões que gerem valor para ambos os lados
-            </p>
-
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <i class="fas fa-envelope"></i>
-                    <h4>Email Profissional</h4>
-                    <p>Canal principal para propostas comerciais e convites profissionais</p>
-                    <a href="mailto:glaymar2010@gmail.com">glaymar2010@gmail.com</a>
-                </div>
-
-                <div class="contact-method">
-                    <i class="fab fa-whatsapp"></i>
-                    <h4>WhatsApp Business</h4>
-                    <p>Contato direto para alinhamento inicial e consultorias pontuais</p>
-                    <a href="https://wa.me/+5583993322427" target="_blank">+55 83 99332-2427</a>
-                </div>
-
-                <div class="contact-method">
-                    <i class="fas fa-building"></i>
-                    <h4>Alttab Corp</h4>
-                    <p>Conheça a Alttab Corp, soluções em tecnologia e inovação</p>
-                    <a href="https://www.alttabcorp.com.br" target="_blank">www.alttabcorp.com.br</a>
-                </div>
-            </div>
-
-            <div class="social-links">
-                <a href="mailto:glaymar2010@gmail.com" class="social-link" title="Email">
-                    <i class="fas fa-envelope"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a/" class="social-link"
-                    target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/bodescorp" class="social-link" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://wa.me/+5583993322427" class="social-link" target="_blank" title="WhatsApp">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </div>
+<!-- STACK -->
+<section id="stack" class="stack-section">
+  <div class="section-inner">
+    <p class="section-label">Competências</p>
+    <h2 class="section-title">Stack Técnica</h2>
+    <p class="section-sub">Tecnologias e ferramentas com uso comprovado em projetos reais de produção.</p>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <div class="stack-cat">Linguagens</div>
+        <div class="stack-chips">
+          <span class="chip">TypeScript</span>
+          <span class="chip">JavaScript</span>
+          <span class="chip">Python</span>
+          <span class="chip">SQL</span>
         </div>
-    </section>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Back-end</div>
+        <div class="stack-chips">
+          <span class="chip">Node.js</span>
+          <span class="chip">NestJS</span>
+          <span class="chip">Express.js</span>
+          <span class="chip">Django</span>
+          <span class="chip">REST API</span>
+          <span class="chip">JWT</span>
+          <span class="chip">Webhooks</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Front-end & Mobile</div>
+        <div class="stack-chips">
+          <span class="chip">React</span>
+          <span class="chip">Next.js</span>
+          <span class="chip">React Native</span>
+          <span class="chip">Tailwind CSS</span>
+          <span class="chip">HTML5</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Cloud & DevOps</div>
+        <div class="stack-chips">
+          <span class="chip">AWS</span>
+          <span class="chip">Docker</span>
+          <span class="chip">Nginx</span>
+          <span class="chip">GitHub Actions</span>
+          <span class="chip">Azure DevOps</span>
+          <span class="chip">CI/CD</span>
+          <span class="chip">Linux</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Banco de Dados</div>
+        <div class="stack-chips">
+          <span class="chip">PostgreSQL</span>
+          <span class="chip">pgvector</span>
+          <span class="chip">MongoDB</span>
+          <span class="chip">Neo4j</span>
+          <span class="chip">Redis</span>
+          <span class="chip">SQL Server</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Inteligência Artificial</div>
+        <div class="stack-chips">
+          <span class="chip">Ollama</span>
+          <span class="chip">RAG</span>
+          <span class="chip">LLM</span>
+          <span class="chip">Whisper</span>
+          <span class="chip">n8n</span>
+          <span class="chip">Groq</span>
+          <span class="chip">OpenRouter</span>
+          <span class="chip">OpenWebUI</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Arquitetura & Práticas</div>
+        <div class="stack-chips">
+          <span class="chip">SOLID</span>
+          <span class="chip">Clean Architecture</span>
+          <span class="chip">Repository Pattern</span>
+          <span class="chip">TDD</span>
+          <span class="chip">Scrum</span>
+          <span class="chip">Kanban</span>
+        </div>
+      </div>
+      <div class="stack-card">
+        <div class="stack-cat">Ferramentas</div>
+        <div class="stack-chips">
+          <span class="chip">Git</span>
+          <span class="chip">TypeORM</span>
+          <span class="chip">Swagger</span>
+          <span class="chip">Uptime-Kuma</span>
+          <span class="chip">LaTeX</span>
+          <span class="chip">Godot Engine</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <p>&copy; 2025 Glaymar Albuquerque de França | CEO & Founder | <a href="https://www.alttabcorp.com.br"
-                target="_blank">Alttab Corp</a></p>
-    </footer>
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <p class="section-label">Histórico</p>
+    <h2 class="section-title">Experiência Profissional</h2>
+    <p class="section-sub">6+ anos desenvolvendo soluções de alto impacto para saúde, educação e tecnologia.</p>
+    <div class="exp-list">
 
-    <!-- JavaScript Files -->
-    <script src="assets/js/main.js"></script>
-    <script src="assets/js/index.js"></script>
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Pesquisador em Desenvolvimento de Sistemas</span>
+          <span class="exp-period">Out 2023 — Presente</span>
+        </div>
+        <div class="exp-company">LAVID / UFPB — Projeto P&D FAPESQ · Remoto · João Pessoa, PB</div>
+        <p class="exp-desc">Desenvolvimento de sistema de gestão de dispositivos móveis em larga escala com foco em segurança pública. Implementação de rastreamento IMEI, notificações em tempo real via WebSocket e dashboard analítico com alta disponibilidade. Aplicação de SOLID, Clean Architecture e boas práticas de segurança em sistema crítico de pesquisa aplicada.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">React Native</span>
+          <span class="exp-tag">TypeScript</span>
+          <span class="exp-tag">Next.js</span>
+          <span class="exp-tag">Appwrite</span>
+          <span class="exp-tag">WebSocket</span>
+          <span class="exp-tag">SOLID</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Fundador & CEO — Software Engineer / Tech Lead</span>
+          <span class="exp-period">Mai 2023 — Presente</span>
+        </div>
+        <div class="exp-company">AlttabCorp · Cajazeiras, PB · <a href="https://alttabcorp.com.br" target="_blank" style="color:var(--gold);text-decoration:none">alttabcorp.com.br</a></div>
+        <p class="exp-desc">Fundação e liderança de empresa de tecnologia multidisciplinar com atuação em desenvolvimento web, consultoria em TI, manufatura 3D e game development. 6+ plataformas digitais ativas desenvolvidas 100% in-house com pipeline CI/CD profissional. Consultoria em arquitetura de sistemas, APIs RESTful e documentação técnica para clientes corporativos.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Node.js</span>
+          <span class="exp-tag">React</span>
+          <span class="exp-tag">Docker</span>
+          <span class="exp-tag">GitHub Actions</span>
+          <span class="exp-tag">LaTeX</span>
+          <span class="exp-tag">n8n</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Técnico de Suporte N1/N2</span>
+          <span class="exp-period">Jan 2023 — Presente</span>
+        </div>
+        <div class="exp-company">Life Tecnologia — Hospital Universitário Júlio Bandeira (HUJB/Ebserh) · Presencial · Cajazeiras, PB</div>
+        <p class="exp-desc">Suporte técnico N1/N2 em ambiente hospitalar crítico, mantendo alta disponibilidade dos serviços institucionais em ambiente regulado. Administração de sistemas SEI, AGHU e PACS; gestão de segurança da informação e infraestrutura de rede.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">SEI</span>
+          <span class="exp-tag">AGHU</span>
+          <span class="exp-tag">PACS</span>
+          <span class="exp-tag">Alta disponibilidade</span>
+          <span class="exp-tag">Ebserh</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Desenvolvedor Full-Stack</span>
+          <span class="exp-period">Fev 2022 — Set 2022</span>
+        </div>
+        <div class="exp-company">LOOP3 · Remoto · Itapema, SC</div>
+        <p class="exp-desc">Desenvolvimento de sistemas web e mobile completos com foco em UX, performance e escalabilidade. Integração da plataforma Asaas via Webhooks para automação de cobranças. CI/CD com Azure DevOps e gestão ágil com Scrum.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Node.js</span>
+          <span class="exp-tag">Express.js</span>
+          <span class="exp-tag">MongoDB</span>
+          <span class="exp-tag">React</span>
+          <span class="exp-tag">React Native</span>
+          <span class="exp-tag">Azure DevOps</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Técnico em Informática — Desenvolvimento e Suporte</span>
+          <span class="exp-period">Set 2021 — Fev 2023</span>
+        </div>
+        <div class="exp-company">Faculdade Santa Maria · Cajazeiras, PB</div>
+        <p class="exp-desc">Desenvolvimento de sistema de atendimento estudantil atendendo base de 500+ usuários. Implementação de plataforma PIT com notificações automatizadas via SendGrid. Relatórios analíticos via SQL Server para tomada de decisões estratégicas.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Node.js</span>
+          <span class="exp-tag">TypeScript</span>
+          <span class="exp-tag">PostgreSQL</span>
+          <span class="exp-tag">AWS S3</span>
+          <span class="exp-tag">Docker</span>
+          <span class="exp-tag">React</span>
+        </div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <span class="exp-title">Diretor de RH & Desenvolvedor Full-Stack</span>
+          <span class="exp-period">Dez 2018 — Dez 2021</span>
+        </div>
+        <div class="exp-company">Loopis Jr — Empresa Júnior IFPB · Híbrido · Cajazeiras, PB</div>
+        <p class="exp-desc">Liderança técnica de equipe com 15+ pessoas, implementando Scrum e boas práticas de desenvolvimento. Desenvolvimento de aplicações web e mobile com Python (Django), Node.js e Ionic.</p>
+        <div class="exp-tags">
+          <span class="exp-tag">Python</span>
+          <span class="exp-tag">Django</span>
+          <span class="exp-tag">Node.js</span>
+          <span class="exp-tag">Ionic</span>
+          <span class="exp-tag">Scrum</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+  <div class="section-inner">
+    <p class="section-label">Portfólio</p>
+    <h2 class="section-title">Projetos em Destaque</h2>
+    <p class="section-sub">Seleção de projetos com impacto real, disponíveis publicamente.</p>
+    <div class="projects-grid">
+
+      <a href="https://github.com/Alttabcorp" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-name">Pipeline RAG Local — AlttabCorp</span>
+          <span class="project-link-icon">↗</span>
+        </div>
+        <p class="project-desc">Pipeline completo de IA em produção: LLM local (Ollama + Qwen2.5), banco vetorial (PostgreSQL + pgvector), transcrição de áudio (Whisper), bot Telegram, automação n8n e monitoramento Uptime-Kuma — tudo em servidor próprio.</p>
+        <div class="project-stack">
+          <span class="project-chip">Ollama</span>
+          <span class="project-chip">pgvector</span>
+          <span class="project-chip">Whisper</span>
+          <span class="project-chip">n8n</span>
+          <span class="project-chip">Docker</span>
+        </div>
+      </a>
+
+      <a href="https://repositorio.ifpb.edu.br/handle/177683/2898" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-name">Sistema de Inventários Históricos</span>
+          <span class="project-link-icon">↗</span>
+        </div>
+        <p class="project-desc">Plataforma full-stack para análise de 1.000+ documentos históricos judiciais via banco de dados em grafos. Visualização interativa de redes sociais e patrimoniais. Utilizada por pesquisadores do IFPB.</p>
+        <div class="project-stack">
+          <span class="project-chip">Node.js</span>
+          <span class="project-chip">TypeScript</span>
+          <span class="project-chip">Neo4j</span>
+          <span class="project-chip">React</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/Alttabcorp/API-bibliteca_siec" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-name">API Biblioteca CIEC</span>
+          <span class="project-link-icon">↗</span>
+        </div>
+        <p class="project-desc">API RESTful com arquitetura modular (Repository Pattern), autenticação JWT, documentação interativa Swagger UI e containerização Docker Compose completa.</p>
+        <div class="project-stack">
+          <span class="project-chip">NestJS</span>
+          <span class="project-chip">TypeScript</span>
+          <span class="project-chip">Docker</span>
+          <span class="project-chip">Swagger</span>
+          <span class="project-chip">JWT</span>
+        </div>
+      </a>
+
+      <a href="https://alttabcorp.com.br" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-name">AlttabCorp — Ecossistema Digital</span>
+          <span class="project-link-icon">↗</span>
+        </div>
+        <p class="project-desc">6+ plataformas ativas: web dev, consultoria em TI, sistema de orçamento 3D com cálculo em tempo real, game studio (Godot Engine) e time de esports.</p>
+        <div class="project-stack">
+          <span class="project-chip">Next.js</span>
+          <span class="project-chip">React</span>
+          <span class="project-chip">Docker</span>
+          <span class="project-chip">n8n</span>
+          <span class="project-chip">LaTeX</span>
+        </div>
+      </a>
+
+      <a href="https://github.com/bodescorp/Cext-final-" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-name">Sistema de Certificados IFPB</span>
+          <span class="project-link-icon">↗</span>
+        </div>
+        <p class="project-desc">Automação da emissão de certificados institucionais com validação QR Code e integração ao sistema acadêmico. Redução do tempo de emissão de horas para minutos.</p>
+        <div class="project-stack">
+          <span class="project-chip">Python</span>
+          <span class="project-chip">Django</span>
+          <span class="project-chip">JavaScript</span>
+          <span class="project-chip">QR Code</span>
+        </div>
+      </a>
+
+      <a href="https://alttabcorp.github.io/WEB-Orcamento3D-alttab/" target="_blank" class="project-card">
+        <div class="project-top">
+          <span class="project-name">Orçamento 3D Automatizado</span>
+          <span class="project-link-icon">↗</span>
+        </div>
+        <p class="project-desc">Sistema web de cotação de impressão 3D com cálculo em tempo real por parâmetros do projeto. Interface responsiva com estimativa automática de custo e prazo.</p>
+        <div class="project-stack">
+          <span class="project-chip">HTML5</span>
+          <span class="project-chip">CSS3</span>
+          <span class="project-chip">JavaScript</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- RAG PIPELINE -->
+<section class="rag-section">
+  <div class="section-inner">
+    <p class="section-label">IA em Produção</p>
+    <h2 class="section-title">Pipeline RAG Local</h2>
+    <p class="section-sub">Arquitetura completa de inteligência artificial rodando em servidor próprio, sem dependência de cloud para inferência.</p>
+    <div class="rag-box">
+      <div class="rag-flow">
+        <span class="rag-node">Telegram Bot</span>
+        <span class="rag-arrow">→</span>
+        <span class="rag-node">Whisper STT</span>
+        <span class="rag-arrow">→</span>
+        <span class="rag-node">n8n</span>
+        <span class="rag-arrow">→</span>
+        <span class="rag-node highlight">Ollama + Qwen2.5</span>
+        <span class="rag-arrow">→</span>
+        <span class="rag-node highlight">pgvector RAG</span>
+        <span class="rag-arrow">→</span>
+        <span class="rag-node">OpenWebUI</span>
+      </div>
+    </div>
+    <table class="rag-table">
+      <thead>
+        <tr><th>Componente</th><th>Tecnologia</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>LLM Local</td><td>Ollama + Qwen2.5</td></tr>
+        <tr><td>Banco Vetorial</td><td>PostgreSQL + pgvector</td></tr>
+        <tr><td>Transcrição de Áudio</td><td>Whisper (speech-to-text)</td></tr>
+        <tr><td>Automação de Fluxos</td><td>n8n</td></tr>
+        <tr><td>Interface Web</td><td>OpenWebUI</td></tr>
+        <tr><td>APIs Externas de LLM</td><td>Groq, OpenRouter</td></tr>
+        <tr><td>Bot de Interação</td><td>Telegram Bot API</td></tr>
+        <tr><td>Monitoramento</td><td>Uptime-Kuma</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background:var(--bg2)">
+  <div class="section-inner">
+    <p class="section-label">Formação</p>
+    <h2 class="section-title">Educação & Especialização</h2>
+    <p class="section-sub">2.060h de formação pós-graduada em andamento simultâneo.</p>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div class="edu-status ongoing">🔄 Em andamento</div>
+        <div class="edu-degree">Especialização em Arquitetura de Software</div>
+        <div class="edu-inst">FAAL Educacional</div>
+        <div class="edu-hours">720h</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-status ongoing">🔄 Em andamento</div>
+        <div class="edu-degree">Especialização em Inteligência Artificial</div>
+        <div class="edu-inst">FAAL Educacional</div>
+        <div class="edu-hours">640h</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-status ongoing">🔄 Em andamento</div>
+        <div class="edu-degree">Especialização em Segurança da Informação</div>
+        <div class="edu-inst">FAAL Educacional</div>
+        <div class="edu-hours">700h</div>
+      </div>
+      <div class="edu-card">
+        <div class="edu-status done">✅ Concluído</div>
+        <div class="edu-degree">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
+        <div class="edu-inst">IFPB — Instituto Federal da Paraíba · 2023</div>
+        <div class="edu-hours" style="color:var(--text3)">TCC: Sistema de Inventários Históricos com Neo4J</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="section-inner">
+    <p class="section-label">Contato</p>
+    <h2 class="section-title">Vamos Conversar?</h2>
+    <p class="section-sub">Aberto a oportunidades remotas, parcerias e projetos desafiadores no Brasil e no exterior.</p>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <p>Se você trabalha com produtos digitais de impacto e busca um desenvolvedor sênior com visão de arquitetura, experiência em IA aplicada e perfil de liderança técnica — fale comigo.</p>
+        <p>Disponível para regimes CLT, PJ e contratos internacionais.</p>
+        <ul class="contact-list">
+          <li>
+            <div class="contact-icon">📧</div>
+            <a href="mailto:glaymar2010@gmail.com">glaymar2010@gmail.com</a>
+          </li>
+          <li>
+            <div class="contact-icon">💼</div>
+            <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" target="_blank">linkedin.com/in/glaymar-albuquerque</a>
+          </li>
+          <li>
+            <div class="contact-icon">💻</div>
+            <a href="https://github.com/bodescorp" target="_blank">github.com/bodescorp</a>
+          </li>
+          <li>
+            <div class="contact-icon">🌐</div>
+            <a href="https://alttabcorp.com.br" target="_blank">alttabcorp.com.br</a>
+          </li>
+          <li>
+            <div class="contact-icon">📱</div>
+            <a href="https://wa.me/5583993322427" target="_blank">+55 83 9 9332-2427</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="avail-box">
+          <div class="avail-title">📋 Disponibilidade</div>
+          <div class="avail-items">
+            <div class="avail-item"><span class="avail-dot"></span>Trabalho remoto — Brasil e exterior</div>
+            <div class="avail-item"><span class="avail-dot"></span>Regime CLT, PJ e contratos internacionais</div>
+            <div class="avail-item"><span class="avail-dot"></span>Desenvolvedor Sênior Full-Stack</div>
+            <div class="avail-item"><span class="avail-dot"></span>Software Architecture</div>
+            <div class="avail-item"><span class="avail-dot"></span>AI Engineering</div>
+            <div class="avail-item"><span class="avail-dot"></span>Tech Lead</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
+    <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
+    <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
+    Cajazeiras, PB — Brasil
+  </p>
+</footer>
+
+<script>
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 30);
+});
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+});
+mobileNav.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileNav.classList.remove('open'));
+});
+</script>
 </body>
-
 </html>
