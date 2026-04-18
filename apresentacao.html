@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glaymar França — Apresentação Profissional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #0A0E17;
+            --bg2: #0F1420;
+            --bg3: #151C2E;
+            --surface: #1A2338;
+            --surface2: #1F2B42;
+            --border: #263047;
+            --border2: #2E3B57;
+            --text: #E8EDF5;
+            --text2: #8B9AB5;
+            --text3: #556080;
+            --gold: #C8A96E;
+            --gold2: #E0C080;
+            --gold3: #B8944A;
+            --blue: #4A90D9;
+            --teal: #3DBFA8;
+            --red: #D94A4A;
+            --radius: 12px;
+            --font: 'DM Sans', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --serif: 'Playfair Display', serif;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* ── PRESENTATION CONTAINER ── */
+        .presentation {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden
+        }
+
+        /* ── SLIDES ── */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 4rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateX(60px);
+            transition: all .5s cubic-bezier(.4, 0, .2, 1);
+            z-index: 1
+        }
+
+        .slide.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(0);
+            z-index: 10
+        }
+
+        .slide.prev {
+            opacity: 0;
+            transform: translateX(-60px)
+        }
+
+        .slide-content {
+            max-width: 1100px;
+            width: 100%;
+            position: relative
+        }
+
+        /* ── PROGRESS BAR ── */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: width .4s ease;
+            z-index: 100
+        }
+
+        /* ── SLIDE COUNTER ── */
+        .slide-counter {
+            position: fixed;
+            bottom: 2rem;
+            right: 3rem;
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text3);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .slide-counter .current {
+            color: var(--gold);
+            font-weight: 500;
+            font-size: 16px
+        }
+
+        /* ── NAV CONTROLS ── */
+        .slide-nav {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: .8rem;
+            z-index: 100
+        }
+
+        .nav-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--border2);
+            border: none;
+            cursor: pointer;
+            transition: all .3s;
+            padding: 0
+        }
+
+        .nav-dot.active {
+            background: var(--gold);
+            transform: scale(1.3)
+        }
+
+        .nav-dot:hover {
+            background: var(--text3)
+        }
+
+        .slide-arrows {
+            position: fixed;
+            bottom: 2rem;
+            left: 3rem;
+            display: flex;
+            gap: .5rem;
+            z-index: 100
+        }
+
+        .arrow-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border2);
+            background: var(--surface);
+            color: var(--text2);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all .2s
+        }
+
+        .arrow-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: var(--surface2)
+        }
+
+        /* ── LANG TOGGLE ── */
+        .lang-toggle {
+            position: fixed;
+            top: 1.5rem;
+            right: 3rem;
+            display: flex;
+            gap: 4px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 3px;
+            z-index: 100
+        }
+
+        .lang-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 11px;
+            cursor: pointer;
+            background: transparent;
+            color: var(--text3);
+            transition: all .2s
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--bg);
+            font-weight: 500
+        }
+
+        /* ── FULLSCREEN BTN ── */
+        .fs-btn {
+            position: fixed;
+            top: 1.5rem;
+            left: 3rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            color: var(--text3);
+            font-size: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all .2s
+        }
+
+        .fs-btn:hover {
+            border-color: var(--gold);
+            color: var(--gold)
+        }
+
+        /* ── TYPOGRAPHY ── */
+        .slide-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: .8rem;
+            display: flex;
+            align-items: center;
+            gap: .6rem
+        }
+
+        .slide-label::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background: var(--gold)
+        }
+
+        .slide-heading {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4.5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            color: var(--text)
+        }
+
+        .slide-heading .gold {
+            color: var(--gold)
+        }
+
+        .slide-subheading {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem
+        }
+
+        .slide-text {
+            font-size: 1.05rem;
+            color: var(--text2);
+            line-height: 1.75;
+            max-width: 700px
+        }
+
+        .slide-text strong {
+            color: var(--text);
+            font-weight: 500
+        }
+
+        .slide-text .gold {
+            color: var(--gold);
+            font-weight: 500
+        }
+
+        /* ── COVER SLIDE ── */
+        .cover-layout {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        .cover-layout .slide-label {
+            justify-content: center
+        }
+
+        .cover-layout .slide-label::before {
+            display: none
+        }
+
+        .cover-name {
+            font-family: var(--serif);
+            font-size: clamp(2.8rem, 5vw, 4.5rem);
+            line-height: 1.05;
+            margin-bottom: .8rem
+        }
+
+        .cover-role {
+            font-size: 1.15rem;
+            color: var(--text2);
+            margin-bottom: 2rem;
+            line-height: 1.6
+        }
+
+        .cover-role strong {
+            color: var(--gold)
+        }
+
+        .cover-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .cover-stat {
+            text-align: center
+        }
+
+        .cover-stat-num {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: var(--mono);
+            line-height: 1
+        }
+
+        .cover-stat-label {
+            font-size: .75rem;
+            color: var(--text3);
+            margin-top: .3rem;
+            font-family: var(--mono)
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: 6px 16px;
+            background: rgba(61, 191, 168, .1);
+            border: 1px solid rgba(61, 191, 168, .2);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--teal)
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            animation: pulse 2s infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: .4
+            }
+        }
+
+        .cover-divider {
+            width: 60px;
+            height: 1px;
+            background: var(--border2);
+            margin: 1.5rem auto
+        }
+
+        /* ── TWO COLUMN ── */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: start
+        }
+
+        .two-col-wide {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 3rem;
+            align-items: start
+        }
+
+        /* ── CARDS ── */
+        .info-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.3rem 1.5rem;
+            margin-bottom: .8rem;
+            transition: border-color .2s
+        }
+
+        .info-card:hover {
+            border-color: var(--border2)
+        }
+
+        .card-title {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .3rem
+        }
+
+        .card-sub {
+            font-size: .8rem;
+            color: var(--gold);
+            font-family: var(--mono);
+            margin-bottom: .4rem
+        }
+
+        .card-text {
+            font-size: .85rem;
+            color: var(--text2);
+            line-height: 1.6
+        }
+
+        /* ── CHIPS ── */
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+            margin-top: .8rem
+        }
+
+        .chip {
+            padding: 5px 12px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text2)
+        }
+
+        .chip.gold {
+            border-color: var(--gold3);
+            color: var(--gold);
+            background: rgba(200, 169, 110, .08)
+        }
+
+        /* ── STACK GRID ── */
+        .stack-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .8rem
+        }
+
+        .stack-box {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.2rem
+        }
+
+        .stack-box-title {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--gold);
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            margin-bottom: .5rem
+        }
+
+        .stack-box .chips {
+            margin-top: 0
+        }
+
+        /* ── TIMELINE ── */
+        .mini-timeline {
+            border-left: 2px solid var(--border);
+            padding-left: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem
+        }
+
+        .mt-item {
+            position: relative
+        }
+
+        .mt-item::before {
+            content: '';
+            position: absolute;
+            left: -1.85rem;
+            top: .4rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--surface2);
+            border: 2px solid var(--border2)
+        }
+
+        .mt-item.highlight::before {
+            background: var(--gold);
+            border-color: var(--gold)
+        }
+
+        .mt-year {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--gold);
+            margin-bottom: .2rem
+        }
+
+        .mt-text {
+            font-size: .88rem;
+            color: var(--text2);
+            line-height: 1.5
+        }
+
+        .mt-bold {
+            color: var(--text);
+            font-weight: 500
+        }
+
+        /* ── RAG FLOW ── */
+        .rag-flow {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 1.5rem 0;
+            padding: 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius)
+        }
+
+        .rag-node {
+            background: var(--surface2);
+            border: 1px solid var(--border2);
+            border-radius: 7px;
+            padding: 8px 14px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text);
+            white-space: nowrap
+        }
+
+        .rag-node.hl {
+            border-color: var(--gold);
+            color: var(--gold)
+        }
+
+        .rag-arrow {
+            color: var(--text3);
+            font-size: 14px
+        }
+
+        /* ── METRIC ROW ── */
+        .metric-row {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap
+        }
+
+        .metric {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.2rem 1.5rem;
+            flex: 1;
+            min-width: 140px;
+            text-align: center
+        }
+
+        .metric-num {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: var(--mono);
+            line-height: 1
+        }
+
+        .metric-label {
+            font-size: .75rem;
+            color: var(--text3);
+            margin-top: .3rem
+        }
+
+        /* ── FEATURE LIST ── */
+        .feat-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: .6rem
+        }
+
+        .feat-list li {
+            display: flex;
+            gap: .7rem;
+            font-size: .9rem;
+            color: var(--text2);
+            line-height: 1.5
+        }
+
+        .feat-list li::before {
+            content: '→';
+            color: var(--gold);
+            flex-shrink: 0;
+            font-family: var(--mono);
+            font-weight: 500
+        }
+
+        .feat-list li strong {
+            color: var(--text);
+            font-weight: 500
+        }
+
+        /* ── CONTACT GRID ── */
+        .contact-grid-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: .8rem;
+            margin-top: 1.5rem
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1rem 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+            text-decoration: none;
+            transition: all .2s
+        }
+
+        .contact-card:hover {
+            border-color: var(--gold)
+        }
+
+        .contact-card-icon {
+            font-size: 1.2rem;
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            background: var(--surface2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0
+        }
+
+        .contact-card-text {
+            font-size: .85rem;
+            color: var(--text2);
+            line-height: 1.4
+        }
+
+        .contact-card-label {
+            font-size: .7rem;
+            color: var(--text3);
+            font-family: var(--mono)
+        }
+
+        /* ── END SLIDE ── */
+        .end-layout {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        .end-cta {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+            justify-content: center
+        }
+
+        .btn-gold {
+            padding: 14px 32px;
+            background: var(--gold);
+            color: var(--bg);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all .2s;
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .btn-gold:hover {
+            background: var(--gold2);
+            transform: translateY(-1px)
+        }
+
+        .btn-ghost {
+            padding: 14px 32px;
+            border: 1px solid var(--border2);
+            color: var(--text2);
+            border-radius: 8px;
+            font-size: 15px;
+            text-decoration: none;
+            transition: all .2s
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--gold);
+            color: var(--gold)
+        }
+
+        /* ── KEYBOARD HINT ── */
+        .key-hint {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text3);
+            z-index: 50;
+            opacity: .5;
+            pointer-events: none;
+            white-space: nowrap
+        }
+
+        .key-hint kbd {
+            padding: 2px 7px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-size: 10px;
+            margin: 0 2px
+        }
+
+        /* ── RESPONSIVE ── */
+        @media(max-width:900px) {
+            .slide {
+                padding: 2rem 1.5rem
+            }
+
+            .two-col,
+            .two-col-wide,
+            .stack-mini,
+            .contact-grid-mini {
+                grid-template-columns: 1fr
+            }
+
+            .cover-stats {
+                gap: 1.2rem
+            }
+
+            .slide-arrows {
+                left: 1.5rem
+            }
+
+            .slide-counter {
+                right: 1.5rem
+            }
+
+            .lang-toggle {
+                right: 1.5rem
+            }
+
+            .fs-btn {
+                left: 1.5rem
+            }
+
+            .metric-row {
+                flex-direction: column
+            }
+
+            .key-hint {
+                display: none
+            }
+        }
+
+        @media(max-width:500px) {
+            .slide {
+                padding: 1.5rem 1rem
+            }
+
+            .cover-name {
+                font-size: 2.2rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="presentation" id="presentation">
+
+        <!-- PROGRESS -->
+        <div class="progress-bar" id="progressBar"></div>
+
+        <!-- LANG -->
+        <div class="lang-toggle">
+            <button class="lang-btn active" data-lang="pt">PT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+
+        <!-- FULLSCREEN -->
+        <button class="fs-btn" id="fsBtn" title="Fullscreen">⛶</button>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 1 — COVER                       -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide active" data-slide="0">
+            <div class="slide-content cover-layout">
+                <div class="status-pill" style="margin-bottom:1.5rem">
+                    <span class="status-dot"></span>
+                    <span data-i18n="s1_status">Disponível para novas oportunidades</span>
+                </div>
+                <div class="slide-label" data-i18n="s1_label">Apresentação Profissional</div>
+                <h1 class="cover-name">Glaymar<br>Albuquerque<br>de <span class="gold">França</span></h1>
+                <p class="cover-role" data-i18n="s1_role">
+                    <strong>Desenvolvedor Full-Stack Sênior</strong> · Engenheiro de Software · AI Specialist<br>
+                    Fundador & CEO da AlttabCorp
+                </p>
+                <div class="cover-stats">
+                    <div class="cover-stat">
+                        <div class="cover-stat-num">6+</div>
+                        <div class="cover-stat-label" data-i18n="s1_stat1">anos de exp.</div>
+                    </div>
+                    <div class="cover-stat">
+                        <div class="cover-stat-num">CEO</div>
+                        <div class="cover-stat-label">AlttabCorp</div>
+                    </div>
+                    <div class="cover-stat">
+                        <div class="cover-stat-num">P&D</div>
+                        <div class="cover-stat-label">LAVID/UFPB</div>
+                    </div>
+                    <div class="cover-stat">
+                        <div class="cover-stat-num">RAG</div>
+                        <div class="cover-stat-label" data-i18n="s1_stat4">IA em produção</div>
+                    </div>
+                    <div class="cover-stat">
+                        <div class="cover-stat-num">2.060h</div>
+                        <div class="cover-stat-label" data-i18n="s1_stat5">pós-graduação</div>
+                    </div>
+                </div>
+                <div class="cover-divider"></div>
+                <p style="font-size:.85rem;color:var(--text3);font-family:var(--mono)" data-i18n="s1_location">
+                    Cajazeiras, PB — Brasil · Remoto</p>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 2 — QUEM SOU                    -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide" data-slide="1">
+            <div class="slide-content">
+                <div class="two-col-wide">
+                    <div>
+                        <div class="slide-label" data-i18n="s2_label">Perfil</div>
+                        <h2 class="slide-heading" data-i18n="s2_heading">Quem é <span class="gold">Glaymar?</span></h2>
+                        <p class="slide-text" data-i18n="s2_text">Desenvolvedor Full-Stack Sênior e Engenheiro de
+                            Software com <strong>6+ anos</strong> entregando sistemas escaláveis nos setores de <span
+                                class="gold">saúde, educação e tecnologia</span>. Fundador & CEO da AlttabCorp.
+                            Pesquisador ativo em projeto P&D FAPESQ no LAVID/UFPB com foco em segurança pública.</p>
+                        <ul class="feat-list" style="margin-top:1.5rem">
+                            <li data-i18n="s2_feat1"><strong>Node.js, TypeScript, React</strong> — stack principal há 4+
+                                anos</li>
+                            <li data-i18n="s2_feat2"><strong>IA em produção</strong> — RAG, LLM, pgvector, Whisper</li>
+                            <li data-i18n="s2_feat3"><strong>Cloud-native</strong> — AWS, Docker, CI/CD, Nginx</li>
+                            <li data-i18n="s2_feat4"><strong>Liderança técnica</strong> — equipes de até 15+ devs</li>
+                            <li data-i18n="s2_feat5"><strong>3 pós-graduações</strong> em andamento simultâneo (2.060h)
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="metric-row" style="flex-direction:column">
+                            <div class="metric">
+                                <div class="metric-num">6+</div>
+                                <div class="metric-label" data-i18n="s2_m1">anos desenvolvendo</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-num">6+</div>
+                                <div class="metric-label" data-i18n="s2_m2">plataformas ativas</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-num">500+</div>
+                                <div class="metric-label" data-i18n="s2_m3">usuários atendidos</div>
+                            </div>
+                            <div class="metric">
+                                <div class="metric-num">15+</div>
+                                <div class="metric-label" data-i18n="s2_m4">devs liderados</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 3 — STACK TÉCNICA                -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide" data-slide="2">
+            <div class="slide-content">
+                <div class="slide-label" data-i18n="s3_label">Competências</div>
+                <h2 class="slide-heading" data-i18n="s3_heading">Stack <span class="gold">Técnica</span></h2>
+                <div class="stack-mini" style="margin-top:1.5rem">
+                    <div class="stack-box">
+                        <div class="stack-box-title" data-i18n="s3_lang">Linguagens</div>
+                        <div class="chips"><span class="chip gold">TypeScript</span><span
+                                class="chip gold">JavaScript</span><span class="chip">Python</span><span
+                                class="chip">SQL</span></div>
+                    </div>
+                    <div class="stack-box">
+                        <div class="stack-box-title">Back-end</div>
+                        <div class="chips"><span class="chip gold">Node.js</span><span class="chip">NestJS</span><span
+                                class="chip">Express.js</span><span class="chip">Django</span><span class="chip">REST
+                                API</span><span class="chip">JWT</span></div>
+                    </div>
+                    <div class="stack-box">
+                        <div class="stack-box-title">Front-end & Mobile</div>
+                        <div class="chips"><span class="chip gold">React</span><span class="chip">Next.js</span><span
+                                class="chip gold">React Native</span><span class="chip">Tailwind CSS</span></div>
+                    </div>
+                    <div class="stack-box">
+                        <div class="stack-box-title">Cloud & DevOps</div>
+                        <div class="chips"><span class="chip">AWS</span><span class="chip gold">Docker</span><span
+                                class="chip">Nginx</span><span class="chip">GitHub Actions</span><span
+                                class="chip">CI/CD</span><span class="chip">Linux</span></div>
+                    </div>
+                    <div class="stack-box">
+                        <div class="stack-box-title" data-i18n="s3_db">Bancos de Dados</div>
+                        <div class="chips"><span class="chip gold">PostgreSQL</span><span
+                                class="chip">pgvector</span><span class="chip">MongoDB</span><span
+                                class="chip">Neo4j</span><span class="chip">Redis</span></div>
+                    </div>
+                    <div class="stack-box">
+                        <div class="stack-box-title" data-i18n="s3_ai">IA & Automação</div>
+                        <div class="chips"><span class="chip gold">RAG</span><span class="chip gold">Ollama</span><span
+                                class="chip">LLM</span><span class="chip">Whisper</span><span
+                                class="chip">pgvector</span><span class="chip">n8n</span><span class="chip">Groq</span>
+                        </div>
+                    </div>
+                    <div class="stack-box">
+                        <div class="stack-box-title" data-i18n="s3_arch">Arquitetura</div>
+                        <div class="chips"><span class="chip">SOLID</span><span class="chip">Clean
+                                Architecture</span><span class="chip">TDD</span><span
+                                class="chip">Microservices</span><span class="chip">Scrum</span></div>
+                    </div>
+                    <div class="stack-box">
+                        <div class="stack-box-title" data-i18n="s3_tools">Ferramentas</div>
+                        <div class="chips"><span class="chip">Git</span><span class="chip">TypeORM</span><span
+                                class="chip">Swagger</span><span class="chip">LaTeX</span><span class="chip">Godot
+                                Engine</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 4 — EXPERIÊNCIA                  -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide" data-slide="3">
+            <div class="slide-content">
+                <div class="two-col">
+                    <div>
+                        <div class="slide-label" data-i18n="s4_label">Trajetória</div>
+                        <h2 class="slide-heading" data-i18n="s4_heading"><span class="gold">Experiência</span>
+                            Profissional</h2>
+                        <div class="mini-timeline">
+                            <div class="mt-item highlight">
+                                <div class="mt-year" data-i18n="s4_t1_year">2023 — Presente</div>
+                                <div class="mt-text"><span class="mt-bold" data-i18n="s4_t1_title">Pesquisador —
+                                        LAVID/UFPB</span><br><span data-i18n="s4_t1_desc">Sistema de gestão de
+                                        dispositivos móveis para segurança pública. React Native, TypeScript, Next.js,
+                                        Appwrite.</span></div>
+                            </div>
+                            <div class="mt-item highlight">
+                                <div class="mt-year" data-i18n="s4_t2_year">2023 — Presente</div>
+                                <div class="mt-text"><span class="mt-bold" data-i18n="s4_t2_title">CEO & Tech Lead —
+                                        AlttabCorp</span><br><span data-i18n="s4_t2_desc">Empresa multissetorial. 6+
+                                        plataformas. CI/CD, Docker, RAG pipeline.</span></div>
+                            </div>
+                            <div class="mt-item">
+                                <div class="mt-year" data-i18n="s4_t3_year">2023 — Presente</div>
+                                <div class="mt-text"><span class="mt-bold" data-i18n="s4_t3_title">Suporte TI N1/N2 —
+                                        HUJB/Ebserh</span><br><span data-i18n="s4_t3_desc">Infraestrutura hospitalar
+                                        crítica. SLA rigoroso. 300+ usuários.</span></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="margin-top:3.5rem">
+                            <div class="mini-timeline">
+                                <div class="mt-item">
+                                    <div class="mt-year" data-i18n="s4_t4_year">2022</div>
+                                    <div class="mt-text"><span class="mt-bold" data-i18n="s4_t4_title">Full-Stack
+                                            Developer — LOOP3</span><br><span data-i18n="s4_t4_desc">Apps web/mobile.
+                                            Node.js, React, React Native, MongoDB. Integração Asaas.</span></div>
+                                </div>
+                                <div class="mt-item">
+                                    <div class="mt-year" data-i18n="s4_t5_year">2021 — 2023</div>
+                                    <div class="mt-text"><span class="mt-bold" data-i18n="s4_t5_title">Técnico TI —
+                                            Faculdade Santa Maria</span><br><span data-i18n="s4_t5_desc">Plataforma
+                                            estudantil do zero. 500+ usuários. Node.js, Docker, AWS, React.</span></div>
+                                </div>
+                                <div class="mt-item">
+                                    <div class="mt-year" data-i18n="s4_t6_year">2018 — 2021</div>
+                                    <div class="mt-text"><span class="mt-bold" data-i18n="s4_t6_title">Diretor RH & Dev
+                                            — Loopis Jr (IFPB)</span><br><span data-i18n="s4_t6_desc">Liderança de 15+
+                                            devs. Django, Node.js, Ionic. Scrum.</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 5 — PROJETOS                     -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide" data-slide="4">
+            <div class="slide-content">
+                <div class="slide-label" data-i18n="s5_label">Portfólio</div>
+                <h2 class="slide-heading" data-i18n="s5_heading">Projetos em <span class="gold">Destaque</span></h2>
+                <div class="two-col" style="margin-top:1.5rem">
+                    <div>
+                        <div class="info-card">
+                            <div class="card-title" data-i18n="s5_p1_title">🤖 Pipeline RAG Local</div>
+                            <div class="card-sub">Ollama · pgvector · Whisper · n8n · Docker</div>
+                            <div class="card-text" data-i18n="s5_p1_desc">IA em produção rodando em servidor próprio —
+                                LLM local, banco vetorial, transcrição de áudio, bot Telegram e automação. Custo zero de
+                                inferência.</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-title" data-i18n="s5_p2_title">📊 Inventários Históricos (TCC)</div>
+                            <div class="card-sub">Node.js · TypeScript · Neo4j · React</div>
+                            <div class="card-text" data-i18n="s5_p2_desc">Análise em grafos de 1.000+ documentos
+                                judiciais históricos. Adotado por pesquisadores do IFPB.</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-title" data-i18n="s5_p3_title">📚 API Biblioteca CIEC</div>
+                            <div class="card-sub">NestJS · TypeScript · Docker · Swagger · JWT</div>
+                            <div class="card-text" data-i18n="s5_p3_desc">API RESTful modular com Repository Pattern,
+                                RBAC, Swagger UI e Docker Compose.</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="info-card">
+                            <div class="card-title" data-i18n="s5_p4_title">🌐 AlttabCorp — Ecossistema</div>
+                            <div class="card-sub">Next.js · React · Docker · n8n · LaTeX</div>
+                            <div class="card-text" data-i18n="s5_p4_desc">6+ plataformas digitais ativas: web dev,
+                                consultoria, orçamento 3D, game studio e esports.</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-title" data-i18n="s5_p5_title">📄 Certificados IFPB</div>
+                            <div class="card-sub">Python · Django · JavaScript · QR Code</div>
+                            <div class="card-text" data-i18n="s5_p5_desc">Automação de certificados institucionais.
+                                Emissão reduzida de horas para minutos.</div>
+                        </div>
+                        <div class="info-card">
+                            <div class="card-title" data-i18n="s5_p6_title">🖨️ Orçamento 3D</div>
+                            <div class="card-sub">HTML5 · CSS3 · JavaScript</div>
+                            <div class="card-text" data-i18n="s5_p6_desc">Sistema web de cotação de impressão 3D com
+                                cálculo em tempo real.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 6 — RAG PIPELINE                 -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide" data-slide="5">
+            <div class="slide-content">
+                <div class="slide-label" data-i18n="s6_label">IA em Produção</div>
+                <h2 class="slide-heading" data-i18n="s6_heading">Pipeline <span class="gold">RAG</span> Local</h2>
+                <p class="slide-text" data-i18n="s6_text">Arquitetura completa de IA rodando em servidor próprio, sem
+                    dependência de cloud para inferência.</p>
+                <div class="rag-flow">
+                    <span class="rag-node">Telegram Bot</span>
+                    <span class="rag-arrow">→</span>
+                    <span class="rag-node">Whisper STT</span>
+                    <span class="rag-arrow">→</span>
+                    <span class="rag-node">n8n</span>
+                    <span class="rag-arrow">→</span>
+                    <span class="rag-node hl">Ollama + Qwen2.5</span>
+                    <span class="rag-arrow">→</span>
+                    <span class="rag-node hl">pgvector RAG</span>
+                    <span class="rag-arrow">→</span>
+                    <span class="rag-node">OpenWebUI</span>
+                </div>
+                <div class="metric-row">
+                    <div class="metric">
+                        <div class="metric-num">$0</div>
+                        <div class="metric-label" data-i18n="s6_m1">custo de inferência</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-num">100%</div>
+                        <div class="metric-label" data-i18n="s6_m2">auto-hospedado</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-num">8</div>
+                        <div class="metric-label" data-i18n="s6_m3">componentes integrados</div>
+                    </div>
+                    <div class="metric">
+                        <div class="metric-num">24/7</div>
+                        <div class="metric-label" data-i18n="s6_m4">Uptime-Kuma</div>
+                    </div>
+                </div>
+                <div class="chips" style="justify-content:center;margin-top:1rem">
+                    <span class="chip gold">Ollama</span>
+                    <span class="chip gold">pgvector</span>
+                    <span class="chip">Whisper STT</span>
+                    <span class="chip">n8n</span>
+                    <span class="chip">Groq</span>
+                    <span class="chip">OpenRouter</span>
+                    <span class="chip">OpenWebUI</span>
+                    <span class="chip">Docker</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 7 — FORMAÇÃO                     -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide" data-slide="6">
+            <div class="slide-content">
+                <div class="two-col">
+                    <div>
+                        <div class="slide-label" data-i18n="s7_label">Formação</div>
+                        <h2 class="slide-heading" data-i18n="s7_heading">Educação & <span
+                                class="gold">Especialização</span></h2>
+                        <div class="info-card" style="border-left:3px solid var(--blue)">
+                            <div class="card-sub" data-i18n="s7_ongoing">🔄 EM ANDAMENTO</div>
+                            <div class="card-title" data-i18n="s7_e1">Especialização em Arquitetura de Software</div>
+                            <div class="card-text">FAAL Educacional · 720h</div>
+                        </div>
+                        <div class="info-card" style="border-left:3px solid var(--blue)">
+                            <div class="card-sub" data-i18n="s7_ongoing">🔄 EM ANDAMENTO</div>
+                            <div class="card-title" data-i18n="s7_e2">Especialização em Inteligência Artificial</div>
+                            <div class="card-text">FAAL Educacional · 640h</div>
+                        </div>
+                        <div class="info-card" style="border-left:3px solid var(--blue)">
+                            <div class="card-sub" data-i18n="s7_ongoing">🔄 EM ANDAMENTO</div>
+                            <div class="card-title" data-i18n="s7_e3">Especialização em Segurança da Informação</div>
+                            <div class="card-text">FAAL Educacional · 700h</div>
+                        </div>
+                        <div class="info-card" style="border-left:3px solid var(--teal)">
+                            <div class="card-sub" style="color:var(--teal)" data-i18n="s7_done">✅ CONCLUÍDO</div>
+                            <div class="card-title" data-i18n="s7_e4">Tecnólogo em Análise e Desenvolvimento de Sistemas
+                            </div>
+                            <div class="card-text">IFPB — Instituto Federal da Paraíba · 2023</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div style="margin-top:3rem">
+                            <div class="metric" style="margin-bottom:1.5rem">
+                                <div class="metric-num">2.060h</div>
+                                <div class="metric-label" data-i18n="s7_total">total em pós-graduação simultânea</div>
+                            </div>
+                            <div class="slide-subheading" data-i18n="s7_cert_title">Certificações</div>
+                            <div class="info-card">
+                                <div class="card-title" data-i18n="s7_c1">🐳 Docker — Conteinerização & DevOps</div>
+                                <div class="card-text">B7Web</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="card-title">🔗 Neo4j Graph Data Science Fundamentals</div>
+                                <div class="card-text" data-i18n="s7_c2_issuer">Neo4j — oficial</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="card-title" data-i18n="s7_c3">🌿 Git & GitHub Avançado</div>
+                                <div class="card-text">Udemy</div>
+                            </div>
+                            <div class="info-card">
+                                <div class="card-title" data-i18n="s7_c4">📊 Gestão de Projetos</div>
+                                <div class="card-text">LinkedIn Learning</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══════════════════════════════════════ -->
+        <!--  SLIDE 8 — CONTATO / ENCERRAMENTO       -->
+        <!-- ═══════════════════════════════════════ -->
+        <div class="slide" data-slide="7">
+            <div class="slide-content end-layout">
+                <div class="slide-label" data-i18n="s8_label">Próximo passo</div>
+                <h2 class="slide-heading" data-i18n="s8_heading">Vamos <span class="gold">Conversar?</span></h2>
+                <p class="slide-text" style="text-align:center;max-width:550px" data-i18n="s8_text">Desenvolvedor sênior
+                    com visão de arquitetura, experiência em IA aplicada e perfil de liderança técnica. Disponível para
+                    trabalho remoto no Brasil e exterior.</p>
+                <div class="contact-grid-mini" style="max-width:600px;margin-top:2rem">
+                    <a href="mailto:glaymar2010@gmail.com" class="contact-card">
+                        <div class="contact-card-icon">📧</div>
+                        <div>
+                            <div class="contact-card-label">Email</div>
+                            <div class="contact-card-text">glaymar2010@gmail.com</div>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/5583993322427" target="_blank" class="contact-card">
+                        <div class="contact-card-icon">📱</div>
+                        <div>
+                            <div class="contact-card-label">WhatsApp</div>
+                            <div class="contact-card-text">+55 83 9 9332-2427</div>
+                        </div>
+                    </a>
+                    <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" target="_blank"
+                        class="contact-card">
+                        <div class="contact-card-icon">💼</div>
+                        <div>
+                            <div class="contact-card-label">LinkedIn</div>
+                            <div class="contact-card-text">glaymar-albuquerque</div>
+                        </div>
+                    </a>
+                    <a href="https://github.com/bodescorp" target="_blank" class="contact-card">
+                        <div class="contact-card-icon">💻</div>
+                        <div>
+                            <div class="contact-card-label">GitHub</div>
+                            <div class="contact-card-text">bodescorp</div>
+                        </div>
+                    </a>
+                    <a href="https://alttabcorp.com.br" target="_blank" class="contact-card">
+                        <div class="contact-card-icon">🌐</div>
+                        <div>
+                            <div class="contact-card-label" data-i18n="s8_company">Empresa</div>
+                            <div class="contact-card-text">alttabcorp.com.br</div>
+                        </div>
+                    </a>
+                    <a href="assets/Curriculo.pdf" download class="contact-card" id="btnDownloadCV">
+                        <div class="contact-card-icon">📄</div>
+                        <div>
+                            <div class="contact-card-label" data-i18n="s8_cv">Currículo</div>
+                            <div class="contact-card-text" data-i18n="s8_cv_action">Baixar PDF</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="end-cta">
+                    <a href="mailto:glaymar2010@gmail.com" class="btn-gold" data-i18n="s8_cta1">📧 Enviar email</a>
+                    <a href="https://wa.me/5583993322427" target="_blank" class="btn-ghost" data-i18n="s8_cta2">💬
+                        WhatsApp</a>
+                </div>
+                <div class="cover-divider"></div>
+                <p style="font-size:.8rem;color:var(--text3);font-family:var(--mono)" data-i18n="s8_avail">CLT · PJ ·
+                    Contratos internacionais · Remoto</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="slide-arrows">
+        <button class="arrow-btn" id="prevBtn">←</button>
+        <button class="arrow-btn" id="nextBtn">→</button>
+    </div>
+    <div class="slide-nav" id="slideNav"></div>
+    <div class="slide-counter"><span class="current" id="currentSlide">1</span> / <span id="totalSlides">8</span></div>
+    <div class="key-hint"><kbd>←</kbd> <kbd>→</kbd> <span data-i18n="key_hint">para navegar</span> · <kbd>F</kbd>
+        fullscreen</div>
+
+    <script>
+        // ══════════════════════════════════════════════════
+        //  SLIDE ENGINE
+        // ══════════════════════════════════════════════════
+        const slides = document.querySelectorAll('.slide');
+        const total = slides.length;
+        let current = 0;
+
+        function goTo(n) {
+            if (n < 0 || n >= total) return;
+            slides[current].classList.remove('active');
+            slides[current].classList.add('prev');
+            setTimeout(() => slides[current === n ? current : current].classList.remove('prev'), 500);
+            const old = current;
+            current = n;
+            slides[current].classList.remove('prev');
+            slides[current].classList.add('active');
+            setTimeout(() => { if (old !== current) slides[old].classList.remove('prev'); }, 500);
+            updateUI();
+        }
+
+        function next() { goTo(current + 1); }
+        function prev() { goTo(current - 1); }
+
+        function updateUI() {
+            document.getElementById('currentSlide').textContent = current + 1;
+            document.getElementById('progressBar').style.width = ((current + 1) / total * 100) + '%';
+            document.querySelectorAll('.nav-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+        }
+
+        // Build nav dots
+        const navEl = document.getElementById('slideNav');
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+            dot.addEventListener('click', () => goTo(i));
+            navEl.appendChild(dot);
+        }
+
+        // Controls
+        document.getElementById('prevBtn').addEventListener('click', prev);
+        document.getElementById('nextBtn').addEventListener('click', next);
+
+        // Keyboard
+        document.addEventListener('keydown', e => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { e.preventDefault(); next(); }
+            if (e.key === 'ArrowLeft') { e.preventDefault(); prev(); }
+            if (e.key === 'Home') { e.preventDefault(); goTo(0); }
+            if (e.key === 'End') { e.preventDefault(); goTo(total - 1); }
+            if (e.key === 'f' || e.key === 'F') toggleFS();
+        });
+
+        // Touch swipe
+        let touchX = 0;
+        document.addEventListener('touchstart', e => touchX = e.touches[0].clientX);
+        document.addEventListener('touchend', e => {
+            const diff = touchX - e.changedTouches[0].clientX;
+            if (Math.abs(diff) > 50) diff > 0 ? next() : prev();
+        });
+
+        // Fullscreen
+        function toggleFS() {
+            if (!document.fullscreenElement) document.documentElement.requestFullscreen();
+            else document.exitFullscreen();
+        }
+        document.getElementById('fsBtn').addEventListener('click', toggleFS);
+
+        // ══════════════════════════════════════════════════
+        //  i18n — PT-BR / EN
+        // ══════════════════════════════════════════════════
+        const i18n = {
+            pt: {
+                // Slide 1
+                s1_status: "Disponível para novas oportunidades",
+                s1_label: "Apresentação Profissional",
+                s1_role: '<strong>Desenvolvedor Full-Stack Sênior</strong> · Engenheiro de Software · AI Specialist<br>Fundador & CEO da AlttabCorp',
+                s1_stat1: "anos de exp.",
+                s1_stat4: "IA em produção",
+                s1_stat5: "pós-graduação",
+                s1_location: "Cajazeiras, PB — Brasil · Remoto",
+
+                // Slide 2
+                s2_label: "Perfil",
+                s2_heading: 'Quem é <span class="gold">Glaymar?</span>',
+                s2_text: 'Desenvolvedor Full-Stack Sênior e Engenheiro de Software com <strong>6+ anos</strong> entregando sistemas escaláveis nos setores de <span class="gold">saúde, educação e tecnologia</span>. Fundador & CEO da AlttabCorp. Pesquisador ativo em projeto P&D FAPESQ no LAVID/UFPB com foco em segurança pública.',
+                s2_feat1: "<strong>Node.js, TypeScript, React</strong> — stack principal há 4+ anos",
+                s2_feat2: "<strong>IA em produção</strong> — RAG, LLM, pgvector, Whisper",
+                s2_feat3: "<strong>Cloud-native</strong> — AWS, Docker, CI/CD, Nginx",
+                s2_feat4: "<strong>Liderança técnica</strong> — equipes de até 15+ devs",
+                s2_feat5: "<strong>3 pós-graduações</strong> em andamento simultâneo (2.060h)",
+                s2_m1: "anos desenvolvendo", s2_m2: "plataformas ativas", s2_m3: "usuários atendidos", s2_m4: "devs liderados",
+
+                // Slide 3
+                s3_label: "Competências",
+                s3_heading: 'Stack <span class="gold">Técnica</span>',
+                s3_lang: "Linguagens", s3_db: "Bancos de Dados", s3_ai: "IA & Automação", s3_arch: "Arquitetura", s3_tools: "Ferramentas",
+
+                // Slide 4
+                s4_label: "Trajetória",
+                s4_heading: '<span class="gold">Experiência</span> Profissional',
+                s4_t1_year: "2023 — Presente", s4_t1_title: "Pesquisador — LAVID/UFPB",
+                s4_t1_desc: "Sistema de gestão de dispositivos móveis para segurança pública. React Native, TypeScript, Next.js, Appwrite.",
+                s4_t2_year: "2023 — Presente", s4_t2_title: "CEO & Tech Lead — AlttabCorp",
+                s4_t2_desc: "Empresa multissetorial. 6+ plataformas. CI/CD, Docker, RAG pipeline.",
+                s4_t3_year: "2023 — Presente", s4_t3_title: "Suporte TI N1/N2 — HUJB/Ebserh",
+                s4_t3_desc: "Infraestrutura hospitalar crítica. SLA rigoroso. 300+ usuários.",
+                s4_t4_year: "2022", s4_t4_title: "Full-Stack Developer — LOOP3",
+                s4_t4_desc: "Apps web/mobile. Node.js, React, React Native, MongoDB. Integração Asaas.",
+                s4_t5_year: "2021 — 2023", s4_t5_title: "Técnico TI — Faculdade Santa Maria",
+                s4_t5_desc: "Plataforma estudantil do zero. 500+ usuários. Node.js, Docker, AWS, React.",
+                s4_t6_year: "2018 — 2021", s4_t6_title: "Diretor RH & Dev — Loopis Jr (IFPB)",
+                s4_t6_desc: "Liderança de 15+ devs. Django, Node.js, Ionic. Scrum.",
+
+                // Slide 5
+                s5_label: "Portfólio",
+                s5_heading: 'Projetos em <span class="gold">Destaque</span>',
+                s5_p1_title: "🤖 Pipeline RAG Local", s5_p1_desc: "IA em produção rodando em servidor próprio — LLM local, banco vetorial, transcrição de áudio, bot Telegram e automação. Custo zero de inferência.",
+                s5_p2_title: "📊 Inventários Históricos (TCC)", s5_p2_desc: "Análise em grafos de 1.000+ documentos judiciais históricos. Adotado por pesquisadores do IFPB.",
+                s5_p3_title: "📚 API Biblioteca CIEC", s5_p3_desc: "API RESTful modular com Repository Pattern, RBAC, Swagger UI e Docker Compose.",
+                s5_p4_title: "🌐 AlttabCorp — Ecossistema", s5_p4_desc: "6+ plataformas digitais ativas: web dev, consultoria, orçamento 3D, game studio e esports.",
+                s5_p5_title: "📄 Certificados IFPB", s5_p5_desc: "Automação de certificados institucionais. Emissão reduzida de horas para minutos.",
+                s5_p6_title: "🖨️ Orçamento 3D", s5_p6_desc: "Sistema web de cotação de impressão 3D com cálculo em tempo real.",
+
+                // Slide 6
+                s6_label: "IA em Produção",
+                s6_heading: 'Pipeline <span class="gold">RAG</span> Local',
+                s6_text: "Arquitetura completa de IA rodando em servidor próprio, sem dependência de cloud para inferência.",
+                s6_m1: "custo de inferência", s6_m2: "auto-hospedado", s6_m3: "componentes integrados", s6_m4: "monitoramento",
+
+                // Slide 7
+                s7_label: "Formação",
+                s7_heading: 'Educação & <span class="gold">Especialização</span>',
+                s7_ongoing: "🔄 EM ANDAMENTO", s7_done: "✅ CONCLUÍDO",
+                s7_e1: "Especialização em Arquitetura de Software",
+                s7_e2: "Especialização em Inteligência Artificial",
+                s7_e3: "Especialização em Segurança da Informação",
+                s7_e4: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+                s7_total: "total em pós-graduação simultânea",
+                s7_cert_title: "Certificações",
+                s7_c1: "🐳 Docker — Conteinerização & DevOps",
+                s7_c2_issuer: "Neo4j — oficial",
+                s7_c3: "🌿 Git & GitHub Avançado",
+                s7_c4: "📊 Gestão de Projetos",
+
+                // Slide 8
+                s8_label: "Próximo passo",
+                s8_heading: 'Vamos <span class="gold">Conversar?</span>',
+                s8_text: "Desenvolvedor sênior com visão de arquitetura, experiência em IA aplicada e perfil de liderança técnica. Disponível para trabalho remoto no Brasil e exterior.",
+                s8_company: "Empresa", s8_cv: "Currículo", s8_cv_action: "Baixar PDF",
+                s8_cta1: "📧 Enviar email", s8_cta2: "💬 WhatsApp",
+                s8_avail: "CLT · PJ · Contratos internacionais · Remoto",
+                key_hint: "para navegar"
+            },
+
+            en: {
+                s1_status: "Open to new opportunities",
+                s1_label: "Professional Presentation",
+                s1_role: '<strong>Senior Full-Stack Developer</strong> · Software Engineer · AI Specialist<br>Founder & CEO of AlttabCorp',
+                s1_stat1: "years of exp.",
+                s1_stat4: "AI in production",
+                s1_stat5: "postgraduate",
+                s1_location: "Cajazeiras, PB — Brazil · Remote",
+
+                s2_label: "Profile",
+                s2_heading: 'Who is <span class="gold">Glaymar?</span>',
+                s2_text: 'Senior Full-Stack Developer and Software Engineer with <strong>6+ years</strong> delivering scalable systems across <span class="gold">healthcare, education, and technology</span>. Founder & CEO of AlttabCorp. Active R&D researcher on a FAPESQ project at LAVID/UFPB focused on public safety.',
+                s2_feat1: "<strong>Node.js, TypeScript, React</strong> — core stack for 4+ years",
+                s2_feat2: "<strong>AI in production</strong> — RAG, LLM, pgvector, Whisper",
+                s2_feat3: "<strong>Cloud-native</strong> — AWS, Docker, CI/CD, Nginx",
+                s2_feat4: "<strong>Technical leadership</strong> — teams of up to 15+ devs",
+                s2_feat5: "<strong>3 postgraduate degrees</strong> in progress simultaneously (2,060h)",
+                s2_m1: "years developing", s2_m2: "active platforms", s2_m3: "users served", s2_m4: "devs led",
+
+                s3_label: "Skills",
+                s3_heading: 'Tech <span class="gold">Stack</span>',
+                s3_lang: "Languages", s3_db: "Databases", s3_ai: "AI & Automation", s3_arch: "Architecture", s3_tools: "Tooling",
+
+                s4_label: "Background",
+                s4_heading: 'Professional <span class="gold">Experience</span>',
+                s4_t1_year: "2023 — Present", s4_t1_title: "Researcher — LAVID/UFPB",
+                s4_t1_desc: "Large-scale mobile device management system for public safety. React Native, TypeScript, Next.js, Appwrite.",
+                s4_t2_year: "2023 — Present", s4_t2_title: "CEO & Tech Lead — AlttabCorp",
+                s4_t2_desc: "Multi-vertical tech company. 6+ platforms. CI/CD, Docker, RAG pipeline.",
+                s4_t3_year: "2023 — Present", s4_t3_title: "IT Support N1/N2 — HUJB/Ebserh",
+                s4_t3_desc: "Critical hospital IT infrastructure. Strict SLA compliance. 300+ users.",
+                s4_t4_year: "2022", s4_t4_title: "Full-Stack Developer — LOOP3",
+                s4_t4_desc: "Web/mobile apps. Node.js, React, React Native, MongoDB. Asaas integration.",
+                s4_t5_year: "2021 — 2023", s4_t5_title: "IT Technician — Faculdade Santa Maria",
+                s4_t5_desc: "Student platform from scratch. 500+ users. Node.js, Docker, AWS, React.",
+                s4_t6_year: "2018 — 2021", s4_t6_title: "HR Director & Dev — Loopis Jr (IFPB)",
+                s4_t6_desc: "Led 15+ devs. Django, Node.js, Ionic. Scrum.",
+
+                s5_label: "Portfolio",
+                s5_heading: 'Featured <span class="gold">Projects</span>',
+                s5_p1_title: "🤖 Local RAG Pipeline",
+                s5_p1_desc: "Production AI running on self-hosted server — local LLM, vector store, audio transcription, Telegram bot and automation. Zero inference cost.",
+                s5_p2_title: "📊 Historical Inventory System (Thesis)",
+                s5_p2_desc: "Graph-based analysis of 1,000+ historical legal documents. Adopted by IFPB researchers for historiographic studies.",
+                s5_p3_title: "📚 CIEC Library API",
+                s5_p3_desc: "Modular RESTful API with Repository Pattern, RBAC, Swagger UI docs and Docker Compose.",
+                s5_p4_title: "🌐 AlttabCorp — Digital Ecosystem",
+                s5_p4_desc: "6+ active digital platforms: web dev, IT consulting, 3D quoting system, game studio and esports.",
+                s5_p5_title: "📄 IFPB Certificate Automation",
+                s5_p5_desc: "Automated institutional certificate issuance. Reduced time from hours to minutes.",
+                s5_p6_title: "🖨️ Automated 3D Quoting",
+                s5_p6_desc: "Web-based 3D printing quotation system with real-time cost calculation.",
+
+                s6_label: "AI in Production",
+                s6_heading: 'Local <span class="gold">RAG</span> Pipeline',
+                s6_text: "Complete AI architecture running on a self-hosted server, with zero cloud inference dependency.",
+                s6_m1: "inference cost", s6_m2: "self-hosted", s6_m3: "integrated components", s6_m4: "monitoring",
+
+                s7_label: "Education",
+                s7_heading: 'Education & <span class="gold">Specialization</span>',
+                s7_ongoing: "🔄 IN PROGRESS", s7_done: "✅ COMPLETED",
+                s7_e1: "Postgraduate in Software Architecture",
+                s7_e2: "Postgraduate in Artificial Intelligence",
+                s7_e3: "Postgraduate in Information Security",
+                s7_e4: "B.Tech in Systems Analysis and Development",
+                s7_total: "total concurrent postgraduate coursework",
+                s7_cert_title: "Certifications",
+                s7_c1: "🐳 Docker — Containerization & DevOps",
+                s7_c2_issuer: "Neo4j — official",
+                s7_c3: "🌿 Advanced Git & GitHub",
+                s7_c4: "📊 Project Management",
+
+                s8_label: "Next step",
+                s8_heading: 'Let\'s <span class="gold">Talk?</span>',
+                s8_text: "Senior developer with architectural vision, applied AI experience, and a technical leadership profile. Available for remote work in Brazil and worldwide.",
+                s8_company: "Company", s8_cv: "Resume", s8_cv_action: "Download PDF",
+                s8_cta1: "📧 Send email", s8_cta2: "💬 WhatsApp",
+                s8_avail: "CLT · PJ · International contracts · Remote",
+                key_hint: "to navigate"
+            }
+        };
+
+        // ══════════════════════════════════════════════════
+        //  LANGUAGE ENGINE
+        // ══════════════════════════════════════════════════
+        let currentLang = localStorage.getItem('lang') || 'pt';
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+            // Título da página
+            document.title = lang === 'pt'
+                ? 'Glaymar França — Apresentação Profissional'
+                : 'Glaymar França — Professional Presentation';
+
+            // Download do currículo
+            const btnCV = document.getElementById('btnDownloadCV');
+            if (btnCV) {
+                btnCV.href = lang === 'pt' ? 'assets/Curriculo.pdf' : 'assets/Resume.pdf';
+            }
+
+            // Aplica traduções
+            const dict = i18n[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) {
+                    el.innerHTML = dict[key];
+                }
+            });
+
+            // Atualiza botões
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+        }
+
+        // Event listeners nos botões de idioma
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLang(btn.dataset.lang));
+        });
+
+        // Inicializa com idioma salvo (sincroniza com index.html e sobre.html)
+        setLang(currentLang);
+    </script>
+</body>
+
+</html>

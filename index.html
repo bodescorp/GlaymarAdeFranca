@@ -1,737 +1,2080 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Glaymar França — Desenvolvedor Full-Stack Sênior & AI Specialist</title>
-<meta name="description" content="Desenvolvedor Full-Stack Sênior com 6+ anos de experiência em sistemas críticos para saúde, educação e tecnologia. Fundador da AlttabCorp. Especializado em Node.js, TypeScript, React e IA aplicada.">
-<meta name="keywords" content="desenvolvedor full-stack, node.js, typescript, react, ai engineer, software engineer, cajazeiras, paraiba, alttabcorp">
-<meta property="og:title" content="Glaymar França — Full-Stack Developer & AI Specialist">
-<meta property="og:description" content="6+ anos construindo sistemas críticos. Fundador da AlttabCorp. Node.js, TypeScript, React, IA em produção.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0A0E17;
-  --bg2:#0F1420;
-  --bg3:#151C2E;
-  --surface:#1A2338;
-  --surface2:#1F2B42;
-  --border:#263047;
-  --border2:#2E3B57;
-  --text:#E8EDF5;
-  --text2:#8B9AB5;
-  --text3:#556080;
-  --gold:#C8A96E;
-  --gold2:#E0C080;
-  --blue:#4A90D9;
-  --teal:#3DBFA8;
-  --radius:10px;
-  --font:'DM Sans',sans-serif;
-  --mono:'DM Mono',monospace;
-  --serif:'Playfair Display',serif;
-}
-html{scroll-behavior:smooth;font-size:16px}
-body{background:var(--bg);color:var(--text);font-family:var(--font);font-weight:400;line-height:1.6;overflow-x:hidden}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glaymar França — Desenvolvedor Full-Stack Sênior & AI Specialist</title>
+  <meta name="description"
+    content="Desenvolvedor Full-Stack Sênior com 6+ anos de experiência em sistemas críticos para saúde, educação e tecnologia. Fundador da AlttabCorp. Especializado em Node.js, TypeScript, React e IA aplicada.">
+  <meta name="keywords"
+    content="desenvolvedor full-stack, node.js, typescript, react, ai engineer, software engineer, cajazeiras, paraiba, alttabcorp">
+  <meta property="og:title" content="Glaymar França — Full-Stack Developer & AI Specialist">
+  <meta property="og:description"
+    content="6+ anos construindo sistemas críticos. Fundador da AlttabCorp. Node.js, TypeScript, React, IA em produção.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-/* Scroll bar */
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+    :root {
+      --bg: #0A0E17;
+      --bg2: #0F1420;
+      --bg3: #151C2E;
+      --surface: #1A2338;
+      --surface2: #1F2B42;
+      --border: #263047;
+      --border2: #2E3B57;
+      --text: #E8EDF5;
+      --text2: #8B9AB5;
+      --text3: #556080;
+      --gold: #C8A96E;
+      --gold2: #E0C080;
+      --blue: #4A90D9;
+      --teal: #3DBFA8;
+      --radius: 10px;
+      --font: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', serif;
+    }
 
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid transparent;transition:all .3s}
-nav.scrolled{background:rgba(10,14,23,.92);backdrop-filter:blur(16px);border-color:var(--border)}
-.nav-logo{font-family:var(--mono);font-size:14px;color:var(--gold);letter-spacing:.05em;text-decoration:none}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;letter-spacing:.03em;transition:color .2s}
-.nav-links a:hover{color:var(--text)}
-.nav-cta{padding:8px 20px;border:1px solid var(--gold);border-radius:6px;font-size:13px;color:var(--gold);text-decoration:none;transition:all .2s;font-family:var(--mono)}
-.nav-cta:hover{background:var(--gold);color:var(--bg)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px;transition:all .3s}
-.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,14,23,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99}
-.mobile-nav.open{display:block}
-.mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:1rem}
-.mobile-nav a{color:var(--text2);text-decoration:none;font-size:15px}
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px
+    }
 
-/* ── HERO ── */
-.hero{min-height:100vh;display:flex;align-items:center;padding:5rem 2rem 4rem;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;top:-20%;right:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(200,169,110,.06) 0%,transparent 70%);pointer-events:none}
-.hero::after{content:'';position:absolute;bottom:-10%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(74,144,217,.05) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.hero-label{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1.2rem;display:flex;align-items:center;gap:.5rem}
-.hero-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
-.hero-name{font-family:var(--serif);font-size:clamp(2.4rem,4vw,3.6rem);line-height:1.1;margin-bottom:.8rem;color:var(--text)}
-.hero-role{font-size:1.05rem;color:var(--text2);margin-bottom:1.8rem;line-height:1.5}
-.hero-role strong{color:var(--gold);font-weight:500}
-.hero-desc{font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:2.4rem;max-width:460px}
-.hero-btns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{padding:12px 28px;background:var(--gold);color:var(--bg);border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
-.btn-primary:hover{background:var(--gold2);transform:translateY(-1px)}
-.btn-outline{padding:12px 28px;border:1px solid var(--border2);color:var(--text2);border-radius:7px;font-size:14px;text-decoration:none;transition:all .2s;display:inline-flex;align-items:center;gap:.5rem}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.hero-right{display:flex;flex-direction:column;gap:1rem}
-.hero-stat-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.4rem;display:flex;align-items:center;gap:1rem;transition:border-color .2s}
-.hero-stat-card:hover{border-color:var(--border2)}
-.hero-stat-icon{width:40px;height:40px;border-radius:8px;background:var(--surface2);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
-.hero-stat-num{font-size:1.5rem;font-weight:600;color:var(--text);line-height:1}
-.hero-stat-label{font-size:12px;color:var(--text3);margin-top:2px}
-.status-pill{display:inline-flex;align-items:center;gap:.4rem;padding:5px 12px;background:rgba(61,191,168,.1);border:1px solid rgba(61,191,168,.2);border-radius:20px;font-size:12px;color:var(--teal);margin-bottom:2rem}
-.status-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden
+    }
 
-/* ── SECTION BASE ── */
-section{padding:5rem 2rem}
-.section-inner{max-width:1100px;margin:0 auto;width:100%}
-.section-label{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:.6rem}
-.section-title{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;color:var(--text);margin-bottom:1rem;line-height:1.2}
-.section-sub{font-size:.95rem;color:var(--text2);max-width:560px;line-height:1.7;margin-bottom:3rem}
-hr.divider{border:none;border-top:1px solid var(--border);margin:0 0 3rem}
+    ::-webkit-scrollbar {
+      width: 4px
+    }
 
-/* ── STACK ── */
-.stack-section{background:var(--bg2)}
-.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem}
-.stack-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.2rem 1.4rem;transition:all .2s}
-.stack-card:hover{border-color:var(--border2);transform:translateY(-2px)}
-.stack-cat{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.7rem}
-.stack-chips{display:flex;flex-wrap:wrap;gap:.4rem}
-.chip{padding:4px 10px;background:var(--surface2);border:1px solid var(--border);border-radius:5px;font-family:var(--mono);font-size:12px;color:var(--text2)}
+    ::-webkit-scrollbar-track {
+      background: var(--bg)
+    }
 
-/* ── EXPERIENCE ── */
-.exp-list{display:flex;flex-direction:column;gap:1px;border-left:1px solid var(--border);margin-left:.5rem}
-.exp-item{padding:1.6rem 0 1.6rem 2rem;position:relative;cursor:default}
-.exp-item::before{content:'';position:absolute;left:-5px;top:2rem;width:9px;height:9px;border-radius:50%;background:var(--surface2);border:2px solid var(--border2);transition:all .2s}
-.exp-item:hover::before{background:var(--gold);border-color:var(--gold)}
-.exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-bottom:.3rem}
-.exp-title{font-size:1rem;font-weight:600;color:var(--text)}
-.exp-period{font-family:var(--mono);font-size:11px;color:var(--text3);padding:3px 8px;background:var(--surface);border-radius:4px;white-space:nowrap}
-.exp-company{font-size:.9rem;color:var(--gold);margin-bottom:.6rem;font-weight:500}
-.exp-desc{font-size:.88rem;color:var(--text2);line-height:1.65}
-.exp-tags{display:flex;flex-wrap:wrap;gap:.35rem;margin-top:.8rem}
-.exp-tag{padding:3px 9px;background:var(--surface);border:1px solid var(--border);border-radius:4px;font-family:var(--mono);font-size:11px;color:var(--text3)}
+    ::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 2px
+    }
 
-/* ── PROJECTS ── */
-.projects-section{background:var(--bg2)}
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.2rem}
-.project-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;gap:1rem;transition:all .2s;text-decoration:none}
-.project-card:hover{border-color:var(--gold);transform:translateY(-3px)}
-.project-top{display:flex;justify-content:space-between;align-items:flex-start}
-.project-name{font-size:1rem;font-weight:600;color:var(--text)}
-.project-link-icon{color:var(--text3);font-size:14px;transition:color .2s}
-.project-card:hover .project-link-icon{color:var(--gold)}
-.project-desc{font-size:.875rem;color:var(--text2);line-height:1.65;flex:1}
-.project-stack{display:flex;flex-wrap:wrap;gap:.35rem}
-.project-chip{padding:3px 9px;border-radius:4px;font-family:var(--mono);font-size:11px;background:var(--surface2);border:1px solid var(--border);color:var(--text3)}
+    /* ── LANG SWITCHER ── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px;
+      margin-left: 1rem
+    }
 
-/* ── RAG PIPELINE ── */
-.rag-section{border-top:1px solid var(--border)}
-.rag-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-bottom:1.5rem;overflow-x:auto}
-.rag-flow{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;justify-content:center}
-.rag-node{background:var(--surface2);border:1px solid var(--border2);border-radius:7px;padding:8px 14px;font-family:var(--mono);font-size:12px;color:var(--text);white-space:nowrap}
-.rag-node.highlight{border-color:var(--gold);color:var(--gold)}
-.rag-arrow{color:var(--text3);font-size:13px}
-.rag-table{width:100%;border-collapse:collapse;font-size:.875rem}
-.rag-table th{text-align:left;padding:8px 12px;color:var(--text3);font-size:11px;letter-spacing:.05em;text-transform:uppercase;font-family:var(--mono);border-bottom:1px solid var(--border)}
-.rag-table td{padding:10px 12px;color:var(--text2);border-bottom:1px solid var(--border)}
-.rag-table td:first-child{color:var(--text);font-weight:500}
-.rag-table tr:last-child td{border-bottom:none}
+    .lang-btn {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text3);
+      transition: all .2s;
+      letter-spacing: .03em
+    }
 
-/* ── EDUCATION ── */
-.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.4rem}
-.edu-status{display:inline-flex;align-items:center;gap:.4rem;padding:3px 10px;border-radius:20px;font-size:11px;font-family:var(--mono);margin-bottom:.8rem}
-.edu-status.ongoing{background:rgba(74,144,217,.1);color:var(--blue);border:1px solid rgba(74,144,217,.2)}
-.edu-status.done{background:rgba(61,191,168,.1);color:var(--teal);border:1px solid rgba(61,191,168,.2)}
-.edu-degree{font-size:.95rem;font-weight:600;color:var(--text);margin-bottom:.3rem}
-.edu-inst{font-size:.85rem;color:var(--text3);font-family:var(--mono)}
-.edu-hours{font-size:.8rem;color:var(--gold);margin-top:.4rem;font-family:var(--mono)}
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--bg);
+      font-weight: 500
+    }
 
-/* ── CONTACT ── */
-.contact-section{background:var(--bg2)}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
-.contact-text p{font-size:.95rem;color:var(--text2);line-height:1.75;margin-bottom:1rem}
-.contact-list{list-style:none;display:flex;flex-direction:column;gap:.8rem}
-.contact-list li{display:flex;align-items:center;gap:.8rem;font-size:.9rem;color:var(--text2)}
-.contact-list li a{color:var(--text2);text-decoration:none;transition:color .2s}
-.contact-list li a:hover{color:var(--gold)}
-.contact-icon{width:36px;height:36px;border-radius:8px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0}
-.avail-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem}
-.avail-title{font-size:.85rem;font-weight:600;color:var(--text);margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
-.avail-items{display:flex;flex-direction:column;gap:.6rem}
-.avail-item{display:flex;align-items:center;gap:.6rem;font-size:.875rem;color:var(--text2)}
-.avail-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0}
+    .lang-btn:hover:not(.active) {
+      color: var(--text2);
+      background: var(--surface2)
+    }
 
-/* ── FOOTER ── */
-footer{padding:2rem;border-top:1px solid var(--border);text-align:center}
-footer p{font-size:.8rem;color:var(--text3);font-family:var(--mono)}
-footer a{color:var(--text3);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--gold)}
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid transparent;
+      transition: all .3s
+    }
 
-/* ── RESPONSIVE ── */
-@media(max-width:768px){
-  .nav-links,.nav-cta{display:none}
-  .hamburger{display:flex}
-  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
-  .hero-right{display:none}
-  .edu-grid{grid-template-columns:1fr}
-  .contact-grid{grid-template-columns:1fr}
-  section{padding:3.5rem 1.2rem}
-  .hero{padding:5rem 1.2rem 3rem}
-}
-</style>
+    nav.scrolled {
+      background: rgba(10, 14, 23, .92);
+      backdrop-filter: blur(16px);
+      border-color: var(--border)
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--gold);
+      letter-spacing: .05em;
+      text-decoration: none
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text2);
+      text-decoration: none;
+      letter-spacing: .03em;
+      transition: color .2s
+    }
+
+    .nav-links a:hover {
+      color: var(--text)
+    }
+
+    .nav-cta {
+      padding: 8px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      transition: all .2s;
+      font-family: var(--mono)
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--bg)
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text2);
+      border-radius: 2px;
+      transition: all .3s
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 14, 23, .98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      z-index: 99
+    }
+
+    .mobile-nav.open {
+      display: block
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .mobile-nav a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 15px
+    }
+
+    .mobile-lang {
+      display: flex;
+      gap: 4px;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border)
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%;
+      right: -10%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200, 169, 110, .06) 0%, transparent 70%);
+      pointer-events: none
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -10%;
+      left: -5%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(74, 144, 217, .05) 0%, transparent 70%);
+      pointer-events: none
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center
+    }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold)
+    }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 1.1;
+      margin-bottom: .8rem;
+      color: var(--text)
+    }
+
+    .hero-role {
+      font-size: 1.05rem;
+      color: var(--text2);
+      margin-bottom: 1.8rem;
+      line-height: 1.5
+    }
+
+    .hero-role strong {
+      color: var(--gold);
+      font-weight: 500
+    }
+
+    .hero-desc {
+      font-size: .95rem;
+      color: var(--text2);
+      line-height: 1.75;
+      margin-bottom: 2.4rem;
+      max-width: 460px
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap
+    }
+
+    .btn-primary {
+      padding: 12px 28px;
+      background: var(--gold);
+      color: var(--bg);
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .btn-primary:hover {
+      background: var(--gold2);
+      transform: translateY(-1px)
+    }
+
+    .btn-outline {
+      padding: 12px 28px;
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      border-radius: 7px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all .2s;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold)
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .hero-stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: border-color .2s
+    }
+
+    .hero-stat-card:hover {
+      border-color: var(--border2)
+    }
+
+    .hero-stat-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0
+    }
+
+    .hero-stat-num {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1
+    }
+
+    .hero-stat-label {
+      font-size: 12px;
+      color: var(--text3);
+      margin-top: 2px
+    }
+
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: 5px 12px;
+      background: rgba(61, 191, 168, .1);
+      border: 1px solid rgba(61, 191, 168, .2);
+      border-radius: 20px;
+      font-size: 12px;
+      color: var(--teal);
+      margin-bottom: 2rem
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      animation: pulse 2s infinite
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1
+      }
+
+      50% {
+        opacity: .4
+      }
+    }
+
+    /* ── SECTION BASE ── */
+    section {
+      padding: 5rem 2rem
+    }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .6rem
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      line-height: 1.2
+    }
+
+    .section-sub {
+      font-size: .95rem;
+      color: var(--text2);
+      max-width: 560px;
+      line-height: 1.7;
+      margin-bottom: 3rem
+    }
+
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0 0 3rem
+    }
+
+    /* ── STACK ── */
+    .stack-section {
+      background: var(--bg2)
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem
+    }
+
+    .stack-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      transition: all .2s
+    }
+
+    .stack-card:hover {
+      border-color: var(--border2);
+      transform: translateY(-2px)
+    }
+
+    .stack-cat {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: .7rem
+    }
+
+    .stack-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem
+    }
+
+    .chip {
+      padding: 4px 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text2)
+    }
+
+    /* ── EXPERIENCE ── */
+    .exp-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      border-left: 1px solid var(--border);
+      margin-left: .5rem
+    }
+
+    .exp-item {
+      padding: 1.6rem 0 1.6rem 2rem;
+      position: relative;
+      cursor: default
+    }
+
+    .exp-item::before {
+      content: '';
+      position: absolute;
+      left: -5px;
+      top: 2rem;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 2px solid var(--border2);
+      transition: all .2s
+    }
+
+    .exp-item:hover::before {
+      background: var(--gold);
+      border-color: var(--gold)
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-bottom: .3rem
+    }
+
+    .exp-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text)
+    }
+
+    .exp-period {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text3);
+      padding: 3px 8px;
+      background: var(--surface);
+      border-radius: 4px;
+      white-space: nowrap
+    }
+
+    .exp-company {
+      font-size: .9rem;
+      color: var(--gold);
+      margin-bottom: .6rem;
+      font-weight: 500
+    }
+
+    .exp-desc {
+      font-size: .88rem;
+      color: var(--text2);
+      line-height: 1.65
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem;
+      margin-top: .8rem
+    }
+
+    .exp-tag {
+      padding: 3px 9px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text3)
+    }
+
+    /* ── PROJECTS ── */
+    .projects-section {
+      background: var(--bg2)
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.2rem
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: all .2s;
+      text-decoration: none
+    }
+
+    .project-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px)
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start
+    }
+
+    .project-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text)
+    }
+
+    .project-link-icon {
+      color: var(--text3);
+      font-size: 14px;
+      transition: color .2s
+    }
+
+    .project-card:hover .project-link-icon {
+      color: var(--gold)
+    }
+
+    .project-desc {
+      font-size: .875rem;
+      color: var(--text2);
+      line-height: 1.65;
+      flex: 1
+    }
+
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .35rem
+    }
+
+    .project-chip {
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text3)
+    }
+
+    /* ── RAG PIPELINE ── */
+    .rag-section {
+      border-top: 1px solid var(--border)
+    }
+
+    .rag-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      overflow-x: auto
+    }
+
+    .rag-flow {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .rag-node {
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: 7px;
+      padding: 8px 14px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text);
+      white-space: nowrap
+    }
+
+    .rag-node.highlight {
+      border-color: var(--gold);
+      color: var(--gold)
+    }
+
+    .rag-arrow {
+      color: var(--text3);
+      font-size: 13px
+    }
+
+    .rag-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .875rem
+    }
+
+    .rag-table th {
+      text-align: left;
+      padding: 8px 12px;
+      color: var(--text3);
+      font-size: 11px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      font-family: var(--mono);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .rag-table td {
+      padding: 10px 12px;
+      color: var(--text2);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .rag-table td:first-child {
+      color: var(--text);
+      font-weight: 500
+    }
+
+    .rag-table tr:last-child td {
+      border-bottom: none
+    }
+
+    /* ── EDUCATION ── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem
+    }
+
+    .edu-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.4rem
+    }
+
+    .edu-status {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-family: var(--mono);
+      margin-bottom: .8rem
+    }
+
+    .edu-status.ongoing {
+      background: rgba(74, 144, 217, .1);
+      color: var(--blue);
+      border: 1px solid rgba(74, 144, 217, .2)
+    }
+
+    .edu-status.done {
+      background: rgba(61, 191, 168, .1);
+      color: var(--teal);
+      border: 1px solid rgba(61, 191, 168, .2)
+    }
+
+    .edu-degree {
+      font-size: .95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: .3rem
+    }
+
+    .edu-inst {
+      font-size: .85rem;
+      color: var(--text3);
+      font-family: var(--mono)
+    }
+
+    .edu-hours {
+      font-size: .8rem;
+      color: var(--gold);
+      margin-top: .4rem;
+      font-family: var(--mono)
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .certs-section {
+      background: var(--bg2)
+    }
+
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem
+    }
+
+    .cert-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.2rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      text-decoration: none;
+      transition: all .2s
+    }
+
+    .cert-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px)
+    }
+
+    .cert-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0
+    }
+
+    .cert-name {
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text)
+    }
+
+    .cert-issuer {
+      font-size: .8rem;
+      color: var(--text3);
+      font-family: var(--mono);
+      margin-top: 2px
+    }
+
+    /* ── CONTACT ── */
+    .contact-section {
+      background: var(--bg2)
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start
+    }
+
+    .contact-text p {
+      font-size: .95rem;
+      color: var(--text2);
+      line-height: 1.75;
+      margin-bottom: 1rem
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .8rem
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-size: .9rem;
+      color: var(--text2)
+    }
+
+    .contact-list li a {
+      color: var(--text2);
+      text-decoration: none;
+      transition: color .2s
+    }
+
+    .contact-list li a:hover {
+      color: var(--gold)
+    }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      flex-shrink: 0
+    }
+
+    .avail-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem
+    }
+
+    .avail-title {
+      font-size: .85rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .avail-items {
+      display: flex;
+      flex-direction: column;
+      gap: .6rem
+    }
+
+    .avail-item {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      font-size: .875rem;
+      color: var(--text2)
+    }
+
+    .avail-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal);
+      flex-shrink: 0
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center
+    }
+
+    footer p {
+      font-size: .8rem;
+      color: var(--text3);
+      font-family: var(--mono)
+    }
+
+    footer a {
+      color: var(--text3);
+      text-decoration: none;
+      transition: color .2s
+    }
+
+    footer a:hover {
+      color: var(--gold)
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px) {
+
+      .nav-links,
+      .nav-cta,
+      .desktop-lang {
+        display: none !important
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr;
+        gap: 2.5rem
+      }
+
+      .hero-right {
+        display: none
+      }
+
+      .edu-grid {
+        grid-template-columns: 1fr
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      section {
+        padding: 3.5rem 1.2rem
+      }
+
+      .hero {
+        padding: 5rem 1.2rem 3rem
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr
+      }
+
+      .certs-grid {
+        grid-template-columns: 1fr
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#home" class="nav-logo">glaymar.dev</a>
-  <ul class="nav-links">
-    <li><a href="#stack">Stack</a></li>
-    <li><a href="#experience">Experiência</a></li>
-    <li><a href="#projects">Projetos</a></li>
-    <li><a href="#education">Formação</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="#contact" class="nav-cta">Contato</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-nav" id="mobileNav">
-  <ul>
-    <li><a href="#stack">Stack</a></li>
-    <li><a href="#experience">Experiência</a></li>
-    <li><a href="#projects">Projetos</a></li>
-    <li><a href="#education">Formação</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="#contact">Contato</a></li>
-  </ul>
-</div>
-
-<!-- HERO -->
-<section id="home" class="hero">
-  <div class="hero-inner">
-    <div class="hero-left">
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        Disponível para novas oportunidades
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#home" class="nav-logo">glaymar.dev</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#stack" data-i18n="nav_stack">Stack</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">Experiência</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Projetos</a></li>
+        <li><a href="#education" data-i18n="nav_education">Formação</a></li>
+        <li><a href="#certifications" data-i18n="nav_certifications">Certificações</a></li>
+        <li><a href="sobre.html" class="active" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
+      </ul>
+      <div class="lang-switcher desktop-lang">
+        <button class="lang-btn active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
       </div>
-      <div class="hero-label">Desenvolvedor Full-Stack · AI Specialist</div>
-      <h1 class="hero-name">Glaymar<br>Albuquerque<br>de França</h1>
-      <p class="hero-role">
-        <strong>Software Engineer Sênior</strong> com 6+ anos de experiência em<br>
-        sistemas críticos para saúde, educação e tecnologia.
-      </p>
-      <p class="hero-desc">
-        Fundador e CEO da <strong style="color:var(--gold)">AlttabCorp</strong>. Pesquisador P&D no LAVID/UFPB.
-        Especializado em arquiteturas escaláveis, pipelines de IA em produção e DevOps.
-        Cajazeiras, PB — disponível para trabalho remoto no Brasil e exterior.
-      </p>
-      <div class="hero-btns">
-        <a href="assets/Curriculo.pdf" download class="btn-primary">
-          ↓ Baixar Currículo
-        </a>
-        <a href="#contact" class="btn-outline">Entrar em contato →</a>
-      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
-    <div class="hero-right">
-      <div class="hero-stat-card">
-        <div class="hero-stat-icon">🏢</div>
-        <div>
-          <div class="hero-stat-num">CEO</div>
-          <div class="hero-stat-label">AlttabCorp — fundador desde 2023</div>
-        </div>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hero-stat-icon">⚡</div>
-        <div>
-          <div class="hero-stat-num">6+</div>
-          <div class="hero-stat-label">Anos de experiência em desenvolvimento</div>
-        </div>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hero-stat-icon">🔬</div>
-        <div>
-          <div class="hero-stat-num">P&D</div>
-          <div class="hero-stat-label">Pesquisador FAPESQ / LAVID — UFPB</div>
-        </div>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hero-stat-icon">🤖</div>
-        <div>
-          <div class="hero-stat-num">RAG</div>
-          <div class="hero-stat-label">Pipeline de IA em produção — servidor próprio</div>
-        </div>
-      </div>
-      <div class="hero-stat-card">
-        <div class="hero-stat-icon">📚</div>
-        <div>
-          <div class="hero-stat-num">2.060h</div>
-          <div class="hero-stat-label">Pós-graduação em andamento (3 especializações)</div>
-        </div>
-      </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+      <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
+      <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
+      <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+      <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
+      <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
+    </ul>
+    <div class="mobile-lang lang-switcher">
+      <button class="lang-btn active" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
     </div>
   </div>
-</section>
 
-<!-- STACK -->
-<section id="stack" class="stack-section">
-  <div class="section-inner">
-    <p class="section-label">Competências</p>
-    <h2 class="section-title">Stack Técnica</h2>
-    <p class="section-sub">Tecnologias e ferramentas com uso comprovado em projetos reais de produção.</p>
-    <div class="stack-grid">
-      <div class="stack-card">
-        <div class="stack-cat">Linguagens</div>
-        <div class="stack-chips">
-          <span class="chip">TypeScript</span>
-          <span class="chip">JavaScript</span>
-          <span class="chip">Python</span>
-          <span class="chip">SQL</span>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="status-pill">
+          <span class="status-dot"></span>
+          <span data-i18n="hero_status">Disponível para novas oportunidades</span>
+        </div>
+        <div class="hero-label" data-i18n="hero_label">Desenvolvedor Full-Stack · AI Specialist</div>
+        <h1 class="hero-name">Glaymar<br>Albuquerque<br>de França</h1>
+        <p class="hero-role" data-i18n="hero_role">
+          <strong>Software Engineer Sênior</strong> com 6+ anos de experiência em<br>
+          sistemas críticos para saúde, educação e tecnologia.
+        </p>
+        <p class="hero-desc" data-i18n="hero_desc">
+          Fundador e CEO da <strong style="color:var(--gold)">AlttabCorp</strong>. Pesquisador P&D no LAVID/UFPB.
+          Especializado em arquiteturas escaláveis, pipelines de IA em produção e DevOps.
+          Cajazeiras, PB — disponível para trabalho remoto no Brasil e exterior.
+        </p>
+        <div class="hero-btns">
+          <a href="assets/Curriculo.pdf" download class="btn-primary" id="btnDownloadCV">
+            ↓ <span data-i18n="hero_btn_cv">Baixar Currículo</span>
+          </a>
+          <a href="#contact" class="btn-outline">
+            <span data-i18n="hero_btn_contact">Entrar em contato</span> →
+          </a>
+          <a href="apresentacao.html" class="btn-outline" style="border-color:var(--gold);color:var(--gold)">
+            ▶ <span data-i18n="hero_btn_slides">Ver Apresentação</span>
+          </a>
         </div>
       </div>
-      <div class="stack-card">
-        <div class="stack-cat">Back-end</div>
-        <div class="stack-chips">
-          <span class="chip">Node.js</span>
-          <span class="chip">NestJS</span>
-          <span class="chip">Express.js</span>
-          <span class="chip">Django</span>
-          <span class="chip">REST API</span>
-          <span class="chip">JWT</span>
-          <span class="chip">Webhooks</span>
+      <div class="hero-right">
+        <div class="hero-stat-card">
+          <div class="hero-stat-icon">🏢</div>
+          <div>
+            <div class="hero-stat-num">CEO</div>
+            <div class="hero-stat-label" data-i18n="stat_ceo">AlttabCorp — fundador desde 2023</div>
+          </div>
         </div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-cat">Front-end & Mobile</div>
-        <div class="stack-chips">
-          <span class="chip">React</span>
-          <span class="chip">Next.js</span>
-          <span class="chip">React Native</span>
-          <span class="chip">Tailwind CSS</span>
-          <span class="chip">HTML5</span>
+        <div class="hero-stat-card">
+          <div class="hero-stat-icon">⚡</div>
+          <div>
+            <div class="hero-stat-num">6+</div>
+            <div class="hero-stat-label" data-i18n="stat_years">Anos de experiência em desenvolvimento</div>
+          </div>
         </div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-cat">Cloud & DevOps</div>
-        <div class="stack-chips">
-          <span class="chip">AWS</span>
-          <span class="chip">Docker</span>
-          <span class="chip">Nginx</span>
-          <span class="chip">GitHub Actions</span>
-          <span class="chip">Azure DevOps</span>
-          <span class="chip">CI/CD</span>
-          <span class="chip">Linux</span>
+        <div class="hero-stat-card">
+          <div class="hero-stat-icon">🔬</div>
+          <div>
+            <div class="hero-stat-num">P&D</div>
+            <div class="hero-stat-label" data-i18n="stat_research">Pesquisador FAPESQ / LAVID — UFPB</div>
+          </div>
         </div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-cat">Banco de Dados</div>
-        <div class="stack-chips">
-          <span class="chip">PostgreSQL</span>
-          <span class="chip">pgvector</span>
-          <span class="chip">MongoDB</span>
-          <span class="chip">Neo4j</span>
-          <span class="chip">Redis</span>
-          <span class="chip">SQL Server</span>
+        <div class="hero-stat-card">
+          <div class="hero-stat-icon">🤖</div>
+          <div>
+            <div class="hero-stat-num">RAG</div>
+            <div class="hero-stat-label" data-i18n="stat_rag">Pipeline de IA em produção — servidor próprio</div>
+          </div>
         </div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-cat">Inteligência Artificial</div>
-        <div class="stack-chips">
-          <span class="chip">Ollama</span>
-          <span class="chip">RAG</span>
-          <span class="chip">LLM</span>
-          <span class="chip">Whisper</span>
-          <span class="chip">n8n</span>
-          <span class="chip">Groq</span>
-          <span class="chip">OpenRouter</span>
-          <span class="chip">OpenWebUI</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-cat">Arquitetura & Práticas</div>
-        <div class="stack-chips">
-          <span class="chip">SOLID</span>
-          <span class="chip">Clean Architecture</span>
-          <span class="chip">Repository Pattern</span>
-          <span class="chip">TDD</span>
-          <span class="chip">Scrum</span>
-          <span class="chip">Kanban</span>
-        </div>
-      </div>
-      <div class="stack-card">
-        <div class="stack-cat">Ferramentas</div>
-        <div class="stack-chips">
-          <span class="chip">Git</span>
-          <span class="chip">TypeORM</span>
-          <span class="chip">Swagger</span>
-          <span class="chip">Uptime-Kuma</span>
-          <span class="chip">LaTeX</span>
-          <span class="chip">Godot Engine</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-inner">
-    <p class="section-label">Histórico</p>
-    <h2 class="section-title">Experiência Profissional</h2>
-    <p class="section-sub">6+ anos desenvolvendo soluções de alto impacto para saúde, educação e tecnologia.</p>
-    <div class="exp-list">
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Pesquisador em Desenvolvimento de Sistemas</span>
-          <span class="exp-period">Out 2023 — Presente</span>
-        </div>
-        <div class="exp-company">LAVID / UFPB — Projeto P&D FAPESQ · Remoto · João Pessoa, PB</div>
-        <p class="exp-desc">Desenvolvimento de sistema de gestão de dispositivos móveis em larga escala com foco em segurança pública. Implementação de rastreamento IMEI, notificações em tempo real via WebSocket e dashboard analítico com alta disponibilidade. Aplicação de SOLID, Clean Architecture e boas práticas de segurança em sistema crítico de pesquisa aplicada.</p>
-        <div class="exp-tags">
-          <span class="exp-tag">React Native</span>
-          <span class="exp-tag">TypeScript</span>
-          <span class="exp-tag">Next.js</span>
-          <span class="exp-tag">Appwrite</span>
-          <span class="exp-tag">WebSocket</span>
-          <span class="exp-tag">SOLID</span>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Fundador & CEO — Software Engineer / Tech Lead</span>
-          <span class="exp-period">Mai 2023 — Presente</span>
-        </div>
-        <div class="exp-company">AlttabCorp · Cajazeiras, PB · <a href="https://alttabcorp.com.br" target="_blank" style="color:var(--gold);text-decoration:none">alttabcorp.com.br</a></div>
-        <p class="exp-desc">Fundação e liderança de empresa de tecnologia multidisciplinar com atuação em desenvolvimento web, consultoria em TI, manufatura 3D e game development. 6+ plataformas digitais ativas desenvolvidas 100% in-house com pipeline CI/CD profissional. Consultoria em arquitetura de sistemas, APIs RESTful e documentação técnica para clientes corporativos.</p>
-        <div class="exp-tags">
-          <span class="exp-tag">Node.js</span>
-          <span class="exp-tag">React</span>
-          <span class="exp-tag">Docker</span>
-          <span class="exp-tag">GitHub Actions</span>
-          <span class="exp-tag">LaTeX</span>
-          <span class="exp-tag">n8n</span>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Técnico de Suporte N1/N2</span>
-          <span class="exp-period">Jan 2023 — Presente</span>
-        </div>
-        <div class="exp-company">Life Tecnologia — Hospital Universitário Júlio Bandeira (HUJB/Ebserh) · Presencial · Cajazeiras, PB</div>
-        <p class="exp-desc">Suporte técnico N1/N2 em ambiente hospitalar crítico, mantendo alta disponibilidade dos serviços institucionais em ambiente regulado. Administração de sistemas SEI, AGHU e PACS; gestão de segurança da informação e infraestrutura de rede.</p>
-        <div class="exp-tags">
-          <span class="exp-tag">SEI</span>
-          <span class="exp-tag">AGHU</span>
-          <span class="exp-tag">PACS</span>
-          <span class="exp-tag">Alta disponibilidade</span>
-          <span class="exp-tag">Ebserh</span>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Desenvolvedor Full-Stack</span>
-          <span class="exp-period">Fev 2022 — Set 2022</span>
-        </div>
-        <div class="exp-company">LOOP3 · Remoto · Itapema, SC</div>
-        <p class="exp-desc">Desenvolvimento de sistemas web e mobile completos com foco em UX, performance e escalabilidade. Integração da plataforma Asaas via Webhooks para automação de cobranças. CI/CD com Azure DevOps e gestão ágil com Scrum.</p>
-        <div class="exp-tags">
-          <span class="exp-tag">Node.js</span>
-          <span class="exp-tag">Express.js</span>
-          <span class="exp-tag">MongoDB</span>
-          <span class="exp-tag">React</span>
-          <span class="exp-tag">React Native</span>
-          <span class="exp-tag">Azure DevOps</span>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Técnico em Informática — Desenvolvimento e Suporte</span>
-          <span class="exp-period">Set 2021 — Fev 2023</span>
-        </div>
-        <div class="exp-company">Faculdade Santa Maria · Cajazeiras, PB</div>
-        <p class="exp-desc">Desenvolvimento de sistema de atendimento estudantil atendendo base de 500+ usuários. Implementação de plataforma PIT com notificações automatizadas via SendGrid. Relatórios analíticos via SQL Server para tomada de decisões estratégicas.</p>
-        <div class="exp-tags">
-          <span class="exp-tag">Node.js</span>
-          <span class="exp-tag">TypeScript</span>
-          <span class="exp-tag">PostgreSQL</span>
-          <span class="exp-tag">AWS S3</span>
-          <span class="exp-tag">Docker</span>
-          <span class="exp-tag">React</span>
-        </div>
-      </div>
-
-      <div class="exp-item">
-        <div class="exp-header">
-          <span class="exp-title">Diretor de RH & Desenvolvedor Full-Stack</span>
-          <span class="exp-period">Dez 2018 — Dez 2021</span>
-        </div>
-        <div class="exp-company">Loopis Jr — Empresa Júnior IFPB · Híbrido · Cajazeiras, PB</div>
-        <p class="exp-desc">Liderança técnica de equipe com 15+ pessoas, implementando Scrum e boas práticas de desenvolvimento. Desenvolvimento de aplicações web e mobile com Python (Django), Node.js e Ionic.</p>
-        <div class="exp-tags">
-          <span class="exp-tag">Python</span>
-          <span class="exp-tag">Django</span>
-          <span class="exp-tag">Node.js</span>
-          <span class="exp-tag">Ionic</span>
-          <span class="exp-tag">Scrum</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects" class="projects-section">
-  <div class="section-inner">
-    <p class="section-label">Portfólio</p>
-    <h2 class="section-title">Projetos em Destaque</h2>
-    <p class="section-sub">Seleção de projetos com impacto real, disponíveis publicamente.</p>
-    <div class="projects-grid">
-
-      <a href="https://github.com/Alttabcorp" target="_blank" class="project-card">
-        <div class="project-top">
-          <span class="project-name">Pipeline RAG Local — AlttabCorp</span>
-          <span class="project-link-icon">↗</span>
-        </div>
-        <p class="project-desc">Pipeline completo de IA em produção: LLM local (Ollama + Qwen2.5), banco vetorial (PostgreSQL + pgvector), transcrição de áudio (Whisper), bot Telegram, automação n8n e monitoramento Uptime-Kuma — tudo em servidor próprio.</p>
-        <div class="project-stack">
-          <span class="project-chip">Ollama</span>
-          <span class="project-chip">pgvector</span>
-          <span class="project-chip">Whisper</span>
-          <span class="project-chip">n8n</span>
-          <span class="project-chip">Docker</span>
-        </div>
-      </a>
-
-      <a href="https://repositorio.ifpb.edu.br/handle/177683/2898" target="_blank" class="project-card">
-        <div class="project-top">
-          <span class="project-name">Sistema de Inventários Históricos</span>
-          <span class="project-link-icon">↗</span>
-        </div>
-        <p class="project-desc">Plataforma full-stack para análise de 1.000+ documentos históricos judiciais via banco de dados em grafos. Visualização interativa de redes sociais e patrimoniais. Utilizada por pesquisadores do IFPB.</p>
-        <div class="project-stack">
-          <span class="project-chip">Node.js</span>
-          <span class="project-chip">TypeScript</span>
-          <span class="project-chip">Neo4j</span>
-          <span class="project-chip">React</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/Alttabcorp/API-bibliteca_siec" target="_blank" class="project-card">
-        <div class="project-top">
-          <span class="project-name">API Biblioteca CIEC</span>
-          <span class="project-link-icon">↗</span>
-        </div>
-        <p class="project-desc">API RESTful com arquitetura modular (Repository Pattern), autenticação JWT, documentação interativa Swagger UI e containerização Docker Compose completa.</p>
-        <div class="project-stack">
-          <span class="project-chip">NestJS</span>
-          <span class="project-chip">TypeScript</span>
-          <span class="project-chip">Docker</span>
-          <span class="project-chip">Swagger</span>
-          <span class="project-chip">JWT</span>
-        </div>
-      </a>
-
-      <a href="https://alttabcorp.com.br" target="_blank" class="project-card">
-        <div class="project-top">
-          <span class="project-name">AlttabCorp — Ecossistema Digital</span>
-          <span class="project-link-icon">↗</span>
-        </div>
-        <p class="project-desc">6+ plataformas ativas: web dev, consultoria em TI, sistema de orçamento 3D com cálculo em tempo real, game studio (Godot Engine) e time de esports.</p>
-        <div class="project-stack">
-          <span class="project-chip">Next.js</span>
-          <span class="project-chip">React</span>
-          <span class="project-chip">Docker</span>
-          <span class="project-chip">n8n</span>
-          <span class="project-chip">LaTeX</span>
-        </div>
-      </a>
-
-      <a href="https://github.com/bodescorp/Cext-final-" target="_blank" class="project-card">
-        <div class="project-top">
-          <span class="project-name">Sistema de Certificados IFPB</span>
-          <span class="project-link-icon">↗</span>
-        </div>
-        <p class="project-desc">Automação da emissão de certificados institucionais com validação QR Code e integração ao sistema acadêmico. Redução do tempo de emissão de horas para minutos.</p>
-        <div class="project-stack">
-          <span class="project-chip">Python</span>
-          <span class="project-chip">Django</span>
-          <span class="project-chip">JavaScript</span>
-          <span class="project-chip">QR Code</span>
-        </div>
-      </a>
-
-      <a href="https://alttabcorp.github.io/WEB-Orcamento3D-alttab/" target="_blank" class="project-card">
-        <div class="project-top">
-          <span class="project-name">Orçamento 3D Automatizado</span>
-          <span class="project-link-icon">↗</span>
-        </div>
-        <p class="project-desc">Sistema web de cotação de impressão 3D com cálculo em tempo real por parâmetros do projeto. Interface responsiva com estimativa automática de custo e prazo.</p>
-        <div class="project-stack">
-          <span class="project-chip">HTML5</span>
-          <span class="project-chip">CSS3</span>
-          <span class="project-chip">JavaScript</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- RAG PIPELINE -->
-<section class="rag-section">
-  <div class="section-inner">
-    <p class="section-label">IA em Produção</p>
-    <h2 class="section-title">Pipeline RAG Local</h2>
-    <p class="section-sub">Arquitetura completa de inteligência artificial rodando em servidor próprio, sem dependência de cloud para inferência.</p>
-    <div class="rag-box">
-      <div class="rag-flow">
-        <span class="rag-node">Telegram Bot</span>
-        <span class="rag-arrow">→</span>
-        <span class="rag-node">Whisper STT</span>
-        <span class="rag-arrow">→</span>
-        <span class="rag-node">n8n</span>
-        <span class="rag-arrow">→</span>
-        <span class="rag-node highlight">Ollama + Qwen2.5</span>
-        <span class="rag-arrow">→</span>
-        <span class="rag-node highlight">pgvector RAG</span>
-        <span class="rag-arrow">→</span>
-        <span class="rag-node">OpenWebUI</span>
-      </div>
-    </div>
-    <table class="rag-table">
-      <thead>
-        <tr><th>Componente</th><th>Tecnologia</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>LLM Local</td><td>Ollama + Qwen2.5</td></tr>
-        <tr><td>Banco Vetorial</td><td>PostgreSQL + pgvector</td></tr>
-        <tr><td>Transcrição de Áudio</td><td>Whisper (speech-to-text)</td></tr>
-        <tr><td>Automação de Fluxos</td><td>n8n</td></tr>
-        <tr><td>Interface Web</td><td>OpenWebUI</td></tr>
-        <tr><td>APIs Externas de LLM</td><td>Groq, OpenRouter</td></tr>
-        <tr><td>Bot de Interação</td><td>Telegram Bot API</td></tr>
-        <tr><td>Monitoramento</td><td>Uptime-Kuma</td></tr>
-      </tbody>
-    </table>
-  </div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education" style="background:var(--bg2)">
-  <div class="section-inner">
-    <p class="section-label">Formação</p>
-    <h2 class="section-title">Educação & Especialização</h2>
-    <p class="section-sub">2.060h de formação pós-graduada em andamento simultâneo.</p>
-    <div class="edu-grid">
-      <div class="edu-card">
-        <div class="edu-status ongoing">🔄 Em andamento</div>
-        <div class="edu-degree">Especialização em Arquitetura de Software</div>
-        <div class="edu-inst">FAAL Educacional</div>
-        <div class="edu-hours">720h</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-status ongoing">🔄 Em andamento</div>
-        <div class="edu-degree">Especialização em Inteligência Artificial</div>
-        <div class="edu-inst">FAAL Educacional</div>
-        <div class="edu-hours">640h</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-status ongoing">🔄 Em andamento</div>
-        <div class="edu-degree">Especialização em Segurança da Informação</div>
-        <div class="edu-inst">FAAL Educacional</div>
-        <div class="edu-hours">700h</div>
-      </div>
-      <div class="edu-card">
-        <div class="edu-status done">✅ Concluído</div>
-        <div class="edu-degree">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
-        <div class="edu-inst">IFPB — Instituto Federal da Paraíba · 2023</div>
-        <div class="edu-hours" style="color:var(--text3)">TCC: Sistema de Inventários Históricos com Neo4J</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="section-inner">
-    <p class="section-label">Contato</p>
-    <h2 class="section-title">Vamos Conversar?</h2>
-    <p class="section-sub">Aberto a oportunidades remotas, parcerias e projetos desafiadores no Brasil e no exterior.</p>
-    <div class="contact-grid">
-      <div class="contact-text">
-        <p>Se você trabalha com produtos digitais de impacto e busca um desenvolvedor sênior com visão de arquitetura, experiência em IA aplicada e perfil de liderança técnica — fale comigo.</p>
-        <p>Disponível para regimes CLT, PJ e contratos internacionais.</p>
-        <ul class="contact-list">
-          <li>
-            <div class="contact-icon">📧</div>
-            <a href="mailto:glaymar2010@gmail.com">glaymar2010@gmail.com</a>
-          </li>
-          <li>
-            <div class="contact-icon">💼</div>
-            <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" target="_blank">linkedin.com/in/glaymar-albuquerque</a>
-          </li>
-          <li>
-            <div class="contact-icon">💻</div>
-            <a href="https://github.com/bodescorp" target="_blank">github.com/bodescorp</a>
-          </li>
-          <li>
-            <div class="contact-icon">🌐</div>
-            <a href="https://alttabcorp.com.br" target="_blank">alttabcorp.com.br</a>
-          </li>
-          <li>
-            <div class="contact-icon">📱</div>
-            <a href="https://wa.me/5583993322427" target="_blank">+55 83 9 9332-2427</a>
-          </li>
-        </ul>
-      </div>
-      <div>
-        <div class="avail-box">
-          <div class="avail-title">📋 Disponibilidade</div>
-          <div class="avail-items">
-            <div class="avail-item"><span class="avail-dot"></span>Trabalho remoto — Brasil e exterior</div>
-            <div class="avail-item"><span class="avail-dot"></span>Regime CLT, PJ e contratos internacionais</div>
-            <div class="avail-item"><span class="avail-dot"></span>Desenvolvedor Sênior Full-Stack</div>
-            <div class="avail-item"><span class="avail-dot"></span>Software Architecture</div>
-            <div class="avail-item"><span class="avail-dot"></span>AI Engineering</div>
-            <div class="avail-item"><span class="avail-dot"></span>Tech Lead</div>
+        <div class="hero-stat-card">
+          <div class="hero-stat-icon">📚</div>
+          <div>
+            <div class="hero-stat-num">2.060h</div>
+            <div class="hero-stat-label" data-i18n="stat_edu">Pós-graduação em andamento (3 especializações)</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <p>© 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
-    <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
-    <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
-    Cajazeiras, PB — Brasil
-  </p>
-</footer>
+  <!-- STACK -->
+  <section id="stack" class="stack-section">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="stack_label">Competências</p>
+      <h2 class="section-title" data-i18n="stack_title">Stack Técnica</h2>
+      <p class="section-sub" data-i18n="stack_sub">Tecnologias e ferramentas com uso comprovado em projetos reais de
+        produção.</p>
+      <div class="stack-grid">
+        <div class="stack-card">
+          <div class="stack-cat" data-i18n="stack_languages">Linguagens</div>
+          <div class="stack-chips">
+            <span class="chip">TypeScript</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Python</span>
+            <span class="chip">SQL</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-cat">Back-end</div>
+          <div class="stack-chips">
+            <span class="chip">Node.js</span>
+            <span class="chip">NestJS</span>
+            <span class="chip">Express.js</span>
+            <span class="chip">Django</span>
+            <span class="chip">REST API</span>
+            <span class="chip">JWT</span>
+            <span class="chip">Webhooks</span>
+            <span class="chip">Appwrite</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-cat">Front-end & Mobile</div>
+          <div class="stack-chips">
+            <span class="chip">React</span>
+            <span class="chip">Next.js</span>
+            <span class="chip">React Native</span>
+            <span class="chip">Tailwind CSS</span>
+            <span class="chip">HTML5</span>
+            <span class="chip">CSS3</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-cat">Cloud & DevOps</div>
+          <div class="stack-chips">
+            <span class="chip">AWS (S3, EC2)</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Docker Compose</span>
+            <span class="chip">Nginx</span>
+            <span class="chip">GitHub Actions</span>
+            <span class="chip">Azure DevOps</span>
+            <span class="chip">CI/CD</span>
+            <span class="chip">Let's Encrypt</span>
+            <span class="chip">Linux</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-cat" data-i18n="stack_databases">Banco de Dados</div>
+          <div class="stack-chips">
+            <span class="chip">PostgreSQL</span>
+            <span class="chip">pgvector</span>
+            <span class="chip">MongoDB</span>
+            <span class="chip">Neo4j</span>
+            <span class="chip">Redis</span>
+            <span class="chip">SQL Server</span>
+            <span class="chip">SQLite3</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-cat" data-i18n="stack_ai">Inteligência Artificial</div>
+          <div class="stack-chips">
+            <span class="chip">Ollama</span>
+            <span class="chip">RAG</span>
+            <span class="chip">LLM</span>
+            <span class="chip">Whisper</span>
+            <span class="chip">n8n</span>
+            <span class="chip">Groq</span>
+            <span class="chip">OpenRouter</span>
+            <span class="chip">OpenWebUI</span>
+            <span class="chip">Telegram Bot API</span>
+            <span class="chip">Uptime-Kuma</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-cat" data-i18n="stack_architecture">Arquitetura & Práticas</div>
+          <div class="stack-chips">
+            <span class="chip">SOLID</span>
+            <span class="chip">Clean Architecture</span>
+            <span class="chip">Repository Pattern</span>
+            <span class="chip">TDD</span>
+            <span class="chip">Microservices</span>
+            <span class="chip">Scrum</span>
+            <span class="chip">Kanban</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <div class="stack-cat" data-i18n="stack_tools">Ferramentas</div>
+          <div class="stack-chips">
+            <span class="chip">Git</span>
+            <span class="chip">TypeORM</span>
+            <span class="chip">Knex.js</span>
+            <span class="chip">Swagger/OpenAPI</span>
+            <span class="chip">LaTeX</span>
+            <span class="chip">Godot Engine</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 30);
-});
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-hamburger.addEventListener('click', () => {
-  mobileNav.classList.toggle('open');
-});
-mobileNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileNav.classList.remove('open'));
-});
-</script>
-</body>
-</html>
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="exp_label">Histórico</p>
+      <h2 class="section-title" data-i18n="exp_title">Experiência Profissional</h2>
+      <p class="section-sub" data-i18n="exp_sub">6+ anos desenvolvendo soluções de alto impacto para saúde, educação e
+        tecnologia.</p>
+      <div class="exp-list">
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title" data-i18n="exp1_title">Pesquisador em Desenvolvimento de Sistemas</span>
+            <span class="exp-period" data-i18n="exp1_period">Out 2023 — Presente</span>
+          </div>
+          <div class="exp-company" data-i18n="exp1_company">LAVID / UFPB — Projeto P&D FAPESQ · Remoto · João Pessoa, PB
+          </div>
+          <p class="exp-desc" data-i18n="exp1_desc">Arquitetura e desenvolvimento de sistema de gestão de dispositivos
+            móveis em larga escala com foco em segurança pública. Implementação de rastreamento IMEI em tempo real,
+            notificações push via WebSocket e dashboard analítico com alta disponibilidade. Aplicação de princípios
+            SOLID, Clean Architecture e boas práticas de segurança em codebase de produção revisada por pares.</p>
+          <div class="exp-tags">
+            <span class="exp-tag">React Native</span>
+            <span class="exp-tag">TypeScript</span>
+            <span class="exp-tag">Next.js</span>
+            <span class="exp-tag">Appwrite</span>
+            <span class="exp-tag">WebSocket</span>
+            <span class="exp-tag">SOLID</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title" data-i18n="exp2_title">Fundador & CEO — Engenheiro de Software / Tech Lead</span>
+            <span class="exp-period" data-i18n="exp2_period">Mai 2023 — Presente</span>
+          </div>
+          <div class="exp-company">AlttabCorp · Cajazeiras, PB · <a href="https://alttabcorp.com.br" target="_blank"
+              style="color:var(--gold);text-decoration:none">alttabcorp.com.br</a></div>
+          <p class="exp-desc" data-i18n="exp2_desc">Fundação e escalabilidade de empresa de tecnologia multissetorial
+            cobrindo desenvolvimento web, consultoria em TI, manufatura 3D e game development. 6+ plataformas digitais
+            ativas construídas internamente. Infraestrutura CI/CD via GitHub Actions, Docker + Nginx e deploy em VPS.
+            Pipeline RAG em produção em infraestrutura local: Ollama LLM, PostgreSQL + pgvector, Whisper STT, n8n e
+            integração Telegram Bot — custo zero de inferência em nuvem.</p>
+          <div class="exp-tags">
+            <span class="exp-tag">Node.js</span>
+            <span class="exp-tag">React</span>
+            <span class="exp-tag">Docker</span>
+            <span class="exp-tag">GitHub Actions</span>
+            <span class="exp-tag">Ollama</span>
+            <span class="exp-tag">n8n</span>
+            <span class="exp-tag">pgvector</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title" data-i18n="exp3_title">Técnico de Suporte de TI N1/N2</span>
+            <span class="exp-period" data-i18n="exp3_period">Jan 2023 — Presente</span>
+          </div>
+          <div class="exp-company" data-i18n="exp3_company">Life Tecnologia — Hospital Universitário Júlio Bandeira
+            (HUJB/Ebserh) · Presencial · Cajazeiras, PB</div>
+          <p class="exp-desc" data-i18n="exp3_desc">Manutenção de infraestrutura crítica de TI hospitalar com
+            cumprimento rigoroso de SLA em ambiente regulamentado Ebserh. Suporte aos sistemas clínicos SEI, AGHU e
+            PACS. Gestão de segurança de rede, provisionamento de usuários e documentação técnica para mais de 300
+            usuários internos.</p>
+          <div class="exp-tags">
+            <span class="exp-tag">SEI</span>
+            <span class="exp-tag">AGHU</span>
+            <span class="exp-tag">PACS</span>
+            <span class="exp-tag">SLA</span>
+            <span class="exp-tag">Ebserh</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title" data-i18n="exp4_title">Desenvolvedor Full-Stack</span>
+            <span class="exp-period" data-i18n="exp4_period">Fev 2022 — Set 2022</span>
+          </div>
+          <div class="exp-company" data-i18n="exp4_company">LOOP3 · Remoto · Itapema, SC</div>
+          <p class="exp-desc" data-i18n="exp4_desc">Entrega de aplicações web e mobile de ponta a ponta com Node.js,
+            Express.js, MongoDB, React e React Native. Otimização de tempos de resposta de API e consistência de UX.
+            Integração da plataforma Asaas via Webhooks para automação de cobranças. Gestão de pipelines de release com
+            Azure DevOps e Scrum em equipe remota multifuncional.</p>
+          <div class="exp-tags">
+            <span class="exp-tag">Node.js</span>
+            <span class="exp-tag">Express.js</span>
+            <span class="exp-tag">MongoDB</span>
+            <span class="exp-tag">React</span>
+            <span class="exp-tag">React Native</span>
+            <span class="exp-tag">Azure DevOps</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title" data-i18n="exp5_title">Técnico de TI — Desenvolvimento de Software & Suporte</span>
+            <span class="exp-period" data-i18n="exp5_period">Set 2021 — Fev 2023</span>
+          </div>
+          <div class="exp-company" data-i18n="exp5_company">Faculdade Santa Maria · Cajazeiras, PB</div>
+          <p class="exp-desc" data-i18n="exp5_desc">Desenvolvimento de plataforma de atendimento ao aluno do zero com
+            Node.js, TypeScript, Docker, AWS S3, PostgreSQL e React, atendendo 500+ usuários. Plataforma PIT com
+            Node.js, SQLite3, SendGrid e React, automatizando notificações por e-mail. Relatórios analíticos em SQL
+            Server para decisões estratégicas acadêmicas.</p>
+          <div class="exp-tags">
+            <span class="exp-tag">Node.js</span>
+            <span class="exp-tag">TypeScript</span>
+            <span class="exp-tag">PostgreSQL</span>
+            <span class="exp-tag">AWS S3</span>
+            <span class="exp-tag">Docker</span>
+            <span class="exp-tag">React</span>
+            <span class="exp-tag">SQL Server</span>
+          </div>
+        </div>
+
+        <div class="exp-item">
+          <div class="exp-header">
+            <span class="exp-title" data-i18n="exp6_title">Diretor de RH & Desenvolvedor Full-Stack</span>
+            <span class="exp-period" data-i18n="exp6_period">Dez 2018 — Dez 2021</span>
+          </div>
+          <div class="exp-company" data-i18n="exp6_company">Loopis Jr — Empresa Júnior IFPB · Híbrido · Cajazeiras, PB
+          </div>
+          <p class="exp-desc" data-i18n="exp6_desc">Liderança de equipe técnica de 15+ desenvolvedores, introduzindo
+            cerimônias Scrum, práticas de code review e padrões de documentação que melhoraram a previsibilidade das
+            entregas. Desenvolvimento de aplicações web e mobile com Python (Django), Node.js e Ionic.</p>
+          <div class="exp-tags">
+            <span class="exp-tag">Python</span>
+            <span class="exp-tag">Django</span>
+            <span class="exp-tag">Node.js</span>
+            <span class="exp-tag">Ionic</span>
+            <span class="exp-tag">Scrum</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects-section">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="proj_label">Portfólio</p>
+      <h2 class="section-title" data-i18n="proj_title">Projetos em Destaque</h2>
+      <p class="section-sub" data-i18n="proj_sub">Seleção de projetos com impacto real, disponíveis publicamente.</p>
+      <div class="projects-grid">
+
+        <a href="https://github.com/Alttabcorp" target="_blank" class="project-card">
+          <div class="project-top">
+            <span class="project-name" data-i18n="proj1_name">Pipeline RAG Local — AlttabCorp</span>
+            <span class="project-link-icon">↗</span>
+          </div>
+          <p class="project-desc" data-i18n="proj1_desc">Pipeline completo de IA em produção: LLM local (Ollama +
+            Qwen2.5), banco vetorial (PostgreSQL + pgvector), transcrição de áudio (Whisper), bot Telegram, automação
+            n8n e monitoramento Uptime-Kuma — tudo auto-hospedado com custo zero de inferência.</p>
+          <div class="project-stack">
+            <span class="project-chip">Ollama</span>
+            <span class="project-chip">pgvector</span>
+            <span class="project-chip">Whisper</span>
+            <span class="project-chip">n8n</span>
+            <span class="project-chip">Docker</span>
+          </div>
+        </a>
+
+        <a href="https://repositorio.ifpb.edu.br/handle/177683/2898" target="_blank" class="project-card">
+          <div class="project-top">
+            <span class="project-name" data-i18n="proj2_name">Sistema de Inventários Históricos (TCC)</span>
+            <span class="project-link-icon">↗</span>
+          </div>
+          <p class="project-desc" data-i18n="proj2_desc">Plataforma full-stack para análise em grafos de 1.000+
+            documentos históricos judiciais. Visualização interativa de redes de relações sociais e patrimoniais —
+            adotada por pesquisadores do IFPB para estudos historiográficos.</p>
+          <div class="project-stack">
+            <span class="project-chip">Node.js</span>
+            <span class="project-chip">TypeScript</span>
+            <span class="project-chip">Neo4j</span>
+            <span class="project-chip">React</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/Alttabcorp/API-bibliteca_siec" target="_blank" class="project-card">
+          <div class="project-top">
+            <span class="project-name" data-i18n="proj3_name">API Biblioteca CIEC</span>
+            <span class="project-link-icon">↗</span>
+          </div>
+          <p class="project-desc" data-i18n="proj3_desc">API RESTful com arquitetura modular (Repository Pattern),
+            autenticação JWT, controle de acesso baseado em roles, documentação interativa Swagger UI e containerização
+            Docker Compose completa.</p>
+          <div class="project-stack">
+            <span class="project-chip">NestJS</span>
+            <span class="project-chip">TypeScript</span>
+            <span class="project-chip">Docker</span>
+            <span class="project-chip">Swagger</span>
+            <span class="project-chip">JWT</span>
+          </div>
+        </a>
+
+        <a href="https://alttabcorp.com.br" target="_blank" class="project-card">
+          <div class="project-top">
+            <span class="project-name" data-i18n="proj4_name">AlttabCorp — Ecossistema Digital</span>
+            <span class="project-link-icon">↗</span>
+          </div>
+          <p class="project-desc" data-i18n="proj4_desc">6+ plataformas digitais ativas: web dev, consultoria em TI,
+            sistema de orçamento 3D com cálculo em tempo real, game studio (Godot Engine) e time de esports.</p>
+          <div class="project-stack">
+            <span class="project-chip">Next.js</span>
+            <span class="project-chip">React</span>
+            <span class="project-chip">Docker</span>
+            <span class="project-chip">n8n</span>
+            <span class="project-chip">LaTeX</span>
+          </div>
+        </a>
+
+        <a href="https://github.com/bodescorp/Cext-final-" target="_blank" class="project-card">
+          <div class="project-top">
+            <span class="project-name" data-i18n="proj5_name">Automação de Certificados IFPB</span>
+            <span class="project-link-icon">↗</span>
+          </div>
+          <p class="project-desc" data-i18n="proj5_desc">Automação da emissão de certificados institucionais para o IFPB
+            Campus Cajazeiras. Validação por QR Code e integração com sistema acadêmico — reduziu o tempo de emissão de
+            horas para minutos.</p>
+          <div class="project-stack">
+            <span class="project-chip">Python</span>
+            <span class="project-chip">Django</span>
+            <span class="project-chip">JavaScript</span>
+            <span class="project-chip">QR Code</span>
+          </div>
+        </a>
+
+        <a href="https://alttabcorp.github.io/WEB-Orcamento3D-alttab/" target="_blank" class="project-card">
+          <div class="project-top">
+            <span class="project-name" data-i18n="proj6_name">Orçamento 3D Automatizado</span>
+            <span class="project-link-icon">↗</span>
+          </div>
+          <p class="project-desc" data-i18n="proj6_desc">Sistema web de cotação de impressão 3D com cálculo em tempo
+            real por parâmetros do projeto. Interface responsiva com estimativa automática de custo e prazo.</p>
+          <div class="project-stack">
+            <span class="project-chip">HTML5</span>
+            <span class="project-chip">CSS3</span>
+            <span class="project-chip">JavaScript</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RAG PIPELINE -->
+  <section class="rag-section">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="rag_label">IA em Produção</p>
+      <h2 class="section-title" data-i18n="rag_title">Pipeline RAG Local</h2>
+      <p class="section-sub" data-i18n="rag_sub">Arquitetura completa de inteligência artificial rodando em servidor
+        próprio, sem dependência de cloud para inferência.</p>
+      <div class="rag-box">
+        <div class="rag-flow">
+          <span class="rag-node">Telegram Bot</span>
+          <span class="rag-arrow">→</span>
+          <span class="rag-node">Whisper STT</span>
+          <span class="rag-arrow">→</span>
+          <span class="rag-node">n8n</span>
+          <span class="rag-arrow">→</span>
+          <span class="rag-node highlight">Ollama + Qwen2.5</span>
+          <span class="rag-arrow">→</span>
+          <span class="rag-node highlight">pgvector RAG</span>
+          <span class="rag-arrow">→</span>
+          <span class="rag-node">OpenWebUI</span>
+        </div>
+      </div>
+      <table class="rag-table">
+        <thead>
+          <tr>
+            <th data-i18n="rag_th_component">Componente</th>
+            <th data-i18n="rag_th_tech">Tecnologia</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-i18n="rag_row1">LLM Local</td>
+            <td>Ollama + Qwen2.5</td>
+          </tr>
+          <tr>
+            <td data-i18n="rag_row2">Banco Vetorial</td>
+            <td>PostgreSQL + pgvector</td>
+          </tr>
+          <tr>
+            <td data-i18n="rag_row3">Transcrição de Áudio</td>
+            <td>Whisper (speech-to-text)</td>
+          </tr>
+          <tr>
+            <td data-i18n="rag_row4">Automação de Fluxos</td>
+            <td>n8n</td>
+          </tr>
+          <tr>
+            <td data-i18n="rag_row5">Interface Web</td>
+            <td>OpenWebUI</td>
+          </tr>
+          <tr>
+            <td data-i18n="rag_row6">APIs Externas de LLM</td>
+            <td>Groq, OpenRouter</td>
+          </tr>
+          <tr>
+            <td data-i18n="rag_row7">Bot de Interação</td>
+            <td>Telegram Bot API</td>
+          </tr>
+          <tr>
+            <td data-i18n="rag_row8">Monitoramento</td>
+            <td>Uptime-Kuma</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education" style="background:var(--bg2)">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="edu_label">Formação</p>
+      <h2 class="section-title" data-i18n="edu_title">Educação & Especialização</h2>
+      <p class="section-sub" data-i18n="edu_sub">2.060h de formação pós-graduada em andamento simultâneo.</p>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-status ongoing" data-i18n="edu_ongoing">🔄 Em andamento</div>
+          <div class="edu-degree" data-i18n="edu1_degree">Especialização em Arquitetura de Software</div>
+          <div class="edu-inst">FAAL Educacional</div>
+          <div class="edu-hours">720h</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-status ongoing" data-i18n="edu_ongoing">🔄 Em andamento</div>
+          <div class="edu-degree" data-i18n="edu2_degree">Especialização em Inteligência Artificial</div>
+          <div class="edu-inst">FAAL Educacional</div>
+          <div class="edu-hours">640h</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-status ongoing" data-i18n="edu_ongoing">🔄 Em andamento</div>
+          <div class="edu-degree" data-i18n="edu3_degree">Especialização em Segurança da Informação</div>
+          <div class="edu-inst">FAAL Educacional</div>
+          <div class="edu-hours">700h</div>
+        </div>
+        <div class="edu-card">
+          <div class="edu-status done" data-i18n="edu_done">✅ Concluído</div>
+          <div class="edu-degree" data-i18n="edu4_degree">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
+          <div class="edu-inst">IFPB — Instituto Federal da Paraíba · 2023</div>
+          <div class="edu-hours" style="color:var(--text3)" data-i18n="edu4_thesis">TCC: Sistema de Inventários
+            Históricos com Neo4j</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications" class="certs-section">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="cert_label">Certificações</p>
+      <h2 class="section-title" data-i18n="cert_title">Certificações & Cursos</h2>
+      <p class="section-sub" data-i18n="cert_sub">Formação complementar com certificação verificável.</p>
+      <div class="certs-grid">
+        <a href="https://drive.google.com/drive/folders/1YKThgvnT5h1bA_Hb0uDiIf7p8Qiph-NC" target="_blank"
+          class="cert-card">
+          <div class="cert-icon">🐳</div>
+          <div>
+            <div class="cert-name" data-i18n="cert1_name">Docker — Conteinerização & DevOps</div>
+            <div class="cert-issuer">B7Web</div>
+          </div>
+        </a>
+        <a href="https://graphacademy.neo4j.com/c/9d25b259-5995-4053-8475-7b2bf61f163e/" target="_blank"
+          class="cert-card">
+          <div class="cert-icon">🔗</div>
+          <div>
+            <div class="cert-name">Neo4j Graph Data Science Fundamentals</div>
+            <div class="cert-issuer" data-i18n="cert2_issuer">Neo4j — oficial</div>
+          </div>
+        </a>
+        <a href="https://www.udemy.com/certificate/UC-db57cce7-1471-47ff-9828-0e3a4d7da628/" target="_blank"
+          class="cert-card">
+          <div class="cert-icon">🌿</div>
+          <div>
+            <div class="cert-name" data-i18n="cert3_name">Git & GitHub Avançado</div>
+            <div class="cert-issuer">Udemy</div>
+          </div>
+        </a>
+        <a href="https://www.linkedin.com/learning/certificates/0fc1a744c87dc72f53e8c694fd58809808a183327167377cb224c1ac43e732b6"
+          target="_blank" class="cert-card">
+          <div class="cert-icon">📊</div>
+          <div>
+            <div class="cert-name" data-i18n="cert4_name">Gestão de Projetos</div>
+            <div class="cert-issuer">LinkedIn Learning</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact-section">
+    <div class="section-inner">
+      <p class="section-label" data-i18n="contact_label">Contato</p>
+      <h2 class="section-title" data-i18n="contact_title">Vamos Conversar?</h2>
+      <p class="section-sub" data-i18n="contact_sub">Aberto a oportunidades remotas, parcerias e projetos desafiadores
+        no Brasil e no exterior.</p>
+      <div class="contact-grid">
+        <div class="contact-text">
+          <p data-i18n="contact_p1">Se você trabalha com produtos digitais de impacto e busca um desenvolvedor sênior
+            com visão de arquitetura, experiência em IA aplicada e perfil de liderança técnica — fale comigo.</p>
+          <p data-i18n="contact_p2">Disponível para regimes CLT, PJ e contratos internacionais.</p>
+          <ul class="contact-list">
+            <li>
+              <div class="contact-icon">📧</div>
+              <a href="mailto:glaymar2010@gmail.com">glaymar2010@gmail.com</a>
+            </li>
+            <li>
+              <div class="contact-icon">💼</div>
+              <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a"
+                target="_blank">linkedin.com/in/glaymar-albuquerque</a>
+            </li>
+            <li>
+              <div class="contact-icon">💻</div>
+              <a href="https://github.com/bodescorp" target="_blank">github.com/bodescorp</a>
+            </li>
+            <li>
+              <div class="contact-icon">🌐</div>
+              <a href="https://alttabcorp.com.br" target="_blank">alttabcorp.com.br</a>
+            </li>
+            <li>
+              <div class="contact-icon">📱</div>
+              <a href="https://wa.me/5583993322427" target="_blank">+55 83 9 9332-2427</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="avail-box">
+            <div class="avail-title" data-i18n="avail_title">📋 Disponibilidade</div>
+            <div class="avail-items">
+              <div class="avail-item"><span class="avail-dot"></span><span data-i18n="avail1">Trabalho remoto — Brasil e
+                  exterior</span></div>
+              <div class="avail-item"><span class="avail-dot"></span><span data-i18n="avail2">Regime CLT, PJ e contratos
+                  internacionais</span></div>
+              <div class="avail-item"><span class="avail-dot"></span><span data-i18n="avail3">Desenvolvedor Sênior
+                  Full-Stack</span></div>
+              <div class="avail-item"><span class="avail-dot"></span>Software Architecture</div>
+              <div class="avail-item"><span class="avail-dot"></span>AI Engineering</div>
+              <div class="avail-item"><span class="avail-dot"></span>Tech Lead</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
+      <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
+      <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
+      Cajazeiras, PB — Brasil
+    </p>
+  </footer>
+  <script>
+    // ══════════════════════════════════════════════════
+    //  i18n — DICIONÁRIO COMPLETO PT-BR / EN
+    // ══════════════════════════════════════════════════
+    const i18n = {
+      pt: {
+        // Nav
+        nav_stack: "Stack",
+        nav_experience: "Experiência",
+        nav_projects: "Projetos",
+        nav_education: "Formação",
+        nav_certifications: "Certificações",
+        nav_contact: "Contato",
+
+        // Hero
+        hero_status: "Disponível para novas oportunidades",
+        hero_label: "Desenvolvedor Full-Stack · AI Specialist",
+        hero_role: '<strong>Software Engineer Sênior</strong> com 6+ anos de experiência em<br>sistemas críticos para saúde, educação e tecnologia.',
+        hero_desc: 'Fundador e CEO da <strong style="color:var(--gold)">AlttabCorp</strong>. Pesquisador P&D no LAVID/UFPB. Especializado em arquiteturas escaláveis, pipelines de IA em produção e DevOps. Cajazeiras, PB — disponível para trabalho remoto no Brasil e exterior.',
+        hero_btn_cv: "Baixar Currículo",
+        hero_btn_contact: "Entrar em contato",
+
+        // Stats
+        stat_ceo: "AlttabCorp — fundador desde 2023",
+        stat_years: "Anos de experiência em desenvolvimento",
+        stat_research: "Pesquisador FAPESQ / LAVID — UFPB",
+        stat_rag: "Pipeline de IA em produção — servidor próprio",
+        stat_edu: "Pós-graduação em andamento (3 especializações)",
+
+        // Stack
+        stack_label: "Competências",
+        stack_title: "Stack Técnica",
+        stack_sub: "Tecnologias e ferramentas com uso comprovado em projetos reais de produção.",
+        stack_languages: "Linguagens",
+        stack_databases: "Banco de Dados",
+        stack_ai: "Inteligência Artificial",
+        stack_architecture: "Arquitetura & Práticas",
+        stack_tools: "Ferramentas",
+
+        // Experience
+        exp_label: "Histórico",
+        exp_title: "Experiência Profissional",
+        exp_sub: "6+ anos desenvolvendo soluções de alto impacto para saúde, educação e tecnologia.",
+
+        exp1_title: "Pesquisador em Desenvolvimento de Sistemas",
+        exp1_period: "Out 2023 — Presente",
+        exp1_company: "LAVID / UFPB — Projeto P&D FAPESQ · Remoto · João Pessoa, PB",
+        exp1_desc: "Arquitetura e desenvolvimento de sistema de gestão de dispositivos móveis em larga escala com foco em segurança pública. Implementação de rastreamento IMEI em tempo real, notificações push via WebSocket e dashboard analítico com alta disponibilidade. Aplicação de princípios SOLID, Clean Architecture e boas práticas de segurança em codebase de produção revisada por pares.",
+
+        exp2_title: "Fundador & CEO — Engenheiro de Software / Tech Lead",
+        exp2_period: "Mai 2023 — Presente",
+        exp2_desc: "Fundação e escalabilidade de empresa de tecnologia multissetorial cobrindo desenvolvimento web, consultoria em TI, manufatura 3D e game development. 6+ plataformas digitais ativas construídas internamente. Infraestrutura CI/CD via GitHub Actions, Docker + Nginx e deploy em VPS. Pipeline RAG em produção em infraestrutura local: Ollama LLM, PostgreSQL + pgvector, Whisper STT, n8n e integração Telegram Bot — custo zero de inferência em nuvem.",
+
+        exp3_title: "Técnico de Suporte de TI N1/N2",
+        exp3_period: "Jan 2023 — Presente",
+        exp3_company: "Life Tecnologia — Hospital Universitário Júlio Bandeira (HUJB/Ebserh) · Presencial · Cajazeiras, PB",
+        exp3_desc: "Manutenção de infraestrutura crítica de TI hospitalar com cumprimento rigoroso de SLA em ambiente regulamentado Ebserh. Suporte aos sistemas clínicos SEI, AGHU e PACS. Gestão de segurança de rede, provisionamento de usuários e documentação técnica para mais de 300 usuários internos.",
+
+        exp4_title: "Desenvolvedor Full-Stack",
+        exp4_period: "Fev 2022 — Set 2022",
+        exp4_company: "LOOP3 · Remoto · Itapema, SC",
+        exp4_desc: "Entrega de aplicações web e mobile de ponta a ponta com Node.js, Express.js, MongoDB, React e React Native. Otimização de tempos de resposta de API e consistência de UX. Integração da plataforma Asaas via Webhooks para automação de cobranças. Gestão de pipelines de release com Azure DevOps e Scrum em equipe remota multifuncional.",
+
+        exp5_title: "Técnico de TI — Desenvolvimento de Software & Suporte",
+        exp5_period: "Set 2021 — Fev 2023",
+        exp5_company: "Faculdade Santa Maria · Cajazeiras, PB",
+        exp5_desc: "Desenvolvimento de plataforma de atendimento ao aluno do zero com Node.js, TypeScript, Docker, AWS S3, PostgreSQL e React, atendendo 500+ usuários. Plataforma PIT com Node.js, SQLite3, SendGrid e React, automatizando notificações por e-mail. Relatórios analíticos em SQL Server para decisões estratégicas acadêmicas.",
+
+        exp6_title: "Diretor de RH & Desenvolvedor Full-Stack",
+        exp6_period: "Dez 2018 — Dez 2021",
+        exp6_company: "Loopis Jr — Empresa Júnior IFPB · Híbrido · Cajazeiras, PB",
+        exp6_desc: "Liderança de equipe técnica de 15+ desenvolvedores, introduzindo cerimônias Scrum, práticas de code review e padrões de documentação que melhoraram a previsibilidade das entregas. Desenvolvimento de aplicações web e mobile com Python (Django), Node.js e Ionic.",
+
+        // Projects
+        proj_label: "Portfólio",
+        proj_title: "Projetos em Destaque",
+        proj_sub: "Seleção de projetos com impacto real, disponíveis publicamente.",
+
+        proj1_name: "Pipeline RAG Local — AlttabCorp",
+        proj1_desc: "Pipeline completo de IA em produção: LLM local (Ollama + Qwen2.5), banco vetorial (PostgreSQL + pgvector), transcrição de áudio (Whisper), bot Telegram, automação n8n e monitoramento Uptime-Kuma — tudo auto-hospedado com custo zero de inferência.",
+
+        proj2_name: "Sistema de Inventários Históricos (TCC)",
+        proj2_desc: "Plataforma full-stack para análise em grafos de 1.000+ documentos históricos judiciais. Visualização interativa de redes de relações sociais e patrimoniais — adotada por pesquisadores do IFPB para estudos historiográficos.",
+
+        proj3_name: "API Biblioteca CIEC",
+        proj3_desc: "API RESTful com arquitetura modular (Repository Pattern), autenticação JWT, controle de acesso baseado em roles, documentação interativa Swagger UI e containerização Docker Compose completa.",
+
+        proj4_name: "AlttabCorp — Ecossistema Digital",
+        proj4_desc: "6+ plataformas digitais ativas: web dev, consultoria em TI, sistema de orçamento 3D com cálculo em tempo real, game studio (Godot Engine) e time de esports.",
+
+        proj5_name: "Automação de Certificados IFPB",
+        proj5_desc: "Automação da emissão de certificados institucionais para o IFPB Campus Cajazeiras. Validação por QR Code e integração com sistema acadêmico — reduziu o tempo de emissão de horas para minutos.",
+
+        proj6_name: "Orçamento 3D Automatizado",
+        proj6_desc: "Sistema web de cotação de impressão 3D com cálculo em tempo real por parâmetros do projeto. Interface responsiva com estimativa automática de custo e prazo.",
+
+        // RAG
+        rag_label: "IA em Produção",
+        rag_title: "Pipeline RAG Local",
+        rag_sub: "Arquitetura completa de inteligência artificial rodando em servidor próprio, sem dependência de cloud para inferência.",
+        rag_th_component: "Componente",
+        rag_th_tech: "Tecnologia",
+        rag_row1: "LLM Local",
+        rag_row2: "Banco Vetorial",
+        rag_row3: "Transcrição de Áudio",
+        rag_row4: "Automação de Fluxos",
+        rag_row5: "Interface Web",
+        rag_row6: "APIs Externas de LLM",
+        rag_row7: "Bot de Interação",
+        rag_row8: "Monitoramento",
+
+        // Education
+        edu_label: "Formação",
+        edu_title: "Educação & Especialização",
+        edu_sub: "2.060h de formação pós-graduada em andamento simultâneo.",
+        edu_ongoing: "🔄 Em andamento",
+        edu_done: "✅ Concluído",
+        edu1_degree: "Especialização em Arquitetura de Software",
+        edu2_degree: "Especialização em Inteligência Artificial",
+        edu3_degree: "Especialização em Segurança da Informação",
+        edu4_degree: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
+        edu4_thesis: "TCC: Sistema de Inventários Históricos com Neo4j",
+
+        // Certifications
+        cert_label: "Certificações",
+        cert_title: "Certificações & Cursos",
+        cert_sub: "Formação complementar com certificação verificável.",
+        cert1_name: "Docker — Conteinerização & DevOps",
+        cert2_issuer: "Neo4j — oficial",
+        cert3_name: "Git & GitHub Avançado",
+        cert4_name: "Gestão de Projetos",
+
+        // Contact
+        contact_label: "Contato",
+        contact_title: "Vamos Conversar?",
+        contact_sub: "Aberto a oportunidades remotas, parcerias e projetos desafiadores no Brasil e no exterior.",
+        contact_p1: "Se você trabalha com produtos digitais de impacto e busca um desenvolvedor sênior com visão de arquitetura, experiência em IA aplicada e perfil de liderança técnica — fale comigo.",
+        contact_p2: "Disponível para regimes CLT, PJ e contratos internacionais.",
+        avail_title: "📋 Disponibilidade",
+        avail1: "Trabalho remoto — Brasil e exterior",
+        avail2: "Regime CLT, PJ e contratos internacionais",
+        avail3: "Desenvolvedor Sênior Full-Stack"
+      },
+
+      // ══════════════════════════════════════════════════
+      //  ENGLISH
+      // ══════════════════════════════════════════════════
+      en: {
+        // Nav
+        nav_stack: "Stack",
+        nav_experience: "Experience",
+        nav_projects: "Projects",
+        nav_education: "Education",
+        nav_certifications: "Certifications",
+        nav_contact: "Contact",
+
+        // Hero
+        hero_status: "Open to new opportunities",
+        hero_label: "Full-Stack Developer · AI Specialist",
+        hero_role: '<strong>Senior Software Engineer</strong> with 6+ years of experience in<br>mission-critical systems for healthcare, education, and technology.',
+        hero_desc: 'Founder & CEO of <strong style="color:var(--gold)">AlttabCorp</strong>. R&D Researcher at LAVID/UFPB. Specialized in scalable architectures, production AI pipelines, and DevOps. Cajazeiras, PB, Brazil — available for remote work worldwide.',
+        hero_btn_cv: "Download Resume",
+        hero_btn_contact: "Get in touch",
+
+        // Stats
+        stat_ceo: "AlttabCorp — founder since 2023",
+        stat_years: "Years of development experience",
+        stat_research: "FAPESQ / LAVID — UFPB Researcher",
+        stat_rag: "Production AI pipeline — self-hosted server",
+        stat_edu: "Postgraduate in progress (3 specializations)",
+
+        // Stack
+        stack_label: "Skills",
+        stack_title: "Tech Stack",
+        stack_sub: "Technologies and tools with proven use in real-world production projects.",
+        stack_languages: "Languages",
+        stack_databases: "Databases",
+        stack_ai: "Artificial Intelligence",
+        stack_architecture: "Architecture & Practices",
+        stack_tools: "Tooling",
+
+        // Experience
+        exp_label: "Background",
+        exp_title: "Professional Experience",
+        exp_sub: "6+ years delivering high-impact solutions for healthcare, education, and technology.",
+
+        exp1_title: "Systems Development Researcher",
+        exp1_period: "Oct 2023 — Present",
+        exp1_company: "LAVID / UFPB — FAPESQ R&D Grant Project · Remote · João Pessoa, PB",
+        exp1_desc: "Architected and developed a large-scale mobile device management system focused on public safety. Implemented real-time IMEI tracking, WebSocket-based push notifications, and an analytical dashboard with high-availability requirements. Applied SOLID principles, Clean Architecture, and security best practices throughout a production-grade, peer-reviewed codebase.",
+
+        exp2_title: "Founder & CEO — Software Engineer / Tech Lead",
+        exp2_period: "May 2023 — Present",
+        exp2_desc: "Founded and scaled a multi-vertical technology company covering web development, IT consulting, 3D manufacturing, and game development. 6+ active digital platforms built entirely in-house. CI/CD infrastructure via GitHub Actions, Docker + Nginx and VPS deployment. Production RAG pipeline on local infrastructure: Ollama LLM, PostgreSQL + pgvector, Whisper STT, n8n automation and Telegram Bot integration — zero cloud inference cost.",
+
+        exp3_title: "IT Support Technician N1/N2",
+        exp3_period: "Jan 2023 — Present",
+        exp3_company: "Life Tecnologia — Hospital Universitário Júlio Bandeira (HUJB/Ebserh) · On-site · Cajazeiras, PB",
+        exp3_desc: "Maintained critical hospital IT infrastructure with strict SLA compliance in a regulated Ebserh environment. Supported clinical systems SEI, AGHU, and PACS. Managed network security, user provisioning, and technical documentation across departments serving 300+ internal users.",
+
+        exp4_title: "Full-Stack Developer",
+        exp4_period: "Feb 2022 — Sep 2022",
+        exp4_company: "LOOP3 · Remote · Itapema, SC",
+        exp4_desc: "Delivered end-to-end web and mobile applications using Node.js, Express.js, MongoDB, React and React Native. Optimized API response times and improved frontend UX consistency. Integrated the Asaas payment platform via Webhooks, automating billing workflows. Managed release pipelines through Azure DevOps with Scrum across a cross-functional remote team.",
+
+        exp5_title: "IT Technician — Software Development & Support",
+        exp5_period: "Sep 2021 — Feb 2023",
+        exp5_company: "Faculdade Santa Maria · Cajazeiras, PB",
+        exp5_desc: "Developed a student service platform from scratch using Node.js, TypeScript, Docker, AWS S3, PostgreSQL and React, serving 500+ users. Built an Individual Work Plan (PIT) platform with Node.js, SQLite3, SendGrid and React, automating email notification workflows. Created SQL Server analytical reports to support strategic academic decisions.",
+
+        exp6_title: "HR Director & Full-Stack Developer",
+        exp6_period: "Dec 2018 — Dec 2021",
+        exp6_company: "Loopis Jr — IFPB Junior Enterprise · Hybrid · Cajazeiras, PB",
+        exp6_desc: "Led a technical team of 15+ developers, introducing Scrum ceremonies, code review practices, and documentation standards that improved delivery predictability. Built web and mobile applications using Python (Django), Node.js, and Ionic across multiple client projects.",
+
+        // Projects
+        proj_label: "Portfolio",
+        proj_title: "Featured Projects",
+        proj_sub: "A selection of real-impact projects, publicly available.",
+
+        proj1_name: "Local RAG Pipeline — AlttabCorp",
+        proj1_desc: "Production-grade local AI system: Ollama + Qwen2.5 LLM, PostgreSQL + pgvector vector store, Whisper speech-to-text, Telegram Bot interface, n8n workflow automation and Uptime-Kuma monitoring — self-hosted with zero ongoing inference cost.",
+
+        proj2_name: "Historical Inventory System (Thesis)",
+        proj2_desc: "Full-stack platform for graph-based analysis of 1,000+ historical legal documents. Interactive network visualization of social and patrimonial relationships — adopted by IFPB researchers for historiographic studies.",
+
+        proj3_name: "CIEC Library API",
+        proj3_desc: "RESTful API with modular Repository Pattern architecture, JWT authentication, role-based access control, interactive Swagger UI docs, and full Docker Compose containerization.",
+
+        proj4_name: "AlttabCorp — Digital Ecosystem",
+        proj4_desc: "6+ active digital platforms: web dev, IT consulting, 3D quoting system with real-time cost calculation, game studio (Godot Engine), and esports team.",
+
+        proj5_name: "IFPB Certificate Automation",
+        proj5_desc: "Automated institutional certificate issuance for IFPB Campus Cajazeiras. QR Code validation and academic system integration reduced issuance time from hours to minutes.",
+
+        proj6_name: "Automated 3D Quoting",
+        proj6_desc: "Web-based 3D printing quotation system with real-time cost calculation by project parameters. Responsive interface with automatic cost and deadline estimation.",
+
+        // RAG
+        rag_label: "AI in Production",
+        rag_title: "Local RAG Pipeline",
+        rag_sub: "Complete AI architecture running on a self-hosted server, with zero cloud inference dependency.",
+        rag_th_component: "Component",
+        rag_th_tech: "Technology",
+        rag_row1: "Local LLM",
+        rag_row2: "Vector Store",
+        rag_row3: "Audio Transcription",
+        rag_row4: "Workflow Automation",
+        rag_row5: "Web Interface",
+        rag_row6: "External LLM APIs",
+        rag_row7: "Interaction Bot",
+        rag_row8: "Monitoring",
+
+        // Education
+        edu_label: "Education",
+        edu_title: "Education & Specialization",
+        edu_sub: "2,060h of concurrent postgraduate coursework across three specializations.",
+        edu_ongoing: "🔄 In Progress",
+        edu_done: "✅ Completed",
+        edu1_degree: "Postgraduate in Software Architecture",
+        edu2_degree: "Postgraduate in Artificial Intelligence",
+        edu3_degree: "Postgraduate in Information Security",
+        edu4_degree: "B.Tech in Systems Analysis and Development",
+        edu4_thesis: "Thesis: Historical Inventory System with Neo4j",
+
+        // Certifications
+        cert_label: "Certifications",
+        cert_title: "Certifications & Courses",
+        cert_sub: "Complementary education with verifiable certification.",
+        cert1_name: "Docker — Containerization & DevOps",
+        cert2_issuer: "Neo4j — official",
+        cert3_name: "Advanced Git & GitHub",
+        cert4_name: "Project Management",
+
+        // Contact
+        contact_label: "Contact",
+        contact_title: "Let's Talk?",
+        contact_sub: "Open to remote opportunities, partnerships, and challenging projects in Brazil and abroad.",
+        contact_p1: "If you work on high-impact digital products and are looking for a senior developer with architectural vision, applied AI experience, and a technical leadership profile — let's connect.",
+        contact_p2: "Available for CLT, PJ, and international contracts.",
+        avail_title: "📋 Availability",
+        avail1: "Remote work — Brazil and worldwide",
+        avail2: "CLT, PJ & international contracts",
+        avail3: "Senior Full-Stack Developer"
+      }
+    };
+
+    // ══════════════════════════════════════════════════
+    //  ENGINE — Aplica idioma selecionado
+    // ══════════════════════════════════════════════════
+    let currentLang = localStorage.getItem('lang') || 'pt';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+      // Atualiza título da página
+      document.title = lang === 'pt'
+        ? 'Glaymar França — Desenvolvedor Full-Stack Sênior & AI Specialist'
+        : 'Glaymar França — Senior Full-Stack Developer & AI Specialist';
+
+      // Atualiza link de download do currículo
+      const btnCV = document.getElementById('btnDownloadCV');
+      if (btnCV) {
+        btnCV.href = lang === 'pt' ? 'assets/Curriculo.pdf' : 'assets/Resume.pdf';
+      }
+
+      // Aplica traduções em todos os elementos com data-i18n
+      const dict = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Atualiza botões ativos do language switcher
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    // ══════════════════════════════════════════════════
+    //  EVENT LISTENERS
+    // ══════════════════════════════════════════════════
+
+    // Language switcher (desktop + mobile)
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Nav scroll effect
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      mobileNav.classList.toggle('open');
+    });
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // Inicializa idioma salvo
+    setLang(currentLang);
+  </script>

@@ -1,363 +1,1150 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sobre — Glaymar França | Desenvolvedor Full-Stack Sênior & CEO AlttabCorp</title>
-<meta name="description" content="Trajetória pessoal e profissional de Glaymar França — desenvolvedor, fundador da AlttabCorp e pesquisador P&D. Filosofia, história e visão de produto.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;400i&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#0A0E17;--bg2:#0F1420;--bg3:#151C2E;
-  --surface:#1A2338;--surface2:#1F2B42;
-  --border:#263047;--border2:#2E3B57;
-  --text:#E8EDF5;--text2:#8B9AB5;--text3:#556080;
-  --gold:#C8A96E;--gold2:#E0C080;
-  --blue:#4A90D9;--teal:#3DBFA8;
-  --radius:10px;
-  --font:'DM Sans',sans-serif;
-  --mono:'DM Mono',monospace;
-  --serif:'Playfair Display',serif;
-}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.6;overflow-x:hidden}
-::-webkit-scrollbar{width:4px}
-::-webkit-scrollbar-track{background:var(--bg)}
-::-webkit-scrollbar-thumb{background:var(--border2);border-radius:2px}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre — Glaymar França | Desenvolvedor Full-Stack Sênior & CEO AlttabCorp</title>
+  <meta name="description"
+    content="Trajetória pessoal e profissional de Glaymar França — desenvolvedor, fundador da AlttabCorp e pesquisador P&D. Filosofia, história e visão de produto.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;400i&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0
+    }
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 2rem;height:64px;display:flex;align-items:center;justify-content:space-between;transition:all .3s}
-nav.scrolled{background:rgba(10,14,23,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:var(--mono);font-size:14px;color:var(--gold);text-decoration:none;letter-spacing:.05em}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color .2s}
-.nav-links a:hover,.nav-links a.active{color:var(--text)}
-.nav-cta{padding:8px 20px;border:1px solid var(--gold);border-radius:6px;font-size:13px;color:var(--gold);text-decoration:none;font-family:var(--mono);transition:all .2s}
-.nav-cta:hover{background:var(--gold);color:var(--bg)}
-.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
-.hamburger span{display:block;width:22px;height:2px;background:var(--text2);border-radius:2px}
-.mobile-nav{display:none;position:fixed;top:64px;left:0;right:0;background:rgba(10,14,23,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:1.5rem 2rem;z-index:99}
-.mobile-nav.open{display:block}
-.mobile-nav ul{list-style:none;display:flex;flex-direction:column;gap:1rem}
-.mobile-nav a{color:var(--text2);text-decoration:none;font-size:15px}
+    :root {
+      --bg: #0A0E17;
+      --bg2: #0F1420;
+      --bg3: #151C2E;
+      --surface: #1A2338;
+      --surface2: #1F2B42;
+      --border: #263047;
+      --border2: #2E3B57;
+      --text: #E8EDF5;
+      --text2: #8B9AB5;
+      --text3: #556080;
+      --gold: #C8A96E;
+      --gold2: #E0C080;
+      --blue: #4A90D9;
+      --teal: #3DBFA8;
+      --radius: 10px;
+      --font: 'DM Sans', sans-serif;
+      --mono: 'DM Mono', monospace;
+      --serif: 'Playfair Display', serif;
+    }
 
-/* HERO SOBRE */
-.sobre-hero{padding:8rem 2rem 5rem;position:relative;overflow:hidden;border-bottom:1px solid var(--border)}
-.sobre-hero::before{content:'';position:absolute;top:-10%;right:-5%;width:500px;height:500px;background:radial-gradient(circle,rgba(200,169,110,.05) 0%,transparent 70%);pointer-events:none}
-.hero-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:4rem;align-items:start}
-.hero-label{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
-.hero-label::before{content:'';display:inline-block;width:24px;height:1px;background:var(--gold)}
-.hero-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);margin-bottom:1rem;color:var(--text);line-height:1.15}
-.hero-sub{font-size:1rem;color:var(--text2);max-width:500px;line-height:1.75;margin-bottom:2rem}
-.meta-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;position:sticky;top:80px}
-.meta-title{font-family:var(--mono);font-size:11px;color:var(--text3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:1.2rem}
-.meta-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
-.meta-item{}
-.meta-label{font-size:11px;color:var(--text3);font-family:var(--mono);margin-bottom:.2rem}
-.meta-value{font-size:.9rem;color:var(--text2)}
+    html {
+      scroll-behavior: smooth
+    }
 
-/* SECTIONS */
-.page-content{max-width:1100px;margin:0 auto;padding:0 2rem}
-.content-section{padding:4rem 0;border-bottom:1px solid var(--border)}
-.content-section:last-child{border-bottom:none}
-.section-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
-.section-label{font-family:var(--mono);font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
-.section-title{font-size:1.4rem;font-weight:600;color:var(--text);margin-bottom:1.2rem;line-height:1.3}
-.section-body p{font-size:.925rem;color:var(--text2);line-height:1.8;margin-bottom:1rem}
-.section-body p:last-child{margin-bottom:0}
-.section-body strong{color:var(--text);font-weight:500}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.6;
+      overflow-x: hidden
+    }
 
-/* QUOTE */
-.quote-block{border-left:2px solid var(--gold);padding:1rem 1.5rem;margin:1.5rem 0;background:var(--surface);border-radius:0 var(--radius) var(--radius) 0}
-.quote-text{font-family:var(--serif);font-size:1.2rem;font-style:italic;color:var(--gold2);margin-bottom:.5rem}
-.quote-sub{font-size:.8rem;color:var(--text3);font-family:var(--mono)}
+    ::-webkit-scrollbar {
+      width: 4px
+    }
 
-/* TIMELINE */
-.timeline{position:relative;padding-left:1.5rem;border-left:1px solid var(--border)}
-.tl-item{padding-bottom:2rem;position:relative}
-.tl-item:last-child{padding-bottom:0}
-.tl-item::before{content:'';position:absolute;left:-1.95rem;top:.35rem;width:8px;height:8px;border-radius:50%;background:var(--surface2);border:2px solid var(--border2)}
-.tl-year{font-family:var(--mono);font-size:11px;color:var(--gold);margin-bottom:.3rem;letter-spacing:.04em}
-.tl-content{font-size:.9rem;color:var(--text2);line-height:1.7}
+    ::-webkit-scrollbar-track {
+      background: var(--bg)
+    }
 
-/* FEAT LIST */
-.feat-list{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-top:1rem}
-.feat-list li{display:flex;gap:.8rem;font-size:.9rem;color:var(--text2);line-height:1.6}
-.feat-list li::before{content:'→';color:var(--gold);flex-shrink:0;font-family:var(--mono)}
+    ::-webkit-scrollbar-thumb {
+      background: var(--border2);
+      border-radius: 2px
+    }
 
-/* SKILLS TAG CLOUD */
-.tag-cloud{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
-.tag{padding:5px 12px;background:var(--surface);border:1px solid var(--border);border-radius:5px;font-family:var(--mono);font-size:12px;color:var(--text2)}
+    /* LANG SWITCHER */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px;
+      margin-left: 1rem
+    }
 
-/* CTA SECTION */
-.cta-section{padding:4rem 0;text-align:center}
-.cta-section p{font-size:.95rem;color:var(--text2);max-width:480px;margin:0 auto 2rem;line-height:1.75}
-.cta-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
-.btn-primary{padding:12px 28px;background:var(--gold);color:var(--bg);border-radius:7px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s}
-.btn-primary:hover{background:var(--gold2)}
-.btn-outline{padding:12px 28px;border:1px solid var(--border2);color:var(--text2);border-radius:7px;font-size:14px;text-decoration:none;transition:all .2s}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+    .lang-btn {
+      padding: 5px 10px;
+      border: none;
+      border-radius: 4px;
+      font-family: var(--mono);
+      font-size: 11px;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text3);
+      transition: all .2s;
+      letter-spacing: .03em
+    }
 
-/* FOOTER */
-footer{padding:2rem;border-top:1px solid var(--border);text-align:center}
-footer p{font-size:.8rem;color:var(--text3);font-family:var(--mono)}
-footer a{color:var(--text3);text-decoration:none;transition:color .2s}
-footer a:hover{color:var(--gold)}
+    .lang-btn.active {
+      background: var(--gold);
+      color: var(--bg);
+      font-weight: 500
+    }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .nav-links,.nav-cta{display:none}
-  .hamburger{display:flex}
-  .hero-inner{grid-template-columns:1fr}
-  .meta-card{position:static;display:none}
-  .section-grid{grid-template-columns:1fr}
-  .sobre-hero{padding:6rem 1.2rem 3rem}
-  .page-content{padding:0 1.2rem}
-}
-</style>
+    .lang-btn:hover:not(.active) {
+      color: var(--text2);
+      background: var(--surface2)
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .3s
+    }
+
+    nav.scrolled {
+      background: rgba(10, 14, 23, .92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 14px;
+      color: var(--gold);
+      text-decoration: none;
+      letter-spacing: .05em
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text2);
+      text-decoration: none;
+      transition: color .2s
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text)
+    }
+
+    .nav-cta {
+      padding: 8px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      font-size: 13px;
+      color: var(--gold);
+      text-decoration: none;
+      font-family: var(--mono);
+      transition: all .2s
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      color: var(--bg)
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text2);
+      border-radius: 2px
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(10, 14, 23, .98);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      z-index: 99
+    }
+
+    .mobile-nav.open {
+      display: block
+    }
+
+    .mobile-nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .mobile-nav a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 15px
+    }
+
+    .mobile-lang {
+      display: flex;
+      gap: 4px;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border)
+    }
+
+    /* HERO SOBRE */
+    .sobre-hero {
+      padding: 8rem 2rem 5rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .sobre-hero::before {
+      content: '';
+      position: absolute;
+      top: -10%;
+      right: -5%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(200, 169, 110, .05) 0%, transparent 70%);
+      pointer-events: none
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 4rem;
+      align-items: start
+    }
+
+    .hero-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem
+    }
+
+    .hero-label::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--gold)
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 1rem;
+      color: var(--text);
+      line-height: 1.15
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text2);
+      max-width: 500px;
+      line-height: 1.75;
+      margin-bottom: 2rem
+    }
+
+    .meta-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem;
+      position: sticky;
+      top: 80px
+    }
+
+    .meta-title {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--text3);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem
+    }
+
+    .meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem
+    }
+
+    .meta-label {
+      font-size: 11px;
+      color: var(--text3);
+      font-family: var(--mono);
+      margin-bottom: .2rem
+    }
+
+    .meta-value {
+      font-size: .9rem;
+      color: var(--text2)
+    }
+
+    /* SECTIONS */
+    .page-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem
+    }
+
+    .content-section {
+      padding: 4rem 0;
+      border-bottom: 1px solid var(--border)
+    }
+
+    .content-section:last-child {
+      border-bottom: none
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      margin-bottom: .5rem
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+      line-height: 1.3
+    }
+
+    .section-body p {
+      font-size: .925rem;
+      color: var(--text2);
+      line-height: 1.8;
+      margin-bottom: 1rem
+    }
+
+    .section-body p:last-child {
+      margin-bottom: 0
+    }
+
+    .section-body strong {
+      color: var(--text);
+      font-weight: 500
+    }
+
+    /* QUOTE */
+    .quote-block {
+      border-left: 2px solid var(--gold);
+      padding: 1rem 1.5rem;
+      margin: 1.5rem 0;
+      background: var(--surface);
+      border-radius: 0 var(--radius) var(--radius) 0
+    }
+
+    .quote-text {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-style: italic;
+      color: var(--gold2);
+      margin-bottom: .5rem
+    }
+
+    .quote-sub {
+      font-size: .8rem;
+      color: var(--text3);
+      font-family: var(--mono)
+    }
+
+    /* TIMELINE */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 1px solid var(--border)
+    }
+
+    .tl-item {
+      padding-bottom: 2rem;
+      position: relative
+    }
+
+    .tl-item:last-child {
+      padding-bottom: 0
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.95rem;
+      top: .35rem;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--surface2);
+      border: 2px solid var(--border2)
+    }
+
+    .tl-year {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--gold);
+      margin-bottom: .3rem;
+      letter-spacing: .04em
+    }
+
+    .tl-content {
+      font-size: .9rem;
+      color: var(--text2);
+      line-height: 1.7
+    }
+
+    /* FEAT LIST */
+    .feat-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .7rem;
+      margin-top: 1rem
+    }
+
+    .feat-list li {
+      display: flex;
+      gap: .8rem;
+      font-size: .9rem;
+      color: var(--text2);
+      line-height: 1.6
+    }
+
+    .feat-list li::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+      font-family: var(--mono)
+    }
+
+    /* TAG CLOUD */
+    .tag-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.2rem
+    }
+
+    .tag {
+      padding: 5px 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text2)
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 4rem 0;
+      text-align: center
+    }
+
+    .cta-section p {
+      font-size: .95rem;
+      color: var(--text2);
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.75
+    }
+
+    .cta-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap
+    }
+
+    .btn-primary {
+      padding: 12px 28px;
+      background: var(--gold);
+      color: var(--bg);
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .2s
+    }
+
+    .btn-primary:hover {
+      background: var(--gold2)
+    }
+
+    .btn-outline {
+      padding: 12px 28px;
+      border: 1px solid var(--border2);
+      color: var(--text2);
+      border-radius: 7px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all .2s
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      color: var(--gold)
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 2rem;
+      border-top: 1px solid var(--border);
+      text-align: center
+    }
+
+    footer p {
+      font-size: .8rem;
+      color: var(--text3);
+      font-family: var(--mono)
+    }
+
+    footer a {
+      color: var(--text3);
+      text-decoration: none;
+      transition: color .2s
+    }
+
+    footer a:hover {
+      color: var(--gold)
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px) {
+
+      .nav-links,
+      .nav-cta,
+      .desktop-lang {
+        display: none !important
+      }
+
+      .hamburger {
+        display: flex
+      }
+
+      .hero-inner {
+        grid-template-columns: 1fr
+      }
+
+      .meta-card {
+        position: static;
+        display: none
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr
+      }
+
+      .sobre-hero {
+        padding: 6rem 1.2rem 3rem
+      }
+
+      .page-content {
+        padding: 0 1.2rem
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="index.html" class="nav-logo">glaymar.dev</a>
-  <ul class="nav-links">
-    <li><a href="index.html#stack">Stack</a></li>
-    <li><a href="index.html#experience">Experiência</a></li>
-    <li><a href="index.html#projects">Projetos</a></li>
-    <li><a href="index.html#education">Formação</a></li>
-    <li><a href="sobre.html" class="active">Sobre</a></li>
-    <li><a href="index.html#contact" class="nav-cta">Contato</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-<div class="mobile-nav" id="mobileNav">
-  <ul>
-    <li><a href="index.html">Início</a></li>
-    <li><a href="index.html#stack">Stack</a></li>
-    <li><a href="index.html#experience">Experiência</a></li>
-    <li><a href="index.html#projects">Projetos</a></li>
-    <li><a href="index.html#contact">Contato</a></li>
-  </ul>
-</div>
-
-<!-- HERO SOBRE -->
-<div class="sobre-hero">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-label">Perfil Pessoal & Profissional</div>
-      <h1 class="hero-title">Sobre<br>Glaymar França</h1>
-      <p class="hero-sub">CEO da AlttabCorp, desenvolvedor Full-Stack Sênior e pesquisador P&D. Natural de João Pessoa, PB — construindo tecnologia séria no interior do Nordeste.</p>
-    </div>
-    <div class="meta-card">
-      <div class="meta-title">Em resumo</div>
-      <ul class="meta-list">
-        <li class="meta-item">
-          <div class="meta-label">Atuação atual</div>
-          <div class="meta-value">CEO AlttabCorp & Pesquisador LAVID/UFPB</div>
-        </li>
-        <li class="meta-item">
-          <div class="meta-label">Experiência</div>
-          <div class="meta-value">6+ anos em desenvolvimento Full-Stack</div>
-        </li>
-        <li class="meta-item">
-          <div class="meta-label">Formação</div>
-          <div class="meta-value">Tecnólogo em ADS — IFPB + 3 especializações em andamento</div>
-        </li>
-        <li class="meta-item">
-          <div class="meta-label">Localização</div>
-          <div class="meta-value">Cajazeiras, PB — disponível para remoto</div>
-        </li>
-        <li class="meta-item">
-          <div class="meta-label">O que busco</div>
-          <div class="meta-value">Projetos com impacto real, autonomia técnica e colaboração de longo prazo</div>
-        </li>
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">glaymar.dev</a>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
+        <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
+        <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+        <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
+        <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
+        <li><a href="sobre.html" class="active" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="index.html#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
       </ul>
+      <div class="lang-switcher desktop-lang">
+        <button class="lang-btn active" data-lang="pt">PT</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <ul>
+      <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+      <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
+      <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
+      <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+      <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
+      <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
+    </ul>
+    <div class="mobile-lang lang-switcher">
+      <button class="lang-btn active" data-lang="pt">PT</button>
+      <button class="lang-btn" data-lang="en">EN</button>
     </div>
   </div>
-</div>
 
-<!-- CONTENT -->
-<div class="page-content">
-
-  <!-- QUEM SOU -->
-  <div class="content-section">
-    <div class="section-grid">
+  <!-- HERO SOBRE -->
+  <div class="sobre-hero">
+    <div class="hero-inner">
       <div>
-        <div class="section-label">Identidade</div>
-        <h2 class="section-title">Quem é Glaymar?</h2>
-        <div class="section-body">
-          <p>Sou Glaymar de França, desenvolvedor Full-Stack Sênior e fundador da <strong>AlttabCorp</strong>. Natural de João Pessoa, cresci em família grande — sou o mais velho de cinco irmãos, todos com nomes começando com "Glay". Assumir responsabilidade cedo moldou minha forma de liderar, trabalhar e enxergar tecnologia.</p>
-          <p>Comecei na tecnologia unindo curiosidade técnica com vontade de resolver problemas reais. Passei por freelas, empresa júnior, faculdades, hospital universitário e pesquisa aplicada — cada etapa adicionando uma camada diferente de visão. Hoje atuo como desenvolvedor sênior e CEO, conectando estratégia de negócio e desenvolvimento de software.</p>
-          <p>Além do código: sou gamer — Top Lane com Ornn no League of Legends. Os aprendizados de jogo em equipe influenciam diretamente como conduzo times e projetos.</p>
-        </div>
-        <ul class="feat-list" style="margin-top:1.2rem">
-          <li>Primogênito — responsabilidade e liderança desde cedo</li>
-          <li>Trajetória de 6+ anos, do técnico ao sênior e fundador</li>
-          <li>Experiência em saúde, educação, pesquisa e produto digital</li>
-          <li>Cajazeiras, PB — tecnologia séria no interior do Nordeste</li>
+        <div class="hero-label" data-i18n="about_hero_label">Perfil Pessoal & Profissional</div>
+        <h1 class="hero-title" data-i18n="about_hero_title">Sobre<br>Glaymar França</h1>
+        <p class="hero-sub" data-i18n="about_hero_sub">CEO da AlttabCorp, desenvolvedor Full-Stack Sênior e pesquisador
+          P&D. Natural de João Pessoa, PB — construindo tecnologia séria no interior do Nordeste.</p>
+      </div>
+      <div class="meta-card">
+        <div class="meta-title" data-i18n="about_meta_title">Em resumo</div>
+        <ul class="meta-list">
+          <li class="meta-item">
+            <div class="meta-label" data-i18n="about_meta_role_label">Atuação atual</div>
+            <div class="meta-value" data-i18n="about_meta_role_value">CEO AlttabCorp & Pesquisador LAVID/UFPB</div>
+          </li>
+          <li class="meta-item">
+            <div class="meta-label" data-i18n="about_meta_exp_label">Experiência</div>
+            <div class="meta-value" data-i18n="about_meta_exp_value">6+ anos em desenvolvimento Full-Stack</div>
+          </li>
+          <li class="meta-item">
+            <div class="meta-label" data-i18n="about_meta_edu_label">Formação</div>
+            <div class="meta-value" data-i18n="about_meta_edu_value">Tecnólogo em ADS — IFPB + 3 especializações em
+              andamento</div>
+          </li>
+          <li class="meta-item">
+            <div class="meta-label" data-i18n="about_meta_loc_label">Localização</div>
+            <div class="meta-value" data-i18n="about_meta_loc_value">Cajazeiras, PB — disponível para remoto</div>
+          </li>
+          <li class="meta-item">
+            <div class="meta-label" data-i18n="about_meta_goal_label">O que busco</div>
+            <div class="meta-value" data-i18n="about_meta_goal_value">Projetos com impacto real, autonomia técnica e
+              colaboração de longo prazo</div>
+          </li>
         </ul>
       </div>
-      <div>
-        <div class="section-label">Curiosidades</div>
-        <h2 class="section-title">Trajetória & Origem</h2>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-year">O nome</div>
-            <div class="tl-content">"Glaymar" era a senha do computador da biblioteca onde minha mãe estudava. Uma senha virou identidade.</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="page-content">
+
+    <!-- QUEM SOU -->
+    <div class="content-section">
+      <div class="section-grid">
+        <div>
+          <div class="section-label" data-i18n="about_id_label">Identidade</div>
+          <h2 class="section-title" data-i18n="about_id_title">Quem é Glaymar?</h2>
+          <div class="section-body">
+            <p data-i18n="about_id_p1">Sou Glaymar de França, desenvolvedor Full-Stack Sênior e fundador da
+              <strong>AlttabCorp</strong>. Natural de João Pessoa, cresci em família grande — sou o mais velho de cinco
+              irmãos, todos com nomes começando com "Glay". Assumir responsabilidade cedo moldou minha forma de liderar,
+              trabalhar e enxergar tecnologia.</p>
+            <p data-i18n="about_id_p2">Comecei na tecnologia unindo curiosidade técnica com vontade de resolver
+              problemas reais. Passei por freelas, empresa júnior, faculdades, hospital universitário e pesquisa
+              aplicada — cada etapa adicionando uma camada diferente de visão. Hoje atuo como desenvolvedor sênior e
+              CEO, conectando estratégia de negócio e desenvolvimento de software.</p>
+            <p data-i18n="about_id_p3">Além do código: sou gamer — Top Lane com Ornn no League of Legends. Os
+              aprendizados de jogo em equipe influenciam diretamente como conduzo times e projetos.</p>
           </div>
-          <div class="tl-item">
-            <div class="tl-year">Os irmãos "Glay"</div>
-            <div class="tl-content">Somos cinco irmãos — todos com nomes que começam com "Glay". Família presente, base sólida.</div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">Início na tecnologia</div>
-            <div class="tl-content">Curiosidade por computadores desde cedo. Freelas e projetos experimentais deram origem à trajetória profissional.</div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">IFPB & Loopis Jr</div>
-            <div class="tl-content">Formação técnica e graduação no IFPB Cajazeiras. Liderança de equipe de 15+ pessoas na empresa júnior.</div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">Pesquisa P&D</div>
-            <div class="tl-content">Projeto FAPESQ no LAVID/UFPB — inovação tecnológica aplicada à segurança pública.</div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-year">AlttabCorp</div>
-            <div class="tl-content">Fundação da empresa — passo natural para transformar a trajetória em operação estruturada com múltiplas verticais.</div>
+          <ul class="feat-list" style="margin-top:1.2rem">
+            <li data-i18n="about_id_feat1">Primogênito — responsabilidade e liderança desde cedo</li>
+            <li data-i18n="about_id_feat2">Trajetória de 6+ anos, do técnico ao sênior e fundador</li>
+            <li data-i18n="about_id_feat3">Experiência em saúde, educação, pesquisa e produto digital</li>
+            <li data-i18n="about_id_feat4">Cajazeiras, PB — tecnologia séria no interior do Nordeste</li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-label" data-i18n="about_tl_label">Curiosidades</div>
+          <h2 class="section-title" data-i18n="about_tl_title">Trajetória & Origem</h2>
+          <div class="timeline">
+            <div class="tl-item">
+              <div class="tl-year" data-i18n="about_tl1_year">O nome</div>
+              <div class="tl-content" data-i18n="about_tl1_content">"Glaymar" era a senha do computador da biblioteca
+                onde minha mãe estudava. Uma senha virou identidade.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year" data-i18n="about_tl2_year">Os irmãos "Glay"</div>
+              <div class="tl-content" data-i18n="about_tl2_content">Somos cinco irmãos — todos com nomes que começam com
+                "Glay". Família presente, base sólida.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year" data-i18n="about_tl3_year">Início na tecnologia</div>
+              <div class="tl-content" data-i18n="about_tl3_content">Curiosidade por computadores desde cedo. Freelas e
+                projetos experimentais deram origem à trajetória profissional.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year" data-i18n="about_tl4_year">IFPB & Loopis Jr</div>
+              <div class="tl-content" data-i18n="about_tl4_content">Formação técnica e graduação no IFPB Cajazeiras.
+                Liderança de equipe de 15+ pessoas na empresa júnior.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year" data-i18n="about_tl5_year">Pesquisa P&D</div>
+              <div class="tl-content" data-i18n="about_tl5_content">Projeto FAPESQ no LAVID/UFPB — inovação tecnológica
+                aplicada à segurança pública.</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-year">AlttabCorp</div>
+              <div class="tl-content" data-i18n="about_tl6_content">Fundação da empresa — passo natural para transformar
+                a trajetória em operação estruturada com múltiplas verticais.</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- FILOSOFIA -->
-  <div class="content-section">
-    <div class="section-grid">
-      <div>
-        <div class="section-label">Visão</div>
-        <h2 class="section-title">Filosofia de Trabalho</h2>
-        <div class="quote-block">
-          <div class="quote-text">"O Tank Tem Que Tankar"</div>
-          <div class="quote-sub">Origem: League of Legends, Top Lane — aplicação: liderança e projetos</div>
+    <!-- FILOSOFIA -->
+    <div class="content-section">
+      <div class="section-grid">
+        <div>
+          <div class="section-label" data-i18n="about_phil_label">Visão</div>
+          <h2 class="section-title" data-i18n="about_phil_title">Filosofia de Trabalho</h2>
+          <div class="quote-block">
+            <div class="quote-text" data-i18n="about_quote_text">"O Tank Tem Que Tankar"</div>
+            <div class="quote-sub" data-i18n="about_quote_sub">Origem: League of Legends, Top Lane — aplicação:
+              liderança e projetos</div>
+          </div>
+          <div class="section-body">
+            <p data-i18n="about_phil_p1">Essa frase nasceu jogando como tank na Top Lane, mas representa muito mais do
+              que um bordão de jogo. Significa criar espaço para o time operar, assumir a linha de frente quando
+              necessário e garantir que cada pessoa tenha condições de entregar o seu melhor.</p>
+            <p data-i18n="about_phil_p2">Na prática: assumir responsabilidade pelos riscos, proteger o que é estratégico
+              e construir o cenário certo para execução. Liderança não é visibilidade — é proteção e estrutura para o
+              time prosperar.</p>
+          </div>
         </div>
-        <div class="section-body">
-          <p>Essa frase nasceu jogando como tank na Top Lane, mas representa muito mais do que um bordão de jogo. Significa criar espaço para o time operar, assumir a linha de frente quando necessário e garantir que cada pessoa tenha condições de entregar o seu melhor.</p>
-          <p>Na prática: assumir responsabilidade pelos riscos, proteger o que é estratégico e construir o cenário certo para execução. Liderança não é visibilidade — é proteção e estrutura para o time prosperar.</p>
-        </div>
-      </div>
-      <div>
-        <div class="section-label">Princípios técnicos</div>
-        <h2 class="section-title">Como Trabalho</h2>
-        <div class="section-body">
-          <p>Acredito que código bem escrito é um ato de respeito com quem vem depois. Arquitetura clara, documentação real e testes que significam algo.</p>
-        </div>
-        <ul class="feat-list">
-          <li><strong>Visão fim a fim</strong> — do levantamento de requisitos ao deploy e monitoramento</li>
-          <li><strong>SOLID & Clean Architecture</strong> — não como teoria, mas como prática diária</li>
-          <li><strong>IA aplicada</strong> — com critério, não como buzzword</li>
-          <li><strong>Comunicação técnica clara</strong> — com o time e com quem decide o produto</li>
-          <li><strong>Entrega consistente</strong> — qualidade não é opcional em sistemas críticos</li>
-        </ul>
-        <div class="tag-cloud">
-          <span class="tag">SOLID</span>
-          <span class="tag">Clean Code</span>
-          <span class="tag">TDD</span>
-          <span class="tag">Scrum</span>
-          <span class="tag">Code Review</span>
-          <span class="tag">Documentação</span>
-          <span class="tag">CI/CD</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ALTTABCORP -->
-  <div class="content-section">
-    <div class="section-grid">
-      <div>
-        <div class="section-label">Empresa</div>
-        <h2 class="section-title">AlttabCorp</h2>
-        <div class="section-body">
-          <p>A <strong>AlttabCorp</strong> é o ponto de encontro entre tecnologia, empreendedorismo e visão de produto. Como CEO, lidero o ciclo completo dos projetos: requisitos, arquitetura, desenvolvimento, implantação e evolução contínua.</p>
-          <p>Nosso diferencial é a capacidade de atuar com proximidade, decisões rápidas e alto senso de dono em cada entrega. Não somos uma agência — somos um time técnico com visão de negócio.</p>
-        </div>
-        <ul class="feat-list" style="margin-top:1rem">
-          <li>Desenvolvimento web e mobile sob demanda</li>
-          <li>Consultoria em arquitetura de sistemas e TI</li>
-          <li>Documentação técnica com LaTeX e CI/CD</li>
-          <li>Manufatura 3D — prototipagem e produtos finais</li>
-          <li>Game development — Alttab Studio (Godot Engine)</li>
-          <li>Alttab Esports — time competitivo de League of Legends</li>
-        </ul>
-      </div>
-      <div>
-        <div class="section-label">Stack da empresa</div>
-        <h2 class="section-title">Tecnologias em uso</h2>
-        <div class="section-body">
-          <p>Toda infraestrutura da AlttabCorp é desenvolvida e mantida in-house, com pipeline CI/CD profissional e 6+ plataformas ativas.</p>
-        </div>
-        <div class="tag-cloud">
-          <span class="tag">Node.js</span>
-          <span class="tag">TypeScript</span>
-          <span class="tag">React</span>
-          <span class="tag">Next.js</span>
-          <span class="tag">Docker</span>
-          <span class="tag">Nginx</span>
-          <span class="tag">GitHub Actions</span>
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Ollama</span>
-          <span class="tag">pgvector</span>
-          <span class="tag">n8n</span>
-          <span class="tag">LaTeX</span>
-          <span class="tag">Godot Engine</span>
-        </div>
-        <div style="margin-top:1.5rem">
-          <a href="https://alttabcorp.com.br" target="_blank" style="font-family:var(--mono);font-size:13px;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--border);padding-bottom:.3rem">
-            Visitar alttabcorp.com.br →
-          </a>
+        <div>
+          <div class="section-label" data-i18n="about_work_label">Princípios técnicos</div>
+          <h2 class="section-title" data-i18n="about_work_title">Como Trabalho</h2>
+          <div class="section-body">
+            <p data-i18n="about_work_p1">Acredito que código bem escrito é um ato de respeito com quem vem depois.
+              Arquitetura clara, documentação real e testes que significam algo.</p>
+          </div>
+          <ul class="feat-list">
+            <li data-i18n="about_work_feat1"><strong>Visão fim a fim</strong> — do levantamento de requisitos ao deploy
+              e monitoramento</li>
+            <li data-i18n="about_work_feat2"><strong>SOLID & Clean Architecture</strong> — não como teoria, mas como
+              prática diária</li>
+            <li data-i18n="about_work_feat3"><strong>IA aplicada</strong> — com critério, não como buzzword</li>
+            <li data-i18n="about_work_feat4"><strong>Comunicação técnica clara</strong> — com o time e com quem decide o
+              produto</li>
+            <li data-i18n="about_work_feat5"><strong>Entrega consistente</strong> — qualidade não é opcional em sistemas
+              críticos</li>
+          </ul>
+          <div class="tag-cloud">
+            <span class="tag">SOLID</span>
+            <span class="tag">Clean Code</span>
+            <span class="tag">TDD</span>
+            <span class="tag">Scrum</span>
+            <span class="tag">Code Review</span>
+            <span class="tag" data-i18n="tag_docs">Documentação</span>
+            <span class="tag">CI/CD</span>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- CTA -->
-  <div class="cta-section">
-    <div class="section-label" style="text-align:center;margin-bottom:.5rem">Vamos conversar?</div>
-    <h2 style="font-size:1.5rem;font-weight:600;color:var(--text);margin-bottom:1rem">Aberto a Oportunidades e Parcerias</h2>
-    <p>Se o seu produto resolve problema real e você precisa de um desenvolvedor sênior com visão técnica e de negócio — estou disponível para conversa.</p>
-    <div class="cta-btns">
-      <a href="mailto:glaymar2010@gmail.com" class="btn-primary">📧 Enviar email</a>
-      <a href="index.html#contact" class="btn-outline">Ver todos os contatos</a>
-      <a href="assets/Curriculo.pdf" download class="btn-outline">↓ Baixar currículo</a>
+    <!-- ALTTABCORP -->
+    <div class="content-section">
+      <div class="section-grid">
+        <div>
+          <div class="section-label" data-i18n="about_corp_label">Empresa</div>
+          <h2 class="section-title">AlttabCorp</h2>
+          <div class="section-body">
+            <p data-i18n="about_corp_p1">A <strong>AlttabCorp</strong> é o ponto de encontro entre tecnologia,
+              empreendedorismo e visão de produto. Como CEO, lidero o ciclo completo dos projetos: requisitos,
+              arquitetura, desenvolvimento, implantação e evolução contínua.</p>
+            <p data-i18n="about_corp_p2">Nosso diferencial é a capacidade de atuar com proximidade, decisões rápidas e
+              alto senso de dono em cada entrega. Não somos uma agência — somos um time técnico com visão de negócio.
+            </p>
+          </div>
+          <ul class="feat-list" style="margin-top:1rem">
+            <li data-i18n="about_corp_feat1">Desenvolvimento web e mobile sob demanda</li>
+            <li data-i18n="about_corp_feat2">Consultoria em arquitetura de sistemas e TI</li>
+            <li data-i18n="about_corp_feat3">Documentação técnica com LaTeX e CI/CD</li>
+            <li data-i18n="about_corp_feat4">Manufatura 3D — prototipagem e produtos finais</li>
+            <li data-i18n="about_corp_feat5">Game development — Alttab Studio (Godot Engine)</li>
+            <li data-i18n="about_corp_feat6">Alttab Esports — time competitivo de League of Legends</li>
+          </ul>
+        </div>
+        <div>
+          <div class="section-label" data-i18n="about_corpstack_label">Stack da empresa</div>
+          <h2 class="section-title" data-i18n="about_corpstack_title">Tecnologias em uso</h2>
+          <div class="section-body">
+            <p data-i18n="about_corpstack_p1">Toda infraestrutura da AlttabCorp é desenvolvida e mantida in-house, com
+              pipeline CI/CD profissional e 6+ plataformas ativas.</p>
+          </div>
+          <div class="tag-cloud">
+            <span class="tag">Node.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">React</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Nginx</span>
+            <span class="tag">GitHub Actions</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Ollama</span>
+            <span class="tag">pgvector</span>
+            <span class="tag">n8n</span>
+            <span class="tag">LaTeX</span>
+            <span class="tag">Godot Engine</span>
+          </div>
+          <div style="margin-top:1.5rem">
+            <a href="https://alttabcorp.com.br" target="_blank"
+              style="font-family:var(--mono);font-size:13px;color:var(--gold);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;border-bottom:1px solid var(--border);padding-bottom:.3rem"
+              data-i18n="about_corp_link">
+              Visitar alttabcorp.com.br →
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- CTA -->
+    <div class="cta-section">
+      <div class="section-label" style="text-align:center;margin-bottom:.5rem" data-i18n="about_cta_label">Vamos
+        conversar?</div>
+      <h2 style="font-size:1.5rem;font-weight:600;color:var(--text);margin-bottom:1rem" data-i18n="about_cta_title">
+        Aberto a Oportunidades e Parcerias</h2>
+      <p data-i18n="about_cta_p">Se o seu produto resolve problema real e você precisa de um desenvolvedor sênior com
+        visão técnica e de negócio — estou disponível para conversa.</p>
+      <div class="cta-btns">
+        <a href="mailto:glaymar2010@gmail.com" class="btn-primary" data-i18n="about_cta_email">📧 Enviar email</a>
+        <a href="index.html#contact" class="btn-outline" data-i18n="about_cta_contacts">Ver todos os contatos</a>
+        <a href="assets/Curriculo.pdf" download class="btn-outline" id="btnDownloadCV" data-i18n="about_cta_cv">↓ Baixar
+          currículo</a>
+      </div>
+    </div>
+
   </div>
 
-</div>
+  <footer>
+    <p>© 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
+      <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
+      <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
+      <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
 
-<footer>
-  <p>© 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
-    <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
-    <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
-    <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" target="_blank">LinkedIn</a>
-  </p>
-</footer>
+  <script>
+    // ══════════════════════════════════════════════════
+    //  i18n — DICIONÁRIO SOBRE.HTML — PT-BR / EN
+    // ══════════════════════════════════════════════════
+    const i18n = {
+      pt: {
+        // Nav
+        nav_stack: "Stack",
+        nav_experience: "Experiência",
+        nav_projects: "Projetos",
+        nav_education: "Formação",
+        nav_about: "Sobre",
+        nav_contact: "Contato",
+        nav_home: "Início",
 
-<script>
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 30);
-});
-const hamburger = document.getElementById('hamburger');
-const mobileNav = document.getElementById('mobileNav');
-hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-mobileNav.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => mobileNav.classList.remove('open'));
-});
-</script>
+        // Hero Sobre
+        about_hero_label: "Perfil Pessoal & Profissional",
+        about_hero_title: "Sobre<br>Glaymar França",
+        about_hero_sub: "CEO da AlttabCorp, desenvolvedor Full-Stack Sênior e pesquisador P&D. Natural de João Pessoa, PB — construindo tecnologia séria no interior do Nordeste.",
+
+        // Meta card
+        about_meta_title: "Em resumo",
+        about_meta_role_label: "Atuação atual",
+        about_meta_role_value: "CEO AlttabCorp & Pesquisador LAVID/UFPB",
+        about_meta_exp_label: "Experiência",
+        about_meta_exp_value: "6+ anos em desenvolvimento Full-Stack",
+        about_meta_edu_label: "Formação",
+        about_meta_edu_value: "Tecnólogo em ADS — IFPB + 3 especializações em andamento",
+        about_meta_loc_label: "Localização",
+        about_meta_loc_value: "Cajazeiras, PB — disponível para remoto",
+        about_meta_goal_label: "O que busco",
+        about_meta_goal_value: "Projetos com impacto real, autonomia técnica e colaboração de longo prazo",
+
+        // Identidade
+        about_id_label: "Identidade",
+        about_id_title: "Quem é Glaymar?",
+        about_id_p1: 'Sou Glaymar de França, desenvolvedor Full-Stack Sênior e fundador da <strong>AlttabCorp</strong>. Natural de João Pessoa, cresci em família grande — sou o mais velho de cinco irmãos, todos com nomes começando com "Glay". Assumir responsabilidade cedo moldou minha forma de liderar, trabalhar e enxergar tecnologia.',
+        about_id_p2: "Comecei na tecnologia unindo curiosidade técnica com vontade de resolver problemas reais. Passei por freelas, empresa júnior, faculdades, hospital universitário e pesquisa aplicada — cada etapa adicionando uma camada diferente de visão. Hoje atuo como desenvolvedor sênior e CEO, conectando estratégia de negócio e desenvolvimento de software.",
+        about_id_p3: "Além do código: sou gamer — Top Lane com Ornn no League of Legends. Os aprendizados de jogo em equipe influenciam diretamente como conduzo times e projetos.",
+        about_id_feat1: "Primogênito — responsabilidade e liderança desde cedo",
+        about_id_feat2: "Trajetória de 6+ anos, do técnico ao sênior e fundador",
+        about_id_feat3: "Experiência em saúde, educação, pesquisa e produto digital",
+        about_id_feat4: "Cajazeiras, PB — tecnologia séria no interior do Nordeste",
+
+        // Timeline
+        about_tl_label: "Curiosidades",
+        about_tl_title: "Trajetória & Origem",
+        about_tl1_year: "O nome",
+        about_tl1_content: '"Glaymar" era a senha do computador da biblioteca onde minha mãe estudava. Uma senha virou identidade.',
+        about_tl2_year: 'Os irmãos "Glay"',
+        about_tl2_content: 'Somos cinco irmãos — todos com nomes que começam com "Glay". Família presente, base sólida.',
+        about_tl3_year: "Início na tecnologia",
+        about_tl3_content: "Curiosidade por computadores desde cedo. Freelas e projetos experimentais deram origem à trajetória profissional.",
+        about_tl4_year: "IFPB & Loopis Jr",
+        about_tl4_content: "Formação técnica e graduação no IFPB Cajazeiras. Liderança de equipe de 15+ pessoas na empresa júnior.",
+        about_tl5_year: "Pesquisa P&D",
+        about_tl5_content: "Projeto FAPESQ no LAVID/UFPB — inovação tecnológica aplicada à segurança pública.",
+        about_tl6_content: "Fundação da empresa — passo natural para transformar a trajetória em operação estruturada com múltiplas verticais.",
+
+        // Filosofia
+        about_phil_label: "Visão",
+        about_phil_title: "Filosofia de Trabalho",
+        about_quote_text: '"O Tank Tem Que Tankar"',
+        about_quote_sub: "Origem: League of Legends, Top Lane — aplicação: liderança e projetos",
+        about_phil_p1: "Essa frase nasceu jogando como tank na Top Lane, mas representa muito mais do que um bordão de jogo. Significa criar espaço para o time operar, assumir a linha de frente quando necessário e garantir que cada pessoa tenha condições de entregar o seu melhor.",
+        about_phil_p2: "Na prática: assumir responsabilidade pelos riscos, proteger o que é estratégico e construir o cenário certo para execução. Liderança não é visibilidade — é proteção e estrutura para o time prosperar.",
+
+        // Como trabalho
+        about_work_label: "Princípios técnicos",
+        about_work_title: "Como Trabalho",
+        about_work_p1: "Acredito que código bem escrito é um ato de respeito com quem vem depois. Arquitetura clara, documentação real e testes que significam algo.",
+        about_work_feat1: "<strong>Visão fim a fim</strong> — do levantamento de requisitos ao deploy e monitoramento",
+        about_work_feat2: "<strong>SOLID & Clean Architecture</strong> — não como teoria, mas como prática diária",
+        about_work_feat3: "<strong>IA aplicada</strong> — com critério, não como buzzword",
+        about_work_feat4: "<strong>Comunicação técnica clara</strong> — com o time e com quem decide o produto",
+        about_work_feat5: "<strong>Entrega consistente</strong> — qualidade não é opcional em sistemas críticos",
+        tag_docs: "Documentação",
+
+        // AlttabCorp
+        about_corp_label: "Empresa",
+        about_corp_p1: 'A <strong>AlttabCorp</strong> é o ponto de encontro entre tecnologia, empreendedorismo e visão de produto. Como CEO, lidero o ciclo completo dos projetos: requisitos, arquitetura, desenvolvimento, implantação e evolução contínua.',
+        about_corp_p2: "Nosso diferencial é a capacidade de atuar com proximidade, decisões rápidas e alto senso de dono em cada entrega. Não somos uma agência — somos um time técnico com visão de negócio.",
+        about_corp_feat1: "Desenvolvimento web e mobile sob demanda",
+        about_corp_feat2: "Consultoria em arquitetura de sistemas e TI",
+        about_corp_feat3: "Documentação técnica com LaTeX e CI/CD",
+        about_corp_feat4: "Manufatura 3D — prototipagem e produtos finais",
+        about_corp_feat5: "Game development — Alttab Studio (Godot Engine)",
+        about_corp_feat6: "Alttab Esports — time competitivo de League of Legends",
+        about_corpstack_label: "Stack da empresa",
+        about_corpstack_title: "Tecnologias em uso",
+        about_corpstack_p1: "Toda infraestrutura da AlttabCorp é desenvolvida e mantida in-house, com pipeline CI/CD profissional e 6+ plataformas ativas.",
+        about_corp_link: "Visitar alttabcorp.com.br →",
+
+        // CTA
+        about_cta_label: "Vamos conversar?",
+        about_cta_title: "Aberto a Oportunidades e Parcerias",
+        about_cta_p: "Se o seu produto resolve problema real e você precisa de um desenvolvedor sênior com visão técnica e de negócio — estou disponível para conversa.",
+        about_cta_email: "📧 Enviar email",
+        about_cta_contacts: "Ver todos os contatos",
+        about_cta_cv: "↓ Baixar currículo"
+      },
+
+      // ══════════════════════════════════════════════════
+      //  ENGLISH
+      // ══════════════════════════════════════════════════
+      en: {
+        // Nav
+        nav_stack: "Stack",
+        nav_experience: "Experience",
+        nav_projects: "Projects",
+        nav_education: "Education",
+        nav_about: "About",
+        nav_contact: "Contact",
+        nav_home: "Home",
+
+        // Hero Sobre
+        about_hero_label: "Personal & Professional Profile",
+        about_hero_title: "About<br>Glaymar França",
+        about_hero_sub: "CEO of AlttabCorp, Senior Full-Stack Developer, and R&D Researcher. Born in João Pessoa, PB — building serious technology from Brazil's Northeast interior.",
+
+        // Meta card
+        about_meta_title: "At a glance",
+        about_meta_role_label: "Current role",
+        about_meta_role_value: "CEO AlttabCorp & Researcher LAVID/UFPB",
+        about_meta_exp_label: "Experience",
+        about_meta_exp_value: "6+ years in Full-Stack development",
+        about_meta_edu_label: "Education",
+        about_meta_edu_value: "B.Tech in Systems Analysis — IFPB + 3 ongoing postgraduate specializations",
+        about_meta_loc_label: "Location",
+        about_meta_loc_value: "Cajazeiras, PB — available for remote work",
+        about_meta_goal_label: "What I seek",
+        about_meta_goal_value: "Real-impact projects, technical autonomy, and long-term collaboration",
+
+        // Identity
+        about_id_label: "Identity",
+        about_id_title: "Who is Glaymar?",
+        about_id_p1: 'I\'m Glaymar de França, a Senior Full-Stack Developer and founder of <strong>AlttabCorp</strong>. Born in João Pessoa, I grew up in a large family — the oldest of five siblings, all with names starting with "Glay". Taking on responsibility early shaped how I lead, work, and see technology.',
+        about_id_p2: "I started in tech by combining technical curiosity with a drive to solve real problems. I went through freelancing, a junior enterprise, universities, a university hospital, and applied research — each stage adding a different layer of perspective. Today I work as a senior developer and CEO, bridging business strategy and software development.",
+        about_id_p3: "Beyond code: I'm a gamer — Top Lane with Ornn in League of Legends. Teamwork lessons from gaming directly influence how I lead teams and projects.",
+        about_id_feat1: "Firstborn — responsibility and leadership from an early age",
+        about_id_feat2: "6+ year journey, from technician to senior developer and founder",
+        about_id_feat3: "Experience in healthcare, education, research, and digital products",
+        about_id_feat4: "Cajazeiras, PB — serious technology from Brazil's Northeast interior",
+
+        // Timeline
+        about_tl_label: "Fun facts",
+        about_tl_title: "Background & Origins",
+        about_tl1_year: "The name",
+        about_tl1_content: '"Glaymar" was the password on a library computer where my mother studied. A password became an identity.',
+        about_tl2_year: 'The "Glay" siblings',
+        about_tl2_content: 'We are five siblings — all with names starting with "Glay". Close family, solid foundation.',
+        about_tl3_year: "Getting into tech",
+        about_tl3_content: "Curious about computers from an early age. Freelance work and experimental projects gave rise to my professional path.",
+        about_tl4_year: "IFPB & Loopis Jr",
+        about_tl4_content: "Technical training and degree at IFPB Cajazeiras. Led a team of 15+ people at the junior enterprise.",
+        about_tl5_year: "R&D Research",
+        about_tl5_content: "FAPESQ project at LAVID/UFPB — technological innovation applied to public safety.",
+        about_tl6_content: "Company founding — a natural step to turn the journey into a structured operation with multiple verticals.",
+
+        // Philosophy
+        about_phil_label: "Vision",
+        about_phil_title: "Work Philosophy",
+        about_quote_text: '"The Tank Has to Tank"',
+        about_quote_sub: "Origin: League of Legends, Top Lane — applied to: leadership and projects",
+        about_phil_p1: "This phrase was born playing tank on Top Lane, but it represents much more than a gaming catchphrase. It means creating space for the team to operate, stepping to the front line when necessary, and ensuring every person has the conditions to deliver their best.",
+        about_phil_p2: "In practice: taking responsibility for risks, protecting what's strategic, and building the right scenario for execution. Leadership isn't about visibility — it's about protection and structure for the team to thrive.",
+
+        // How I work
+        about_work_label: "Technical principles",
+        about_work_title: "How I Work",
+        about_work_p1: "I believe well-written code is an act of respect for whoever comes next. Clear architecture, real documentation, and tests that actually mean something.",
+        about_work_feat1: "<strong>End-to-end vision</strong> — from requirements gathering to deployment and monitoring",
+        about_work_feat2: "<strong>SOLID & Clean Architecture</strong> — not as theory, but as daily practice",
+        about_work_feat3: "<strong>Applied AI</strong> — with criteria, not as a buzzword",
+        about_work_feat4: "<strong>Clear technical communication</strong> — with the team and with product decision-makers",
+        about_work_feat5: "<strong>Consistent delivery</strong> — quality is not optional in critical systems",
+        tag_docs: "Documentation",
+
+        // AlttabCorp
+        about_corp_label: "Company",
+        about_corp_p1: '<strong>AlttabCorp</strong> is where technology, entrepreneurship, and product vision converge. As CEO, I lead the complete project lifecycle: requirements, architecture, development, deployment, and continuous evolution.',
+        about_corp_p2: "Our edge is the ability to work closely, make fast decisions, and bring a strong sense of ownership to every delivery. We're not an agency — we're a technical team with a business mindset.",
+        about_corp_feat1: "On-demand web and mobile development",
+        about_corp_feat2: "Systems architecture and IT consulting",
+        about_corp_feat3: "Technical documentation with LaTeX and CI/CD",
+        about_corp_feat4: "3D Manufacturing — prototyping and final products",
+        about_corp_feat5: "Game development — Alttab Studio (Godot Engine)",
+        about_corp_feat6: "Alttab Esports — competitive League of Legends team",
+        about_corpstack_label: "Company stack",
+        about_corpstack_title: "Technologies in use",
+        about_corpstack_p1: "All AlttabCorp infrastructure is developed and maintained in-house, with a professional CI/CD pipeline and 6+ active platforms.",
+        about_corp_link: "Visit alttabcorp.com.br →",
+
+        // CTA
+        about_cta_label: "Let's talk?",
+        about_cta_title: "Open to Opportunities & Partnerships",
+        about_cta_p: "If your product solves a real problem and you need a senior developer with technical and business vision — I'm available to talk.",
+        about_cta_email: "📧 Send email",
+        about_cta_contacts: "See all contacts",
+        about_cta_cv: "↓ Download resume"
+      }
+    };
+
+    // ══════════════════════════════════════════════════
+    //  ENGINE — Aplica idioma selecionado
+    // ══════════════════════════════════════════════════
+    let currentLang = localStorage.getItem('lang') || 'pt';
+
+    function setLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+      // Título da página
+      document.title = lang === 'pt'
+        ? 'Sobre — Glaymar França | Desenvolvedor Full-Stack Sênior & CEO AlttabCorp'
+        : 'About — Glaymar França | Senior Full-Stack Developer & CEO AlttabCorp';
+
+      // Link de download do currículo
+      const btnCV = document.getElementById('btnDownloadCV');
+      if (btnCV) {
+        btnCV.href = lang === 'pt' ? 'assets/Curriculo.pdf' : 'assets/Resume.pdf';
+      }
+
+      // Aplica traduções
+      const dict = i18n[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Atualiza botões ativos
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+    }
+
+    // ══════════════════════════════════════════════════
+    //  EVENT LISTENERS
+    // ══════════════════════════════════════════════════
+
+    // Language switcher
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    });
+
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => mobileNav.classList.remove('open'));
+    });
+
+    // Inicializa idioma salvo (sincroniza com index.html)
+    setLang(currentLang);
+  </script>
 </body>
+
 </html>
