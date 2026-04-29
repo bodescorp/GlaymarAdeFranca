@@ -1,0 +1,69 @@
+{
+    "slug": "api-biblioteca-ciec",
+    "type": "mini",
+    "tags": [
+        "api"
+    ],
+    "badge": {
+        "class": "badge-api",
+        "icon": "📡",
+        "pt": "API & Back-end",
+        "en": "API & Backend"
+    },
+    "title": {
+        "pt": "API Biblioteca CIEC",
+        "en": "CIEC Library API"
+    },
+    "subtitle": {
+        "pt": "API RESTful para gerenciamento de acervo bibliotecário com JWT e documentação Swagger.",
+        "en": "RESTful API for library catalog management with JWT auth and Swagger docs."
+    },
+    "url": "https://github.com/Alttabcorp/API-bibliteca_siec",
+    "year": {
+        "pt": "2023",
+        "en": "2023"
+    },
+    "status": {
+        "class": "status-delivered",
+        "pt": "Entregue",
+        "en": "Delivered"
+    },
+    "summary": {
+        "pt": "API RESTful com Repository Pattern, JWT com controle granular de permissões e Swagger UI.",
+        "en": "RESTful API with Repository Pattern, granular JWT permissions, and Swagger UI."
+    },
+    "highlights": {
+        "pt": [
+            "CRUD completo",
+            "JWT auth",
+            "Swagger UI",
+            "Docker Compose"
+        ],
+        "en": [
+            "Full CRUD",
+            "JWT auth",
+            "Swagger UI",
+            "Docker Compose"
+        ]
+    },
+    "stack": [
+        "NestJS",
+        "TypeScript",
+        "Docker",
+        "Swagger",
+        "JWT",
+        "PostgreSQL"
+    ],
+    "stats": [
+        {
+            "label": {
+                "pt": "Tipo",
+                "en": "Type"
+            },
+            "value": {
+                "pt": "API Back-end",
+                "en": "Backend API"
+            }
+        }
+    ]
+}

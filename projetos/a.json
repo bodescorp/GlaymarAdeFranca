@@ -1,0 +1,510 @@
+{
+    "featured": [
+        {
+            "slug": "rag-pipeline-alttabcorp",
+            "tags": [
+                "ai",
+                "automation"
+            ],
+            "badge": {
+                "class": "badge-ai",
+                "icon": "🤖",
+                "pt": "Inteligencia Artificial",
+                "en": "Artificial Intelligence"
+            },
+            "title": {
+                "pt": "Pipeline RAG Local — AlttabCorp",
+                "en": "Local RAG Pipeline — AlttabCorp"
+            },
+            "subtitle": {
+                "pt": "Sistema de IA em producao rodando em servidor proprio, sem custo de inferencia em cloud.",
+                "en": "Production AI system running on on-prem hardware with zero cloud inference cost."
+            },
+            "year": {
+                "pt": "2024 — Presente",
+                "en": "2024 — Present"
+            },
+            "status": {
+                "class": "status-prod",
+                "pt": "Em producao",
+                "en": "In production"
+            },
+            "links": [
+                {
+                    "url": "https://github.com/Alttabcorp",
+                    "primary": true,
+                    "label": {
+                        "pt": "↗ Ver no GitHub",
+                        "en": "↗ View on GitHub"
+                    }
+                },
+                {
+                    "url": "https://alttabcorp.com.br",
+                    "primary": false,
+                    "label": {
+                        "pt": "🌐 AlttabCorp",
+                        "en": "🌐 AlttabCorp"
+                    }
+                }
+            ],
+            "summary": {
+                "pt": "Pipeline RAG completo com embeddings locais, busca vetorial e LLM rodando em hardware limitado.",
+                "en": "Complete RAG pipeline with local embeddings, vector search, and LLM running on limited hardware."
+            },
+            "highlights": {
+                "pt": [
+                    "Custo de inferencia zero com LLM local",
+                    "Dados corporativos permanecem no servidor",
+                    "Fallback para modelos maiores via Groq/OpenRouter"
+                ],
+                "en": [
+                    "Zero inference cost with local LLM",
+                    "Corporate data never leaves the server",
+                    "Fallback to larger models via Groq/OpenRouter"
+                ]
+            },
+            "stack": [
+                "Ollama",
+                "Qwen2.5",
+                "pgvector",
+                "RAG",
+                "PostgreSQL",
+                "Whisper",
+                "n8n",
+                "Docker"
+            ],
+            "stats": [
+                {
+                    "label": {
+                        "pt": "Tipo",
+                        "en": "Type"
+                    },
+                    "value": {
+                        "pt": "Infraestrutura de IA",
+                        "en": "AI infrastructure"
+                    }
+                },
+                {
+                    "label": {
+                        "pt": "Escopo",
+                        "en": "Scope"
+                    },
+                    "value": {
+                        "pt": "Uso interno AlttabCorp",
+                        "en": "Internal use at AlttabCorp"
+                    }
+                },
+                {
+                    "label": {
+                        "pt": "Hardware",
+                        "en": "Hardware"
+                    },
+                    "value": {
+                        "pt": "Servidor local — i3, 8GB RAM",
+                        "en": "Local server — i3, 8GB RAM"
+                    }
+                }
+            ]
+        },
+        {
+            "slug": "inventarios-historicos",
+            "tags": [
+                "research",
+                "api"
+            ],
+            "badge": {
+                "class": "badge-research",
+                "icon": "🔬",
+                "pt": "Pesquisa Aplicada",
+                "en": "Applied Research"
+            },
+            "title": {
+                "pt": "Sistema de Inventarios Historicos",
+                "en": "Historical Inventories System"
+            },
+            "subtitle": {
+                "pt": "Plataforma full-stack para analise de documentos judiciais historicos via banco de dados em grafos.",
+                "en": "Full-stack platform to analyze historical legal documents with a graph database."
+            },
+            "year": {
+                "pt": "2022 — 2023",
+                "en": "2022 — 2023"
+            },
+            "status": {
+                "class": "status-delivered",
+                "pt": "Entregue e em uso",
+                "en": "Delivered and in use"
+            },
+            "links": [
+                {
+                    "url": "https://repositorio.ifpb.edu.br/handle/177683/2898",
+                    "primary": true,
+                    "label": {
+                        "pt": "↗ Repositorio IFPB",
+                        "en": "↗ IFPB Repository"
+                    }
+                },
+                {
+                    "url": "https://github.com/bodescorp",
+                    "primary": false,
+                    "label": {
+                        "pt": "💻 GitHub",
+                        "en": "💻 GitHub"
+                    }
+                }
+            ],
+            "summary": {
+                "pt": "Modelagem em grafos para cruzar inventarios do seculo XIX e acelerar consultas historicas.",
+                "en": "Graph modeling to cross-check 19th-century inventories and speed up historical queries."
+            },
+            "highlights": {
+                "pt": [
+                    "Consultas reduzidas de horas para segundos",
+                    "1.000+ registros historicos processados",
+                    "Adotado por pesquisadores do IFPB"
+                ],
+                "en": [
+                    "Queries reduced from hours to seconds",
+                    "1,000+ historical records processed",
+                    "Adopted by IFPB researchers"
+                ]
+            },
+            "stack": [
+                "Neo4j",
+                "Cypher",
+                "Node.js",
+                "TypeScript",
+                "React",
+                "D3.js",
+                "REST API"
+            ],
+            "stats": [
+                {
+                    "label": {
+                        "pt": "Tipo",
+                        "en": "Type"
+                    },
+                    "value": {
+                        "pt": "Pesquisa academica / Full-Stack",
+                        "en": "Academic research / Full-Stack"
+                    }
+                },
+                {
+                    "label": {
+                        "pt": "Instituicao",
+                        "en": "Institution"
+                    },
+                    "value": {
+                        "pt": "IFPB Cajazeiras",
+                        "en": "IFPB Cajazeiras"
+                    }
+                },
+                {
+                    "label": {
+                        "pt": "Impacto",
+                        "en": "Impact"
+                    },
+                    "value": {
+                        "pt": "Ferramenta em uso ativo",
+                        "en": "Tool in active use"
+                    }
+                }
+            ]
+        },
+        {
+            "slug": "alttabcorp-ecosystem",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "🏢",
+                "pt": "Produto & Ecossistema",
+                "en": "Product & Ecosystem"
+            },
+            "title": {
+                "pt": "AlttabCorp — Ecossistema Digital",
+                "en": "AlttabCorp — Digital Ecosystem"
+            },
+            "subtitle": {
+                "pt": "6+ plataformas digitais ativas com pipeline CI/CD, Docker + Nginx e deploy automatizado.",
+                "en": "6+ active platforms with CI/CD, Docker + Nginx, and automated deployments."
+            },
+            "year": {
+                "pt": "2023 — Presente",
+                "en": "2023 — Present"
+            },
+            "status": {
+                "class": "status-prod",
+                "pt": "Ativo e evoluindo",
+                "en": "Active and evolving"
+            },
+            "links": [
+                {
+                    "url": "https://alttabcorp.com.br",
+                    "primary": true,
+                    "label": {
+                        "pt": "↗ alttabcorp.com.br",
+                        "en": "↗ alttabcorp.com.br"
+                    }
+                },
+                {
+                    "url": "https://github.com/Alttabcorp",
+                    "primary": false,
+                    "label": {
+                        "pt": "💻 GitHub Org",
+                        "en": "💻 GitHub Org"
+                    }
+                }
+            ],
+            "summary": {
+                "pt": "Ecossistema de produtos com deploy automatizado, hospedagem sem custo e repositorios por vertical.",
+                "en": "Product ecosystem with automated deploys, zero-cost hosting, and per-vertical repositories."
+            },
+            "highlights": {
+                "pt": [
+                    "CI/CD com GitHub Actions e Docker",
+                    "Next.js export para GitHub Pages",
+                    "Documentacao automatizada via LaTeX"
+                ],
+                "en": [
+                    "CI/CD with GitHub Actions and Docker",
+                    "Next.js export to GitHub Pages",
+                    "Automated documentation via LaTeX"
+                ]
+            },
+            "stack": [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Docker",
+                "Nginx",
+                "GitHub Actions",
+                "LaTeX"
+            ],
+            "stats": [
+                {
+                    "label": {
+                        "pt": "Tipo",
+                        "en": "Type"
+                    },
+                    "value": {
+                        "pt": "Ecossistema de produto",
+                        "en": "Product ecosystem"
+                    }
+                },
+                {
+                    "label": {
+                        "pt": "Plataformas",
+                        "en": "Platforms"
+                    },
+                    "value": {
+                        "pt": "6+ ativas",
+                        "en": "6+ active"
+                    }
+                },
+                {
+                    "label": {
+                        "pt": "Desenvolvimento",
+                        "en": "Development"
+                    },
+                    "value": {
+                        "pt": "100% in-house",
+                        "en": "100% in-house"
+                    }
+                }
+            ]
+        }
+    ],
+    "mini": [
+        {
+            "slug": "api-biblioteca-ciec",
+            "tags": [
+                "api"
+            ],
+            "badge": {
+                "class": "badge-api",
+                "icon": "📡",
+                "pt": "API & Back-end",
+                "en": "API & Backend"
+            },
+            "name": {
+                "pt": "API Biblioteca CIEC",
+                "en": "CIEC Library API"
+            },
+            "desc": {
+                "pt": "API RESTful para gerenciamento de acervo bibliotecario com JWT e documentacao Swagger.",
+                "en": "RESTful API for library catalog management with JWT auth and Swagger docs."
+            },
+            "result": {
+                "pt": "CRUD completo · JWT · Swagger · Docker Compose",
+                "en": "Full CRUD · JWT · Swagger · Docker Compose"
+            },
+            "stack": [
+                "NestJS",
+                "TypeScript",
+                "Docker",
+                "Swagger",
+                "JWT",
+                "PostgreSQL"
+            ],
+            "url": "https://github.com/Alttabcorp/API-bibliteca_siec"
+        },
+        {
+            "slug": "sistema-certificados-ifpb",
+            "tags": [
+                "automation",
+                "product"
+            ],
+            "badge": {
+                "class": "badge-automation",
+                "icon": "⚡",
+                "pt": "Automacao",
+                "en": "Automation"
+            },
+            "name": {
+                "pt": "Sistema de Certificados IFPB",
+                "en": "IFPB Certificate System"
+            },
+            "desc": {
+                "pt": "Automacao completa para emissao de certificados com validacao via QR Code.",
+                "en": "End-to-end automation for certificate issuance with QR Code validation."
+            },
+            "result": {
+                "pt": "Emissao: de horas para minutos · QR Code",
+                "en": "Issuance: hours to minutes · QR Code"
+            },
+            "stack": [
+                "Python",
+                "Django",
+                "JavaScript",
+                "HTML5"
+            ],
+            "url": "https://github.com/bodescorp/Cext-final-"
+        },
+        {
+            "slug": "orcamento-3d-automatizado",
+            "tags": [
+                "product",
+                "automation"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "🖨",
+                "pt": "Produto Digital",
+                "en": "Digital Product"
+            },
+            "name": {
+                "pt": "Orcamento 3D Automatizado",
+                "en": "Automated 3D Quoting"
+            },
+            "desc": {
+                "pt": "Sistema web de cotacao para impressao 3D com calculo automatico em tempo real.",
+                "en": "Web quoting system for 3D printing with real-time automatic pricing."
+            },
+            "result": {
+                "pt": "Calculo em tempo real · Zero back-end · GitHub Pages",
+                "en": "Real-time pricing · Zero backend · GitHub Pages"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "url": "https://alttabcorp.github.io/WEB-Orcamento3D-alttab/"
+        },
+        {
+            "slug": "template-documentacao-tecnica",
+            "tags": [
+                "automation"
+            ],
+            "badge": {
+                "class": "badge-automation",
+                "icon": "📄",
+                "pt": "DevOps de Docs",
+                "en": "Docs DevOps"
+            },
+            "name": {
+                "pt": "Template de Documentacao Tecnica",
+                "en": "Technical Documentation Template"
+            },
+            "desc": {
+                "pt": "Framework de documentacao com LaTeX e Markdown, Docker e CI/CD para PDFs.",
+                "en": "Documentation framework with LaTeX/Markdown, Docker, and CI/CD for PDFs."
+            },
+            "result": {
+                "pt": "PDF gerado automaticamente no push",
+                "en": "PDF auto-generated on push"
+            },
+            "stack": [
+                "LaTeX",
+                "Markdown",
+                "Docker",
+                "GitHub Actions"
+            ],
+            "url": "https://github.com/Alttabcorp/Documents"
+        },
+        {
+            "slug": "mvp-animacao-ornn",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "🎮",
+                "pt": "Frontend & Animacao",
+                "en": "Frontend & Animation"
+            },
+            "name": {
+                "pt": "MVP Animacao — Ornn LoL",
+                "en": "Animation MVP — Ornn LoL"
+            },
+            "desc": {
+                "pt": "Demo tecnica de animacao CSS/JS de personagem interativo do League of Legends.",
+                "en": "Technical demo of a CSS/JS interactive League of Legends character animation."
+            },
+            "result": {
+                "pt": "Animacao CSS pura · Interativo · Demo tecnica",
+                "en": "Pure CSS animation · Interactive · Tech demo"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3",
+                "JavaScript",
+                "CSS Animations"
+            ],
+            "url": "https://alttabcorp.github.io/MVP-Edit-Animation-Orrn-league_of_legends-/"
+        },
+        {
+            "slug": "alttab-studio-portal",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "🎮",
+                "pt": "Game Studio",
+                "en": "Game Studio"
+            },
+            "name": {
+                "pt": "Alttab Studio — Portal",
+                "en": "Alttab Studio — Portal"
+            },
+            "desc": {
+                "pt": "Portal institucional da divisao de game development com design imersivo e animacoes.",
+                "en": "Institutional portal for the game development division with immersive design and animations."
+            },
+            "result": {
+                "pt": "Design imersivo · Multi-plataforma · Godot Engine",
+                "en": "Immersive design · Multi-platform · Godot Engine"
+            },
+            "stack": [
+                "Next.js",
+                "React",
+                "CSS3",
+                "Godot Engine"
+            ],
+            "url": "https://alttabcorp.github.io/Alttab-studio/"
+        }
+    ]
+}

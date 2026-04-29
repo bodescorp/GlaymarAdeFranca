@@ -1033,6 +1033,7 @@
         </p>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         // ══════════════════════════════════════════════════
         //  i18n
@@ -1212,28 +1213,37 @@
 
             container.innerHTML = projects.map(project => {
                 const badge = project.badge || {};
+                const name = L(project.title) || L(project.name);
+                const desc = L(project.subtitle) || L(project.desc);
+                const result = (L(project.highlights) || []).join(' · ') || L(project.result);
+                const href = project.slug
+                    ? `projetos.html?project=${esc(project.slug)}`
+                    : esc(project.url || '#');
+                const target = !project.slug && project.url ? 'target="_blank"' : '';
+
                 const stack = (project.stack || []).map(s =>
                     `<span class="mini-chip">${esc(s)}</span>`
                 ).join('');
 
                 return `
-        <a class="mini-card" href="${project.slug ? `projetos.html?project=${esc(project.slug)}` : esc(project.url || '#')}"
-           ${!project.slug && project.url ? 'target="_blank"' : ''}
-           data-tags="${esc((project.tags || []).join(' '))}" data-slug="${esc(project.slug || '')}">
+        <a class="mini-card" href="${href}" ${target}
+           data-tags="${esc((project.tags || []).join(' '))}"
+           data-slug="${esc(project.slug || '')}">
             <div class="mini-top">
                 <div>
-                    <div class="fp-badge ${esc(badge.class || '')} mini-badge">${esc(badge.icon || '')} ${esc(L(badge))}</div>
-                    <div class="mini-name">${esc(L(project.name))}</div>
+                    <div class="fp-badge ${esc(badge.class || '')} mini-badge">
+                        ${esc(badge.icon || '')} ${esc(L(badge))}
+                    </div>
+                    <div class="mini-name">${esc(name)}</div>
                 </div>
                 <span class="mini-arrow">↗</span>
             </div>
-            <div class="mini-desc">${esc(L(project.desc))}</div>
-            <div class="mini-result">✓ ${esc(L(project.result))}</div>
+            <div class="mini-desc">${esc(desc)}</div>
+            <div class="mini-result">✓ ${esc(result)}</div>
             <div class="mini-stack">${stack}</div>
         </a>`;
             }).join('');
         }
-
         // ══════════════════════════════════════════════════
         //  PROJECT DETAIL VIEW
         // ══════════════════════════════════════════════════

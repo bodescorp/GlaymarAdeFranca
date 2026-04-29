@@ -1,0 +1,81 @@
+{
+    "slug": "alttab-studio-portal",
+    "tags": [
+        "product"
+    ],
+    "badge": {
+        "class": "badge-product",
+        "icon": "🎮",
+        "pt": "Game Studio",
+        "en": "Game Studio"
+    },
+    "title": {
+        "pt": "Alttab Studio — Portal",
+        "en": "Alttab Studio — Portal"
+    },
+    "subtitle": {
+        "pt": "Portal institucional da divisão de game development com design imersivo e animações.",
+        "en": "Institutional portal for the game development division with immersive design and animations."
+    },
+    "year": {
+        "pt": "2023 — Presente",
+        "en": "2023 — Present"
+    },
+    "status": {
+        "class": "status-prod",
+        "pt": "Ativo e evoluindo",
+        "en": "Active and evolving"
+    },
+    "links": [
+        {
+            "url": "https://alttabcorp.github.io/Alttab-studio/",
+            "primary": true,
+            "label": {
+                "pt": "↗ Ver projeto",
+                "en": "↗ View project"
+            }
+        },
+        {
+            "url": "https://github.com/Alttabcorp",
+            "primary": false,
+            "label": {
+                "pt": "💻 GitHub",
+                "en": "💻 GitHub"
+            }
+        }
+    ],
+    "summary": {
+        "pt": "Portal institucional da divisão de game dev com design imersivo e animações CSS avançadas.",
+        "en": "Institutional portal for the game dev division with immersive design and advanced CSS animations."
+    },
+    "highlights": {
+        "pt": [
+            "Design imersivo",
+            "Multi-plataforma",
+            "Godot Engine"
+        ],
+        "en": [
+            "Immersive design",
+            "Multi-platform",
+            "Godot Engine"
+        ]
+    },
+    "stack": [
+        "Next.js",
+        "React",
+        "CSS3",
+        "Godot Engine"
+    ],
+    "stats": [
+        {
+            "label": {
+                "pt": "Tipo",
+                "en": "Type"
+            },
+            "value": {
+                "pt": "Produto Digital",
+                "en": "Digital Product"
+            }
+        }
+    ]
+}

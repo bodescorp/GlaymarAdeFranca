@@ -1,0 +1,106 @@
+{
+    "slug": "rag-pipeline-alttabcorp",
+    "tags": [
+        "ai",
+        "automation"
+    ],
+    "badge": {
+        "class": "badge-ai",
+        "icon": "🤖",
+        "pt": "Inteligencia Artificial",
+        "en": "Artificial Intelligence"
+    },
+    "title": {
+        "pt": "Pipeline RAG Local — AlttabCorp",
+        "en": "Local RAG Pipeline — AlttabCorp"
+    },
+    "subtitle": {
+        "pt": "Sistema de IA em producao rodando em servidor proprio, sem custo de inferencia em cloud.",
+        "en": "Production AI system running on on-prem hardware with zero cloud inference cost."
+    },
+    "year": {
+        "pt": "2024 — Presente",
+        "en": "2024 — Present"
+    },
+    "status": {
+        "class": "status-prod",
+        "pt": "Em producao",
+        "en": "In production"
+    },
+    "links": [
+        {
+            "url": "https://github.com/Alttabcorp",
+            "primary": true,
+            "label": {
+                "pt": "↗ Ver no GitHub",
+                "en": "↗ View on GitHub"
+            }
+        },
+        {
+            "url": "https://alttabcorp.com.br",
+            "primary": false,
+            "label": {
+                "pt": "🌐 AlttabCorp",
+                "en": "🌐 AlttabCorp"
+            }
+        }
+    ],
+    "summary": {
+        "pt": "Pipeline RAG completo com embeddings locais, busca vetorial e LLM rodando em hardware limitado.",
+        "en": "Complete RAG pipeline with local embeddings, vector search, and LLM running on limited hardware."
+    },
+    "highlights": {
+        "pt": [
+            "Custo de inferencia zero com LLM local",
+            "Dados corporativos permanecem no servidor",
+            "Fallback para modelos maiores via Groq/OpenRouter"
+        ],
+        "en": [
+            "Zero inference cost with local LLM",
+            "Corporate data never leaves the server",
+            "Fallback to larger models via Groq/OpenRouter"
+        ]
+    },
+    "stack": [
+        "Ollama",
+        "Qwen2.5",
+        "pgvector",
+        "RAG",
+        "PostgreSQL",
+        "Whisper",
+        "n8n",
+        "Docker"
+    ],
+    "stats": [
+        {
+            "label": {
+                "pt": "Tipo",
+                "en": "Type"
+            },
+            "value": {
+                "pt": "Infraestrutura de IA",
+                "en": "AI infrastructure"
+            }
+        },
+        {
+            "label": {
+                "pt": "Escopo",
+                "en": "Scope"
+            },
+            "value": {
+                "pt": "Uso interno AlttabCorp",
+                "en": "Internal use at AlttabCorp"
+            }
+        },
+        {
+            "label": {
+                "pt": "Hardware",
+                "en": "Hardware"
+            },
+            "value": {
+                "pt": "Servidor local — i3, 8GB RAM",
+                "en": "Local server — i3, 8GB RAM"
+            }
+        }
+    ]
+}
