@@ -1,0 +1,20 @@
+{
+    "slug": "n8n-ia-automacao",
+    "category": "ia",
+    "date": "28 Abr 2025",
+    "read": "6 min",
+    "icon": "⚡",
+    "title": {
+        "pt": "n8n + IA: automatizando workflows internos sem codigo proprietario",
+        "en": "n8n + AI: automating internal workflows without proprietary code"
+    },
+    "excerpt": {
+        "pt": "Como integrei n8n com modelos locais via Ollama para automatizar triagem de emails.",
+        "en": "How I integrated n8n with local models via Ollama to automate email triage."
+    },
+    "tags": [
+        "n8n",
+        "Ollama",
+        "Automation"
+    ]
+}

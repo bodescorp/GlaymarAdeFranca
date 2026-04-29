@@ -1,0 +1,19 @@
+{
+    "slug": "tank-tankar-lideranca",
+    "category": "lead",
+    "date": "01 Jun 2025",
+    "read": "7 min",
+    "icon": "🛡️",
+    "title": {
+        "pt": "O Tank tem que tankar: lideranca tecnica em times pequenos",
+        "en": "The Tank has to tank: technical leadership in small teams"
+    },
+    "excerpt": {
+        "pt": "Licoes de League of Legends aplicadas a gestao de times de desenvolvimento.",
+        "en": "Lessons from League of Legends applied to dev team management."
+    },
+    "tags": [
+        "Leadership",
+        "Teams"
+    ]
+}

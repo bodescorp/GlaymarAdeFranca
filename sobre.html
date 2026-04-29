@@ -114,21 +114,22 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      border-bottom: 1px solid transparent;
       transition: all .3s
     }
 
     nav.scrolled {
       background: rgba(10, 14, 23, .92);
       backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--border)
+      border-color: var(--border)
     }
 
     .nav-logo {
       font-family: var(--mono);
       font-size: 14px;
       color: var(--gold);
-      text-decoration: none;
-      letter-spacing: .05em
+      letter-spacing: .05em;
+      text-decoration: none
     }
 
     .nav-right {
@@ -147,11 +148,11 @@
       font-size: 13px;
       color: var(--text2);
       text-decoration: none;
+      letter-spacing: .03em;
       transition: color .2s
     }
 
-    .nav-links a:hover,
-    .nav-links a.active {
+    .nav-links a:hover {
       color: var(--text)
     }
 
@@ -162,8 +163,8 @@
       font-size: 13px;
       color: var(--gold);
       text-decoration: none;
-      font-family: var(--mono);
-      transition: all .2s
+      transition: all .2s;
+      font-family: var(--mono)
     }
 
     .nav-cta:hover {
@@ -186,7 +187,8 @@
       width: 22px;
       height: 2px;
       background: var(--text2);
-      border-radius: 2px
+      border-radius: 2px;
+      transition: all .3s
     }
 
     .mobile-nav {
@@ -606,7 +608,7 @@
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="index.html" class="nav-logo">glaymar.dev</a>
+    <a href="#home" class="nav-logo">glaymar.dev</a>
     <div class="nav-right">
       <ul class="nav-links">
         <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
@@ -615,6 +617,7 @@
         <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
         <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
         <li><a href="sobre.html" class="active" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
         <li><a href="index.html#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
       </ul>
       <div class="lang-switcher desktop-lang">
@@ -634,6 +637,7 @@
       <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
       <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
       <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
+      <li><a href="index.html#blog" data-i18n="nav_blog">Blog</a></li>
     </ul>
     <div class="mobile-lang lang-switcher">
       <button class="lang-btn active" data-lang="pt">PT</button>
@@ -693,7 +697,8 @@
             <p data-i18n="about_id_p1">Sou Glaymar de França, desenvolvedor Full-Stack Sênior e fundador da
               <strong>AlttabCorp</strong>. Natural de João Pessoa, cresci em família grande — sou o mais velho de cinco
               irmãos, todos com nomes começando com "Glay". Assumir responsabilidade cedo moldou minha forma de liderar,
-              trabalhar e enxergar tecnologia.</p>
+              trabalhar e enxergar tecnologia.
+            </p>
             <p data-i18n="about_id_p2">Comecei na tecnologia unindo curiosidade técnica com vontade de resolver
               problemas reais. Passei por freelas, empresa júnior, faculdades, hospital universitário e pesquisa
               aplicada — cada etapa adicionando uma camada diferente de visão. Hoje atuo como desenvolvedor sênior e
@@ -891,7 +896,9 @@
         nav_experience: "Experiência",
         nav_projects: "Projetos",
         nav_education: "Formação",
+        nav_certifications: "Certificações",
         nav_about: "Sobre",
+        nav_blog: "Artigos",
         nav_contact: "Contato",
         nav_home: "Início",
 
@@ -991,7 +998,9 @@
         nav_experience: "Experience",
         nav_projects: "Projects",
         nav_education: "Education",
+        nav_certifications: "Certifications",
         nav_about: "About",
+        nav_blog: "Articles",
         nav_contact: "Contact",
         nav_home: "Home",
 

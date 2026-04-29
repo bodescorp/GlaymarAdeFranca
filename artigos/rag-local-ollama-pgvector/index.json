@@ -1,0 +1,20 @@
+{
+    "slug": "rag-local-ollama-pgvector",
+    "category": "ia",
+    "date": "08 Jun 2025",
+    "read": "9 min",
+    "icon": "🤖",
+    "title": {
+        "pt": "RAG local com Ollama e pgvector: guia pratico",
+        "en": "Local RAG with Ollama and pgvector: practical guide"
+    },
+    "excerpt": {
+        "pt": "Como montei um pipeline de Retrieval-Augmented Generation rodando 100% local — sem API externa, sem custo por token.",
+        "en": "How I built a Retrieval-Augmented Generation pipeline running 100% locally — no external API, no cost per token."
+    },
+    "tags": [
+        "Ollama",
+        "pgvector",
+        "RAG"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "featured": "clean-architecture-alttabcorp",
+    "posts": [
+        "clean-architecture-alttabcorp",
+        "rag-local-ollama-pgvector",
+        "tank-tankar-lideranca",
+        "nextjs-14-app-router",
+        "cicd-github-actions-docker",
+        "n8n-ia-automacao",
+        "freela-a-ceo"
+    ]
+}

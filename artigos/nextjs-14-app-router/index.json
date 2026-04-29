@@ -1,0 +1,20 @@
+{
+    "slug": "nextjs-14-app-router",
+    "category": "front",
+    "date": "22 Mai 2025",
+    "read": "8 min",
+    "icon": "🧭",
+    "title": {
+        "pt": "Next.js 14 App Router: o que aprendi migrando 3 projetos",
+        "en": "Next.js 14 App Router: what I learned migrating 3 projects"
+    },
+    "excerpt": {
+        "pt": "Server Components, streaming, cache — o App Router muda a forma de pensar React.",
+        "en": "Server Components, streaming, cache — the App Router changes how you think about React."
+    },
+    "tags": [
+        "Next.js",
+        "React",
+        "RSC"
+    ]
+}

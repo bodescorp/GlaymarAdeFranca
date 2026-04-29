@@ -1,0 +1,1724 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto</title>
+    <meta name="description"
+        content="Artigos técnicos de Glaymar França — desenvolvimento Full-Stack, arquitetura de software, IA aplicada, liderança técnica e visão de produto.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;400i&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        :root {
+            --bg: #0A0E17;
+            --bg2: #0F1420;
+            --bg3: #151C2E;
+            --surface: #1A2338;
+            --surface2: #1F2B42;
+            --border: #263047;
+            --border2: #2E3B57;
+            --text: #E8EDF5;
+            --text2: #8B9AB5;
+            --text3: #556080;
+            --gold: #C8A96E;
+            --gold2: #E0C080;
+            --blue: #4A90D9;
+            --teal: #3DBFA8;
+            --red: #D94A4A;
+            --purple: #9B6ED9;
+            --radius: 10px;
+            --font: 'DM Sans', sans-serif;
+            --mono: 'DM Mono', monospace;
+            --serif: 'Playfair Display', serif;
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font);
+            line-height: 1.6;
+            overflow-x: hidden
+        }
+
+        ::-webkit-scrollbar {
+            width: 4px
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg)
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border2);
+            border-radius: 2px
+        }
+
+        /* LANG SWITCHER */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 3px;
+            margin-left: 1rem
+        }
+
+        .lang-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 11px;
+            cursor: pointer;
+            background: transparent;
+            color: var(--text3);
+            transition: all .2s;
+            letter-spacing: .03em
+        }
+
+        .lang-btn.active {
+            background: var(--gold);
+            color: var(--bg);
+            font-weight: 500
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--text2);
+            background: var(--surface2)
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 0 2rem;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid transparent;
+            transition: all .3s
+        }
+
+        nav.scrolled {
+            background: rgba(10, 14, 23, .92);
+            backdrop-filter: blur(16px);
+            border-color: var(--border)
+        }
+
+        .nav-logo {
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--gold);
+            letter-spacing: .05em;
+            text-decoration: none
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none
+        }
+
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text2);
+            text-decoration: none;
+            letter-spacing: .03em;
+            transition: color .2s
+        }
+
+        .nav-links a:hover {
+            color: var(--text)
+        }
+
+        .nav-cta {
+            padding: 8px 20px;
+            border: 1px solid var(--gold);
+            border-radius: 6px;
+            font-size: 13px;
+            color: var(--gold);
+            text-decoration: none;
+            transition: all .2s;
+            font-family: var(--mono)
+        }
+
+        .nav-cta:hover {
+            background: var(--gold);
+            color: var(--bg)
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 4px
+        }
+
+        .hamburger span {
+            display: block;
+            width: 22px;
+            height: 2px;
+            background: var(--text2);
+            border-radius: 2px;
+            transition: all .3s
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 64px;
+            left: 0;
+            right: 0;
+            background: rgba(10, 14, 23, .98);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem 2rem;
+            z-index: 99
+        }
+
+        .mobile-nav.open {
+            display: block
+        }
+
+        .mobile-nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem
+        }
+
+        .mobile-nav a {
+            color: var(--text2);
+            text-decoration: none;
+            font-size: 15px
+        }
+
+        .mobile-lang {
+            display: flex;
+            gap: 4px;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border)
+        }
+
+        /* HERO BLOG */
+        .blog-hero {
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .blog-hero::before {
+            content: '';
+            position: absolute;
+            top: -10%;
+            right: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(200, 169, 110, .05) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .hero-inner {
+            max-width: 1100px;
+            margin: 0 auto
+        }
+
+        .hero-label {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--gold);
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .hero-label::before {
+            content: '';
+            display: inline-block;
+            width: 24px;
+            height: 1px;
+            background: var(--gold)
+        }
+
+        .hero-title {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            color: var(--text);
+            line-height: 1.15
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: var(--text2);
+            max-width: 560px;
+            line-height: 1.75;
+            margin-bottom: 2rem
+        }
+
+        /* STATS BAR */
+        .blog-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: baseline;
+            gap: .5rem
+        }
+
+        .stat-num {
+            font-family: var(--mono);
+            font-size: 1.4rem;
+            color: var(--gold);
+            font-weight: 500
+        }
+
+        .stat-label {
+            font-size: .8rem;
+            color: var(--text3)
+        }
+
+        /* FILTERS */
+        .filters-bar {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 2rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: .4rem;
+            flex-wrap: wrap
+        }
+
+        .filter-tab {
+            padding: 7px 16px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text3);
+            background: transparent;
+            cursor: pointer;
+            transition: all .2s;
+            letter-spacing: .02em
+        }
+
+        .filter-tab:hover {
+            border-color: var(--border2);
+            color: var(--text2)
+        }
+
+        .filter-tab.active {
+            background: var(--gold);
+            color: var(--bg);
+            border-color: var(--gold);
+            font-weight: 500
+        }
+
+        .search-box {
+            position: relative
+        }
+
+        .search-box input {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 8px 14px 8px 34px;
+            font-family: var(--font);
+            font-size: 13px;
+            color: var(--text);
+            width: 240px;
+            outline: none;
+            transition: border-color .2s
+        }
+
+        .search-box input::placeholder {
+            color: var(--text3)
+        }
+
+        .search-box input:focus {
+            border-color: var(--gold)
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: var(--text3);
+            pointer-events: none
+        }
+
+        /* FEATURED POST */
+        .featured-post {
+            max-width: 1100px;
+            margin: 2rem auto 0;
+            padding: 0 2rem
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: border-color .3s, transform .3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit
+        }
+
+        .featured-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px)
+        }
+
+        .featured-visual {
+            background: linear-gradient(135deg, var(--bg3) 0%, var(--surface2) 100%);
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 280px
+        }
+
+        .featured-visual::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(200, 169, 110, .08) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
+        }
+
+        .featured-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1
+        }
+
+        .featured-badge {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            background: rgba(200, 169, 110, .1);
+            border: 1px solid rgba(200, 169, 110, .2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            position: relative;
+            z-index: 1
+        }
+
+        .featured-body {
+            padding: 2.5rem
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem
+        }
+
+        .post-category {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-weight: 500
+        }
+
+        .cat-arch {
+            color: var(--blue);
+            background: rgba(74, 144, 217, .1);
+            border: 1px solid rgba(74, 144, 217, .15)
+        }
+
+        .cat-ia {
+            color: var(--purple);
+            background: rgba(155, 110, 217, .1);
+            border: 1px solid rgba(155, 110, 217, .15)
+        }
+
+        .cat-lead {
+            color: var(--gold);
+            background: rgba(200, 169, 110, .1);
+            border: 1px solid rgba(200, 169, 110, .15)
+        }
+
+        .cat-front {
+            color: var(--teal);
+            background: rgba(61, 191, 168, .1);
+            border: 1px solid rgba(61, 191, 168, .15)
+        }
+
+        .cat-devops {
+            color: var(--red);
+            background: rgba(217, 74, 74, .1);
+            border: 1px solid rgba(217, 74, 74, .15)
+        }
+
+        .cat-career {
+            color: #D9A84A;
+            background: rgba(217, 168, 74, .1);
+            border: 1px solid rgba(217, 168, 74, .15)
+        }
+
+        .post-date {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text3)
+        }
+
+        .post-read {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--text3)
+        }
+
+        .featured-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .8rem;
+            line-height: 1.35
+        }
+
+        .featured-excerpt {
+            font-size: .9rem;
+            color: var(--text2);
+            line-height: 1.75;
+            margin-bottom: 1.5rem
+        }
+
+        .read-more {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--gold);
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            transition: gap .2s
+        }
+
+        .featured-card:hover .read-more {
+            gap: .7rem
+        }
+
+        /* POSTS GRID */
+        .posts-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 2rem 4rem
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem
+        }
+
+        .post-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            transition: border-color .3s, transform .3s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit
+        }
+
+        .post-card:hover {
+            border-color: var(--border2);
+            transform: translateY(-2px)
+        }
+
+        .post-card-meta {
+            display: flex;
+            align-items: center;
+            gap: .7rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap
+        }
+
+        .post-card-title {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .6rem;
+            line-height: 1.4
+        }
+
+        .post-card-excerpt {
+            font-size: .85rem;
+            color: var(--text2);
+            line-height: 1.7;
+            flex: 1;
+            margin-bottom: 1.2rem
+        }
+
+        .post-card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border);
+            padding-top: 1rem
+        }
+
+        .post-tags {
+            display: flex;
+            gap: .4rem;
+            flex-wrap: wrap
+        }
+
+        .post-tag {
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text3);
+            background: var(--bg2);
+            padding: 2px 8px;
+            border-radius: 3px
+        }
+
+        .post-arrow {
+            font-family: var(--mono);
+            font-size: 13px;
+            color: var(--text3);
+            transition: color .2s
+        }
+
+        .post-card:hover .post-arrow {
+            color: var(--gold)
+        }
+
+        /* ARTICLE VIEW */
+        .article-view {
+            max-width: 900px;
+            margin: 2.5rem auto 0;
+            padding: 0 2rem;
+            display: none
+        }
+
+        .article-view.visible {
+            display: block
+        }
+
+        .article-inner {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem
+        }
+
+        .article-back {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text2);
+            text-decoration: none;
+            margin-bottom: 1.5rem
+        }
+
+        .article-back:hover {
+            color: var(--gold)
+        }
+
+        .article-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem
+        }
+
+        .article-title {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            line-height: 1.25;
+            margin-bottom: 1.5rem;
+            color: var(--text)
+        }
+
+        .article-content {
+            color: var(--text2);
+            line-height: 1.8;
+            font-size: 0.98rem
+        }
+
+        .article-content h2,
+        .article-content h3,
+        .article-content h4 {
+            color: var(--text);
+            margin: 2rem 0 .8rem
+        }
+
+        .article-content p {
+            margin: 1rem 0
+        }
+
+        .article-content ul,
+        .article-content ol {
+            padding-left: 1.4rem;
+            margin: 1rem 0
+        }
+
+        .article-content li {
+            margin: .4rem 0
+        }
+
+        .article-content blockquote {
+            border-left: 3px solid var(--gold);
+            padding-left: 1rem;
+            color: var(--text3);
+            margin: 1.2rem 0
+        }
+
+        .article-content pre {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text)
+        }
+
+        .article-content code {
+            font-family: var(--mono);
+            font-size: 12px;
+            background: rgba(200, 169, 110, .08);
+            padding: 2px 6px;
+            border-radius: 4px
+        }
+
+        .article-content a {
+            color: var(--gold);
+            text-decoration: none
+        }
+
+        .article-content a:hover {
+            text-decoration: underline
+        }
+
+        .article-content hr {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2rem 0
+        }
+
+        .article-loading,
+        .article-error {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--text3)
+        }
+
+        /* NEWSLETTER */
+        .newsletter-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem
+        }
+
+        .newsletter-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            flex-wrap: wrap
+        }
+
+        .newsletter-text h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .4rem
+        }
+
+        .newsletter-text p {
+            font-size: .9rem;
+            color: var(--text2);
+            max-width: 400px
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: .5rem
+        }
+
+        .newsletter-form input {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 10px 16px;
+            font-family: var(--font);
+            font-size: 13px;
+            color: var(--text);
+            width: 260px;
+            outline: none;
+            transition: border-color .2s
+        }
+
+        .newsletter-form input::placeholder {
+            color: var(--text3)
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--gold)
+        }
+
+        .newsletter-form button {
+            padding: 10px 24px;
+            background: var(--gold);
+            color: var(--bg);
+            border: none;
+            border-radius: 6px;
+            font-family: var(--mono);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background .2s
+        }
+
+        .newsletter-form button:hover {
+            background: var(--gold2)
+        }
+
+        /* EMPTY STATE */
+        .empty-state {
+            text-align: center;
+            padding: 4rem 2rem;
+            display: none
+        }
+
+        .empty-state.visible {
+            display: block
+        }
+
+        .empty-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem
+        }
+
+        .empty-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .5rem
+        }
+
+        .empty-sub {
+            font-size: .9rem;
+            color: var(--text2)
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center
+        }
+
+        footer p {
+            font-size: .8rem;
+            color: var(--text3);
+            font-family: var(--mono)
+        }
+
+        footer a {
+            color: var(--text3);
+            text-decoration: none;
+            transition: color .2s
+        }
+
+        footer a:hover {
+            color: var(--gold)
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:960px) {
+            .posts-grid {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .featured-card {
+                grid-template-columns: 1fr
+            }
+
+            .featured-visual {
+                min-height: 180px
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .nav-links,
+            .nav-cta,
+            .desktop-lang {
+                display: none !important
+            }
+
+            .hamburger {
+                display: flex
+            }
+
+            .blog-hero {
+                padding: 6rem 1.2rem 3rem
+            }
+
+            .filters-bar {
+                padding: 1.5rem 1.2rem 0
+            }
+
+            .featured-post {
+                padding: 0 1.2rem
+            }
+
+            .posts-section {
+                padding: 2rem 1.2rem 3rem
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr
+            }
+
+            .newsletter-section {
+                padding: 0 1.2rem 3rem
+            }
+
+            .article-view {
+                padding: 0 1.2rem
+            }
+
+            .article-inner {
+                padding: 2rem
+            }
+
+            .newsletter-card {
+                padding: 2rem;
+                flex-direction: column;
+                text-align: center
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                width: 100%
+            }
+
+            .newsletter-form input {
+                width: 100%
+            }
+
+            .search-box input {
+                width: 100%
+            }
+
+            .blog-stats {
+                gap: 1.5rem
+            }
+        }
+
+        /* ANIMATIONS */
+        .post-card,
+        .featured-card {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp .5s ease forwards
+        }
+
+        .post-card:nth-child(1) {
+            animation-delay: .05s
+        }
+
+        .post-card:nth-child(2) {
+            animation-delay: .1s
+        }
+
+        .post-card:nth-child(3) {
+            animation-delay: .15s
+        }
+
+        .post-card:nth-child(4) {
+            animation-delay: .2s
+        }
+
+        .post-card:nth-child(5) {
+            animation-delay: .25s
+        }
+
+        .post-card:nth-child(6) {
+            animation-delay: .3s
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav id="nav">
+        <a href="#home" class="nav-logo">glaymar.dev</a>
+        <div class="nav-right">
+            <ul class="nav-links">
+                <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
+                <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
+                <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+                <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
+                <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
+                <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
+                <li><a href="blog.html" class="active" data-i18n="nav_blog">Artigos</a></li>
+                <li><a href="index.html#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
+            </ul>
+            <div class="lang-switcher desktop-lang">
+                <button class="lang-btn active" data-lang="pt">PT</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobileNav">
+        <ul>
+            <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+            <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
+            <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
+            <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+            <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
+            <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+        </ul>
+        <div class="mobile-lang lang-switcher">
+            <button class="lang-btn active" data-lang="pt">PT</button>
+            <button class="lang-btn" data-lang="en">EN</button>
+        </div>
+    </div>
+
+    <!-- HERO BLOG -->
+    <div class="blog-hero">
+        <div class="hero-inner">
+            <div class="hero-label" data-i18n="blog_hero_label">Blog & Artigos</div>
+            <h1 class="hero-title" data-i18n="blog_hero_title">Pensamento<br>em Código</h1>
+            <p class="hero-sub" data-i18n="blog_hero_sub">Artigos sobre arquitetura de software, liderança técnica, IA
+                aplicada e lições aprendidas construindo produtos reais no Nordeste.</p>
+            <div class="blog-stats">
+                <div class="stat-item">
+                    <span class="stat-num" id="totalPosts">6</span>
+                    <span class="stat-label" data-i18n="blog_stat_articles">artigos</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">5</span>
+                    <span class="stat-label" data-i18n="blog_stat_categories">categorias</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-num">~45</span>
+                    <span class="stat-label" data-i18n="blog_stat_reading">min de leitura total</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FILTERS -->
+    <div class="filters-bar">
+        <div class="filter-tabs" id="filterTabs">
+            <button class="filter-tab active" data-filter="all" data-i18n="filter_all">Todos</button>
+            <button class="filter-tab" data-filter="arch" data-i18n="filter_arch">Arquitetura</button>
+            <button class="filter-tab" data-filter="ia" data-i18n="filter_ia">IA & ML</button>
+            <button class="filter-tab" data-filter="lead" data-i18n="filter_lead">Liderança</button>
+            <button class="filter-tab" data-filter="front" data-i18n="filter_front">Frontend</button>
+            <button class="filter-tab" data-filter="devops" data-i18n="filter_devops">DevOps</button>
+            <button class="filter-tab" data-filter="career" data-i18n="filter_career">Carreira</button>
+        </div>
+        <div class="search-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Buscar artigos..."
+                data-i18n-placeholder="search_placeholder">
+        </div>
+    </div>
+
+    <!-- ARTICLE VIEW -->
+    <section class="article-view" id="articleView">
+        <div class="article-inner">
+            <a class="article-back" href="blog.html" data-i18n="article_back">← Voltar aos artigos</a>
+            <div class="article-meta">
+                <span class="post-category cat-arch" id="articleCategory">Arquitetura</span>
+                <span class="post-date" id="articleDate"></span>
+                <span class="post-read" id="articleRead"></span>
+            </div>
+            <h1 class="article-title" id="articleTitle"></h1>
+            <div class="article-content" id="articleContent"></div>
+        </div>
+    </section>
+
+    <!-- FEATURED POST -->
+    <div class="featured-post" id="featuredPost"></div>
+
+    <!-- POSTS GRID -->
+    <div class="posts-section">
+        <div class="posts-grid" id="postsGrid"></div>
+
+        <!-- EMPTY STATE -->
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon">🔎</div>
+            <div class="empty-title" data-i18n="empty_title">Nenhum artigo encontrado</div>
+            <div class="empty-sub" data-i18n="empty_sub">Tente outro filtro ou termo de busca.</div>
+        </div>
+    </div>
+
+    <!-- NEWSLETTER -->
+    <div class="newsletter-section">
+        <div class="newsletter-card">
+            <div class="newsletter-text">
+                <h3 data-i18n="newsletter_title">📬 Novos artigos no email</h3>
+                <p data-i18n="newsletter_sub">Receba artigos técnicos sobre arquitetura, IA e produto diretamente na sua
+                    caixa de entrada. Sem spam — só conteúdo que vale o clique.</p>
+            </div>
+            <form class="newsletter-form" id="newsletterForm">
+                <input type="email" placeholder="seu@email.com" required>
+                <button type="submit" data-i18n="newsletter_btn">Inscrever</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
+            <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
+            <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
+            <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" target="_blank">LinkedIn</a>
+        </p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // ══════════════════════════════════════════════════
+        //  i18n — DICIONÁRIO BLOG.HTML — PT-BR / EN
+        // ══════════════════════════════════════════════════
+        const i18n = {
+            pt: {
+                nav_stack: "Stack",
+                nav_experience: "Experiência",
+                nav_projects: "Projetos",
+                nav_education: "Formação",
+                nav_certifications: "Certificações",
+                nav_blog: "Artigos",
+                nav_about: "Sobre",
+                nav_contact: "Contato",
+                nav_home: "Início",
+
+                blog_hero_label: "Blog & Artigos",
+                blog_hero_title: "Pensamento<br>em Código",
+                blog_hero_sub: "Artigos sobre arquitetura de software, liderança técnica, IA aplicada e lições aprendidas construindo produtos reais no Nordeste.",
+                blog_stat_articles: "artigos",
+                blog_stat_categories: "categorias",
+                blog_stat_reading: "min de leitura total",
+
+                filter_all: "Todos",
+                filter_arch: "Arquitetura",
+                filter_ia: "IA & ML",
+                filter_lead: "Liderança",
+                filter_front: "Frontend",
+                filter_devops: "DevOps",
+                filter_career: "Carreira",
+                search_placeholder: "Buscar artigos...",
+
+                blog_featured_badge: "Artigo em destaque",
+                blog_featured_read: "12 min",
+                blog_featured_title: "Clean Architecture na prática: como estruturei o backend da AlttabCorp",
+                blog_featured_excerpt: "Um walkthrough completo de como apliquei Clean Architecture com Node.js e TypeScript em produção — decisões, trade-offs e o que mudaria hoje. Da estrutura de pastas ao fluxo de dependências entre camadas.",
+                blog_read_more: "Ler artigo →",
+
+                cat_arch: "Arquitetura",
+                cat_ia: "IA & ML",
+                cat_lead: "Liderança",
+                cat_front: "Frontend",
+                cat_devops: "DevOps",
+                cat_career: "Carreira",
+
+                post1_title: "RAG local com Ollama e pgvector: guia prático",
+                post1_excerpt: "Como montei um pipeline de Retrieval-Augmented Generation rodando 100% local — sem API externa, sem custo por token. Do embedding à busca semântica com PostgreSQL.",
+                post1_read: "9 min",
+
+                post2_title: "O Tank tem que tankar: liderança técnica em times pequenos",
+                post2_excerpt: "Lições de League of Legends aplicadas à gestão de times de desenvolvimento. Por que o líder técnico precisa absorver pressão e criar espaço para o time entregar.",
+                post2_read: "7 min",
+
+                post3_title: "Next.js 14 App Router: o que aprendi migrando 3 projetos",
+                post3_excerpt: "Server Components, streaming, cache — o App Router muda a forma de pensar React. Compartilho erros, acertos e patterns que funcionaram na migração de projetos reais.",
+                post3_read: "8 min",
+
+                post4_title: "CI/CD com GitHub Actions e Docker: setup completo para startups",
+                post4_excerpt: "O pipeline que uso na AlttabCorp para deploy automático de 6+ plataformas. Workflows reutilizáveis, build multi-stage e zero downtime — tudo com custo zero.",
+                post4_read: "10 min",
+
+                post5_title: "n8n + IA: automatizando workflows internos sem código proprietário",
+                post5_excerpt: "Como integrei n8n com modelos locais via Ollama para automatizar triagem de emails, geração de relatórios e onboarding de clientes — sem depender de SaaS externo.",
+                post5_read: "6 min",
+
+                post6_title: "De freela a CEO: o que aprendi em 6 anos construindo do zero",
+                post6_excerpt: "A jornada de freelancer no interior do Nordeste até fundar a AlttabCorp. Decisões certas, erros caros e os princípios que carrego para cada novo projeto.",
+                post6_read: "11 min",
+
+                empty_title: "Nenhum artigo encontrado",
+                empty_sub: "Tente outro filtro ou termo de busca.",
+
+                newsletter_title: "📬 Novos artigos no email",
+                newsletter_sub: "Receba artigos técnicos sobre arquitetura, IA e produto diretamente na sua caixa de entrada. Sem spam — só conteúdo que vale o clique.",
+                newsletter_btn: "Inscrever",
+
+                article_back: "← Voltar aos artigos",
+                article_loading: "Carregando artigo...",
+                article_not_found: "Artigo não encontrado.",
+                article_missing: "Não foi possível carregar este conteúdo."
+            },
+
+            en: {
+                nav_stack: "Stack",
+                nav_experience: "Experience",
+                nav_projects: "Projects",
+                nav_education: "Education",
+                nav_certifications: "Certifications",
+                nav_blog: "Articles",
+                nav_about: "About",
+                nav_contact: "Contact",
+                nav_home: "Home",
+
+                blog_hero_label: "Blog & Articles",
+                blog_hero_title: "Thinking<br>in Code",
+                blog_hero_sub: "Articles on software architecture, technical leadership, applied AI, and lessons learned building real products from Brazil's Northeast.",
+                blog_stat_articles: "articles",
+                blog_stat_categories: "categories",
+                blog_stat_reading: "min total reading",
+
+                filter_all: "All",
+                filter_arch: "Architecture",
+                filter_ia: "AI & ML",
+                filter_lead: "Leadership",
+                filter_front: "Frontend",
+                filter_devops: "DevOps",
+                filter_career: "Career",
+                search_placeholder: "Search articles...",
+
+                blog_featured_badge: "Featured article",
+                blog_featured_read: "12 min",
+                blog_featured_title: "Clean Architecture in practice: how I structured AlttabCorp's backend",
+                blog_featured_excerpt: "A complete walkthrough of how I applied Clean Architecture with Node.js and TypeScript in production — decisions, trade-offs, and what I'd change today. From folder structure to dependency flow between layers.",
+                blog_read_more: "Read article →",
+
+                cat_arch: "Architecture",
+                cat_ia: "AI & ML",
+                cat_lead: "Leadership",
+                cat_front: "Frontend",
+                cat_devops: "DevOps",
+                cat_career: "Career",
+
+                post1_title: "Local RAG with Ollama and pgvector: practical guide",
+                post1_excerpt: "How I built a Retrieval-Augmented Generation pipeline running 100% locally — no external API, no cost per token. From embedding to semantic search with PostgreSQL.",
+                post1_read: "9 min",
+
+                post2_title: "The Tank has to tank: technical leadership in small teams",
+                post2_excerpt: "Lessons from League of Legends applied to dev team management. Why the tech lead needs to absorb pressure and create space for the team to deliver.",
+                post2_read: "7 min",
+
+                post3_title: "Next.js 14 App Router: what I learned migrating 3 projects",
+                post3_excerpt: "Server Components, streaming, cache — the App Router changes how you think about React. I share mistakes, wins, and patterns that worked in real project migrations.",
+                post3_read: "8 min",
+
+                post4_title: "CI/CD with GitHub Actions and Docker: complete startup setup",
+                post4_excerpt: "The pipeline I use at AlttabCorp for automatic deployment of 6+ platforms. Reusable workflows, multi-stage builds, and zero downtime — all at zero cost.",
+                post4_read: "10 min",
+
+                post5_title: "n8n + AI: automating internal workflows without proprietary code",
+                post5_excerpt: "How I integrated n8n with local models via Ollama to automate email triage, report generation, and client onboarding — without relying on external SaaS.",
+                post5_read: "6 min",
+
+                post6_title: "From freelancer to CEO: what I learned in 6 years building from scratch",
+                post6_excerpt: "The journey from freelancing in Brazil's Northeast interior to founding AlttabCorp. Right decisions, expensive mistakes, and the principles I carry into every new project.",
+                post6_read: "11 min",
+
+                empty_title: "No articles found",
+                empty_sub: "Try another filter or search term.",
+
+                newsletter_title: "📬 New articles in your inbox",
+                newsletter_sub: "Get technical articles on architecture, AI, and product directly in your inbox. No spam — just content worth the click.",
+                newsletter_btn: "Subscribe",
+
+                article_back: "← Back to articles",
+                article_loading: "Loading article...",
+                article_not_found: "Article not found.",
+                article_missing: "Unable to load this content."
+            }
+        };
+
+        // ══════════════════════════════════════════════════
+        //  ENGINE
+        // ══════════════════════════════════════════════════
+        let currentLang = localStorage.getItem('lang') || 'pt';
+
+        const filterTabs = document.querySelectorAll('.filter-tab');
+        const featuredPost = document.getElementById('featuredPost');
+        const postsGrid = document.getElementById('postsGrid');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('searchInput');
+        const filtersBar = document.querySelector('.filters-bar');
+        const postsSection = document.querySelector('.posts-section');
+        const newsletterSection = document.querySelector('.newsletter-section');
+        const articleView = document.getElementById('articleView');
+        const articleTitle = document.getElementById('articleTitle');
+        const articleContent = document.getElementById('articleContent');
+        const articleCategory = document.getElementById('articleCategory');
+        const articleDate = document.getElementById('articleDate');
+        const articleRead = document.getElementById('articleRead');
+        const totalPostsEl = document.getElementById('totalPosts');
+
+        let activeFilter = 'all';
+        let currentPostSlug = null;
+        let articlesIndex = null;
+        let featuredSlug = null;
+        let postsOrder = [];
+        let articlesBySlug = new Map();
+        let featuredCard = null;
+        let postCards = [];
+
+        function escapeHtml(value) {
+            return String(value || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+        }
+
+        function escapeAttr(value) {
+            return escapeHtml(value).replace(/"/g, '&quot;');
+        }
+
+        function getLocalizedText(value) {
+            if (!value) return '';
+            if (typeof value === 'string') return value;
+            if (currentLang === 'pt') return value.pt || value.en || '';
+            return value.en || value.pt || '';
+        }
+
+        function getCategoryLabel(category) {
+            const dict = i18n[currentLang] || {};
+            return dict[`cat_${category}`] || category;
+        }
+
+        function setLang(lang) {
+            currentLang = lang;
+            localStorage.setItem('lang', lang);
+            document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+
+            document.title = lang === 'pt'
+                ? 'Blog — Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto'
+                : 'Blog — Glaymar França | Articles on Development, Architecture and Product';
+
+            const dict = i18n[lang];
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) el.innerHTML = dict[key];
+            });
+
+            if (searchInput) {
+                searchInput.placeholder = dict['search_placeholder'] || searchInput.placeholder;
+            }
+
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.lang === lang);
+            });
+
+            if (articlesIndex) {
+                renderArticles();
+            }
+
+            if (currentPostSlug) {
+                loadArticle(currentPostSlug);
+            } else {
+                applyFilters();
+            }
+        }
+
+        function setListVisibility(showList) {
+            filtersBar.style.display = showList ? '' : 'none';
+            featuredPost.style.display = showList ? '' : 'none';
+            postsSection.style.display = showList ? '' : 'none';
+            newsletterSection.style.display = showList ? '' : 'none';
+            articleView.classList.toggle('visible', !showList);
+        }
+
+        function resetArticleView() {
+            currentPostSlug = null;
+            setListVisibility(true);
+            applyFilters();
+        }
+
+        async function fetchJson(url) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (err) {
+                return null;
+            }
+        }
+
+        async function fetchMarkdown(url) {
+            try {
+                const res = await fetch(url);
+                if (!res.ok) return null;
+                return await res.text();
+            } catch (err) {
+                return null;
+            }
+        }
+
+        async function loadArticles() {
+            articlesIndex = await fetchJson('artigos/index.json');
+            if (!articlesIndex) return;
+
+            featuredSlug = articlesIndex.featured || null;
+            postsOrder = Array.isArray(articlesIndex.posts) ? articlesIndex.posts : [];
+
+            const orderedSlugs = [];
+            const slugSet = new Set();
+
+            if (featuredSlug) {
+                orderedSlugs.push(featuredSlug);
+                slugSet.add(featuredSlug);
+            }
+
+            postsOrder.forEach(slug => {
+                if (!slugSet.has(slug)) {
+                    slugSet.add(slug);
+                    orderedSlugs.push(slug);
+                }
+            });
+
+            const articles = await Promise.all(orderedSlugs.map(async slug => {
+                const data = await fetchJson(`artigos/${slug}/index.json`);
+                if (!data) return null;
+                return { ...data, slug: data.slug || slug };
+            }));
+
+            articlesBySlug = new Map(articles.filter(Boolean).map(article => [article.slug, article]));
+        }
+
+        function renderFeatured(article) {
+            if (!article) {
+                featuredPost.innerHTML = '';
+                featuredCard = null;
+                return;
+            }
+
+            const featuredBadge = (i18n[currentLang] || {}).blog_featured_badge || 'Featured article';
+            const title = getLocalizedText(article.title);
+            const excerpt = getLocalizedText(article.excerpt);
+            const category = article.category || 'arch';
+            const categoryLabel = getCategoryLabel(category);
+            const icon = article.icon || '📝';
+
+            featuredPost.innerHTML = `
+                <a class="featured-card" href="blog.html?post=${escapeAttr(article.slug)}" data-category="${escapeAttr(category)}"
+                    data-slug="${escapeAttr(article.slug)}" data-date="${escapeAttr(article.date || '')}" data-read="${escapeAttr(article.read || '')}"
+                    data-title-pt="${escapeAttr(article.title?.pt || '')}" data-title-en="${escapeAttr(article.title?.en || '')}">
+                    <div class="featured-visual">
+                        <div class="featured-icon">${escapeHtml(icon)}</div>
+                        <div class="featured-badge">${escapeHtml(featuredBadge)}</div>
+                    </div>
+                    <div class="featured-body">
+                        <div class="featured-meta">
+                            <span class="post-category cat-${escapeAttr(category)}">${escapeHtml(categoryLabel)}</span>
+                            <span class="post-date">${escapeHtml(article.date || '')}</span>
+                            <span class="post-read">${escapeHtml(article.read || '')}</span>
+                        </div>
+                        <h2 class="featured-title">${escapeHtml(title)}</h2>
+                        <p class="featured-excerpt">${escapeHtml(excerpt)}</p>
+                        <span class="read-more">${escapeHtml((i18n[currentLang] || {}).blog_read_more || 'Read article →')}</span>
+                    </div>
+                </a>
+            `;
+        }
+
+        function renderPosts(posts) {
+            postsGrid.innerHTML = posts.map(article => {
+                const title = getLocalizedText(article.title);
+                const excerpt = getLocalizedText(article.excerpt);
+                const category = article.category || 'arch';
+                const categoryLabel = getCategoryLabel(category);
+                const tags = Array.isArray(article.tags)
+                    ? article.tags.map(tag => `<span class="post-tag">${escapeHtml(tag)}</span>`).join('')
+                    : '';
+
+                return `
+                    <a class="post-card" href="blog.html?post=${escapeAttr(article.slug)}" data-category="${escapeAttr(category)}"
+                        data-slug="${escapeAttr(article.slug)}" data-date="${escapeAttr(article.date || '')}" data-read="${escapeAttr(article.read || '')}"
+                        data-title-pt="${escapeAttr(article.title?.pt || '')}" data-title-en="${escapeAttr(article.title?.en || '')}">
+                        <div class="post-card-meta">
+                            <span class="post-category cat-${escapeAttr(category)}">${escapeHtml(categoryLabel)}</span>
+                            <span class="post-date">${escapeHtml(article.date || '')}</span>
+                            <span class="post-read">${escapeHtml(article.read || '')}</span>
+                        </div>
+                        <h3 class="post-card-title">${escapeHtml(title)}</h3>
+                        <p class="post-card-excerpt">${escapeHtml(excerpt)}</p>
+                        <div class="post-card-footer">
+                            <div class="post-tags">${tags}</div>
+                            <span class="post-arrow">→</span>
+                        </div>
+                    </a>
+                `;
+            }).join('');
+        }
+
+        function refreshPostReferences() {
+            featuredCard = featuredPost.querySelector('.featured-card');
+            postCards = Array.from(document.querySelectorAll('.post-card'));
+        }
+
+        function updatePostStats() {
+            if (!totalPostsEl) return;
+            totalPostsEl.textContent = articlesBySlug.size;
+        }
+
+        function renderArticles() {
+            const featuredArticle = featuredSlug ? articlesBySlug.get(featuredSlug) : null;
+            renderFeatured(featuredArticle);
+
+            const orderedPosts = postsOrder
+                .map(slug => articlesBySlug.get(slug))
+                .filter(article => article && article.slug !== featuredSlug);
+
+            renderPosts(orderedPosts);
+            refreshPostReferences();
+            updatePostStats();
+
+            if (!articleView.classList.contains('visible')) {
+                applyFilters();
+            }
+        }
+
+        async function loadArticle(slug) {
+            const dict = i18n[currentLang] || {};
+
+            if (!articlesIndex) {
+                await loadArticles();
+            }
+
+            const article = articlesBySlug.get(slug);
+            if (!article) {
+                articleContent.innerHTML = `<p class="article-error">${dict.article_not_found}</p>`;
+                return;
+            }
+
+            const category = article.category || 'arch';
+            const title = getLocalizedText(article.title);
+            const date = article.date || '';
+            const read = article.read || '';
+
+            articleCategory.textContent = getCategoryLabel(category);
+            articleCategory.className = `post-category cat-${category}`;
+            articleTitle.textContent = title;
+            articleDate.textContent = date;
+            articleRead.textContent = read;
+
+            articleContent.innerHTML = `<p class="article-loading">${dict.article_loading}</p>`;
+
+            const basePath = 'artigos';
+            const langSuffix = currentLang === 'pt' ? '' : '.en';
+            const primaryUrl = `${basePath}/${slug}/index${langSuffix}.md`;
+            const fallbackUrl = `${basePath}/${slug}/index.md`;
+            let markdown = await fetchMarkdown(primaryUrl);
+
+            if (!markdown && currentLang !== 'pt') {
+                markdown = await fetchMarkdown(fallbackUrl);
+            }
+
+            if (!markdown) {
+                articleContent.innerHTML = `<p class="article-error">${dict.article_missing}</p>`;
+                return;
+            }
+
+            articleContent.innerHTML = marked.parse(markdown.replace(/^#[^\n]*\n?/, ''));
+        }
+
+        function showArticle(slug) {
+            currentPostSlug = slug;
+            setListVisibility(false);
+            loadArticle(slug);
+        }
+
+        function applyFilters() {
+            if (articleView.classList.contains('visible')) return;
+            const query = searchInput.value.toLowerCase().trim();
+            let visibleCount = 0;
+
+            if (featuredCard) {
+                const featCat = featuredCard.dataset.category;
+                const featTitle = featuredCard.querySelector('.featured-title').textContent.toLowerCase();
+                const featExcerpt = featuredCard.querySelector('.featured-excerpt').textContent.toLowerCase();
+                const featMatch = (activeFilter === 'all' || featCat === activeFilter)
+                    && (query === '' || featTitle.includes(query) || featExcerpt.includes(query));
+
+                featuredPost.style.display = featMatch ? '' : 'none';
+                if (featMatch) visibleCount++;
+            }
+
+            postCards.forEach(card => {
+                const cat = card.dataset.category;
+                const title = card.querySelector('.post-card-title').textContent.toLowerCase();
+                const excerpt = card.querySelector('.post-card-excerpt').textContent.toLowerCase();
+                const catMatch = activeFilter === 'all' || cat === activeFilter;
+                const searchMatch = query === '' || title.includes(query) || excerpt.includes(query);
+
+                if (catMatch && searchMatch) {
+                    card.style.display = '';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            emptyState.classList.toggle('visible', visibleCount === 0);
+        }
+
+        filterTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                filterTabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                activeFilter = tab.dataset.filter;
+                applyFilters();
+            });
+        });
+
+        searchInput.addEventListener('input', applyFilters);
+
+        // ══════════════════════════════════════════════════
+        //  NEWSLETTER (fake — substitua por integração real)
+        // ══════════════════════════════════════════════════
+        document.getElementById('newsletterForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const input = this.querySelector('input');
+            const btn = this.querySelector('button');
+            const originalText = btn.textContent;
+
+            btn.textContent = currentLang === 'pt' ? '✓ Inscrito!' : '✓ Subscribed!';
+            btn.style.background = 'var(--teal)';
+            input.value = '';
+
+            setTimeout(() => {
+                btn.textContent = originalText;
+                btn.style.background = '';
+            }, 3000);
+        });
+
+        // ══════════════════════════════════════════════════
+        //  EVENT LISTENERS
+        // ══════════════════════════════════════════════════
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.addEventListener('click', () => setLang(btn.dataset.lang));
+        });
+
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            nav.classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+        mobileNav.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => mobileNav.classList.remove('open'));
+        });
+
+        async function init() {
+            await loadArticles();
+            renderArticles();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialPost = urlParams.get('post');
+
+            if (initialPost) {
+                showArticle(initialPost);
+            } else {
+                resetArticleView();
+            }
+
+            setLang(currentLang);
+        }
+
+        init();
+    </script>
+</body>
+
+</html>

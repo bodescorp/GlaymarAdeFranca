@@ -1,0 +1,20 @@
+{
+    "slug": "cicd-github-actions-docker",
+    "category": "devops",
+    "date": "10 Mai 2025",
+    "read": "10 min",
+    "icon": "🚀",
+    "title": {
+        "pt": "CI/CD com GitHub Actions e Docker: setup completo para startups",
+        "en": "CI/CD with GitHub Actions and Docker: complete startup setup"
+    },
+    "excerpt": {
+        "pt": "O pipeline que uso na AlttabCorp para deploy automatico de 6+ plataformas.",
+        "en": "The pipeline I use at AlttabCorp for automatic deployment of 6+ platforms."
+    },
+    "tags": [
+        "Docker",
+        "GitHub Actions",
+        "CI/CD"
+    ]
+}

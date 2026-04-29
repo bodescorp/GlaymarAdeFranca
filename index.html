@@ -1067,6 +1067,7 @@
         <li><a href="#education" data-i18n="nav_education">Formação</a></li>
         <li><a href="#certifications" data-i18n="nav_certifications">Certificações</a></li>
         <li><a href="sobre.html" class="active" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
         <li><a href="#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
       </ul>
       <div class="lang-switcher desktop-lang">
@@ -1086,6 +1087,7 @@
       <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
       <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
       <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
+      <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
     </ul>
     <div class="mobile-lang lang-switcher">
       <button class="lang-btn active" data-lang="pt">PT</button>
@@ -1125,39 +1127,23 @@
         </div>
       </div>
       <div class="hero-right">
-        <div class="hero-stat-card">
-          <div class="hero-stat-icon">🏢</div>
-          <div>
-            <div class="hero-stat-num">CEO</div>
-            <div class="hero-stat-label" data-i18n="stat_ceo">AlttabCorp — fundador desde 2023</div>
-          </div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="hero-stat-icon">⚡</div>
-          <div>
-            <div class="hero-stat-num">6+</div>
-            <div class="hero-stat-label" data-i18n="stat_years">Anos de experiência em desenvolvimento</div>
-          </div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="hero-stat-icon">🔬</div>
-          <div>
-            <div class="hero-stat-num">P&D</div>
-            <div class="hero-stat-label" data-i18n="stat_research">Pesquisador FAPESQ / LAVID — UFPB</div>
-          </div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="hero-stat-icon">🤖</div>
-          <div>
-            <div class="hero-stat-num">RAG</div>
-            <div class="hero-stat-label" data-i18n="stat_rag">Pipeline de IA em produção — servidor próprio</div>
-          </div>
-        </div>
-        <div class="hero-stat-card">
-          <div class="hero-stat-icon">📚</div>
-          <div>
-            <div class="hero-stat-num">2.060h</div>
-            <div class="hero-stat-label" data-i18n="stat_edu">Pós-graduação em andamento (3 especializações)</div>
+        <div style="position:relative;display:flex;justify-content:center">
+
+          <!-- FOTO -->
+          <div style="
+      width:320px;height:380px;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid var(--border2);
+      position:relative;
+    ">
+            <img src="assets/me.jpg" alt="Glaymar Albuquerque de França"
+              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
+            <!-- gradiente sutil na base -->
+            <div style="
+        position:absolute;bottom:0;left:0;right:0;height:120px;
+        background:linear-gradient(to top,rgba(10,14,23,.7),transparent);
+      "></div>
           </div>
         </div>
       </div>
@@ -1515,6 +1501,12 @@
         </a>
 
       </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="projetos.html" class="btn-outline" style="display:inline-flex;align-items:center;gap:.5rem"
+          data-i18n="proj_view_all">
+          Ver portfólio completo →
+        </a>
+      </div>
     </div>
   </section>
 
@@ -1740,6 +1732,7 @@
         nav_education: "Formação",
         nav_certifications: "Certificações",
         nav_contact: "Contato",
+        nav_blog: "Artigos",
 
         // Hero
         hero_status: "Disponível para novas oportunidades",
@@ -1805,6 +1798,7 @@
         proj_label: "Portfólio",
         proj_title: "Projetos em Destaque",
         proj_sub: "Seleção de projetos com impacto real, disponíveis publicamente.",
+        proj_view_all: "Ver portfólio completo →",
 
         proj1_name: "Pipeline RAG Local — AlttabCorp",
         proj1_desc: "Pipeline completo de IA em produção: LLM local (Ollama + Qwen2.5), banco vetorial (PostgreSQL + pgvector), transcrição de áudio (Whisper), bot Telegram, automação n8n e monitoramento Uptime-Kuma — tudo auto-hospedado com custo zero de inferência.",
@@ -1883,6 +1877,7 @@
         nav_education: "Education",
         nav_certifications: "Certifications",
         nav_contact: "Contact",
+        nav_blog: "Articles",
 
         // Hero
         hero_status: "Open to new opportunities",
@@ -1948,6 +1943,7 @@
         proj_label: "Portfolio",
         proj_title: "Featured Projects",
         proj_sub: "A selection of real-impact projects, publicly available.",
+        proj_view_all: "View full portfolio →",
 
         proj1_name: "Local RAG Pipeline — AlttabCorp",
         proj1_desc: "Production-grade local AI system: Ollama + Qwen2.5 LLM, PostgreSQL + pgvector vector store, Whisper speech-to-text, Telegram Bot interface, n8n workflow automation and Uptime-Kuma monitoring — self-hosted with zero ongoing inference cost.",

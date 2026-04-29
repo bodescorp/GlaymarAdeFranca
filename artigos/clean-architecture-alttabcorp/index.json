@@ -1,0 +1,20 @@
+{
+    "slug": "clean-architecture-alttabcorp",
+    "category": "arch",
+    "date": "15 Jun 2025",
+    "read": "12 min",
+    "icon": "🏗️",
+    "title": {
+        "pt": "Clean Architecture na pratica: como estruturei o backend da AlttabCorp",
+        "en": "Clean Architecture in practice: how I structured AlttabCorp's backend"
+    },
+    "excerpt": {
+        "pt": "Um walkthrough completo de como apliquei Clean Architecture com Node.js e TypeScript em producao — decisoes, trade-offs e o que mudaria hoje.",
+        "en": "A complete walkthrough of how I applied Clean Architecture with Node.js and TypeScript in production — decisions, trade-offs, and what I would change today."
+    },
+    "tags": [
+        "Clean Architecture",
+        "Node.js",
+        "TypeScript"
+    ]
+}
