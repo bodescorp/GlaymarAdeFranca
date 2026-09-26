@@ -257,6 +257,7 @@
         "alttab-studio-portal",
         {
             "slug": "site-institucional-alttab",
+            "lane": "site",
             "tags": [
                 "product"
             ],
@@ -287,6 +288,7 @@
         },
         {
             "slug": "pitch-desenvolvimento-web",
+            "lane": "site",
             "tags": [
                 "product"
             ],
@@ -316,6 +318,7 @@
         },
         {
             "slug": "pitch-consultoria",
+            "lane": "site",
             "tags": [
                 "product"
             ],
@@ -345,6 +348,7 @@
         },
         {
             "slug": "alttab-esports",
+            "lane": "site",
             "tags": [
                 "product"
             ],
@@ -374,6 +378,7 @@
         },
         {
             "slug": "web-esports-campeonatos",
+            "lane": "site",
             "tags": [
                 "product"
             ],
@@ -404,6 +409,7 @@
         },
         {
             "slug": "bodescorp-stream",
+            "lane": "site",
             "tags": [
                 "product"
             ],

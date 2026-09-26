@@ -7,6 +7,17 @@
   <title>Sobre - Glaymar França | Desenvolvedor Web Full-Stack & Fundador da AlttabCorp</title>
   <meta name="description"
     content="Trajetória pessoal e profissional de Glaymar França - desenvolvedor Web Full-Stack, especialista em Inteligência Artificial e fundador da AlttabCorp. Filosofia, história e visão de produto.">
+  <link rel="canonical" href="https://bodescorp.github.io/GlaymarAdeFranca/sobre.html">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta property="og:title" content="Sobre - Glaymar França">
+  <meta property="og:description"
+    content="Trajetória pessoal e profissional de Glaymar França, fundador da AlttabCorp.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bodescorp.github.io/GlaymarAdeFranca/sobre.html">
+  <meta property="og:image" content="https://bodescorp.github.io/GlaymarAdeFranca/assets/me.jpg">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;400i&display=swap"
@@ -152,7 +163,8 @@
       transition: color .2s
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--text)
     }
 
@@ -635,9 +647,11 @@
       <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
       <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
       <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+      <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
+      <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
       <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
       <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
-      <li><a href="index.html#blog" data-i18n="nav_blog">Blog</a></li>
+      <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
     </ul>
     <div class="mobile-lang lang-switcher">
       <button class="lang-btn active" data-lang="pt">PT</button>
@@ -1151,7 +1165,7 @@
       // Link de download do currículo
       const btnCV = document.getElementById('btnDownloadCV');
       if (btnCV) {
-        btnCV.href = lang === 'pt' ? 'assets/Curriculo.pdf' : 'assets/Resume.pdf';
+        btnCV.href = 'assets/Curriculo.pdf';
       }
 
       // Aplica traduções

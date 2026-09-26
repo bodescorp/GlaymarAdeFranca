@@ -1,0 +1,19 @@
+{
+  "slug": "nome-do-artigo",
+  "category": "arch",
+  "date": "26 Set 2026",
+  "read": "5 min",
+  "icon": "",
+  "title": {
+    "pt": "Titulo do artigo",
+    "en": "Article title"
+  },
+  "excerpt": {
+    "pt": "Resumo de uma ou duas linhas para o card da lista.",
+    "en": "One or two lines for the list card."
+  },
+  "tags": [
+    "Arquitetura",
+    "TypeScript"
+  ]
+}

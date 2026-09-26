@@ -1,0 +1,86 @@
+{
+  "slug": "nome-do-projeto",
+  "tags": [
+    "product"
+  ],
+  "badge": {
+    "class": "badge-product",
+    "icon": "",
+    "pt": "Produto",
+    "en": "Product"
+  },
+  "title": {
+    "pt": "Nome do projeto",
+    "en": "Project name"
+  },
+  "subtitle": {
+    "pt": "Uma linha sobre o que você construiu.",
+    "en": "One line about what you built."
+  },
+  "year": {
+    "pt": "2026",
+    "en": "2026"
+  },
+  "status": {
+    "class": "status-prod",
+    "pt": "Em produção",
+    "en": "In production"
+  },
+  "links": [
+    {
+      "url": "https://exemplo.com",
+      "primary": true,
+      "label": {
+        "pt": "Abrir projeto",
+        "en": "Open project"
+      }
+    },
+    {
+      "url": "https://github.com/bodescorp",
+      "primary": false,
+      "label": {
+        "pt": "GitHub",
+        "en": "GitHub"
+      }
+    }
+  ],
+  "summary": {
+    "pt": "Resumo curto: problema, o que você fez e o resultado.",
+    "en": "Short summary: problem, what you built, and the outcome."
+  },
+  "highlights": {
+    "pt": [
+      "Primeira decisão técnica",
+      "Resultado mensurável",
+      "O que ficou em produção"
+    ],
+    "en": [
+      "First technical decision",
+      "Measurable result",
+      "What shipped to production"
+    ]
+  },
+  "stack": [
+    "TypeScript",
+    "Node.js"
+  ],
+  "stats": [
+    {
+      "label": {
+        "pt": "Papel",
+        "en": "Role"
+      },
+      "value": {
+        "pt": "Desenvolvedor",
+        "en": "Developer"
+      }
+    }
+  ],
+  "gallery": [
+    {
+      "src": "fotos/tela.jpg",
+      "pt": "Tela principal",
+      "en": "Main screen"
+    }
+  ]
+}

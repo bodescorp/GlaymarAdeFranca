@@ -7,6 +7,17 @@
     <title>Projetos - Glaymar França | Portfólio Técnico</title>
     <meta name="description"
         content="Portfólio técnico de Glaymar França - projetos em Node.js, React, IA, Neo4j, Docker e mais. Pipeline RAG, sistemas hospitalares, APIs e ecossistema AlttabCorp.">
+    <link rel="canonical" href="https://bodescorp.github.io/GlaymarAdeFranca/projetos.html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta property="og:title" content="Projetos - Glaymar França">
+    <meta property="og:description"
+        content="Projetos em Node.js, React, IA, Docker e o ecossistema AlttabCorp.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bodescorp.github.io/GlaymarAdeFranca/projetos.html">
+    <meta property="og:image" content="https://bodescorp.github.io/GlaymarAdeFranca/assets/me.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap"
@@ -153,7 +164,8 @@
             transition: color .2s
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--text)
         }
 
@@ -232,7 +244,7 @@
 
         /* ── HERO ── */
         .hero {
-            padding: 8rem 2rem 5rem;
+            padding: 7rem 2rem 2.6rem;
             border-bottom: 1px solid var(--border);
             position: relative;
             overflow: hidden
@@ -331,20 +343,126 @@
         .content {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 3rem 2rem 5rem
+            padding: 1.6rem 2rem 5rem
         }
 
-        /* ── FEATURED PROJECTS ── */
-        .featured-project {
+        .case-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem
+        }
+
+        .case-row {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 1.4rem 1.5rem;
+            background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 14px;
-            overflow: hidden;
-            margin-bottom: 2rem;
-            transition: border-color .2s;
+            text-decoration: none;
+            color: inherit;
+            transition: border-color .2s
         }
 
-        .featured-project:hover {
-            border-color: var(--border2)
+        .case-row:hover {
+            border-color: var(--gold)
+        }
+
+        .case-row .fp-badge {
+            margin-bottom: .55rem
+        }
+
+        .case-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: .4rem
+        }
+
+        .case-desc {
+            font-size: .9rem;
+            color: var(--text2);
+            line-height: 1.55;
+            max-width: 62ch
+        }
+
+        .case-go {
+            font-family: var(--mono);
+            font-size: 12px;
+            color: var(--gold);
+            white-space: nowrap
+        }
+
+        .sys-list {
+            display: flex;
+            flex-direction: column
+        }
+
+        .sys-row {
+            display: grid;
+            grid-template-columns: minmax(180px, 260px) 1fr auto;
+            gap: 1rem;
+            align-items: baseline;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: inherit
+        }
+
+        .sys-row:last-child {
+            border-bottom: none
+        }
+
+        .sys-row:hover .sys-name {
+            color: var(--gold)
+        }
+
+        .sys-name {
+            font-size: .95rem;
+            font-weight: 600;
+            color: var(--text)
+        }
+
+        .sys-desc {
+            font-size: .85rem;
+            color: var(--text2);
+            line-height: 1.45
+        }
+
+        .sys-go {
+            font-family: var(--mono);
+            font-size: 11px;
+            color: var(--gold);
+            white-space: nowrap
+        }
+
+        .mini-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .3rem;
+            margin-top: .75rem
+        }
+
+        .case-aside .mini-stack {
+            margin-top: 0
+        }
+
+        .mini-chip {
+            padding: 3px 8px;
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 10px;
+            color: var(--text3)
+        }
+
+        /* ── FEATURED PROJECTS (detail leftovers) ── */
+        .featured-project {
+            margin-bottom: 0
         }
 
         .fp-header {
@@ -663,119 +781,82 @@
             font-weight: 600
         }
 
-        /* ── MINI PROJECTS ── */
-        .mini-section-title {
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text);
-            margin: 3rem 0 1.2rem;
+        /* ── LANES ── */
+        .lane {
+            margin-top: 3rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border)
         }
 
-        .mini-grid {
+        .lane-first {
+            margin-top: 0;
+            padding-top: 0;
+            border-top: none
+        }
+
+        .lane-head {
+            margin-bottom: 1.2rem
+        }
+
+        .lane-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: .35rem
+        }
+
+        .lane-sub {
+            font-size: .85rem;
+            color: var(--text3);
+            max-width: 520px;
+            line-height: 1.55
+        }
+
+        .sites-list {
+            display: flex;
+            flex-direction: column
+        }
+
+        .site-line {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1rem
-        }
-
-        .mini-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 1.4rem;
-            display: flex;
-            flex-direction: column;
-            gap: .8rem;
-            transition: all .2s;
+            grid-template-columns: minmax(160px, 240px) 1fr auto;
+            gap: 1rem;
+            align-items: baseline;
+            padding: .9rem 0;
+            border-bottom: 1px solid var(--border);
             text-decoration: none;
+            color: inherit
         }
 
-        .mini-card:hover {
-            border-color: var(--gold);
-            transform: translateY(-2px)
+        .site-line:last-child {
+            border-bottom: none
         }
 
-        .mini-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start
+        .site-line:hover .site-name {
+            color: var(--gold)
         }
 
-        .mini-name {
+        .site-name {
             font-size: .95rem;
             font-weight: 600;
             color: var(--text)
         }
 
-        .mini-arrow {
-            color: var(--text3);
-            font-size: 13px;
-            transition: color .2s
-        }
-
-        .mini-card:hover .mini-arrow {
-            color: var(--gold)
-        }
-
-        .mini-badge {
-            margin-bottom: .2rem
-        }
-
-        .mini-desc {
+        .site-desc {
             font-size: .85rem;
             color: var(--text2);
-            line-height: 1.65;
-            flex: 1
+            line-height: 1.45
         }
 
-        .mini-result {
-            font-size: .8rem;
-            color: var(--teal);
-            font-family: var(--mono);
-            padding: .3rem 0;
-            border-top: 1px solid var(--border);
-            margin-top: .2rem
-        }
-
-        .mini-stack {
-            display: flex;
-            flex-wrap: wrap;
-            gap: .3rem
-        }
-
-        .mini-chip {
-            padding: 3px 8px;
-            background: var(--surface2);
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-family: var(--mono);
-            font-size: 10px;
-            color: var(--text3)
-        }
-
-        .mini-actions {
-            display: flex;
-            justify-content: flex-end
-        }
-
-        .mini-detail {
+        .site-open {
             font-family: var(--mono);
             font-size: 11px;
             color: var(--gold);
-            text-decoration: none;
-            letter-spacing: .02em
-        }
-
-        .mini-detail:hover {
-            text-decoration: underline
+            white-space: nowrap
         }
 
         /* ── PROJECT VIEW ── */
         .project-view {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem 2rem 4rem;
             display: none
         }
 
@@ -783,11 +864,107 @@
             display: block
         }
 
-        .project-inner {
-            background: var(--surface);
+        .case-page {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 6.5rem 2rem 4rem
+        }
+
+        .case-hero {
+            margin-bottom: 2rem;
+            padding-bottom: 1.6rem;
+            border-bottom: 1px solid var(--border)
+        }
+
+        .case-layout {
+            display: grid;
+            grid-template-columns: 220px minmax(0, 1fr);
+            gap: 2.4rem;
+            align-items: start
+        }
+
+        .case-aside {
+            position: sticky;
+            top: 88px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.3rem
+        }
+
+        .aside-label {
+            font-family: var(--mono);
+            font-size: 10px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            color: var(--text3);
+            margin-bottom: .45rem
+        }
+
+        .aside-stat {
+            font-size: .82rem;
+            color: var(--text2);
+            line-height: 1.45;
+            margin-bottom: .35rem
+        }
+
+        .aside-stat strong {
+            display: block;
+            color: var(--text);
+            font-weight: 600
+        }
+
+        .case-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .8rem;
+            margin: 0 0 2rem
+        }
+
+        .case-figure {
+            margin: 1.6rem 0
+        }
+
+        .case-figure img,
+        .project-content img {
+            width: 100%;
+            display: block;
+            border-radius: 12px;
             border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 2.5rem
+            background: var(--bg2)
+        }
+
+        .case-figure figcaption,
+        .project-content figcaption {
+            margin-top: .5rem;
+            font-size: .78rem;
+            color: var(--text3);
+            font-family: var(--mono)
+        }
+
+        .project-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.2rem 0;
+            font-size: .88rem
+        }
+
+        .project-content th,
+        .project-content td {
+            border: 1px solid var(--border);
+            padding: .55rem .7rem;
+            text-align: left
+        }
+
+        .project-content th {
+            color: var(--text);
+            background: var(--surface);
+            font-weight: 600
+        }
+
+        .project-inner {
+            background: transparent;
+            border: none;
+            padding: 0
         }
 
         .project-back {
@@ -829,7 +1006,7 @@
             display: flex;
             gap: .6rem;
             flex-wrap: wrap;
-            margin-bottom: 2rem
+            margin-bottom: 0
         }
 
         .project-content {
@@ -886,6 +1063,24 @@
         }
 
         /* ── RESPONSIVE ── */
+        @media(max-width:960px) {
+            .case-layout {
+                grid-template-columns: 1fr
+            }
+
+            .case-aside {
+                position: relative;
+                top: 0;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem
+            }
+
+            .case-gallery {
+                grid-template-columns: 1fr
+            }
+        }
+
         @media(max-width:768px) {
 
             .nav-links,
@@ -911,23 +1106,39 @@
             }
 
             .hero {
-                padding: 6rem 1.2rem 3rem
+                padding: 5.5rem 1.2rem 2rem
             }
 
             .content {
-                padding: 2rem 1.2rem 4rem
+                padding: 1.4rem 1.2rem 4rem
+            }
+
+            .case-row {
+                grid-template-columns: 1fr;
+                gap: .9rem
+            }
+
+            .sys-row,
+            .site-line {
+                grid-template-columns: 1fr auto;
+                gap: .35rem 1rem
+            }
+
+            .sys-desc,
+            .site-desc {
+                grid-column: 1 / -1
+            }
+
+            .case-page {
+                padding: 5.5rem 1.2rem 3rem
+            }
+
+            .case-aside {
+                grid-template-columns: 1fr
             }
 
             .filter-bar {
                 padding: 1.5rem 1.2rem 0
-            }
-
-            .project-view {
-                padding: 1.5rem 1.2rem 3rem
-            }
-
-            .project-inner {
-                padding: 2rem
             }
         }
     </style>
@@ -964,9 +1175,11 @@
             <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
             <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
             <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+            <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
+            <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
             <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
             <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
-            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
         </ul>
         <div class="mobile-lang lang-switcher">
             <button class="lang-btn active" data-lang="pt">PT</button>
@@ -978,9 +1191,8 @@
     <div class="hero" id="heroSection">
         <div class="hero-inner">
             <div class="label" data-i18n="hero_label">Portfólio Técnico</div>
-            <h1 data-i18n="hero_title">Projetos em Destaque</h1>
-            <p data-i18n="hero_sub">Soluções reais, com contexto, arquitetura e resultado. Do problema identificado à
-                entrega em produção - cada projeto aqui representa uma decisão técnica real e um impacto mensurável.</p>
+            <h1 data-i18n="hero_title">Projetos</h1>
+            <p data-i18n="hero_sub">Crie uma pasta em projetos/ com index.json. Depois do push, o projeto entra sozinho no portfólio.</p>
         </div>
     </div>
 
@@ -998,23 +1210,50 @@
 
     <!-- DETAIL VIEW -->
     <section class="project-view" id="projectView">
-        <div class="project-inner">
+        <div class="case-page">
             <a class="project-back" href="projetos.html" data-i18n="project_back">← Voltar aos projetos</a>
-            <div class="project-meta">
-                <span id="pvCategory" class="fp-badge"></span>
-                <span id="pvYear" class="fp-year"></span>
+            <header class="case-hero">
+                <div class="project-meta">
+                    <span id="pvCategory" class="fp-badge"></span>
+                    <span id="pvYear" class="fp-year"></span>
+                </div>
+                <h1 class="project-title" id="pvTitle"></h1>
+                <p class="project-sub" id="pvSub"></p>
+                <div class="project-links" id="pvLinks"></div>
+            </header>
+            <div class="case-layout">
+                <aside class="case-aside" id="pvAside"></aside>
+                <div>
+                    <div class="case-gallery" id="pvGallery"></div>
+                    <div class="project-content" id="pvContent"></div>
+                </div>
             </div>
-            <h1 class="project-title" id="pvTitle"></h1>
-            <p class="project-sub" id="pvSub"></p>
-            <div class="project-content" id="pvContent"></div>
         </div>
     </section>
 
     <!-- CONTENT -->
     <div class="content" id="contentSection">
-        <div id="featuredContainer"></div>
-        <div class="mini-section-title" data-i18n="mini_section_title">Outros Projetos</div>
-        <div class="mini-grid" id="miniGrid"></div>
+        <section class="lane lane-first" id="casesBlock">
+            <div class="lane-head">
+                <h2 class="lane-title" data-i18n="cases_title">Cases documentados</h2>
+                <p class="lane-sub" data-i18n="cases_sub">Relato, stack, decisões e fotos. Um clique abre a pasta do projeto.</p>
+            </div>
+            <div class="case-list" id="caseList"></div>
+        </section>
+        <section class="lane" id="systemsBlock">
+            <div class="lane-head">
+                <h2 class="lane-title" data-i18n="systems_title">Outros sistemas</h2>
+                <p class="lane-sub" data-i18n="systems_sub">Projetos no ar ou no repositório, ainda sem case escrito.</p>
+            </div>
+            <div class="sys-list" id="sysList"></div>
+        </section>
+        <section class="lane" id="sitesBlock">
+            <div class="lane-head">
+                <h2 class="lane-title" data-i18n="sites_title">Sites da Alttab</h2>
+                <p class="lane-sub" data-i18n="sites_sub">Presença digital da empresa e das frentes criativas.</p>
+            </div>
+            <div class="sites-list" id="sitesList"></div>
+        </section>
     </div>
 
     <!-- FOOTER -->
@@ -1045,12 +1284,24 @@
                 nav_certifications: "Certificações", nav_about: "Sobre",
                 nav_blog: "Artigos", nav_contact: "Contato",
                 hero_label: "Portfólio Técnico",
-                hero_title: "Projetos em Destaque",
-                hero_sub: "Soluções reais, com contexto, arquitetura e resultado.",
+                hero_title: "Projetos",
+                hero_sub: "Crie uma pasta em projetos/ com index.json. Depois do push, o projeto entra sozinho no portfólio.",
                 filter_all: "Todos", filter_ai: "Inteligência Artificial",
                 filter_api: "APIs & Back-end", filter_research: "Pesquisa",
                 filter_product: "Produto", filter_automation: "Automação",
-                mini_section_title: "Outros Projetos",
+                cases_title: "Cases documentados",
+                cases_sub: "Relato, stack, decisões e fotos. Um clique abre a pasta do projeto.",
+                case_open: "Abrir documentação",
+                systems_title: "Outros sistemas",
+                systems_sub: "Projetos no ar ou no repositório, ainda sem case escrito.",
+                system_open: "Abrir",
+                system_folder: "Ver pasta",
+                sites_title: "Sites da Alttab",
+                sites_sub: "Presença digital da empresa e das frentes criativas.",
+                site_open: "Abrir",
+                aside_stack: "Stack",
+                aside_facts: "Ficha",
+                case_add_md: "Ainda não há index.md nesta pasta. Escreva o relato em projetos/slug/index.md e coloque as imagens em projetos/slug/fotos/.",
                 project_back: "← Voltar aos projetos",
                 project_loading: "Carregando projeto...",
                 project_not_found: "Projeto não encontrado.",
@@ -1065,8 +1316,21 @@
                 nav_certifications: "Certifications", nav_about: "About",
                 nav_blog: "Articles", nav_contact: "Contact",
                 hero_label: "Technical Portfolio",
-                hero_title: "Featured Projects",
-                hero_sub: "Real solutions, with context, architecture, and results.",
+                hero_title: "Projects",
+                hero_sub: "Add a folder under projetos/ with index.json. After the push, it shows up in the portfolio on its own.",
+                cases_title: "Documented cases",
+                cases_sub: "Story, stack, decisions, and photos. One click opens the project folder.",
+                case_open: "Open write-up",
+                systems_title: "Other systems",
+                systems_sub: "Live or on GitHub, still without a written case.",
+                system_open: "Open",
+                system_folder: "Open folder",
+                sites_title: "Alttab sites",
+                sites_sub: "The company site and the creative practice pages.",
+                site_open: "Open",
+                aside_stack: "Stack",
+                aside_facts: "Facts",
+                case_add_md: "This folder has no index.md yet. Write the story in projetos/slug/index.md and put images in projetos/slug/fotos/.",
                 filter_all: "All", filter_ai: "Artificial Intelligence",
                 filter_api: "APIs & Backend", filter_research: "Research",
                 filter_product: "Product", filter_automation: "Automation",
@@ -1116,132 +1380,193 @@
             } catch { return null; }
         }
 
+        const PROJECT_REPO = 'bodescorp/GlaymarAdeFranca';
+
+        function isProjectSlug(slug) {
+            return Boolean(slug) && !String(slug).startsWith('_');
+        }
+
+        function indexSlugs() {
+            if (!projectsIndex) return [];
+            return [
+                ...(projectsIndex.featured || []).map(p => p.slug || p),
+                ...(projectsIndex.mini || []).map(p => p.slug || p)
+            ].filter(isProjectSlug);
+        }
+
+        async function listManifestFolders() {
+            const manifest = await fetchJson('projetos/manifest.json');
+            return (manifest?.folders || []).filter(isProjectSlug);
+        }
+
+        async function listRemoteFolders() {
+            try {
+                const r = await fetch(`https://api.github.com/repos/${PROJECT_REPO}/contents/projetos`);
+                if (!r.ok) return [];
+                const items = await r.json();
+                if (!Array.isArray(items)) return [];
+                return items.filter(i => i.type === 'dir' && isProjectSlug(i.name)).map(i => i.name);
+            } catch {
+                return [];
+            }
+        }
+
         // ══════════════════════════════════════════════════
         //  LOAD DATA
         // ══════════════════════════════════════════════════
         async function loadProjects() {
-            projectsIndex = await fetchJson('projetos/index.json');
-            if (!projectsIndex) return;
+            projectsIndex = await fetchJson('projetos/index.json') || { featured: [], mini: [] };
 
-            const allSlugs = [
-                ...(projectsIndex.featured || []).map(p => p.slug || p),
-                ...(projectsIndex.mini || []).map(p => p.slug || p)
-            ];
-            const uniqueSlugs = [...new Set(allSlugs)];
+            const [manifest, remote] = await Promise.all([
+                listManifestFolders(),
+                listRemoteFolders()
+            ]);
+            const uniqueSlugs = [...new Set([...indexSlugs(), ...manifest, ...remote])];
 
             const results = await Promise.all(uniqueSlugs.map(async slug => {
-                // Tenta carregar index.json da pasta do projeto
                 const data = await fetchJson(`projetos/${slug}/index.json`);
-                // Fallback: usa o objeto inline do index.json principal
-                if (data) return { ...data, slug };
-
                 const inlineFeatured = (projectsIndex.featured || []).find(p => (p.slug || p) === slug);
                 const inlineMini = (projectsIndex.mini || []).find(p => (p.slug || p) === slug);
-                return inlineFeatured || inlineMini || null;
+                const project = data
+                    ? { ...data, slug }
+                    : (inlineFeatured || inlineMini || null);
+                if (!project) return null;
+
+                const writeup = await fetchMarkdown(`projetos/${slug}/index.md`);
+                return {
+                    ...project,
+                    slug,
+                    hasFolder: Boolean(data),
+                    hasWriteup: Boolean(writeup)
+                };
             }));
 
             projectsBySlug = new Map(results.filter(Boolean).map(p => [p.slug, p]));
         }
 
-        // ══════════════════════════════════════════════════
-        //  RENDER - FEATURED
-        // ══════════════════════════════════════════════════
-        function renderFeatured(projects) {
-            const container = document.getElementById('featuredContainer');
+        function projectUrl(project) {
+            if (project.url) return project.url;
+            const first = (project.links || []).find(l => l.url);
+            return first ? first.url : '';
+        }
+
+        function isSite(project) {
+            return project.lane === 'site';
+        }
+
+        function projectTitle(project) {
+            return L(project.title) || L(project.name) || project.slug || '';
+        }
+
+        function projectDesc(project) {
+            return L(project.subtitle) || L(project.desc) || L(project.summary);
+        }
+
+        function resolveAsset(slug, path) {
+            if (!path) return '';
+            if (/^https?:\/\//i.test(path) || path.startsWith('data:')) return path;
+            const clean = String(path).replace(/^\.\//, '').replace(/^\/+/, '');
+            return `projetos/${slug}/${clean}`;
+        }
+
+        function renderMdImage(hrefOrToken, title, text) {
+            const href = typeof hrefOrToken === 'object' ? hrefOrToken.href : hrefOrToken;
+            const alt = typeof hrefOrToken === 'object' ? (hrefOrToken.text || '') : (text || '');
+            const src = resolveAsset(currentProjectSlug, href);
+            const caption = alt || title || '';
+            return `<figure class="case-figure"><img src="${esc(src)}" alt="${esc(alt)}">${caption ? `<figcaption>${esc(caption)}</figcaption>` : ''}</figure>`;
+        }
+
+        function catalogProjects() {
+            const seen = new Set();
+            const out = [];
+            for (const slug of indexSlugs()) {
+                const project = projectsBySlug.get(slug);
+                if (!project || seen.has(project.slug)) continue;
+                seen.add(project.slug);
+                out.push(project);
+            }
+            for (const project of projectsBySlug.values()) {
+                if (seen.has(project.slug)) continue;
+                seen.add(project.slug);
+                out.push(project);
+            }
+            return out;
+        }
+
+        function renderCases(projects) {
+            const container = document.getElementById('caseList');
+            const block = document.getElementById('casesBlock');
             if (!container) return;
+            if (block) block.style.display = projects.length ? '' : 'none';
+            const openLabel = (i18n[currentLang] || {}).case_open || 'Abrir documentação';
 
             container.innerHTML = projects.map(project => {
                 const badge = project.badge || {};
-                const highlights = (L(project.highlights) || []).map(h =>
-                    `<div class="result-item"><span class="result-icon">✓</span>${esc(h)}</div>`
+                const stack = (project.stack || []).slice(0, 5).map(s =>
+                    `<span class="mini-chip">${esc(s)}</span>`
                 ).join('');
-                const stack = (project.stack || []).map(s =>
-                    `<span class="stag">${esc(s)}</span>`
-                ).join('');
-                const links = (project.links || []).map(l =>
-                    `<a href="${esc(l.url)}" target="_blank" class="fp-link${l.primary ? ' primary' : ''}">${esc(L(l.label))}</a>`
-                ).join('');
-                const stats = (project.stats || []).map(s =>
-                    `<div class="fp-stat">${esc(L(s.label))}: <strong>${esc(L(s.value))}</strong></div>`
-                ).join('');
-
                 return `
-        <div class="featured-project" data-tags="${esc((project.tags || []).join(' '))}" data-slug="${esc(project.slug)}">
-            <div class="fp-header">
-                <div>
-                    <div class="fp-badge ${esc(badge.class || '')}">${esc(badge.icon || '')} ${esc(L(badge))}</div>
-                    <div class="fp-title">${esc(L(project.title))}</div>
-                    <div class="fp-sub">${esc(L(project.subtitle))}</div>
-                    <div class="fp-links">${links}</div>
-                </div>
-                <div class="fp-meta">
-                    <div class="fp-year">${esc(L(project.year))}</div>
-                    <div class="fp-status ${esc((project.status || {}).class || '')}">
-                        <span class="status-dot"></span>${esc(L(project.status))}
-                    </div>
-                </div>
+        <a class="case-row" href="projetos.html?project=${esc(project.slug)}"
+           data-tags="${esc((project.tags || []).join(' '))}"
+           data-slug="${esc(project.slug || '')}">
+            <div>
+                <div class="fp-badge ${esc(badge.class || '')}">${esc(L(badge))}</div>
+                <div class="case-name">${esc(projectTitle(project))}</div>
+                <p class="case-desc">${esc(projectDesc(project))}</p>
+                <div class="mini-stack">${stack}</div>
             </div>
-            <div class="fp-body">
-                <div>
-                    <div class="fp-section-label">${currentLang === 'pt' ? 'Resumo' : 'Summary'}</div>
-                    <div class="fp-text"><p>${esc(L(project.summary))}</p></div>
-                    <div class="stack-tags" style="margin-top:1rem">${stack}</div>
-                    ${project.slug ? `
-                    <div style="margin-top:1.2rem">
-                        <a class="fp-link" href="projetos.html?project=${esc(project.slug)}" 
-                           style="display:inline-flex;align-items:center;gap:.4rem">
-                            ${currentLang === 'pt' ? 'Ver detalhes' : 'View details'}
-                        </a>
-                    </div>` : ''}
-                </div>
-                <div>
-                    <div class="fp-section-label">${currentLang === 'pt' ? 'Destaques' : 'Highlights'}</div>
-                    <div class="results">${highlights}</div>
-                </div>
-            </div>
-            <div class="fp-footer">${stats}</div>
-        </div>`;
+            <span class="case-go">${esc(openLabel)}</span>
+        </a>`;
             }).join('');
         }
 
-        // ══════════════════════════════════════════════════
-        //  RENDER - MINI
-        // ══════════════════════════════════════════════════
-        function renderMini(projects) {
-            const container = document.getElementById('miniGrid');
+        function renderSystems(projects) {
+            const container = document.getElementById('sysList');
+            const block = document.getElementById('systemsBlock');
             if (!container) return;
+            if (block) block.style.display = projects.length ? '' : 'none';
+            const dict = i18n[currentLang] || {};
 
             container.innerHTML = projects.map(project => {
-                const badge = project.badge || {};
-                const name = L(project.title) || L(project.name);
-                const desc = L(project.subtitle) || L(project.desc);
-                const result = (L(project.highlights) || []).join(' · ') || L(project.result);
-                const hasDetail = project.slug && project.title;
-                const href = hasDetail
+                const internal = project.hasFolder || project.hasWriteup;
+                const href = internal
                     ? `projetos.html?project=${esc(project.slug)}`
-                    : esc(project.url || '#');
-                const target = !hasDetail && project.url ? 'target="_blank"' : '';
-
-                const stack = (project.stack || []).map(s =>
-                    `<span class="mini-chip">${esc(s)}</span>`
-                ).join('');
-
+                    : esc(projectUrl(project) || '#');
+                const extra = internal ? '' : 'target="_blank" rel="noopener"';
+                const go = internal ? (dict.system_folder || 'Ver pasta') : (dict.system_open || 'Abrir');
                 return `
-        <a class="mini-card" href="${href}" ${target}
+        <a class="sys-row" href="${href}" ${extra}
            data-tags="${esc((project.tags || []).join(' '))}"
            data-slug="${esc(project.slug || '')}">
-            <div class="mini-top">
-                <div>
-                    <div class="fp-badge ${esc(badge.class || '')} mini-badge">
-                        ${esc(badge.icon || '')} ${esc(L(badge))}
-                    </div>
-                    <div class="mini-name">${esc(name)}</div>
-                </div>
-                <span class="mini-arrow">↗</span>
-            </div>
-            <div class="mini-desc">${esc(desc)}</div>
-            <div class="mini-result">✓ ${esc(result)}</div>
-            <div class="mini-stack">${stack}</div>
+            <span class="sys-name">${esc(projectTitle(project))}</span>
+            <span class="sys-desc">${esc(projectDesc(project))}</span>
+            <span class="sys-go">${esc(go)}</span>
+        </a>`;
+            }).join('');
+        }
+
+        function renderSites(projects) {
+            const container = document.getElementById('sitesList');
+            const block = document.getElementById('sitesBlock');
+            if (!container) return;
+            if (!projects.length) {
+                if (block) block.style.display = 'none';
+                return;
+            }
+            if (block) block.style.display = '';
+
+            const openLabel = (i18n[currentLang] || {}).site_open || 'Abrir';
+            container.innerHTML = projects.map(project => {
+                const name = L(project.title) || L(project.name);
+                const desc = L(project.subtitle) || L(project.desc);
+                const href = esc(projectUrl(project) || '#');
+                return `
+        <a class="site-line" href="${href}" target="_blank" rel="noopener"
+           data-slug="${esc(project.slug || '')}">
+            <span class="site-name">${esc(name)}</span>
+            <span class="site-desc">${esc(desc)}</span>
+            <span class="site-open">${esc(openLabel)} ↗</span>
         </a>`;
             }).join('');
         }
@@ -1256,6 +1581,61 @@
             });
             const pv = document.getElementById('projectView');
             if (pv) pv.classList.toggle('visible', !showList);
+        }
+
+        function renderCaseAside(project) {
+            const aside = document.getElementById('pvAside');
+            if (!aside) return;
+            const dict = i18n[currentLang] || {};
+            const stack = (project.stack || []).map(s => `<span class="mini-chip">${esc(s)}</span>`).join('');
+            const facts = (project.stats || []).map(s =>
+                `<div class="aside-stat"><strong>${esc(L(s.value))}</strong>${esc(L(s.label))}</div>`
+            ).join('');
+            const status = L(project.status);
+            aside.innerHTML = `
+                ${stack ? `<div><div class="aside-label">${esc(dict.aside_stack || 'Stack')}</div><div class="mini-stack">${stack}</div></div>` : ''}
+                ${(facts || status) ? `<div><div class="aside-label">${esc(dict.aside_facts || 'Ficha')}</div>${status ? `<div class="aside-stat"><strong>${esc(status)}</strong>${esc(L(project.year))}</div>` : ''}${facts}</div>` : ''}`;
+            aside.style.display = aside.innerHTML.trim() ? '' : 'none';
+        }
+
+        function renderCaseGallery(project) {
+            const box = document.getElementById('pvGallery');
+            if (!box) return;
+            const items = project.gallery || [];
+            if (!items.length) {
+                box.innerHTML = '';
+                box.style.display = 'none';
+                return;
+            }
+            box.style.display = '';
+            box.innerHTML = items.map(item => {
+                const src = resolveAsset(project.slug, item.src);
+                const cap = L(item) || item.caption || '';
+                return `<figure class="case-figure"><img src="${esc(src)}" alt="${esc(cap)}">${cap ? `<figcaption>${esc(cap)}</figcaption>` : ''}</figure>`;
+            }).join('');
+        }
+
+        function renderCaseLinks(project) {
+            const box = document.getElementById('pvLinks');
+            if (!box) return;
+            const links = (project.links || []).filter(l => l.url);
+            if (!links.length && project.url) {
+                box.innerHTML = `<a href="${esc(project.url)}" target="_blank" rel="noopener" class="fp-link primary">${currentLang === 'pt' ? 'Abrir' : 'Open'}</a>`;
+                return;
+            }
+            box.innerHTML = links.map(l =>
+                `<a href="${esc(l.url)}" target="_blank" rel="noopener" class="fp-link${l.primary ? ' primary' : ''}">${esc(L(l.label))}</a>`
+            ).join('');
+        }
+
+        function renderFallbackDoc(project) {
+            const dict = i18n[currentLang] || {};
+            const summary = L(project.summary) || projectDesc(project);
+            const highlights = (L(project.highlights) || []).map(h => `<li>${esc(h)}</li>`).join('');
+            return `
+                ${summary ? `<p>${esc(summary)}</p>` : ''}
+                ${highlights ? `<ul>${highlights}</ul>` : ''}
+                <p class="project-error">${esc(dict.case_add_md || '')}</p>`;
         }
 
         async function loadProjectDetail(slug) {
@@ -1274,34 +1654,28 @@
             }
 
             const badge = project.badge || {};
-            if (pvTitle) pvTitle.textContent = L(project.title);
-            if (pvSub) pvSub.textContent = L(project.subtitle);
+            if (pvTitle) pvTitle.textContent = projectTitle(project);
+            if (pvSub) pvSub.textContent = projectDesc(project);
             if (pvCategory) {
-                pvCategory.textContent = `${badge.icon || ''} ${L(badge)}`;
+                pvCategory.textContent = L(badge);
                 pvCategory.className = `fp-badge ${badge.class || ''}`;
             }
             if (pvYear) pvYear.textContent = L(project.year);
+            renderCaseLinks(project);
+            renderCaseAside(project);
+            renderCaseGallery(project);
             if (pvContent) pvContent.innerHTML = `<p class="project-loading">${dict.project_loading}</p>`;
 
-            // Carrega markdown bilíngue (igual ao blog)
             const base = `projetos/${slug}`;
             const langSuffix = currentLang === 'pt' ? '' : '.en';
             let markdown = await fetchMarkdown(`${base}/index${langSuffix}.md`);
             if (!markdown && currentLang !== 'pt') markdown = await fetchMarkdown(`${base}/index.md`);
 
             if (!markdown) {
-                // Fallback: renderiza os dados do JSON como conteúdo
-                const highlights = (L(project.highlights) || []).map(h => `<li>${esc(h)}</li>`).join('');
-                const stack = (project.stack || []).map(s => `<code>${esc(s)}</code>`).join(' ');
-                pvContent.innerHTML = `
-            <p>${esc(L(project.summary))}</p>
-            ${highlights ? `<h2>${currentLang === 'pt' ? 'Destaques' : 'Highlights'}</h2><ul>${highlights}</ul>` : ''}
-            ${stack ? `<h2>Stack</h2><p>${stack}</p>` : ''}
-        `;
+                pvContent.innerHTML = renderFallbackDoc(project);
                 return;
             }
 
-            // Remove o H1 do markdown (já aparece no header da página)
             pvContent.innerHTML = marked.parse(markdown.replace(/^#[^\n]*\n?/, ''));
         }
 
@@ -1326,15 +1700,27 @@
             const active = [...filterBtns].find(b => b.classList.contains('active'));
             const filter = active ? active.dataset.filter : 'all';
 
-            document.querySelectorAll('.featured-project, .mini-card').forEach(el => {
+            document.querySelectorAll('.case-row, .sys-row').forEach(el => {
                 const tags = el.dataset.tags || '';
                 el.style.display = (filter === 'all' || tags.includes(filter)) ? '' : 'none';
             });
 
-            const miniTitle = document.querySelector('.mini-section-title');
-            if (miniTitle) {
-                const visibleMini = [...document.querySelectorAll('.mini-card')].some(c => c.style.display !== 'none');
-                miniTitle.style.display = visibleMini ? '' : 'none';
+            const casesBlock = document.getElementById('casesBlock');
+            if (casesBlock) {
+                const visible = [...document.querySelectorAll('.case-row')].some(el => el.style.display !== 'none');
+                casesBlock.style.display = visible ? '' : 'none';
+            }
+
+            const systemsBlock = document.getElementById('systemsBlock');
+            if (systemsBlock) {
+                const visible = [...document.querySelectorAll('.sys-row')].some(el => el.style.display !== 'none');
+                systemsBlock.style.display = visible ? '' : 'none';
+            }
+
+            const sitesBlock = document.getElementById('sitesBlock');
+            if (sitesBlock) {
+                const hasSites = document.querySelectorAll('.site-line').length > 0;
+                sitesBlock.style.display = (filter === 'all' && hasSites) ? '' : 'none';
             }
         }
 
@@ -1342,14 +1728,10 @@
         //  RENDER ALL
         // ══════════════════════════════════════════════════
         function renderAll() {
-            const featuredSlugs = (projectsIndex.featured || []).map(p => p.slug || p);
-            const miniSlugs = (projectsIndex.mini || []).map(p => p.slug || p);
-
-            const featuredProjects = featuredSlugs.map(s => projectsBySlug.get(s)).filter(Boolean);
-            const miniProjects = miniSlugs.map(s => projectsBySlug.get(s)).filter(Boolean);
-
-            renderFeatured(featuredProjects);
-            renderMini(miniProjects);
+            const all = catalogProjects();
+            renderCases(all.filter(p => p.hasWriteup && !isSite(p)));
+            renderSystems(all.filter(p => !p.hasWriteup && !isSite(p)));
+            renderSites(all.filter(isSite));
         }
 
         // ══════════════════════════════════════════════════
@@ -1421,6 +1803,15 @@
         //  INIT
         // ══════════════════════════════════════════════════
         async function init() {
+            try {
+                if (window.marked?.use) {
+                    marked.use({ renderer: { image: renderMdImage } });
+                } else if (window.marked) {
+                    const renderer = new marked.Renderer();
+                    renderer.image = renderMdImage;
+                    marked.setOptions({ renderer });
+                }
+            } catch (err) { /* marked opcional */ }
             await loadProjects();
             renderAll();
 

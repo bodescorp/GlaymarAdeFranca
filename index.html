@@ -9,10 +9,19 @@
     content="Desenvolvedor web full-stack (JavaScript, TypeScript, React, Node.js). Bolsista no Procura.AÍ (FAPESQ / LAVID-UFPB) e fundador da AlttabCorp, criador do YGO / HUB. Tecnólogo em ADS pelo IFPB e especialista em IA.">
   <meta name="keywords"
     content="desenvolvedor full-stack, node.js, typescript, react, next.js, postgresql, docker, cajazeiras, paraiba, alttabcorp">
+  <link rel="canonical" href="https://bodescorp.github.io/GlaymarAdeFranca/">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <meta property="og:title" content="Glaymar França - Desenvolvedor Web Full-Stack">
   <meta property="og:description"
     content="Desenvolvedor web full-stack. Procura.AÍ (FAPESQ / LAVID-UFPB), fundador da AlttabCorp e criador do YGO / HUB.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bodescorp.github.io/GlaymarAdeFranca/">
+  <meta property="og:image" content="https://bodescorp.github.io/GlaymarAdeFranca/assets/me.jpg">
+  <meta property="og:image:alt" content="Glaymar Albuquerque de França">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bodescorp.github.io/GlaymarAdeFranca/assets/me.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
     href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap"
@@ -160,7 +169,8 @@
       transition: color .2s
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a.active {
       color: var(--text)
     }
 
@@ -954,7 +964,7 @@
         <li><a href="#projects" data-i18n="nav_projects">Projetos</a></li>
         <li><a href="#education" data-i18n="nav_education">Formação</a></li>
         <li><a href="#certifications" data-i18n="nav_certifications">Certificações</a></li>
-        <li><a href="sobre.html" class="active" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
         <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
         <li><a href="#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
       </ul>
@@ -1846,7 +1856,7 @@
       // Atualiza link de download do currículo
       const btnCV = document.getElementById('btnDownloadCV');
       if (btnCV) {
-        btnCV.href = lang === 'pt' ? 'assets/Curriculo.pdf' : 'assets/Resume.pdf';
+        btnCV.href = 'assets/Curriculo.pdf';
       }
 
       // Aplica traduções em todos os elementos com data-i18n

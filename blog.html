@@ -7,6 +7,17 @@
     <title>Blog - Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto</title>
     <meta name="description"
         content="Artigos técnicos de Glaymar França - desenvolvimento Full-Stack, arquitetura de software, IA aplicada, liderança técnica e visão de produto.">
+    <link rel="canonical" href="https://bodescorp.github.io/GlaymarAdeFranca/blog.html">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+    <meta property="og:title" content="Artigos - Glaymar França">
+    <meta property="og:description"
+        content="Artigos sobre desenvolvimento full-stack, arquitetura, IA aplicada e produto.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://bodescorp.github.io/GlaymarAdeFranca/blog.html">
+    <meta property="og:image" content="https://bodescorp.github.io/GlaymarAdeFranca/assets/me.jpg">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;400i&display=swap"
@@ -154,7 +165,8 @@
             transition: color .2s
         }
 
-        .nav-links a:hover {
+        .nav-links a:hover,
+        .nav-links a.active {
             color: var(--text)
         }
 
@@ -1058,9 +1070,11 @@
             <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
             <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
             <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
+            <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
+            <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
             <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
             <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
-            <li><a href="blog.html" data-i18n="nav_blog">Blog</a></li>
+            <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
         </ul>
         <div class="mobile-lang lang-switcher">
             <button class="lang-btn active" data-lang="pt">PT</button>
@@ -1442,27 +1456,56 @@
             }
         }
 
+        const ARTICLES_REPO = 'bodescorp/GlaymarAdeFranca';
+
+        function isArticleSlug(slug) {
+            return Boolean(slug) && !String(slug).startsWith('_');
+        }
+
+        async function listArticleManifest() {
+            const manifest = await fetchJson('artigos/manifest.json');
+            return (manifest?.folders || []).filter(isArticleSlug);
+        }
+
+        async function listRemoteArticles() {
+            try {
+                const r = await fetch(`https://api.github.com/repos/${ARTICLES_REPO}/contents/artigos`);
+                if (!r.ok) return [];
+                const items = await r.json();
+                if (!Array.isArray(items)) return [];
+                return items.filter(i => i.type === 'dir' && isArticleSlug(i.name)).map(i => i.name);
+            } catch {
+                return [];
+            }
+        }
+
+        function articleStamp(article) {
+            const t = Date.parse(article.date || '');
+            return Number.isFinite(t) ? t : 0;
+        }
+
         async function loadArticles() {
-            articlesIndex = await fetchJson('artigos/index.json');
-            if (!articlesIndex) return;
+            articlesIndex = await fetchJson('artigos/index.json') || { featured: null, posts: [] };
 
             featuredSlug = articlesIndex.featured || null;
-            postsOrder = Array.isArray(articlesIndex.posts) ? articlesIndex.posts : [];
+            postsOrder = Array.isArray(articlesIndex.posts) ? articlesIndex.posts.filter(isArticleSlug) : [];
+
+            const [manifest, remote] = await Promise.all([
+                listArticleManifest(),
+                listRemoteArticles()
+            ]);
 
             const orderedSlugs = [];
             const slugSet = new Set();
+            const addSlug = slug => {
+                if (!isArticleSlug(slug) || slugSet.has(slug)) return;
+                slugSet.add(slug);
+                orderedSlugs.push(slug);
+            };
 
-            if (featuredSlug) {
-                orderedSlugs.push(featuredSlug);
-                slugSet.add(featuredSlug);
-            }
-
-            postsOrder.forEach(slug => {
-                if (!slugSet.has(slug)) {
-                    slugSet.add(slug);
-                    orderedSlugs.push(slug);
-                }
-            });
+            addSlug(featuredSlug);
+            postsOrder.forEach(addSlug);
+            [...manifest, ...remote].forEach(addSlug);
 
             const articles = await Promise.all(orderedSlugs.map(async slug => {
                 const data = await fetchJson(`artigos/${slug}/index.json`);
@@ -1471,6 +1514,11 @@
             }));
 
             articlesBySlug = new Map(articles.filter(Boolean).map(article => [article.slug, article]));
+
+            if (!featuredSlug) {
+                const marked = [...articlesBySlug.values()].find(article => article.featured);
+                if (marked) featuredSlug = marked.slug;
+            }
         }
 
         function renderFeatured(article) {
@@ -1553,11 +1601,15 @@
             const featuredArticle = featuredSlug ? articlesBySlug.get(featuredSlug) : null;
             renderFeatured(featuredArticle);
 
-            const orderedPosts = postsOrder
+            const curated = new Set(postsOrder);
+            const listed = postsOrder
                 .map(slug => articlesBySlug.get(slug))
                 .filter(article => article && article.slug !== featuredSlug);
+            const discovered = [...articlesBySlug.values()]
+                .filter(article => article.slug !== featuredSlug && !curated.has(article.slug))
+                .sort((a, b) => articleStamp(b) - articleStamp(a));
 
-            renderPosts(orderedPosts);
+            renderPosts([...discovered, ...listed]);
             refreshPostReferences();
             updatePostStats();
 
