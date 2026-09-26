@@ -6,21 +6,21 @@
     ],
     "badge": {
         "class": "badge-ai",
-        "icon": "🤖",
+        "icon": "",
         "pt": "Inteligencia Artificial",
         "en": "Artificial Intelligence"
     },
     "title": {
-        "pt": "Pipeline RAG Local — AlttabCorp",
-        "en": "Local RAG Pipeline — AlttabCorp"
+        "pt": "Pipeline RAG Local - AlttabCorp",
+        "en": "Local RAG Pipeline - AlttabCorp"
     },
     "subtitle": {
         "pt": "Sistema de IA em producao rodando em servidor proprio, sem custo de inferencia em cloud.",
         "en": "Production AI system running on on-prem hardware with zero cloud inference cost."
     },
     "year": {
-        "pt": "2024 — Presente",
-        "en": "2024 — Present"
+        "pt": "2024 - Presente",
+        "en": "2024 - Present"
     },
     "status": {
         "class": "status-prod",
@@ -29,19 +29,19 @@
     },
     "links": [
         {
-            "url": "https://github.com/Alttabcorp",
+            "url": "https://github.com/Alttabcorp/SERVICE-Ia-Alttab",
             "primary": true,
             "label": {
-                "pt": "↗ Ver no GitHub",
-                "en": "↗ View on GitHub"
+                "pt": "Ver no GitHub",
+                "en": "View on GitHub"
             }
         },
         {
             "url": "https://alttabcorp.com.br",
             "primary": false,
             "label": {
-                "pt": "🌐 AlttabCorp",
-                "en": "🌐 AlttabCorp"
+                "pt": "AlttabCorp",
+                "en": "AlttabCorp"
             }
         }
     ],
@@ -98,8 +98,8 @@
                 "en": "Hardware"
             },
             "value": {
-                "pt": "Servidor local — i3, 8GB RAM",
-                "en": "Local server — i3, 8GB RAM"
+                "pt": "Servidor local - i3, 8GB RAM",
+                "en": "Local server - i3, 8GB RAM"
             }
         }
     ]

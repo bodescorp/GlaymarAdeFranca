@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projetos — Glaymar França | Portfólio Técnico</title>
+    <title>Projetos - Glaymar França | Portfólio Técnico</title>
     <meta name="description"
-        content="Portfólio técnico de Glaymar França — projetos em Node.js, React, IA, Neo4j, Docker e mais. Pipeline RAG, sistemas hospitalares, APIs e ecossistema AlttabCorp.">
+        content="Portfólio técnico de Glaymar França - projetos em Node.js, React, IA, Neo4j, Docker e mais. Pipeline RAG, sistemas hospitalares, APIs e ecossistema AlttabCorp.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap"
@@ -980,7 +980,7 @@
             <div class="label" data-i18n="hero_label">Portfólio Técnico</div>
             <h1 data-i18n="hero_title">Projetos em Destaque</h1>
             <p data-i18n="hero_sub">Soluções reais, com contexto, arquitetura e resultado. Do problema identificado à
-                entrega em produção — cada projeto aqui representa uma decisão técnica real e um impacto mensurável.</p>
+                entrega em produção - cada projeto aqui representa uma decisão técnica real e um impacto mensurável.</p>
         </div>
     </div>
 
@@ -1020,7 +1020,7 @@
     <!-- FOOTER -->
     <footer style="padding:2rem;border-top:1px solid var(--border);text-align:center">
         <p style="font-size:.8rem;color:var(--text3);font-family:var(--mono)">
-            © 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
+            © 2026 Glaymar Albuquerque de França &nbsp;·&nbsp;
             <a href="https://alttabcorp.com.br" target="_blank"
                 style="color:var(--text3);text-decoration:none;transition:color .2s"
                 onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">AlttabCorp</a>
@@ -1029,7 +1029,7 @@
                 style="color:var(--text3);text-decoration:none;transition:color .2s"
                 onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text3)'">GitHub</a>
             &nbsp;·&nbsp;
-            Cajazeiras, PB — Brasil
+            Cajazeiras, PB - Brasil
         </p>
     </footer>
 
@@ -1144,7 +1144,7 @@
         }
 
         // ══════════════════════════════════════════════════
-        //  RENDER — FEATURED
+        //  RENDER - FEATURED
         // ══════════════════════════════════════════════════
         function renderFeatured(projects) {
             const container = document.getElementById('featuredContainer');
@@ -1190,7 +1190,7 @@
                     <div style="margin-top:1.2rem">
                         <a class="fp-link" href="projetos.html?project=${esc(project.slug)}" 
                            style="display:inline-flex;align-items:center;gap:.4rem">
-                            📄 ${currentLang === 'pt' ? 'Ver detalhes' : 'View details'}
+                            ${currentLang === 'pt' ? 'Ver detalhes' : 'View details'}
                         </a>
                     </div>` : ''}
                 </div>
@@ -1205,7 +1205,7 @@
         }
 
         // ══════════════════════════════════════════════════
-        //  RENDER — MINI
+        //  RENDER - MINI
         // ══════════════════════════════════════════════════
         function renderMini(projects) {
             const container = document.getElementById('miniGrid');
@@ -1216,10 +1216,11 @@
                 const name = L(project.title) || L(project.name);
                 const desc = L(project.subtitle) || L(project.desc);
                 const result = (L(project.highlights) || []).join(' · ') || L(project.result);
-                const href = project.slug
+                const hasDetail = project.slug && project.title;
+                const href = hasDetail
                     ? `projetos.html?project=${esc(project.slug)}`
                     : esc(project.url || '#');
-                const target = !project.slug && project.url ? 'target="_blank"' : '';
+                const target = !hasDetail && project.url ? 'target="_blank"' : '';
 
                 const stack = (project.stack || []).map(s =>
                     `<span class="mini-chip">${esc(s)}</span>`

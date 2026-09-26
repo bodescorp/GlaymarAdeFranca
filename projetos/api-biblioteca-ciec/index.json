@@ -6,7 +6,7 @@
     ],
     "badge": {
         "class": "badge-api",
-        "icon": "📡",
+        "icon": "",
         "pt": "API & Back-end",
         "en": "API & Backend"
     },

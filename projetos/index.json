@@ -1,15 +1,435 @@
 {
     "featured": [
+        "ygo-hub",
         "rag-pipeline-alttabcorp",
-        "inventarios-historicos",
-        "alttabcorp-ecosystem"
+        {
+            "slug": "inventarios-historicos",
+            "tags": [
+                "research",
+                "api"
+            ],
+            "badge": {
+                "class": "badge-research",
+                "icon": "",
+                "pt": "Pesquisa Aplicada",
+                "en": "Applied Research"
+            },
+            "title": {
+                "pt": "Sistema de Inventários Históricos (TCC)",
+                "en": "Historical Inventories System (Thesis)"
+            },
+            "subtitle": {
+                "pt": "Aplicação web para pesquisa em inventários históricos, com modelagem em grafos no Neo4j.",
+                "en": "Web application for research on historical inventories, with graph modeling in Neo4j."
+            },
+            "year": {
+                "pt": "2022 - 2023",
+                "en": "2022 - 2023"
+            },
+            "status": {
+                "class": "status-delivered",
+                "pt": "TCC publicado",
+                "en": "Thesis published"
+            },
+            "links": [
+                {
+                    "url": "https://repositorio.ifpb.edu.br/handle/177683/2898",
+                    "primary": true,
+                    "label": {
+                        "pt": "Repositório IFPB",
+                        "en": "IFPB Repository"
+                    }
+                },
+                {
+                    "url": "https://github.com/bodescorp",
+                    "primary": false,
+                    "label": {
+                        "pt": "GitHub",
+                        "en": "GitHub"
+                    }
+                }
+            ],
+            "summary": {
+                "pt": "Trabalho de conclusão do curso de ADS no IFPB: inventários históricos modelados como grafo, consultados por uma API REST e exibidos em uma interface React.",
+                "en": "Final project of the Systems Analysis and Development degree at IFPB: historical inventories modeled as a graph, queried through a REST API, and displayed in a React interface."
+            },
+            "highlights": {
+                "pt": [
+                    "Modelagem em grafos com Neo4j e Cypher",
+                    "API REST em Node.js e TypeScript",
+                    "Publicado no repositório institucional do IFPB"
+                ],
+                "en": [
+                    "Graph modeling with Neo4j and Cypher",
+                    "REST API in Node.js and TypeScript",
+                    "Published in the IFPB institutional repository"
+                ]
+            },
+            "stack": [
+                "Neo4j",
+                "Cypher",
+                "Node.js",
+                "TypeScript",
+                "React",
+                "REST API"
+            ],
+            "stats": [
+                {
+                    "label": {
+                        "pt": "Tipo",
+                        "en": "Type"
+                    },
+                    "value": {
+                        "pt": "Pesquisa acadêmica / Full-Stack",
+                        "en": "Academic research / Full-Stack"
+                    }
+                },
+                {
+                    "label": {
+                        "pt": "Instituição",
+                        "en": "Institution"
+                    },
+                    "value": {
+                        "pt": "IFPB Cajazeiras",
+                        "en": "IFPB Cajazeiras"
+                    }
+                }
+            ]
+        }
     ],
     "mini": [
         "api-biblioteca-ciec",
-        "sistema-certificados-ifpb",
-        "orcamento-3d-automatizado",
-        "template-documentacao-tecnica",
-        "mvp-animacao-ornn",
-        "alttab-studio-portal"
+        {
+            "slug": "finops",
+            "tags": [
+                "product",
+                "api"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Produto Digital",
+                "en": "Digital Product"
+            },
+            "name": {
+                "pt": "FinOps",
+                "en": "FinOps"
+            },
+            "desc": {
+                "pt": "Painel de gestão financeira mensal e API de organização financeira colaborativa.",
+                "en": "Monthly finance dashboard and a collaborative finance organizer API."
+            },
+            "result": {
+                "pt": "App no GitHub Pages · API em TypeScript",
+                "en": "App on GitHub Pages · TypeScript API"
+            },
+            "stack": [
+                "TypeScript",
+                "HTML5",
+                "CSS3"
+            ],
+            "url": "https://alttabcorp.github.io/APP-FinOps-alttab/"
+        },
+        {
+            "slug": "sistema-certificados-ifpb",
+            "tags": [
+                "automation",
+                "product"
+            ],
+            "badge": {
+                "class": "badge-automation",
+                "icon": "",
+                "pt": "Automação",
+                "en": "Automation"
+            },
+            "name": {
+                "pt": "Sistema de Certificados IFPB",
+                "en": "IFPB Certificate System"
+            },
+            "desc": {
+                "pt": "Emissão de certificados institucionais do IFPB Campus Cajazeiras com validação por QR Code.",
+                "en": "Institutional certificate issuance for IFPB Campus Cajazeiras with QR Code validation."
+            },
+            "result": {
+                "pt": "Emissão automatizada · QR Code",
+                "en": "Automated issuance · QR Code"
+            },
+            "stack": [
+                "Python",
+                "Django",
+                "JavaScript",
+                "HTML5"
+            ],
+            "url": "https://github.com/bodescorp/Cext-final-"
+        },
+        {
+            "slug": "orcamento-3d-automatizado",
+            "tags": [
+                "product",
+                "automation"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Produto Digital",
+                "en": "Digital Product"
+            },
+            "name": {
+                "pt": "Orçamento 3D Automatizado",
+                "en": "Automated 3D Quoting"
+            },
+            "desc": {
+                "pt": "Sistema web que calcula em tempo real o orçamento de impressão 3D a partir dos parâmetros da peça.",
+                "en": "Web system that calculates 3D printing quotes in real time from the part's parameters."
+            },
+            "result": {
+                "pt": "Cálculo em tempo real · GitHub Pages",
+                "en": "Real-time pricing · GitHub Pages"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "url": "https://alttabcorp.github.io/WEB-Orcamento3D-alttab/"
+        },
+        {
+            "slug": "template-documentacao-tecnica",
+            "tags": [
+                "automation"
+            ],
+            "badge": {
+                "class": "badge-automation",
+                "icon": "",
+                "pt": "DevOps de Docs",
+                "en": "Docs DevOps"
+            },
+            "name": {
+                "pt": "Template de Documentação Técnica",
+                "en": "Technical Documentation Template"
+            },
+            "desc": {
+                "pt": "Repositório de documentação com LaTeX e Markdown, ambiente Docker/DevContainer e CI/CD que gera os PDFs.",
+                "en": "Documentation repository with LaTeX and Markdown, a Docker/DevContainer environment, and CI/CD that builds the PDFs."
+            },
+            "result": {
+                "pt": "PDF gerado automaticamente no push",
+                "en": "PDF auto-generated on push"
+            },
+            "stack": [
+                "LaTeX",
+                "Markdown",
+                "Docker",
+                "GitHub Actions"
+            ],
+            "url": "https://github.com/Alttabcorp/Documents"
+        },
+        {
+            "slug": "mvp-animacao-ornn",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Frontend & Animação",
+                "en": "Frontend & Animation"
+            },
+            "name": {
+                "pt": "MVP Animação - Ornn LoL",
+                "en": "Animation MVP - Ornn LoL"
+            },
+            "desc": {
+                "pt": "Demo técnica de animação CSS/JS de personagem interativo do League of Legends.",
+                "en": "Technical demo of an interactive CSS/JS League of Legends character animation."
+            },
+            "result": {
+                "pt": "Animação CSS · Interativo · Demo técnica",
+                "en": "CSS animation · Interactive · Tech demo"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "url": "https://alttabcorp.github.io/MVP-Edit-Animation-Orrn-league_of_legends-/"
+        },
+        "alttab-studio-portal",
+        {
+            "slug": "site-institucional-alttab",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Site institucional",
+                "en": "Company website"
+            },
+            "name": {
+                "pt": "Site da Alttab Corp",
+                "en": "Alttab Corp Website"
+            },
+            "desc": {
+                "pt": "Site oficial da empresa: home, sobre, serviços e contato das frentes de desenvolvimento web, consultoria e impressão 3D.",
+                "en": "Official company site: home, about, services, and contact for web development, consulting, and 3D printing."
+            },
+            "result": {
+                "pt": "No ar em alttabcorp.com.br",
+                "en": "Live at alttabcorp.com.br"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "url": "https://www.alttabcorp.com.br/"
+        },
+        {
+            "slug": "pitch-desenvolvimento-web",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Pitch comercial",
+                "en": "Sales pitch"
+            },
+            "name": {
+                "pt": "Pitch de Desenvolvimento Web",
+                "en": "Web Development Pitch"
+            },
+            "desc": {
+                "pt": "Página comercial da frente de desenvolvimento web, com stack, serviços e projetos internos da Alttab.",
+                "en": "Sales page for the web development practice, covering stack, services, and Alttab's internal projects."
+            },
+            "result": {
+                "pt": "Publicado no GitHub Pages",
+                "en": "Published on GitHub Pages"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3"
+            ],
+            "url": "https://alttabcorp.github.io/Alttab-Pitch-Desenvolvimento-Web/"
+        },
+        {
+            "slug": "pitch-consultoria",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Pitch comercial",
+                "en": "Sales pitch"
+            },
+            "name": {
+                "pt": "Pitch de Consultoria em TI",
+                "en": "IT Consulting Pitch"
+            },
+            "desc": {
+                "pt": "Página da consultoria: levantamento de requisitos, documentação técnica e produtos digitais de baixo ticket.",
+                "en": "Consulting page: requirements gathering, technical documentation, and low-ticket digital products."
+            },
+            "result": {
+                "pt": "Publicado no GitHub Pages",
+                "en": "Published on GitHub Pages"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3"
+            ],
+            "url": "https://alttabcorp.github.io/Alttab-Pitch-Consultoria/"
+        },
+        {
+            "slug": "alttab-esports",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Esports",
+                "en": "Esports"
+            },
+            "name": {
+                "pt": "Alttab Esports",
+                "en": "Alttab Esports"
+            },
+            "desc": {
+                "pt": "Site do time competitivo: elenco, resultados e apresentação da frente de esports da Alttab Studio.",
+                "en": "Competitive team site: roster, results, and the Alttab Studio esports practice."
+            },
+            "result": {
+                "pt": "Publicado no GitHub Pages",
+                "en": "Published on GitHub Pages"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3"
+            ],
+            "url": "https://alttabcorp.github.io/Alttab-Esports-/"
+        },
+        {
+            "slug": "web-esports-campeonatos",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Esports",
+                "en": "Esports"
+            },
+            "name": {
+                "pt": "Campeonatos Alttab Esports",
+                "en": "Alttab Esports Tournaments"
+            },
+            "desc": {
+                "pt": "Sistema web para organização de campeonatos de League of Legends da comunidade Alttab.",
+                "en": "Web system for organizing Alttab community League of Legends tournaments."
+            },
+            "result": {
+                "pt": "Publicado no GitHub Pages",
+                "en": "Published on GitHub Pages"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3",
+                "JavaScript"
+            ],
+            "url": "https://alttabcorp.github.io/WEB-esports-alttab/"
+        },
+        {
+            "slug": "bodescorp-stream",
+            "tags": [
+                "product"
+            ],
+            "badge": {
+                "class": "badge-product",
+                "icon": "",
+                "pt": "Landing page",
+                "en": "Landing page"
+            },
+            "name": {
+                "pt": "Landing Bodescorp Stream",
+                "en": "Bodescorp Stream Landing"
+            },
+            "desc": {
+                "pt": "Página do canal de games e streaming, ligada à frente criativa da Alttab Studio.",
+                "en": "Landing page for the games and streaming channel, part of Alttab Studio's creative practice."
+            },
+            "result": {
+                "pt": "Publicado no GitHub Pages",
+                "en": "Published on GitHub Pages"
+            },
+            "stack": [
+                "HTML5",
+                "CSS3"
+            ],
+            "url": "https://alttabcorp.github.io/bodescorp_stream/"
+        }
     ]
 }
