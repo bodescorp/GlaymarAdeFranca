@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog — Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto</title>
+    <title>Blog - Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto</title>
     <meta name="description"
-        content="Artigos técnicos de Glaymar França — desenvolvimento Full-Stack, arquitetura de software, IA aplicada, liderança técnica e visão de produto.">
+        content="Artigos técnicos de Glaymar França - desenvolvimento Full-Stack, arquitetura de software, IA aplicada, liderança técnica e visão de produto.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700;400i&display=swap"
@@ -368,7 +368,7 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 6px;
-            padding: 8px 14px 8px 34px;
+            padding: 8px 14px;
             font-family: var(--font);
             font-size: 13px;
             color: var(--text);
@@ -1104,7 +1104,6 @@
             <button class="filter-tab" data-filter="career" data-i18n="filter_career">Carreira</button>
         </div>
         <div class="search-box">
-            <span class="search-icon">🔍</span>
             <input type="text" id="searchInput" placeholder="Buscar artigos..."
                 data-i18n-placeholder="search_placeholder">
         </div>
@@ -1133,7 +1132,6 @@
 
         <!-- EMPTY STATE -->
         <div class="empty-state" id="emptyState">
-            <div class="empty-icon">🔎</div>
             <div class="empty-title" data-i18n="empty_title">Nenhum artigo encontrado</div>
             <div class="empty-sub" data-i18n="empty_sub">Tente outro filtro ou termo de busca.</div>
         </div>
@@ -1143,9 +1141,9 @@
     <div class="newsletter-section">
         <div class="newsletter-card">
             <div class="newsletter-text">
-                <h3 data-i18n="newsletter_title">📬 Novos artigos no email</h3>
+                <h3 data-i18n="newsletter_title">Novos artigos no email</h3>
                 <p data-i18n="newsletter_sub">Receba artigos técnicos sobre arquitetura, IA e produto diretamente na sua
-                    caixa de entrada. Sem spam — só conteúdo que vale o clique.</p>
+                    caixa de entrada. Sem spam - só conteúdo que vale o clique.</p>
             </div>
             <form class="newsletter-form" id="newsletterForm">
                 <input type="email" placeholder="seu@email.com" required>
@@ -1155,7 +1153,7 @@
     </div>
 
     <footer>
-        <p>© 2025 Glaymar Albuquerque de França &nbsp;·&nbsp;
+        <p>© 2026 Glaymar Albuquerque de França &nbsp;·&nbsp;
             <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
             <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
             <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" target="_blank">LinkedIn</a>
@@ -1165,7 +1163,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
         // ══════════════════════════════════════════════════
-        //  i18n — DICIONÁRIO BLOG.HTML — PT-BR / EN
+        //  i18n - DICIONÁRIO BLOG.HTML - PT-BR / EN
         // ══════════════════════════════════════════════════
         const i18n = {
             pt: {
@@ -1198,7 +1196,7 @@
                 blog_featured_badge: "Artigo em destaque",
                 blog_featured_read: "12 min",
                 blog_featured_title: "Clean Architecture na prática: como estruturei o backend da AlttabCorp",
-                blog_featured_excerpt: "Um walkthrough completo de como apliquei Clean Architecture com Node.js e TypeScript em produção — decisões, trade-offs e o que mudaria hoje. Da estrutura de pastas ao fluxo de dependências entre camadas.",
+                blog_featured_excerpt: "Um walkthrough completo de como apliquei Clean Architecture com Node.js e TypeScript em produção - decisões, trade-offs e o que mudaria hoje. Da estrutura de pastas ao fluxo de dependências entre camadas.",
                 blog_read_more: "Ler artigo →",
 
                 cat_arch: "Arquitetura",
@@ -1209,7 +1207,7 @@
                 cat_career: "Carreira",
 
                 post1_title: "RAG local com Ollama e pgvector: guia prático",
-                post1_excerpt: "Como montei um pipeline de Retrieval-Augmented Generation rodando 100% local — sem API externa, sem custo por token. Do embedding à busca semântica com PostgreSQL.",
+                post1_excerpt: "Como montei um pipeline de Retrieval-Augmented Generation rodando 100% local - sem API externa, sem custo por token. Do embedding à busca semântica com PostgreSQL.",
                 post1_read: "9 min",
 
                 post2_title: "O Tank tem que tankar: liderança técnica em times pequenos",
@@ -1217,26 +1215,26 @@
                 post2_read: "7 min",
 
                 post3_title: "Next.js 14 App Router: o que aprendi migrando 3 projetos",
-                post3_excerpt: "Server Components, streaming, cache — o App Router muda a forma de pensar React. Compartilho erros, acertos e patterns que funcionaram na migração de projetos reais.",
+                post3_excerpt: "Server Components, streaming, cache - o App Router muda a forma de pensar React. Compartilho erros, acertos e patterns que funcionaram na migração de projetos reais.",
                 post3_read: "8 min",
 
                 post4_title: "CI/CD com GitHub Actions e Docker: setup completo para startups",
-                post4_excerpt: "O pipeline que uso na AlttabCorp para deploy automático de 6+ plataformas. Workflows reutilizáveis, build multi-stage e zero downtime — tudo com custo zero.",
+                post4_excerpt: "O pipeline de CI/CD que uso nos projetos da AlttabCorp. Workflows reutilizáveis, build multi-stage com Docker e automação com GitHub Actions.",
                 post4_read: "10 min",
 
                 post5_title: "n8n + IA: automatizando workflows internos sem código proprietário",
-                post5_excerpt: "Como integrei n8n com modelos locais via Ollama para automatizar triagem de emails, geração de relatórios e onboarding de clientes — sem depender de SaaS externo.",
+                post5_excerpt: "Como integrei n8n com modelos locais via Ollama para automatizar tarefas internas, como triagem de e-mails e geração de relatórios, no servidor self-hosted da AlttabCorp - sem depender de SaaS externo.",
                 post5_read: "6 min",
 
-                post6_title: "De freela a CEO: o que aprendi em 6 anos construindo do zero",
-                post6_excerpt: "A jornada de freelancer no interior do Nordeste até fundar a AlttabCorp. Decisões certas, erros caros e os princípios que carrego para cada novo projeto.",
+                post6_title: "Da empresa júnior à fundação da AlttabCorp: o que aprendi construindo do zero",
+                post6_excerpt: "Da Loopis Jr, no IFPB Cajazeiras, até fundar a AlttabCorp e colocar o YGO / HUB em produção. Decisões certas, erros caros e os princípios que carrego para cada novo projeto.",
                 post6_read: "11 min",
 
                 empty_title: "Nenhum artigo encontrado",
                 empty_sub: "Tente outro filtro ou termo de busca.",
 
-                newsletter_title: "📬 Novos artigos no email",
-                newsletter_sub: "Receba artigos técnicos sobre arquitetura, IA e produto diretamente na sua caixa de entrada. Sem spam — só conteúdo que vale o clique.",
+                newsletter_title: "Novos artigos no email",
+                newsletter_sub: "Receba artigos técnicos sobre arquitetura, IA e produto diretamente na sua caixa de entrada. Sem spam - só conteúdo que vale o clique.",
                 newsletter_btn: "Inscrever",
 
                 article_back: "← Voltar aos artigos",
@@ -1275,7 +1273,7 @@
                 blog_featured_badge: "Featured article",
                 blog_featured_read: "12 min",
                 blog_featured_title: "Clean Architecture in practice: how I structured AlttabCorp's backend",
-                blog_featured_excerpt: "A complete walkthrough of how I applied Clean Architecture with Node.js and TypeScript in production — decisions, trade-offs, and what I'd change today. From folder structure to dependency flow between layers.",
+                blog_featured_excerpt: "A complete walkthrough of how I applied Clean Architecture with Node.js and TypeScript in production - decisions, trade-offs, and what I'd change today. From folder structure to dependency flow between layers.",
                 blog_read_more: "Read article →",
 
                 cat_arch: "Architecture",
@@ -1286,34 +1284,34 @@
                 cat_career: "Career",
 
                 post1_title: "Local RAG with Ollama and pgvector: practical guide",
-                post1_excerpt: "How I built a Retrieval-Augmented Generation pipeline running 100% locally — no external API, no cost per token. From embedding to semantic search with PostgreSQL.",
+                post1_excerpt: "How I built a Retrieval-Augmented Generation pipeline running 100% locally - no external API, no cost per token. From embedding to semantic search with PostgreSQL.",
                 post1_read: "9 min",
 
                 post2_title: "The Tank has to tank: technical leadership in small teams",
-                post2_excerpt: "Lessons from League of Legends applied to dev team management. Why the tech lead needs to absorb pressure and create space for the team to deliver.",
+                post2_excerpt: "Lessons from League of Legends applied to dev team management. Why the technical leader needs to absorb pressure and create space for the team to deliver.",
                 post2_read: "7 min",
 
                 post3_title: "Next.js 14 App Router: what I learned migrating 3 projects",
-                post3_excerpt: "Server Components, streaming, cache — the App Router changes how you think about React. I share mistakes, wins, and patterns that worked in real project migrations.",
+                post3_excerpt: "Server Components, streaming, cache - the App Router changes how you think about React. I share mistakes, wins, and patterns that worked in real project migrations.",
                 post3_read: "8 min",
 
                 post4_title: "CI/CD with GitHub Actions and Docker: complete startup setup",
-                post4_excerpt: "The pipeline I use at AlttabCorp for automatic deployment of 6+ platforms. Reusable workflows, multi-stage builds, and zero downtime — all at zero cost.",
+                post4_excerpt: "The CI/CD pipeline I use in AlttabCorp's projects. Reusable workflows, multi-stage Docker builds, and automation with GitHub Actions.",
                 post4_read: "10 min",
 
                 post5_title: "n8n + AI: automating internal workflows without proprietary code",
-                post5_excerpt: "How I integrated n8n with local models via Ollama to automate email triage, report generation, and client onboarding — without relying on external SaaS.",
+                post5_excerpt: "How I integrated n8n with local models via Ollama to automate internal tasks, such as email triage and report generation, on AlttabCorp's self-hosted server - without relying on external SaaS.",
                 post5_read: "6 min",
 
-                post6_title: "From freelancer to CEO: what I learned in 6 years building from scratch",
-                post6_excerpt: "The journey from freelancing in Brazil's Northeast interior to founding AlttabCorp. Right decisions, expensive mistakes, and the principles I carry into every new project.",
+                post6_title: "From junior enterprise to founding AlttabCorp: what I learned building from scratch",
+                post6_excerpt: "From Loopis Jr at IFPB Cajazeiras to founding AlttabCorp and putting YGO / HUB into production. Right decisions, expensive mistakes, and the principles I carry into every new project.",
                 post6_read: "11 min",
 
                 empty_title: "No articles found",
                 empty_sub: "Try another filter or search term.",
 
-                newsletter_title: "📬 New articles in your inbox",
-                newsletter_sub: "Get technical articles on architecture, AI, and product directly in your inbox. No spam — just content worth the click.",
+                newsletter_title: "New articles in your inbox",
+                newsletter_sub: "Get technical articles on architecture, AI, and product directly in your inbox. No spam - just content worth the click.",
                 newsletter_btn: "Subscribe",
 
                 article_back: "← Back to articles",
@@ -1382,8 +1380,8 @@
             document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
 
             document.title = lang === 'pt'
-                ? 'Blog — Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto'
-                : 'Blog — Glaymar França | Articles on Development, Architecture and Product';
+                ? 'Blog - Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto'
+                : 'Blog - Glaymar França | Articles on Development, Architecture and Product';
 
             const dict = i18n[lang];
             document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -1487,14 +1485,14 @@
             const excerpt = getLocalizedText(article.excerpt);
             const category = article.category || 'arch';
             const categoryLabel = getCategoryLabel(category);
-            const icon = article.icon || '📝';
+            const icon = article.icon || '';
 
             featuredPost.innerHTML = `
                 <a class="featured-card" href="blog.html?post=${escapeAttr(article.slug)}" data-category="${escapeAttr(category)}"
                     data-slug="${escapeAttr(article.slug)}" data-date="${escapeAttr(article.date || '')}" data-read="${escapeAttr(article.read || '')}"
                     data-title-pt="${escapeAttr(article.title?.pt || '')}" data-title-en="${escapeAttr(article.title?.en || '')}">
                     <div class="featured-visual">
-                        <div class="featured-icon">${escapeHtml(icon)}</div>
+                        ${icon ? `<div class="featured-icon">${escapeHtml(icon)}</div>` : ""}
                         <div class="featured-badge">${escapeHtml(featuredBadge)}</div>
                     </div>
                     <div class="featured-body">
@@ -1664,7 +1662,7 @@
         searchInput.addEventListener('input', applyFilters);
 
         // ══════════════════════════════════════════════════
-        //  NEWSLETTER (fake — substitua por integração real)
+        //  NEWSLETTER (fake - substitua por integração real)
         // ══════════════════════════════════════════════════
         document.getElementById('newsletterForm').addEventListener('submit', function (e) {
             e.preventDefault();
