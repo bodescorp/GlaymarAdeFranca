@@ -1,4 +1,4 @@
-# De freela a CEO: o que aprendi em 6 anos construindo do zero
+# Da empresa júnior à fundação da AlttabCorp: o que aprendi construindo do zero
 
 Uma retrospectiva dos principais aprendizados construindo a AlttabCorp do zero, fora do eixo SP-RJ.
 
