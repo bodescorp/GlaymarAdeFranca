@@ -944,7 +944,7 @@
         .project-content table {
             width: 100%;
             border-collapse: collapse;
-            margin: 1.2rem 0;
+            margin: 0;
             font-size: .88rem
         }
 
@@ -959,6 +959,26 @@
             color: var(--text);
             background: var(--surface);
             font-weight: 600
+        }
+
+        .md-scroll {
+            overflow-x: auto;
+            margin: 1.4rem 0;
+            -webkit-overflow-scrolling: touch
+        }
+
+        .md-diagram {
+            padding: 1rem;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            border-radius: 8px
+        }
+
+        .md-diagram svg {
+            display: block;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto
         }
 
         .project-inner {
@@ -1019,7 +1039,8 @@
         .project-content h3,
         .project-content h4 {
             color: var(--text);
-            margin: 2rem 0 .8rem
+            margin: 2rem 0 .8rem;
+            scroll-margin-top: 88px
         }
 
         .project-content p {
@@ -1044,7 +1065,8 @@
             overflow-x: auto;
             font-family: var(--mono);
             font-size: 12px;
-            color: var(--text)
+            color: var(--text);
+            line-height: 1.65
         }
 
         .project-content code {
@@ -1053,6 +1075,14 @@
             background: rgba(200, 169, 110, .08);
             padding: 2px 6px;
             border-radius: 4px
+        }
+
+        .project-content pre code {
+            background: none;
+            padding: 0;
+            border-radius: 0;
+            color: inherit;
+            font-size: inherit
         }
 
         .project-loading,
@@ -1273,6 +1303,7 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
     <script>
         // ══════════════════════════════════════════════════
         //  i18n
@@ -1676,7 +1707,43 @@
                 return;
             }
 
-            pvContent.innerHTML = marked.parse(markdown.replace(/^#[^\n]*\n?/, ''));
+            await renderProjectMarkdown(pvContent, markdown);
+        }
+
+        function wrapWideTables(root) {
+            root.querySelectorAll('table').forEach(table => {
+                if (table.parentElement?.classList.contains('md-scroll')) return;
+                const wrap = document.createElement('div');
+                wrap.className = 'md-scroll';
+                table.replaceWith(wrap);
+                wrap.appendChild(table);
+            });
+        }
+
+        async function renderMermaidDiagrams(root) {
+            if (!window.mermaid) return;
+            const blocks = [...root.querySelectorAll('pre > code.language-mermaid, pre > code.mermaid')];
+            for (const code of blocks) {
+                const pre = code.parentElement;
+                const wrap = document.createElement('div');
+                wrap.className = 'md-scroll';
+                const diagram = document.createElement('div');
+                diagram.className = 'mermaid md-diagram';
+                diagram.textContent = code.textContent;
+                wrap.appendChild(diagram);
+                pre.replaceWith(wrap);
+                try {
+                    await mermaid.run({ nodes: [diagram] });
+                } catch (err) {
+                    wrap.replaceWith(pre);
+                }
+            }
+        }
+
+        async function renderProjectMarkdown(root, markdown) {
+            root.innerHTML = marked.parse(markdown.replace(/^#[^\n]*\n?/, ''));
+            wrapWideTables(root);
+            await renderMermaidDiagrams(root);
         }
 
         function showProject(slug) {
@@ -1802,6 +1869,53 @@
         // ══════════════════════════════════════════════════
         //  INIT
         // ══════════════════════════════════════════════════
+        function initMermaid() {
+            if (!window.mermaid) return;
+            try {
+            mermaid.initialize({
+                startOnLoad: false,
+                theme: 'dark',
+                securityLevel: 'strict',
+                fontFamily: 'DM Sans, sans-serif',
+                flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' },
+                sequence: { useMaxWidth: true },
+                er: { useMaxWidth: true },
+                themeVariables: {
+                    darkMode: true,
+                    background: '#0F1420',
+                    primaryColor: '#1A2338',
+                    primaryTextColor: '#E8EDF5',
+                    primaryBorderColor: '#C8A96E',
+                    secondaryColor: '#1F2B42',
+                    tertiaryColor: '#0A0E17',
+                    lineColor: '#8B9AB5',
+                    textColor: '#E8EDF5',
+                    mainBkg: '#1A2338',
+                    nodeBorder: '#C8A96E',
+                    clusterBkg: '#0A0E17',
+                    clusterBorder: '#263047',
+                    titleColor: '#E8EDF5',
+                    edgeLabelBackground: '#0F1420',
+                    actorBkg: '#1A2338',
+                    actorBorder: '#C8A96E',
+                    actorTextColor: '#E8EDF5',
+                    actorLineColor: '#8B9AB5',
+                    signalColor: '#C8A96E',
+                    signalTextColor: '#E8EDF5',
+                    labelBoxBkgColor: '#1A2338',
+                    labelBoxBorderColor: '#263047',
+                    labelTextColor: '#E8EDF5',
+                    loopTextColor: '#E8EDF5',
+                    noteBkgColor: '#1F2B42',
+                    noteTextColor: '#E8EDF5',
+                    noteBorderColor: '#C8A96E',
+                    activationBkgColor: '#1F2B42',
+                    sequenceNumberColor: '#0A0E17'
+                }
+            });
+            } catch (err) { /* mermaid opcional */ }
+        }
+
         async function init() {
             try {
                 if (window.marked?.use) {
@@ -1812,6 +1926,7 @@
                     marked.setOptions({ renderer });
                 }
             } catch (err) { /* marked opcional */ }
+            initMermaid();
             await loadProjects();
             renderAll();
 

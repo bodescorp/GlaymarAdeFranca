@@ -1,111 +1,117 @@
 {
-    "slug": "ygo-hub",
-    "tags": [
-        "product",
-        "api"
+  "slug": "ygo-hub",
+  "tags": [
+    "product",
+    "api"
+  ],
+  "badge": {
+    "class": "badge-product",
+    "icon": "",
+    "pt": "Produto",
+    "en": "Product"
+  },
+  "title": {
+    "pt": "YGO / HUB",
+    "en": "YGO / HUB"
+  },
+  "subtitle": {
+    "pt": "Hub da comunidade de Yu-Gi-Oh! em Cajazeiras-PB: sábado no Bob’s, decks, mercado, duelos e campeonatos.",
+    "en": "Community hub for Yu-Gi-Oh! in Cajazeiras, Brazil: weekly meetups, decks, marketplace, duels, and tournaments."
+  },
+  "year": {
+    "pt": "2025–2026",
+    "en": "2025–2026"
+  },
+  "status": {
+    "class": "status-prod",
+    "pt": "Em produção",
+    "en": "In production"
+  },
+  "links": [
+    {
+      "url": "https://yugiohcz.alttabcorp.com.br",
+      "primary": true,
+      "label": {
+        "pt": "Abrir projeto",
+        "en": "Open project"
+      }
+    },
+    {
+      "url": "https://yugiohcz.alttabcorp.com.br/e/sabado",
+      "primary": false,
+      "label": {
+        "pt": "Convite do sábado",
+        "en": "Saturday invite"
+      }
+    },
+    {
+      "url": "https://github.com/Alttabcorp/yugioh_community",
+      "primary": false,
+      "label": {
+        "pt": "GitHub",
+        "en": "GitHub"
+      }
+    }
+  ],
+  "summary": {
+    "pt": "A cena local vivia no WhatsApp: presença no sábado, decks, cartas e torneios espalhados. Entreguei um hub full-stack em produção — conta, RSVP, mercado, ranking, duelos remotos e campeonatos — com convites públicos para quem ainda não tem cadastro.",
+    "en": "The local scene lived on WhatsApp: Saturday attendance, decks, cards, and tournaments scattered across chats. I shipped a full-stack hub in production — accounts, RSVP, marketplace, ranking, remote duels, and tournaments — plus public invite pages for people who do not have an account yet."
+  },
+  "highlights": {
+    "pt": [
+      "Produto em produção usado pela mesa local, não um CRUD de portfólio",
+      "Landings públicas com Open Graph para WhatsApp e Instagram",
+      "Duelos remotos com sala, melhor de 3 e as mesmas regras de deck dos campeonatos"
     ],
-    "badge": {
-        "class": "badge-product",
-        "icon": "",
-        "pt": "Produto em Produção",
-        "en": "Product in Production"
+    "en": [
+      "Live product used by the local table, not a portfolio CRUD",
+      "Public landings with Open Graph for WhatsApp and Instagram",
+      "Remote duels with rooms, best-of-3, and the same deck rules as tournaments"
+    ]
+  },
+  "stack": [
+    "TypeScript",
+    "Next.js",
+    "React",
+    "Prisma",
+    "PostgreSQL",
+    "Better Auth",
+    "Redis",
+    "RabbitMQ",
+    "MinIO",
+    "Docker"
+  ],
+  "stats": [
+    {
+      "label": {
+        "pt": "Papel",
+        "en": "Role"
+      },
+      "value": {
+        "pt": "Full-stack e produto",
+        "en": "Full-stack and product"
+      }
     },
-    "title": {
-        "pt": "YGO / HUB - Comunidade Yu-Gi-Oh! de Cajazeiras",
-        "en": "YGO / HUB - Cajazeiras Yu-Gi-Oh! Community"
+    {
+      "label": {
+        "pt": "Contexto",
+        "en": "Context"
+      },
+      "value": {
+        "pt": "Alttab Corp + comunidade",
+        "en": "Alttab Corp + community"
+      }
     },
-    "subtitle": {
-        "pt": "Plataforma full-stack que organiza a comunidade local: eventos, decks, mercado, ranking e campeonatos.",
-        "en": "Full-stack platform that runs the local community: events, decks, marketplace, ranking, and tournaments."
-    },
-    "year": {
-        "pt": "Atual",
-        "en": "Current"
-    },
-    "status": {
-        "class": "status-prod",
-        "pt": "Em produção",
-        "en": "In production"
-    },
-    "links": [
-        {
-            "url": "https://yugiohcz.alttabcorp.com.br/",
-            "primary": true,
-            "label": {
-                "pt": "Acessar plataforma",
-                "en": "Open platform"
-            }
-        },
-        {
-            "url": "https://yugiohcz.alttabcorp.com.br/e/sabado",
-            "primary": false,
-            "label": {
-                "pt": "Convite do evento de sábado",
-                "en": "Saturday event invite"
-            }
-        }
-    ],
-    "summary": {
-        "pt": "Desenvolvi de ponta a ponta o hub da comunidade de Yu-Gi-Oh! da minha cidade. Os jogadores confirmam presença no evento semanal, montam decks, negociam cartas e disputam ranking e campeonatos.",
-        "en": "I built my city's Yu-Gi-Oh! community hub end to end. Players confirm attendance at the weekly event, build decks, trade cards, and compete in the ranking and tournaments."
-    },
-    "highlights": {
-        "pt": [
-            "12 usuários ativos e evento semanal aos sábados",
-            "Login por e-mail, Google e Discord, com papéis e painel administrativo",
-            "Redis, filas no RabbitMQ e arquivos no MinIO, tudo em Docker",
-            "PWA instalável, Open Graph dinâmico e SEO local"
-        ],
-        "en": [
-            "12 active users and a weekly Saturday event",
-            "Sign-in with email, Google, and Discord, with roles and an admin panel",
-            "Redis, RabbitMQ queues, and MinIO file storage, all on Docker",
-            "Installable PWA, dynamic Open Graph, and local SEO"
-        ]
-    },
-    "stack": [
-        "Next.js",
-        "React",
-        "TypeScript",
-        "Prisma",
-        "PostgreSQL",
-        "Redis",
-        "RabbitMQ",
-        "MinIO",
-        "Docker",
-        "PWA"
-    ],
-    "stats": [
-        {
-            "label": {
-                "pt": "Tipo",
-                "en": "Type"
-            },
-            "value": {
-                "pt": "Produto full-stack",
-                "en": "Full-stack product"
-            }
-        },
-        {
-            "label": {
-                "pt": "Usuários ativos",
-                "en": "Active users"
-            },
-            "value": {
-                "pt": "12",
-                "en": "12"
-            }
-        },
-        {
-            "label": {
-                "pt": "Papel",
-                "en": "Role"
-            },
-            "value": {
-                "pt": "Desenvolvedor único",
-                "en": "Sole developer"
-            }
-        }
-    ],
-    "gallery": []
+    {
+      "label": {
+        "pt": "Uso",
+        "en": "Use"
+      },
+      "value": {
+        "pt": "Presencial e remoto",
+        "en": "In-person and remote"
+      }
+    }
+  ],
+  "gallery": []
 }
