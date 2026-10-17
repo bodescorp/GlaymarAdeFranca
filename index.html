@@ -34,8 +34,8 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,560;12..96,700&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="assets/ui.css?v=10">
-  <link rel="stylesheet" href="assets/shell.css?v=4">
+  <link rel="stylesheet" href="assets/ui.css?v=13">
+  <link rel="stylesheet" href="assets/shell.css?v=6">
 </head>
 
 <body>
@@ -62,7 +62,7 @@
     <section class="hero">
       <div class="intro">
         <div class="who">
-          <img class="portrait" src="assets/me.jpg" alt="Glaymar Albuquerque de França" width="112" height="112"
+          <img class="portrait" src="assets/me.jpg?v=2" alt="Glaymar Albuquerque de França" width="654" height="794"
             fetchpriority="high">
           <h1>Glaymar França</h1>
           <p class="role" data-i18n="hero_label">Desenvolvedor web full-stack. Especialista em inteligência artificial.</p>
@@ -94,56 +94,6 @@
           <a class="act" href="mailto:glaymar2010@gmail.com" data-i18n="act_mail">Enviar e-mail</a>
           <a class="act" id="btnDownloadCV" href="assets/Curriculo.pdf" download data-i18n="hero_btn_cv">Baixar currículo</a>
           <a class="act" href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" data-i18n="act_in">Abrir o LinkedIn</a>
-        </div>
-      </div>
-
-      <div class="stage" data-work>
-        <span class="stage-glow" aria-hidden="true"></span>
-        <span class="stage-sheen" aria-hidden="true"></span>
-        <div class="stage-switch" role="tablist" aria-label="Trabalhos">
-          <span class="stage-glide" aria-hidden="true"></span>
-          <button type="button" role="tab" id="tab-ygo" aria-controls="work-ygo" aria-selected="true" tabindex="0" translate="no">YGO / HUB</button>
-          <button type="button" role="tab" id="tab-procura" aria-controls="work-procura" aria-selected="false" tabindex="-1" translate="no">Procura.AÍ</button>
-          <button type="button" role="tab" id="tab-tcc" aria-controls="work-tcc" aria-selected="false" tabindex="-1" data-i18n="work_tcc">Inventários</button>
-        </div>
-        <div class="stage-body" role="tabpanel" id="work-ygo" aria-labelledby="tab-ygo" tabindex="0">
-          <p class="live"><span class="live-dot" aria-hidden="true"></span><span data-i18n="live">Em produção</span></p>
-          <h2 translate="no">YGO / HUB</h2>
-          <p data-i18n="ygo_hook">12 pessoas usam a plataforma, e a comunidade se encontra todo sábado.</p>
-          <ul class="parts">
-            <li data-i18n="ygo_1">Presença</li>
-            <li data-i18n="ygo_2">Decks</li>
-            <li data-i18n="ygo_3">Mercado de cartas</li>
-            <li data-i18n="ygo_4">Ranking</li>
-            <li data-i18n="ygo_5">Campeonatos</li>
-            <li data-i18n="ygo_6">Painel admin</li>
-          </ul>
-          <p class="stage-note" data-i18n="ygo_access">Entrada por e-mail, Google e Discord. O app pode ser instalado.</p>
-          <a class="stage-link" href="https://yugiohcz.alttabcorp.com.br/" data-i18n="open_ygo">Abrir o YGO / HUB</a>
-        </div>
-        <div class="stage-body" role="tabpanel" id="work-procura" aria-labelledby="tab-procura" tabindex="0">
-          <h2 translate="no">Procura.AÍ</h2>
-          <p data-i18n="procura_hook">Aplicação do Governo da Paraíba para autocadastro e recuperação de celulares.</p>
-          <ul class="parts">
-            <li data-i18n="p_1">Autocadastro</li>
-            <li data-i18n="p_2">Recuperação</li>
-            <li data-i18n="p_3">API REST</li>
-            <li data-i18n="p_4">Dashboard</li>
-            <li data-i18n="p_5">Desktop</li>
-            <li data-i18n="p_6">Mobile</li>
-          </ul>
-          <p class="stage-note" data-i18n="no_public">Este sistema não tem endereço público.</p>
-        </div>
-        <div class="stage-body" role="tabpanel" id="work-tcc" aria-labelledby="tab-tcc" tabindex="0">
-          <h2 data-i18n="proj2_name">Inventários históricos</h2>
-          <p data-i18n="tcc_hook">TCC de ADS, publicado no repositório do IFPB.</p>
-          <ul class="parts">
-            <li data-i18n="t_1">Pesquisa</li>
-            <li data-i18n="t_2">API REST</li>
-            <li data-i18n="t_3">Grafos no Neo4j</li>
-            <li data-i18n="t_4">Repositório do IFPB</li>
-          </ul>
-          <a class="stage-link" href="https://repositorio.ifpb.edu.br/handle/177683/2898" data-i18n="open_tcc">Abrir no repositório do IFPB</a>
         </div>
       </div>
     </section>
@@ -455,48 +405,6 @@
       });
     }
 
-    function bindTabs(list) {
-      const tabs = [...list.querySelectorAll('[role="tab"]')];
-      function select(tab, moveFocus, initial) {
-        const prevIndex = tabs.findIndex((item) => item.getAttribute("aria-selected") === "true");
-        const nextIndex = tabs.indexOf(tab);
-        tabs.forEach((item) => {
-          const on = item === tab;
-          item.setAttribute("aria-selected", on ? "true" : "false");
-          item.tabIndex = on ? 0 : -1;
-          const panel = document.getElementById(item.getAttribute("aria-controls"));
-          if (!panel) return;
-          panel.hidden = !on;
-          panel.classList.toggle("is-shown", on);
-        });
-        if (!initial) {
-          list.dispatchEvent(new CustomEvent("tabchange", {
-            bubbles: true,
-            detail: { tab, dir: nextIndex >= prevIndex ? 1 : -1 }
-          }));
-        }
-        if (moveFocus) tab.focus();
-      }
-      tabs.forEach((tab, index) => {
-        tab.addEventListener("click", () => select(tab, false));
-        tab.addEventListener("keydown", (event) => {
-          let target = index;
-          if (event.key === "ArrowRight") target = (index + 1) % tabs.length;
-          else if (event.key === "ArrowLeft") target = (index - 1 + tabs.length) % tabs.length;
-          else if (event.key === "Home") target = 0;
-          else if (event.key === "End") target = tabs.length - 1;
-          else return;
-          event.preventDefault();
-          select(tabs[target], true);
-        });
-      });
-      const current = tabs.find((item) => item.getAttribute("aria-selected") === "true") || tabs[0];
-      if (current) select(current, false, true);
-    }
-
-    document.querySelectorAll("[data-work]").forEach((block) => {
-      bindTabs(block.querySelector('[role="tablist"]'));
-    });
     document.querySelectorAll(".lang-btn").forEach((btn) => {
       btn.addEventListener("click", () => setLang(btn.dataset.lang));
     });
@@ -504,7 +412,7 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-  <script src="assets/motion.js?v=1"></script>
+  <script src="assets/motion.js?v=2"></script>
 </body>
 
 </html>
