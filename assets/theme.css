@@ -1,0 +1,52 @@
+:root {
+  --bg: #e7edf5;
+  --bg2: #f7f9fc;
+  --bg3: #d5e2f4;
+  --surface: #f7f9fc;
+  --surface2: #e7edf5;
+  --border: #d3dbe6;
+  --border2: #b7c3d4;
+  --text: #152033;
+  --text2: #526070;
+  --text3: #6a7888;
+  --gold: #1e2a44;
+  --gold2: #152033;
+  --blue: #114536;
+  --teal: #114536;
+  --green: #114536;
+  --purple: #4e5e56;
+  --font: "Atkinson Hyperlegible", sans-serif;
+  --serif: "Fraunces", serif;
+  --mono: "Atkinson Hyperlegible", sans-serif;
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+nav.scrolled,
+.mobile-nav,
+.mobile-nav.open {
+  background: rgba(228, 235, 230, 0.96);
+}
+
+:focus-visible {
+  outline: 2px solid #114536;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
