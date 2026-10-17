@@ -4,6 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            document.documentElement.classList.add("js-motion");
+            setTimeout(function () {
+                document.documentElement.classList.remove("js-motion");
+            }, 2500);
+        }
+    </script>
     <title>Projetos - Glaymar França | Portfólio Técnico</title>
     <meta name="description"
         content="Portfólio técnico de Glaymar França - projetos em Node.js, React, IA, Neo4j, Docker e mais. Pipeline RAG, sistemas hospitalares, APIs e ecossistema AlttabCorp.">
@@ -1172,24 +1180,24 @@
             }
         }
     </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,560;12..96,700&family=Schibsted+Grotesk:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/shell.css?v=4">
 </head>
 
 <body>
 
     <!-- NAV -->
     <nav id="nav">
-        <a href="index.html" class="nav-logo">glaymar.dev</a>
-        <div class="nav-right">
+        <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Glaymar</a>
             <ul class="nav-links">
-                <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
-                <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
-                <li><a href="index.html#projects" class="active" data-i18n="nav_projects">Projetos</a></li>
-                <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
-                <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
-                <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+                <li><a href="projetos.html" class="active" aria-current="page" data-i18n="nav_projects">Projetos</a></li>
                 <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
-                <li><a href="index.html#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
+                <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
             </ul>
+            <a class="nav-cta" href="https://wa.me/5583993322427" data-i18n="nav_contact">WhatsApp</a>
             <div class="lang-switcher desktop-lang">
                 <button class="lang-btn active" data-lang="pt">PT</button>
                 <button class="lang-btn" data-lang="en">EN</button>
@@ -1222,7 +1230,7 @@
         <div class="hero-inner">
             <div class="label" data-i18n="hero_label">Portfólio Técnico</div>
             <h1 data-i18n="hero_title">Projetos</h1>
-            <p data-i18n="hero_sub">Crie uma pasta em projetos/ com index.json. Depois do push, o projeto entra sozinho no portfólio.</p>
+            <p data-i18n="hero_sub">Sistemas em produção, o TCC publicado e os sites da AlttabCorp.</p>
         </div>
     </div>
 
@@ -1266,14 +1274,14 @@
         <section class="lane lane-first" id="casesBlock">
             <div class="lane-head">
                 <h2 class="lane-title" data-i18n="cases_title">Cases documentados</h2>
-                <p class="lane-sub" data-i18n="cases_sub">Relato, stack, decisões e fotos. Um clique abre a pasta do projeto.</p>
+                <p class="lane-sub" data-i18n="cases_sub">O que o sistema faz, a stack e onde abrir.</p>
             </div>
             <div class="case-list" id="caseList"></div>
         </section>
         <section class="lane" id="systemsBlock">
             <div class="lane-head">
                 <h2 class="lane-title" data-i18n="systems_title">Outros sistemas</h2>
-                <p class="lane-sub" data-i18n="systems_sub">Projetos no ar ou no repositório, ainda sem case escrito.</p>
+                <p class="lane-sub" data-i18n="systems_sub">No ar ou no repositório.</p>
             </div>
             <div class="sys-list" id="sysList"></div>
         </section>
@@ -1313,18 +1321,18 @@
                 nav_home: "Início", nav_stack: "Stack", nav_experience: "Experiência",
                 nav_projects: "Projetos", nav_education: "Formação",
                 nav_certifications: "Certificações", nav_about: "Sobre",
-                nav_blog: "Artigos", nav_contact: "Contato",
+                nav_blog: "Artigos", nav_contact: "WhatsApp",
                 hero_label: "Portfólio Técnico",
                 hero_title: "Projetos",
-                hero_sub: "Crie uma pasta em projetos/ com index.json. Depois do push, o projeto entra sozinho no portfólio.",
+                hero_sub: "Sistemas em produção, o TCC publicado e os sites da AlttabCorp.",
                 filter_all: "Todos", filter_ai: "Inteligência Artificial",
                 filter_api: "APIs & Back-end", filter_research: "Pesquisa",
                 filter_product: "Produto", filter_automation: "Automação",
                 cases_title: "Cases documentados",
-                cases_sub: "Relato, stack, decisões e fotos. Um clique abre a pasta do projeto.",
+                cases_sub: "O que o sistema faz, a stack e onde abrir.",
                 case_open: "Abrir documentação",
                 systems_title: "Outros sistemas",
-                systems_sub: "Projetos no ar ou no repositório, ainda sem case escrito.",
+                systems_sub: "No ar ou no repositório.",
                 system_open: "Abrir",
                 system_folder: "Ver pasta",
                 sites_title: "Sites da Alttab",
@@ -1345,15 +1353,15 @@
                 nav_home: "Home", nav_stack: "Stack", nav_experience: "Experience",
                 nav_projects: "Projects", nav_education: "Education",
                 nav_certifications: "Certifications", nav_about: "About",
-                nav_blog: "Articles", nav_contact: "Contact",
+                nav_blog: "Articles", nav_contact: "WhatsApp",
                 hero_label: "Technical Portfolio",
                 hero_title: "Projects",
-                hero_sub: "Add a folder under projetos/ with index.json. After the push, it shows up in the portfolio on its own.",
+                hero_sub: "Systems in production, the published thesis, and the AlttabCorp sites.",
                 cases_title: "Documented cases",
-                cases_sub: "Story, stack, decisions, and photos. One click opens the project folder.",
+                cases_sub: "What the system does, the stack, and where to open it.",
                 case_open: "Open write-up",
                 systems_title: "Other systems",
-                systems_sub: "Live or on GitHub, still without a written case.",
+                systems_sub: "Live or in the repository.",
                 system_open: "Open",
                 system_folder: "Open folder",
                 sites_title: "Alttab sites",
@@ -1413,8 +1421,15 @@
 
         const PROJECT_REPO = 'bodescorp/GlaymarAdeFranca';
 
+        const HIDDEN_PROJECTS = new Set([
+            'rag-pipeline-alttabcorp',
+            'api-biblioteca-ciec',
+            'finops',
+            'orcamento-3d-automatizado'
+        ]);
+
         function isProjectSlug(slug) {
-            return Boolean(slug) && !String(slug).startsWith('_');
+            return Boolean(slug) && !String(slug).startsWith('_') && !HIDDEN_PROJECTS.has(slug);
         }
 
         function indexSlugs() {
@@ -1597,7 +1612,7 @@
            data-slug="${esc(project.slug || '')}">
             <span class="site-name">${esc(name)}</span>
             <span class="site-desc">${esc(desc)}</span>
-            <span class="site-open">${esc(openLabel)} ↗</span>
+            <span class="site-open">${esc(openLabel)}</span>
         </a>`;
             }).join('');
         }
@@ -1941,6 +1956,9 @@
 
         init();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/motion.js?v=1"></script>
 
 </body>
 

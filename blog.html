@@ -4,6 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            document.documentElement.classList.add("js-motion");
+            setTimeout(function () {
+                document.documentElement.classList.remove("js-motion");
+            }, 2500);
+        }
+    </script>
     <title>Blog - Glaymar França | Artigos sobre Desenvolvimento, Arquitetura e Produto</title>
     <meta name="description"
         content="Artigos técnicos de Glaymar França - desenvolvimento Full-Stack, arquitetura de software, IA aplicada, liderança técnica e visão de produto.">
@@ -1037,24 +1045,24 @@
             }
         }
     </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,560;12..96,700&family=Schibsted+Grotesk:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/shell.css?v=4">
 </head>
 
 <body>
 
     <!-- NAV -->
     <nav id="nav">
-        <a href="#home" class="nav-logo">glaymar.dev</a>
-        <div class="nav-right">
+        <div class="nav-inner">
+        <a href="index.html" class="nav-logo">Glaymar</a>
             <ul class="nav-links">
-                <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
-                <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
-                <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
-                <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
-                <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
+                <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+                <li><a href="projetos.html" data-i18n="nav_projects">Projetos</a></li>
+                <li><a href="blog.html" class="active" aria-current="page" data-i18n="nav_blog">Artigos</a></li>
                 <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
-                <li><a href="blog.html" class="active" data-i18n="nav_blog">Artigos</a></li>
-                <li><a href="index.html#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
             </ul>
+            <a class="nav-cta" href="https://wa.me/5583993322427" data-i18n="nav_contact">WhatsApp</a>
             <div class="lang-switcher desktop-lang">
                 <button class="lang-btn active" data-lang="pt">PT</button>
                 <button class="lang-btn" data-lang="en">EN</button>
@@ -1188,7 +1196,7 @@
                 nav_certifications: "Certificações",
                 nav_blog: "Artigos",
                 nav_about: "Sobre",
-                nav_contact: "Contato",
+                nav_contact: "WhatsApp",
                 nav_home: "Início",
 
                 blog_hero_label: "Blog & Artigos",
@@ -1211,7 +1219,7 @@
                 blog_featured_read: "12 min",
                 blog_featured_title: "Clean Architecture na prática: como estruturei o backend da AlttabCorp",
                 blog_featured_excerpt: "Um walkthrough completo de como apliquei Clean Architecture com Node.js e TypeScript em produção - decisões, trade-offs e o que mudaria hoje. Da estrutura de pastas ao fluxo de dependências entre camadas.",
-                blog_read_more: "Ler artigo →",
+                blog_read_more: "Ler o artigo",
 
                 cat_arch: "Arquitetura",
                 cat_ia: "IA & ML",
@@ -1265,7 +1273,7 @@
                 nav_certifications: "Certifications",
                 nav_blog: "Articles",
                 nav_about: "About",
-                nav_contact: "Contact",
+                nav_contact: "WhatsApp",
                 nav_home: "Home",
 
                 blog_hero_label: "Blog & Articles",
@@ -1288,7 +1296,7 @@
                 blog_featured_read: "12 min",
                 blog_featured_title: "Clean Architecture in practice: how I structured AlttabCorp's backend",
                 blog_featured_excerpt: "A complete walkthrough of how I applied Clean Architecture with Node.js and TypeScript in production - decisions, trade-offs, and what I'd change today. From folder structure to dependency flow between layers.",
-                blog_read_more: "Read article →",
+                blog_read_more: "Read the article",
 
                 cat_arch: "Architecture",
                 cat_ia: "AI & ML",
@@ -1769,6 +1777,9 @@
 
         init();
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+    <script src="assets/motion.js?v=1"></script>
 </body>
 
 </html>

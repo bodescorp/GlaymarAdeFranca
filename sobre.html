@@ -4,6 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("js-motion");
+      setTimeout(function () {
+        document.documentElement.classList.remove("js-motion");
+      }, 2500);
+    }
+  </script>
   <title>Sobre - Glaymar França | Desenvolvedor Web Full-Stack & Fundador da AlttabCorp</title>
   <meta name="description"
     content="Trajetória pessoal e profissional de Glaymar França - desenvolvedor Web Full-Stack, especialista em Inteligência Artificial e fundador da AlttabCorp. Filosofia, história e visão de produto.">
@@ -614,24 +622,24 @@
       }
     }
   </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,560;12..96,700&family=Schibsted+Grotesk:ital,wght@0,400;0,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme.css">
+  <link rel="stylesheet" href="assets/shell.css?v=4">
 </head>
 
 <body>
 
   <!-- NAV -->
   <nav id="nav">
-    <a href="#home" class="nav-logo">glaymar.dev</a>
-    <div class="nav-right">
+    <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Glaymar</a>
       <ul class="nav-links">
-        <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
-        <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
-        <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
-        <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
-        <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
-        <li><a href="sobre.html" class="active" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+        <li><a href="projetos.html" data-i18n="nav_projects">Projetos</a></li>
         <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
-        <li><a href="index.html#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
+        <li><a href="sobre.html" class="active" aria-current="page" data-i18n="nav_about">Sobre</a></li>
       </ul>
+      <a class="nav-cta" href="https://wa.me/5583993322427" data-i18n="nav_contact">WhatsApp</a>
       <div class="lang-switcher desktop-lang">
         <button class="lang-btn active" data-lang="pt">PT</button>
         <button class="lang-btn" data-lang="en">EN</button>
@@ -856,12 +864,8 @@
           <ul class="feat-list" style="margin-top:1rem">
             <li data-i18n="about_corp_feat1">YGO / HUB - Next.js, TypeScript, Prisma, PostgreSQL, Redis, RabbitMQ, MinIO e
               Docker</li>
-            <li data-i18n="about_corp_feat2">Site da empresa e sistemas web, como calculadora de orçamento de impressão
-              3D e dashboard de FinOps</li>
-            <li data-i18n="about_corp_feat3">API REST da Biblioteca CIEC - NestJS, JWT, Swagger e Docker</li>
+            <li data-i18n="about_corp_feat2">Site institucional da AlttabCorp</li>
             <li data-i18n="about_corp_feat4">Documentação técnica com LaTeX e CI/CD via GitHub Actions</li>
-            <li data-i18n="about_corp_feat5">Servidor self-hosted com IA local (Ollama), n8n, PostgreSQL e Uptime Kuma</li>
-            <li data-i18n="about_corp_feat6">Assistente RAG com pgvector, Whisper, Telegram e Open WebUI</li>
           </ul>
         </div>
         <div>
@@ -940,7 +944,7 @@
         nav_certifications: "Certificações",
         nav_about: "Sobre",
         nav_blog: "Artigos",
-        nav_contact: "Contato",
+        nav_contact: "WhatsApp",
         nav_home: "Início",
 
         // Hero Sobre
@@ -1018,7 +1022,7 @@
         about_corp_p1: 'A <strong>AlttabCorp</strong> é o ponto de encontro entre tecnologia, empreendedorismo e visão de produto. Como fundador e desenvolvedor Full-Stack, conduzo o ciclo completo dos projetos: requisitos, arquitetura, desenvolvimento, implantação e evolução contínua.',
         about_corp_p2: "O principal produto é o <strong>YGO / HUB</strong>, plataforma da comunidade Yu-Gi-Oh! de Cajazeiras, em produção com 12 usuários ativos e evento semanal todo sábado: RSVP, decks, mercado de cartas, ranking, torneios, painel administrativo, login por e-mail/Google/Discord e PWA.",
         about_corp_feat1: "YGO / HUB - Next.js, TypeScript, Prisma, PostgreSQL, Redis, RabbitMQ, MinIO e Docker",
-        about_corp_feat2: "Site da empresa e sistemas web, como calculadora de orçamento de impressão 3D e dashboard de FinOps",
+        about_corp_feat2: "Site institucional da AlttabCorp",
         about_corp_feat3: "API REST da Biblioteca CIEC - NestJS, JWT, Swagger e Docker",
         about_corp_feat4: "Documentação técnica com LaTeX e CI/CD via GitHub Actions",
         about_corp_feat5: "Servidor self-hosted com IA local (Ollama), n8n, PostgreSQL e Uptime Kuma",
@@ -1049,7 +1053,7 @@
         nav_certifications: "Certifications",
         nav_about: "About",
         nav_blog: "Articles",
-        nav_contact: "Contact",
+        nav_contact: "WhatsApp",
         nav_home: "Home",
 
         // Hero Sobre
@@ -1127,7 +1131,7 @@
         about_corp_p1: '<strong>AlttabCorp</strong> is where technology, entrepreneurship, and product vision converge. As founder and Full-Stack Developer, I run the complete project lifecycle: requirements, architecture, development, deployment, and continuous evolution.',
         about_corp_p2: "The main product is <strong>YGO / HUB</strong>, the platform for the Yu-Gi-Oh! community in Cajazeiras, in production with 12 active users and a weekly event every Saturday: RSVP, decks, card market, ranking, tournaments, admin panel, e-mail/Google/Discord login, and PWA.",
         about_corp_feat1: "YGO / HUB - Next.js, TypeScript, Prisma, PostgreSQL, Redis, RabbitMQ, MinIO, and Docker",
-        about_corp_feat2: "Company website and web systems, such as a 3D printing quote calculator and a FinOps dashboard",
+        about_corp_feat2: "AlttabCorp website",
         about_corp_feat3: "CIEC Library REST API - NestJS, JWT, Swagger, and Docker",
         about_corp_feat4: "Technical documentation with LaTeX and CI/CD via GitHub Actions",
         about_corp_feat5: "Self-hosted server with local AI (Ollama), n8n, PostgreSQL, and Uptime Kuma",
@@ -1209,6 +1213,9 @@
     // Inicializa idioma salvo (sincroniza com index.html)
     setLang(currentLang);
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/motion.js?v=1"></script>
 </body>
 
 </html>
