@@ -4,18 +4,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Glaymar França - Desenvolvedor Web Full-Stack · Especialista em IA</title>
+  <script>
+    if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.documentElement.classList.add("js-motion");
+      setTimeout(function () {
+        document.documentElement.classList.remove("js-motion");
+      }, 2500);
+    }
+  </script>
+  <title>Glaymar França — Desenvolvedor web full-stack</title>
   <meta name="description"
-    content="Desenvolvedor web full-stack (JavaScript, TypeScript, React, Node.js). Bolsista no Procura.AÍ (FAPESQ / LAVID-UFPB) e fundador da AlttabCorp, criador do YGO / HUB. Tecnólogo em ADS pelo IFPB e especialista em IA.">
-  <meta name="keywords"
-    content="desenvolvedor full-stack, node.js, typescript, react, next.js, postgresql, docker, cajazeiras, paraiba, alttabcorp">
+    content="Desenvolvedor web full-stack em Cajazeiras-PB. Bolsista no Procura.AÍ (FAPESQ / LAVID-UFPB) e fundador da AlttabCorp, criador do YGO / HUB. Aberto a trabalho remoto, CLT ou PJ.">
+  <meta name="theme-color" content="#e7edf5">
   <link rel="canonical" href="https://bodescorp.github.io/GlaymarAdeFranca/">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <meta property="og:title" content="Glaymar França - Desenvolvedor Web Full-Stack">
+  <meta property="og:title" content="Glaymar França — Desenvolvedor web full-stack">
   <meta property="og:description"
-    content="Desenvolvedor web full-stack. Procura.AÍ (FAPESQ / LAVID-UFPB), fundador da AlttabCorp e criador do YGO / HUB.">
+    content="Procura.AÍ (FAPESQ / LAVID-UFPB), fundador da AlttabCorp e criador do YGO / HUB. Aberto a trabalho remoto.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://bodescorp.github.io/GlaymarAdeFranca/">
   <meta property="og:image" content="https://bodescorp.github.io/GlaymarAdeFranca/assets/me.jpg">
@@ -23,1882 +30,481 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://bodescorp.github.io/GlaymarAdeFranca/assets/me.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&family=Playfair+Display:wght@700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesk:opsz,wght@12..96,560;12..96,700&family=Schibsted+Grotesk:ital,wght@0,400;0,500;0,600;1,400&display=swap"
     rel="stylesheet">
-  <style>
-    *,
-    *::before,
-    *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0
-    }
-
-    :root {
-      --bg: #0A0E17;
-      --bg2: #0F1420;
-      --bg3: #151C2E;
-      --surface: #1A2338;
-      --surface2: #1F2B42;
-      --border: #263047;
-      --border2: #2E3B57;
-      --text: #E8EDF5;
-      --text2: #8B9AB5;
-      --text3: #556080;
-      --gold: #C8A96E;
-      --gold2: #E0C080;
-      --blue: #4A90D9;
-      --teal: #3DBFA8;
-      --radius: 10px;
-      --font: 'DM Sans', sans-serif;
-      --mono: 'DM Mono', monospace;
-      --serif: 'Playfair Display', serif;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--font);
-      font-weight: 400;
-      line-height: 1.6;
-      overflow-x: hidden
-    }
-
-    ::-webkit-scrollbar {
-      width: 4px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--bg)
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--border2);
-      border-radius: 2px
-    }
-
-    /* ── LANG SWITCHER ── */
-    .lang-switcher {
-      display: flex;
-      align-items: center;
-      gap: 4px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 3px;
-      margin-left: 1rem
-    }
-
-    .lang-btn {
-      padding: 5px 10px;
-      border: none;
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 11px;
-      cursor: pointer;
-      background: transparent;
-      color: var(--text3);
-      transition: all .2s;
-      letter-spacing: .03em
-    }
-
-    .lang-btn.active {
-      background: var(--gold);
-      color: var(--bg);
-      font-weight: 500
-    }
-
-    .lang-btn:hover:not(.active) {
-      color: var(--text2);
-      background: var(--surface2)
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      padding: 0 2rem;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid transparent;
-      transition: all .3s
-    }
-
-    nav.scrolled {
-      background: rgba(10, 14, 23, .92);
-      backdrop-filter: blur(16px);
-      border-color: var(--border)
-    }
-
-    .nav-logo {
-      font-family: var(--mono);
-      font-size: 14px;
-      color: var(--gold);
-      letter-spacing: .05em;
-      text-decoration: none
-    }
-
-    .nav-right {
-      display: flex;
-      align-items: center;
-      gap: 1rem
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2rem;
-      list-style: none
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      color: var(--text2);
-      text-decoration: none;
-      letter-spacing: .03em;
-      transition: color .2s
-    }
-
-    .nav-links a:hover,
-    .nav-links a.active {
-      color: var(--text)
-    }
-
-    .nav-cta {
-      padding: 8px 20px;
-      border: 1px solid var(--gold);
-      border-radius: 6px;
-      font-size: 13px;
-      color: var(--gold);
-      text-decoration: none;
-      transition: all .2s;
-      font-family: var(--mono)
-    }
-
-    .nav-cta:hover {
-      background: var(--gold);
-      color: var(--bg)
-    }
-
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px
-    }
-
-    .hamburger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--text2);
-      border-radius: 2px;
-      transition: all .3s
-    }
-
-    .mobile-nav {
-      display: none;
-      position: fixed;
-      top: 64px;
-      left: 0;
-      right: 0;
-      background: rgba(10, 14, 23, .98);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      z-index: 99
-    }
-
-    .mobile-nav.open {
-      display: block
-    }
-
-    .mobile-nav ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem
-    }
-
-    .mobile-nav a {
-      color: var(--text2);
-      text-decoration: none;
-      font-size: 15px
-    }
-
-    .mobile-lang {
-      display: flex;
-      gap: 4px;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border)
-    }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding: 5rem 2rem 4rem;
-      position: relative;
-      overflow: hidden
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(200, 169, 110, .06) 0%, transparent 70%);
-      pointer-events: none
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -10%;
-      left: -5%;
-      width: 400px;
-      height: 400px;
-      background: radial-gradient(circle, rgba(74, 144, 217, .05) 0%, transparent 70%);
-      pointer-events: none
-    }
-
-    .hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: center
-    }
-
-    .hero-label {
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--gold);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: .5rem
-    }
-
-    .hero-label::before {
-      content: '';
-      display: inline-block;
-      width: 24px;
-      height: 1px;
-      background: var(--gold)
-    }
-
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(2.4rem, 4vw, 3.6rem);
-      line-height: 1.1;
-      margin-bottom: .8rem;
-      color: var(--text)
-    }
-
-    .hero-role {
-      font-size: 1.05rem;
-      color: var(--text2);
-      margin-bottom: 1.8rem;
-      line-height: 1.5
-    }
-
-    .hero-role strong {
-      color: var(--gold);
-      font-weight: 500
-    }
-
-    .hero-desc {
-      font-size: .95rem;
-      color: var(--text2);
-      line-height: 1.75;
-      margin-bottom: 2.4rem;
-      max-width: 460px
-    }
-
-    .hero-btns {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap
-    }
-
-    .btn-primary {
-      padding: 12px 28px;
-      background: var(--gold);
-      color: var(--bg);
-      border-radius: 7px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all .2s;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem
-    }
-
-    .btn-primary:hover {
-      background: var(--gold2);
-      transform: translateY(-1px)
-    }
-
-    .btn-outline {
-      padding: 12px 28px;
-      border: 1px solid var(--border2);
-      color: var(--text2);
-      border-radius: 7px;
-      font-size: 14px;
-      text-decoration: none;
-      transition: all .2s;
-      display: inline-flex;
-      align-items: center;
-      gap: .5rem
-    }
-
-    .btn-outline:hover {
-      border-color: var(--gold);
-      color: var(--gold)
-    }
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem
-    }
-
-    .hero-stat-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.4rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: border-color .2s
-    }
-
-    .hero-stat-card:hover {
-      border-color: var(--border2)
-    }
-
-    .hero-stat-icon {
-      width: 40px;
-      height: 40px;
-      border-radius: 8px;
-      background: var(--surface2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      flex-shrink: 0
-    }
-
-    .hero-stat-num {
-      font-size: 1.5rem;
-      font-weight: 600;
-      color: var(--text);
-      line-height: 1
-    }
-
-    .hero-stat-label {
-      font-size: 12px;
-      color: var(--text3);
-      margin-top: 2px
-    }
-
-    .status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      padding: 5px 12px;
-      background: rgba(61, 191, 168, .1);
-      border: 1px solid rgba(61, 191, 168, .2);
-      border-radius: 20px;
-      font-size: 12px;
-      color: var(--teal);
-      margin-bottom: 2rem
-    }
-
-    .status-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal);
-      animation: pulse 2s infinite
-    }
-
-    @keyframes pulse {
-
-      0%,
-      100% {
-        opacity: 1
-      }
-
-      50% {
-        opacity: .4
-      }
-    }
-
-    /* ── SECTION BASE ── */
-    section {
-      padding: 5rem 2rem
-    }
-
-    .section-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      width: 100%
-    }
-
-    .section-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      margin-bottom: .6rem
-    }
-
-    .section-title {
-      font-size: clamp(1.6rem, 3vw, 2.2rem);
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      line-height: 1.2
-    }
-
-    .section-sub {
-      font-size: .95rem;
-      color: var(--text2);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 3rem
-    }
-
-    hr.divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0 0 3rem
-    }
-
-    /* ── STACK ── */
-    .stack-section {
-      background: var(--bg2)
-    }
-
-    .stack-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem
-    }
-
-    .stack-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.4rem;
-      transition: all .2s
-    }
-
-    .stack-card:hover {
-      border-color: var(--border2);
-      transform: translateY(-2px)
-    }
-
-    .stack-cat {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--gold);
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: .7rem
-    }
-
-    .stack-chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .4rem
-    }
-
-    .chip {
-      padding: 4px 10px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 5px;
-      font-family: var(--mono);
-      font-size: 12px;
-      color: var(--text2)
-    }
-
-    /* ── EXPERIENCE ── */
-    .exp-list {
-      display: flex;
-      flex-direction: column;
-      gap: 1px;
-      border-left: 1px solid var(--border);
-      margin-left: .5rem
-    }
-
-    .exp-item {
-      padding: 1.6rem 0 1.6rem 2rem;
-      position: relative;
-      cursor: default
-    }
-
-    .exp-item::before {
-      content: '';
-      position: absolute;
-      left: -5px;
-      top: 2rem;
-      width: 9px;
-      height: 9px;
-      border-radius: 50%;
-      background: var(--surface2);
-      border: 2px solid var(--border2);
-      transition: all .2s
-    }
-
-    .exp-item:hover::before {
-      background: var(--gold);
-      border-color: var(--gold)
-    }
-
-    .exp-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: .5rem;
-      margin-bottom: .3rem
-    }
-
-    .exp-title {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text)
-    }
-
-    .exp-period {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text3);
-      padding: 3px 8px;
-      background: var(--surface);
-      border-radius: 4px;
-      white-space: nowrap
-    }
-
-    .exp-company {
-      font-size: .9rem;
-      color: var(--gold);
-      margin-bottom: .6rem;
-      font-weight: 500
-    }
-
-    .exp-desc {
-      font-size: .88rem;
-      color: var(--text2);
-      line-height: 1.65
-    }
-
-    .exp-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .35rem;
-      margin-top: .8rem
-    }
-
-    .exp-tag {
-      padding: 3px 9px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--text3)
-    }
-
-    /* ── PROJECTS ── */
-    .projects-section {
-      background: var(--bg2)
-    }
-
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.2rem
-    }
-
-    .project-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.6rem;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      transition: all .2s;
-      text-decoration: none
-    }
-
-    .project-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-3px)
-    }
-
-    .project-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start
-    }
-
-    .project-name {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text)
-    }
-
-    .project-desc {
-      font-size: .875rem;
-      color: var(--text2);
-      line-height: 1.65;
-      flex: 1
-    }
-
-    .project-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: .35rem
-    }
-
-    .project-chip {
-      padding: 3px 9px;
-      border-radius: 4px;
-      font-family: var(--mono);
-      font-size: 11px;
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      color: var(--text3)
-    }
-
-    /* ── EDUCATION ── */
-    .edu-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem
-    }
-
-    .edu-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.4rem
-    }
-
-    .edu-status {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      padding: 3px 10px;
-      border-radius: 20px;
-      font-size: 11px;
-      font-family: var(--mono);
-      margin-bottom: .8rem
-    }
-
-    .edu-status.ongoing {
-      background: rgba(74, 144, 217, .1);
-      color: var(--blue);
-      border: 1px solid rgba(74, 144, 217, .2)
-    }
-
-    .edu-status.done {
-      background: rgba(61, 191, 168, .1);
-      color: var(--teal);
-      border: 1px solid rgba(61, 191, 168, .2)
-    }
-
-    .edu-degree {
-      font-size: .95rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: .3rem
-    }
-
-    .edu-inst {
-      font-size: .85rem;
-      color: var(--text3);
-      font-family: var(--mono)
-    }
-
-    .edu-hours {
-      font-size: .8rem;
-      color: var(--gold);
-      margin-top: .4rem;
-      font-family: var(--mono)
-    }
-
-    /* ── CERTIFICATIONS ── */
-    .certs-section {
-      background: var(--bg2)
-    }
-
-    .certs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1rem
-    }
-
-    .cert-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.2rem 1.4rem;
-      display: block;
-      text-decoration: none;
-      transition: all .2s
-    }
-
-    .cert-card:hover {
-      border-color: var(--gold);
-      transform: translateY(-2px)
-    }
-
-    .cert-name {
-      font-size: .9rem;
-      font-weight: 600;
-      color: var(--text)
-    }
-
-    .cert-issuer {
-      font-size: .8rem;
-      color: var(--text3);
-      font-family: var(--mono);
-      margin-top: 2px
-    }
-
-    /* ── CONTACT ── */
-    .contact-section {
-      background: var(--bg2)
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start
-    }
-
-    .contact-text p {
-      font-size: .95rem;
-      color: var(--text2);
-      line-height: 1.75;
-      margin-bottom: 1rem
-    }
-
-    .contact-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: .8rem
-    }
-
-    .contact-list li {
-      display: flex;
-      align-items: center;
-      gap: .8rem;
-      font-size: .9rem;
-      color: var(--text2)
-    }
-
-    .contact-list li a {
-      color: var(--text2);
-      text-decoration: none;
-      transition: color .2s
-    }
-
-    .contact-list li a:hover {
-      color: var(--gold)
-    }
-
-    .avail-box {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.6rem
-    }
-
-    .avail-title {
-      font-size: .85rem;
-      font-weight: 600;
-      color: var(--text);
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: .5rem
-    }
-
-    .avail-items {
-      display: flex;
-      flex-direction: column;
-      gap: .6rem
-    }
-
-    .avail-item {
-      display: flex;
-      align-items: center;
-      gap: .6rem;
-      font-size: .875rem;
-      color: var(--text2)
-    }
-
-    .avail-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: var(--teal);
-      flex-shrink: 0
-    }
-
-    /* ── FOOTER ── */
-    footer {
-      padding: 2rem;
-      border-top: 1px solid var(--border);
-      text-align: center
-    }
-
-    footer p {
-      font-size: .8rem;
-      color: var(--text3);
-      font-family: var(--mono)
-    }
-
-    footer a {
-      color: var(--text3);
-      text-decoration: none;
-      transition: color .2s
-    }
-
-    footer a:hover {
-      color: var(--gold)
-    }
-
-    /* ── RESPONSIVE ── */
-    @media(max-width:768px) {
-
-      .nav-links,
-      .nav-cta,
-      .desktop-lang {
-        display: none !important
-      }
-
-      .hamburger {
-        display: flex
-      }
-
-      .hero-inner {
-        grid-template-columns: 1fr;
-        gap: 2.5rem
-      }
-
-      .hero-right {
-        display: none
-      }
-
-      .edu-grid {
-        grid-template-columns: 1fr
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr
-      }
-
-      section {
-        padding: 3.5rem 1.2rem
-      }
-
-      .hero {
-        padding: 5rem 1.2rem 3rem
-      }
-
-      .projects-grid {
-        grid-template-columns: 1fr
-      }
-
-      .certs-grid {
-        grid-template-columns: 1fr
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/ui.css?v=10">
+  <link rel="stylesheet" href="assets/shell.css?v=4">
 </head>
 
 <body>
+  <a class="skip" href="#inicio" data-i18n="skip">Pular para o conteúdo</a>
 
-  <!-- NAV -->
-  <nav id="nav">
-    <a href="#home" class="nav-logo">glaymar.dev</a>
-    <div class="nav-right">
+  <nav id="nav" aria-label="Páginas">
+    <div class="nav-inner">
+      <a class="nav-logo" href="index.html">Glaymar</a>
       <ul class="nav-links">
-        <li><a href="#stack" data-i18n="nav_stack">Stack</a></li>
-        <li><a href="#experience" data-i18n="nav_experience">Experiência</a></li>
-        <li><a href="#projects" data-i18n="nav_projects">Projetos</a></li>
-        <li><a href="#education" data-i18n="nav_education">Formação</a></li>
-        <li><a href="#certifications" data-i18n="nav_certifications">Certificações</a></li>
-        <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
+        <li><a href="index.html" aria-current="page" data-i18n="nav_home">Início</a></li>
+        <li><a href="projetos.html" data-i18n="nav_projects">Projetos</a></li>
         <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
-        <li><a href="#contact" class="nav-cta" data-i18n="nav_contact">Contato</a></li>
+        <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
       </ul>
-      <div class="lang-switcher desktop-lang">
-        <button class="lang-btn active" data-lang="pt">PT</button>
-        <button class="lang-btn" data-lang="en">EN</button>
+      <a class="nav-cta" href="https://wa.me/5583993322427" data-i18n="nav_whatsapp">WhatsApp</a>
+      <div class="lang-switcher" role="group" aria-label="Idioma">
+        <button class="lang-btn active" type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button class="lang-btn" type="button" data-lang="en" aria-pressed="false">EN</button>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </nav>
-  <div class="mobile-nav" id="mobileNav">
-    <ul>
-      <li><a href="index.html" data-i18n="nav_home">Início</a></li>
-      <li><a href="index.html#stack" data-i18n="nav_stack">Stack</a></li>
-      <li><a href="index.html#experience" data-i18n="nav_experience">Experiência</a></li>
-      <li><a href="index.html#projects" data-i18n="nav_projects">Projetos</a></li>
-      <li><a href="index.html#education" data-i18n="nav_education">Formação</a></li>
-      <li><a href="index.html#certifications" data-i18n="nav_certifications">Certificações</a></li>
-      <li><a href="sobre.html" data-i18n="nav_about">Sobre</a></li>
-      <li><a href="index.html#contact" data-i18n="nav_contact">Contato</a></li>
-      <li><a href="blog.html" data-i18n="nav_blog">Artigos</a></li>
-    </ul>
-    <div class="mobile-lang lang-switcher">
-      <button class="lang-btn active" data-lang="pt">PT</button>
-      <button class="lang-btn" data-lang="en">EN</button>
-    </div>
-  </div>
 
-  <!-- HERO -->
-  <section id="home" class="hero">
-    <div class="hero-inner">
-      <div class="hero-left">
-        <div class="status-pill">
-          <span class="status-dot"></span>
-          <span data-i18n="hero_status">Disponível para novas oportunidades</span>
+  <main class="wrap" id="inicio">
+    <section class="hero">
+      <div class="intro">
+        <div class="who">
+          <img class="portrait" src="assets/me.jpg" alt="Glaymar Albuquerque de França" width="112" height="112"
+            fetchpriority="high">
+          <h1>Glaymar França</h1>
+          <p class="role" data-i18n="hero_label">Desenvolvedor web full-stack. Especialista em inteligência artificial.</p>
         </div>
-        <div class="hero-label" data-i18n="hero_label">Desenvolvedor Web Full-Stack · Especialista em IA</div>
-        <h1 class="hero-name">Glaymar<br>Albuquerque<br>de França</h1>
-        <p class="hero-role" data-i18n="hero_role">
-          <strong>Desenvolvedor Web Full-Stack</strong> com experiência em<br>
-          JavaScript, TypeScript, React e Node.js.
-        </p>
-        <p class="hero-desc" data-i18n="hero_desc">
-          Bolsista de desenvolvimento no Procura.AÍ (FAPESQ / LAVID-UFPB). Fundador da
-          <strong style="color:var(--gold)">AlttabCorp</strong>, onde criei o YGO / HUB, plataforma em produção
-          para a comunidade de Yu-Gi-Oh! da minha cidade. Cajazeiras, PB - disponível para trabalho remoto.
-        </p>
-        <div class="hero-btns">
-          <a href="assets/Curriculo.pdf" download class="btn-primary" id="btnDownloadCV">
-            <span data-i18n="hero_btn_cv">Baixar Currículo</span>
-          </a>
-          <a href="#contact" class="btn-outline">
-            <span data-i18n="hero_btn_contact">Entrar em contato</span> →
-          </a>
-          <a href="apresentacao.html" class="btn-outline" style="border-color:var(--gold);color:var(--gold)">
-            <span data-i18n="hero_btn_slides">Ver Apresentação</span>
-          </a>
+        <div class="places">
+          <div>
+            <strong translate="no">Procura.AÍ</strong>
+            <span data-i18n="now_role">Bolsa na FAPESQ / LAVID-UFPB</span>
+            <span data-i18n="now_meta">Remoto, desde out 2024</span>
+          </div>
+          <div>
+            <strong translate="no">YGO / HUB</strong>
+            <span data-i18n="firm_role">Produto da AlttabCorp</span>
+            <span data-i18n="firm_meta">Cajazeiras, no ar</span>
+            <span data-i18n="firm_since">Desde mai 2023</span>
+          </div>
+        </div>
+        <p class="open-to" data-i18n="open_to">Aberto a trabalho remoto, CLT ou PJ.</p>
+        <ul class="stack-line">
+          <li translate="no">Next.js</li>
+          <li translate="no">TypeScript</li>
+          <li translate="no">React</li>
+          <li translate="no">Node.js</li>
+          <li translate="no">PostgreSQL</li>
+          <li translate="no">Docker</li>
+        </ul>
+        <div class="acts">
+          <a class="act act-main" href="https://wa.me/5583993322427" data-i18n="act_whatsapp">Falar no WhatsApp</a>
+          <a class="act" href="mailto:glaymar2010@gmail.com" data-i18n="act_mail">Enviar e-mail</a>
+          <a class="act" id="btnDownloadCV" href="assets/Curriculo.pdf" download data-i18n="hero_btn_cv">Baixar currículo</a>
+          <a class="act" href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a" data-i18n="act_in">Abrir o LinkedIn</a>
         </div>
       </div>
-      <div class="hero-right">
-        <div style="position:relative;display:flex;justify-content:center">
 
-          <!-- FOTO -->
-          <div style="
-      width:320px;height:380px;
-      border-radius:14px;
-      overflow:hidden;
-      border:1px solid var(--border2);
-      position:relative;
-    ">
-            <img src="assets/me.jpg" alt="Glaymar Albuquerque de França"
-              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block">
-            <!-- gradiente sutil na base -->
-            <div style="
-        position:absolute;bottom:0;left:0;right:0;height:120px;
-        background:linear-gradient(to top,rgba(10,14,23,.7),transparent);
-      "></div>
-          </div>
+      <div class="stage" data-work>
+        <span class="stage-glow" aria-hidden="true"></span>
+        <span class="stage-sheen" aria-hidden="true"></span>
+        <div class="stage-switch" role="tablist" aria-label="Trabalhos">
+          <span class="stage-glide" aria-hidden="true"></span>
+          <button type="button" role="tab" id="tab-ygo" aria-controls="work-ygo" aria-selected="true" tabindex="0" translate="no">YGO / HUB</button>
+          <button type="button" role="tab" id="tab-procura" aria-controls="work-procura" aria-selected="false" tabindex="-1" translate="no">Procura.AÍ</button>
+          <button type="button" role="tab" id="tab-tcc" aria-controls="work-tcc" aria-selected="false" tabindex="-1" data-i18n="work_tcc">Inventários</button>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STACK -->
-  <section id="stack" class="stack-section">
-    <div class="section-inner">
-      <p class="section-label" data-i18n="stack_label">Competências</p>
-      <h2 class="section-title" data-i18n="stack_title">Stack Técnica</h2>
-      <p class="section-sub" data-i18n="stack_sub">Tecnologias que uso nos projetos e empregos listados abaixo.</p>
-      <div class="stack-grid">
-        <div class="stack-card">
-          <div class="stack-cat" data-i18n="stack_languages">Linguagens</div>
-          <div class="stack-chips">
-            <span class="chip">TypeScript</span>
-            <span class="chip">JavaScript</span>
-            <span class="chip">Python</span>
-            <span class="chip">SQL</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <div class="stack-cat">Back-end</div>
-          <div class="stack-chips">
-            <span class="chip">Node.js</span>
-            <span class="chip">NestJS</span>
-            <span class="chip">Express.js</span>
-            <span class="chip">Django</span>
-            <span class="chip">REST API</span>
-            <span class="chip">OAuth</span>
-            <span class="chip">JWT</span>
-            <span class="chip">Webhooks</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <div class="stack-cat">Front-end & Mobile</div>
-          <div class="stack-chips">
-            <span class="chip">React</span>
-            <span class="chip">Next.js</span>
-            <span class="chip">React Native</span>
-            <span class="chip">PWA</span>
-            <span class="chip">HTML5</span>
-            <span class="chip">CSS3</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <div class="stack-cat">Infra & DevOps</div>
-          <div class="stack-chips">
-            <span class="chip">Docker</span>
-            <span class="chip">Docker Compose</span>
-            <span class="chip">RabbitMQ</span>
-            <span class="chip">MinIO (S3)</span>
-            <span class="chip">GitHub Actions</span>
-            <span class="chip">Azure DevOps</span>
-            <span class="chip">CI/CD</span>
-            <span class="chip">Linux</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <div class="stack-cat" data-i18n="stack_databases">Banco de Dados</div>
-          <div class="stack-chips">
-            <span class="chip">PostgreSQL</span>
-            <span class="chip">Prisma</span>
-            <span class="chip">Redis</span>
-            <span class="chip">pgvector</span>
-            <span class="chip">MongoDB</span>
-            <span class="chip">Neo4j</span>
-            <span class="chip">SQLite</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <div class="stack-cat" data-i18n="stack_ai">Inteligência Artificial</div>
-          <div class="stack-chips">
-            <span class="chip">Ollama</span>
-            <span class="chip">RAG</span>
-            <span class="chip">LLM</span>
-            <span class="chip">Whisper</span>
-            <span class="chip">n8n</span>
-            <span class="chip">Groq</span>
-            <span class="chip">OpenRouter</span>
-            <span class="chip">OpenWebUI</span>
-            <span class="chip">Telegram Bot API</span>
-            <span class="chip">Uptime-Kuma</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <div class="stack-cat" data-i18n="stack_architecture">Arquitetura & Práticas</div>
-          <div class="stack-chips">
-            <span class="chip">SOLID</span>
-            <span class="chip">Clean Architecture</span>
-            <span class="chip">Repository Pattern</span>
-            <span class="chip">Scrum</span>
-            <span class="chip">Kanban</span>
-          </div>
-        </div>
-        <div class="stack-card">
-          <div class="stack-cat" data-i18n="stack_tools">Ferramentas</div>
-          <div class="stack-chips">
-            <span class="chip">Git</span>
-            <span class="chip">Swagger/OpenAPI</span>
-            <span class="chip">LaTeX</span>
-            <span class="chip">Google Search Console</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- EXPERIENCE -->
-  <section id="experience">
-    <div class="section-inner">
-      <p class="section-label" data-i18n="exp_label">Histórico</p>
-      <h2 class="section-title" data-i18n="exp_title">Experiência Profissional</h2>
-      <p class="section-sub" data-i18n="exp_sub">Do desenvolvimento em empresa júnior a uma plataforma do Governo da
-        Paraíba e a um produto próprio em produção.</p>
-      <div class="exp-list">
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <span class="exp-title" data-i18n="exp1_title">Desenvolvedor Full-Stack - bolsista BLD-ADT/H</span>
-            <span class="exp-period" data-i18n="exp1_period">Out 2024 - Presente</span>
-          </div>
-          <div class="exp-company" data-i18n="exp1_company">FAPESQ / LAVID-UFPB - Projeto Procura.AÍ · Remoto · João
-            Pessoa, PB</div>
-          <p class="exp-desc" data-i18n="exp1_desc">Desenvolvo a aplicação web do Procura.AÍ, plataforma do Governo da
-            Paraíba para autocadastro e recuperação de celulares, acessível em desktop e mobile. Implemento o backend, a
-            API REST de integração e o dashboard administrativo com dados de acessos, cadastros e relatórios
-            estatísticos. Faço manutenção corretiva e evolutiva e integro a plataforma a sistemas de segurança pública,
-            como a Delegacia Online.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Backend</span>
-            <span class="exp-tag">API REST</span>
-            <span class="exp-tag">Dashboard</span>
-            <span class="exp-tag">Segurança pública</span>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <span class="exp-title" data-i18n="exp2_title">Fundador e Desenvolvedor Full-Stack</span>
-            <span class="exp-period" data-i18n="exp2_period">Mai 2023 - Presente</span>
-          </div>
-          <div class="exp-company">AlttabCorp · Cajazeiras, PB · <a href="https://alttabcorp.com.br" target="_blank"
-              style="color:var(--gold);text-decoration:none">alttabcorp.com.br</a></div>
-          <p class="exp-desc" data-i18n="exp2_desc">Criei e opero o YGO / HUB, principal produto da empresa. Desenvolvi
-            e publiquei o site institucional e outros sistemas web, como o orçamento de impressão 3D e o painel
-            financeiro FinOps. Construí a API REST da Biblioteca CIEC (NestJS, JWT, Swagger, Docker), estruturei o
-            repositório de documentação técnica com LaTeX e CI/CD no GitHub Actions e mantenho servidor próprio com IA
-            local, n8n, PostgreSQL e Uptime Kuma.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Next.js</span>
-            <span class="exp-tag">NestJS</span>
-            <span class="exp-tag">PostgreSQL</span>
-            <span class="exp-tag">Docker</span>
-            <span class="exp-tag">GitHub Actions</span>
-            <span class="exp-tag">n8n</span>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <span class="exp-title" data-i18n="exp3_title">Técnico de Suporte ao Usuário (N1/N2)</span>
-            <span class="exp-period" data-i18n="exp3_period">Jan 2025 - Presente</span>
-          </div>
-          <div class="exp-company" data-i18n="exp3_company">Life Tecnologia - Hospital Universitário Júlio Bandeira
-            (HUJB/Ebserh) · Presencial · Cajazeiras, PB</div>
-          <p class="exp-desc" data-i18n="exp3_desc">Service Desk no hospital universitário, em paralelo à bolsa de
-            desenvolvimento.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Service Desk</span>
-            <span class="exp-tag">Ebserh</span>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <span class="exp-title" data-i18n="exp4_title">Desenvolvedor Full-Stack - prestação de serviços</span>
-            <span class="exp-period" data-i18n="exp4_period">Fev 2022 - Set 2022</span>
-          </div>
-          <div class="exp-company" data-i18n="exp4_company">LOOP3 · Remoto · Itapema, SC</div>
-          <p class="exp-desc" data-i18n="exp4_desc">Desenvolvi funcionalidades de sistema web com Node.js, Express e
-            MongoDB, e interfaces em React e React Native. Integrei pagamentos pela API do Asaas com webhooks e mantive
-            versionamento e CI/CD no Azure DevOps. Corrigi falhas durante o desenvolvimento e no período de garantia
-            contratual.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Node.js</span>
-            <span class="exp-tag">Express.js</span>
-            <span class="exp-tag">MongoDB</span>
-            <span class="exp-tag">React</span>
-            <span class="exp-tag">React Native</span>
-            <span class="exp-tag">Azure DevOps</span>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <span class="exp-title" data-i18n="exp5_title">Técnico em Informática</span>
-            <span class="exp-period" data-i18n="exp5_period">Set 2021 - Fev 2023</span>
-          </div>
-          <div class="exp-company" data-i18n="exp5_company">Faculdade Santa Maria · Cajazeiras, PB</div>
-          <p class="exp-desc" data-i18n="exp5_desc">Desenvolvi o sistema de atendimento aos alunos com Node.js,
-            TypeScript, React, PostgreSQL e Docker. Implementei a plataforma de Plano Individual de Trabalho (PIT) dos
-            docentes com Node.js, React e SQLite.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Node.js</span>
-            <span class="exp-tag">TypeScript</span>
-            <span class="exp-tag">React</span>
-            <span class="exp-tag">PostgreSQL</span>
-            <span class="exp-tag">Docker</span>
-            <span class="exp-tag">SQLite</span>
-          </div>
-        </div>
-
-        <div class="exp-item">
-          <div class="exp-header">
-            <span class="exp-title" data-i18n="exp6_title">Desenvolvedor</span>
-            <span class="exp-period" data-i18n="exp6_period">Dez 2018 - Dez 2021</span>
-          </div>
-          <div class="exp-company" data-i18n="exp6_company">Loopis Jr - Empresa Júnior do IFPB · Cajazeiras, PB</div>
-          <p class="exp-desc" data-i18n="exp6_desc">Desenvolvi sites e sistemas web para clientes com Python/Django e
-            Node.js e participei da estruturação da empresa júnior.</p>
-          <div class="exp-tags">
-            <span class="exp-tag">Python</span>
-            <span class="exp-tag">Django</span>
-            <span class="exp-tag">Node.js</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects" class="projects-section">
-    <div class="section-inner">
-      <p class="section-label" data-i18n="proj_label">Portfólio</p>
-      <h2 class="section-title" data-i18n="proj_title">Projetos em Destaque</h2>
-      <p class="section-sub" data-i18n="proj_sub">Seleção de projetos com impacto real, disponíveis publicamente.</p>
-      <div class="projects-grid">
-
-        <a href="https://yugiohcz.alttabcorp.com.br/" target="_blank" class="project-card">
-          <div class="project-top">
-            <span class="project-name" data-i18n="proj1_name">YGO / HUB - comunidade Yu-Gi-Oh! de Cajazeiras</span>
-          </div>
-          <p class="project-desc" data-i18n="proj1_desc">Plataforma em produção, com 12 usuários ativos e evento semanal
-            aos sábados: confirmação de presença, decks, mercado de cartas, ranking, campeonatos com chaveamento e
-            painel administrativo. Login por e-mail, Google e Discord, e app instalável (PWA).</p>
-          <div class="project-stack">
-            <span class="project-chip">Next.js</span>
-            <span class="project-chip">TypeScript</span>
-            <span class="project-chip">Prisma</span>
-            <span class="project-chip">PostgreSQL</span>
-            <span class="project-chip">Redis</span>
-            <span class="project-chip">RabbitMQ</span>
-            <span class="project-chip">MinIO</span>
-            <span class="project-chip">Docker</span>
-          </div>
-        </a>
-
-        <a href="https://repositorio.ifpb.edu.br/handle/177683/2898" target="_blank" class="project-card">
-          <div class="project-top">
-            <span class="project-name" data-i18n="proj2_name">Sistema de Inventários Históricos (TCC)</span>
-          </div>
-          <p class="project-desc" data-i18n="proj2_desc">Aplicação web para pesquisa em inventários históricos, com API
-            REST e modelagem em grafos no Neo4j. Trabalho de conclusão do curso de ADS, publicado no repositório
-            institucional do IFPB.</p>
-          <div class="project-stack">
-            <span class="project-chip">Node.js</span>
-            <span class="project-chip">TypeScript</span>
-            <span class="project-chip">Neo4j</span>
-            <span class="project-chip">React</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Alttabcorp/API-bibliteca_siec" target="_blank" class="project-card">
-          <div class="project-top">
-            <span class="project-name" data-i18n="proj3_name">API Biblioteca CIEC</span>
-          </div>
-          <p class="project-desc" data-i18n="proj3_desc">API REST de acervo bibliográfico com arquitetura modular
-            (Repository Pattern), autenticação JWT, documentação Swagger e execução em Docker Compose.</p>
-          <div class="project-stack">
-            <span class="project-chip">NestJS</span>
-            <span class="project-chip">TypeScript</span>
-            <span class="project-chip">Docker</span>
-            <span class="project-chip">Swagger</span>
-            <span class="project-chip">JWT</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/Alttabcorp/SERVICE-Ia-Alttab" target="_blank" class="project-card">
-          <div class="project-top">
-            <span class="project-name" data-i18n="proj4_name">Assistente de IA com RAG - servidor próprio</span>
-          </div>
-          <p class="project-desc" data-i18n="proj4_desc">Busca semântica com embeddings em pgvector, LLM local no
-            Ollama, transcrição de áudio com Whisper, bot no Telegram e interface Open WebUI, orquestrados com n8n.</p>
-          <div class="project-stack">
-            <span class="project-chip">Ollama</span>
-            <span class="project-chip">pgvector</span>
-            <span class="project-chip">Whisper</span>
-            <span class="project-chip">n8n</span>
-            <span class="project-chip">Docker</span>
-          </div>
-        </a>
-
-        <a href="https://github.com/bodescorp/Cext-final-" target="_blank" class="project-card">
-          <div class="project-top">
-            <span class="project-name" data-i18n="proj5_name">Automação de Certificados IFPB</span>
-          </div>
-          <p class="project-desc" data-i18n="proj5_desc">Sistema para emissão de certificados institucionais do IFPB
-            Campus Cajazeiras, com validação por QR Code.</p>
-          <div class="project-stack">
-            <span class="project-chip">Python</span>
-            <span class="project-chip">Django</span>
-            <span class="project-chip">JavaScript</span>
-            <span class="project-chip">QR Code</span>
-          </div>
-        </a>
-
-        <a href="https://alttabcorp.github.io/WEB-Orcamento3D-alttab/" target="_blank" class="project-card">
-          <div class="project-top">
-            <span class="project-name" data-i18n="proj6_name">Orçamento 3D Automatizado</span>
-          </div>
-          <p class="project-desc" data-i18n="proj6_desc">Sistema web que calcula em tempo real o orçamento de impressão
-            3D a partir dos parâmetros da peça.</p>
-          <div class="project-stack">
-            <span class="project-chip">HTML5</span>
-            <span class="project-chip">CSS3</span>
-            <span class="project-chip">JavaScript</span>
-          </div>
-        </a>
-
-      </div>
-      <div style="text-align:center;margin-top:2.5rem">
-        <a href="projetos.html" class="btn-outline" style="display:inline-flex;align-items:center;gap:.5rem"
-          data-i18n="proj_view_all">
-          Ver portfólio completo →
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- EDUCATION -->
-  <section id="education" style="background:var(--bg2)">
-    <div class="section-inner">
-      <p class="section-label" data-i18n="edu_label">Formação</p>
-      <h2 class="section-title" data-i18n="edu_title">Educação & Especialização</h2>
-      <p class="section-sub" data-i18n="edu_sub">Tecnólogo em ADS pelo IFPB e especialista em Inteligência Artificial,
-        com duas especializações em andamento.</p>
-      <div class="edu-grid">
-        <div class="edu-card">
-          <div class="edu-status done" data-i18n="edu_done">Concluído</div>
-          <div class="edu-degree" data-i18n="edu2_degree">Pós-graduação Lato Sensu em Inteligência Artificial</div>
-          <div class="edu-inst">Faculdade Alcance · 2026</div>
-          <div class="edu-hours">640h</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-status ongoing" data-i18n="edu_ongoing">Em andamento</div>
-          <div class="edu-degree" data-i18n="edu1_degree">Especialização em Arquitetura de Software</div>
-          <div class="edu-inst">FAAL Educacional</div>
-          <div class="edu-hours">720h</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-status ongoing" data-i18n="edu_ongoing">Em andamento</div>
-          <div class="edu-degree" data-i18n="edu3_degree">Especialização em Segurança da Informação</div>
-          <div class="edu-inst">FAAL Educacional</div>
-          <div class="edu-hours">700h</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-status done" data-i18n="edu_done">Concluído</div>
-          <div class="edu-degree" data-i18n="edu4_degree">Tecnólogo em Análise e Desenvolvimento de Sistemas</div>
-          <div class="edu-inst">IFPB - Campus Cajazeiras · 2018 – 2023</div>
-          <div class="edu-hours" style="color:var(--text3)" data-i18n="edu4_thesis">TCC: Sistema de Inventários
-            Históricos com Neo4j</div>
-        </div>
-        <div class="edu-card">
-          <div class="edu-status done" data-i18n="edu_done">Concluído</div>
-          <div class="edu-degree" data-i18n="edu5_degree">Técnico em Informática Integrado ao Ensino Médio</div>
-          <div class="edu-inst">IFPB - Campus Cajazeiras · 2014 – 2018</div>
-          <div class="edu-hours" style="color:var(--text3)" data-i18n="edu5_note">Projeto J.A.R.V.I.S - 3ª Competição
-            de Robótica do IFPB</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CERTIFICATIONS -->
-  <section id="certifications" class="certs-section">
-    <div class="section-inner">
-      <p class="section-label" data-i18n="cert_label">Certificações</p>
-      <h2 class="section-title" data-i18n="cert_title">Certificações & Cursos</h2>
-      <p class="section-sub" data-i18n="cert_sub">Cerca de 156 horas em 39 cursos e eventos, além da pós-graduação de
-        640 horas em IA. Os principais estão abaixo.</p>
-      <div class="certs-grid">
-        <div class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert5_name">NLW Unite - 8 trilhas (Node.js, React, Java, C#, Python, DevOps...)</div>
-            <div class="cert-issuer">Rocketseat · 41h · 2024</div>
-          </div>
-        </div>
-        <a href="https://drive.google.com/drive/folders/1YKThgvnT5h1bA_Hb0uDiIf7p8Qiph-NC" target="_blank"
-          class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert1_name">Docker - Conteinerização & DevOps</div>
-            <div class="cert-issuer">B7Web · 20h · 2024</div>
-          </div>
-        </a>
-        <div class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert6_name">Trilha Digital Coders 24 - Back End</div>
-            <div class="cert-issuer">Ada Tech · 19h · 2024</div>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert7_name">PYSTACK WEEK 11.0 - Python e Django</div>
-            <div class="cert-issuer">Pythonando · 10h · 2024</div>
-          </div>
-        </div>
-        <a href="https://www.udemy.com/certificate/UC-db57cce7-1471-47ff-9828-0e3a4d7da628/" target="_blank"
-          class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert3_name">Git e GitHub: do básico ao avançado</div>
-            <div class="cert-issuer">Udemy · 8h30 · 2024</div>
-          </div>
-        </a>
-        <a href="https://graphacademy.neo4j.com/c/9d25b259-5995-4053-8475-7b2bf61f163e/" target="_blank"
-          class="cert-card">
-          <div>
-            <div class="cert-name">Neo4j Fundamentals</div>
-            <div class="cert-issuer" data-i18n="cert2_issuer">Neo4j GraphAcademy · 2023</div>
-          </div>
-        </a>
-        <a href="https://www.linkedin.com/learning/certificates/0fc1a744c87dc72f53e8c694fd58809808a183327167377cb224c1ac43e732b6"
-          target="_blank" class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert4_name">Gestão de Projetos - trilha PMI (11 cursos)</div>
-            <div class="cert-issuer">LinkedIn Learning / PMI · 14 PDUs · 2024</div>
-          </div>
-        </a>
-        <div class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert8_name">Análise e Ciência de Dados (4 cursos)</div>
-            <div class="cert-issuer">LinkedIn Learning · ~6h40 · 2024</div>
-          </div>
-        </div>
-        <div class="cert-card">
-          <div>
-            <div class="cert-name" data-i18n="cert9_name">Faça a inovação acontecer em sua empresa</div>
-            <div class="cert-issuer">Sebrae-SP · 4h · 2024</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact" class="contact-section">
-    <div class="section-inner">
-      <p class="section-label" data-i18n="contact_label">Contato</p>
-      <h2 class="section-title" data-i18n="contact_title">Vamos Conversar?</h2>
-      <p class="section-sub" data-i18n="contact_sub">Aberto a oportunidades remotas, parcerias e projetos desafiadores
-        no Brasil e no exterior.</p>
-      <div class="contact-grid">
-        <div class="contact-text">
-          <p data-i18n="contact_p1">Se você procura um desenvolvedor full-stack que já colocou produto em produção,
-            trabalha com backend, APIs e dashboards e tem formação em IA aplicada, fale comigo.</p>
-          <p data-i18n="contact_p2">Disponível para regimes CLT, PJ e contratos internacionais.</p>
-          <ul class="contact-list">
-            <li>
-              <a href="mailto:glaymar2010@gmail.com">glaymar2010@gmail.com</a>
-            </li>
-            <li>
-              <a href="https://linkedin.com/in/glaymar-albuquerque-de-fran%C3%A7a"
-                target="_blank">linkedin.com/in/glaymar-albuquerque</a>
-            </li>
-            <li>
-              <a href="https://github.com/bodescorp" target="_blank">github.com/bodescorp</a>
-            </li>
-            <li>
-              <a href="https://alttabcorp.com.br" target="_blank">alttabcorp.com.br</a>
-            </li>
-            <li>
-              <a href="https://wa.me/5583993322427" target="_blank">+55 83 9 9332-2427</a>
-            </li>
+        <div class="stage-body" role="tabpanel" id="work-ygo" aria-labelledby="tab-ygo" tabindex="0">
+          <p class="live"><span class="live-dot" aria-hidden="true"></span><span data-i18n="live">Em produção</span></p>
+          <h2 translate="no">YGO / HUB</h2>
+          <p data-i18n="ygo_hook">12 pessoas usam a plataforma, e a comunidade se encontra todo sábado.</p>
+          <ul class="parts">
+            <li data-i18n="ygo_1">Presença</li>
+            <li data-i18n="ygo_2">Decks</li>
+            <li data-i18n="ygo_3">Mercado de cartas</li>
+            <li data-i18n="ygo_4">Ranking</li>
+            <li data-i18n="ygo_5">Campeonatos</li>
+            <li data-i18n="ygo_6">Painel admin</li>
           </ul>
+          <p class="stage-note" data-i18n="ygo_access">Entrada por e-mail, Google e Discord. O app pode ser instalado.</p>
+          <a class="stage-link" href="https://yugiohcz.alttabcorp.com.br/" data-i18n="open_ygo">Abrir o YGO / HUB</a>
         </div>
-        <div>
-          <div class="avail-box">
-            <div class="avail-title" data-i18n="avail_title">Disponibilidade</div>
-            <div class="avail-items">
-              <div class="avail-item"><span class="avail-dot"></span><span data-i18n="avail1">Trabalho remoto - Brasil e
-                  exterior</span></div>
-              <div class="avail-item"><span class="avail-dot"></span><span data-i18n="avail2">Regime CLT, PJ e contratos
-                  internacionais</span></div>
-              <div class="avail-item"><span class="avail-dot"></span><span data-i18n="avail3">Desenvolvedor Web
-                  Full-Stack</span></div>
-              <div class="avail-item"><span class="avail-dot"></span>Backend Node.js / TypeScript</div>
-              <div class="avail-item"><span class="avail-dot"></span><span data-i18n="avail5">IA aplicada</span></div>
-            </div>
-          </div>
+        <div class="stage-body" role="tabpanel" id="work-procura" aria-labelledby="tab-procura" tabindex="0">
+          <h2 translate="no">Procura.AÍ</h2>
+          <p data-i18n="procura_hook">Aplicação do Governo da Paraíba para autocadastro e recuperação de celulares.</p>
+          <ul class="parts">
+            <li data-i18n="p_1">Autocadastro</li>
+            <li data-i18n="p_2">Recuperação</li>
+            <li data-i18n="p_3">API REST</li>
+            <li data-i18n="p_4">Dashboard</li>
+            <li data-i18n="p_5">Desktop</li>
+            <li data-i18n="p_6">Mobile</li>
+          </ul>
+          <p class="stage-note" data-i18n="no_public">Este sistema não tem endereço público.</p>
+        </div>
+        <div class="stage-body" role="tabpanel" id="work-tcc" aria-labelledby="tab-tcc" tabindex="0">
+          <h2 data-i18n="proj2_name">Inventários históricos</h2>
+          <p data-i18n="tcc_hook">TCC de ADS, publicado no repositório do IFPB.</p>
+          <ul class="parts">
+            <li data-i18n="t_1">Pesquisa</li>
+            <li data-i18n="t_2">API REST</li>
+            <li data-i18n="t_3">Grafos no Neo4j</li>
+            <li data-i18n="t_4">Repositório do IFPB</li>
+          </ul>
+          <a class="stage-link" href="https://repositorio.ifpb.edu.br/handle/177683/2898" data-i18n="open_tcc">Abrir no repositório do IFPB</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <p>© 2026 Glaymar Albuquerque de França &nbsp;·&nbsp;
-      <a href="https://alttabcorp.com.br" target="_blank">AlttabCorp</a> &nbsp;·&nbsp;
-      <a href="https://github.com/bodescorp" target="_blank">GitHub</a> &nbsp;·&nbsp;
-      Cajazeiras, PB - Brasil
-    </p>
+    <section class="lower">
+      <div>
+        <h2 data-i18n="tab_path">Trajetória</h2>
+        <div class="jobs">
+          <details class="job">
+            <summary>
+              <span class="job-when" data-i18n="exp1_period">Out 2024 – presente</span>
+              <span data-i18n="exp1_title">Desenvolvedor full-stack, bolsista BLD-ADT/H</span>
+              <span class="job-where" data-i18n="exp1_company">FAPESQ / LAVID-UFPB, projeto Procura.AÍ. Remoto. João Pessoa, PB</span>
+            </summary>
+            <p data-i18n="exp1_desc">Desenvolvo a aplicação web do Procura.AÍ.</p>
+          </details>
+          <details class="job">
+            <summary>
+              <span class="job-when" data-i18n="exp2_period">Mai 2023 – presente</span>
+              <span data-i18n="exp2_title">Fundador e desenvolvedor full-stack</span>
+              <span class="job-where">AlttabCorp. Cajazeiras, PB</span>
+            </summary>
+            <p data-i18n="exp2_desc">Criei e opero o YGO / HUB, principal produto da empresa, em produção para a comunidade de Yu-Gi-Oh! de Cajazeiras. Também publiquei o site institucional da AlttabCorp.</p>
+            <p><a href="https://alttabcorp.com.br">alttabcorp.com.br</a></p>
+          </details>
+          <details class="job">
+            <summary>
+              <span class="job-when" data-i18n="exp3_period">Jan 2025 – presente</span>
+              <span data-i18n="exp3_title">Técnico de suporte ao usuário (N1/N2)</span>
+              <span class="job-where" data-i18n="exp3_company">Life Tecnologia, Hospital Universitário Júlio Bandeira (HUJB/Ebserh). Presencial. Cajazeiras, PB</span>
+            </summary>
+            <p data-i18n="exp3_desc">Service Desk no hospital universitário, em paralelo à bolsa de desenvolvimento.</p>
+          </details>
+          <details class="job">
+            <summary>
+              <span class="job-when" data-i18n="exp4_period">Fev 2022 – set 2022</span>
+              <span data-i18n="exp4_title">Desenvolvedor full-stack, prestação de serviços</span>
+              <span class="job-where" data-i18n="exp4_company">LOOP3. Remoto. Itapema, SC</span>
+            </summary>
+            <p data-i18n="exp4_desc">Desenvolvi funcionalidades de sistema web com Node.js, Express e MongoDB, e interfaces em React e React Native. Integrei pagamentos pela API do Asaas com webhooks e mantive versionamento e CI/CD no Azure DevOps. Corrigi falhas durante o desenvolvimento e no período de garantia contratual.</p>
+          </details>
+          <details class="job">
+            <summary>
+              <span class="job-when" data-i18n="exp5_period">Set 2021 – fev 2023</span>
+              <span data-i18n="exp5_title">Técnico em informática</span>
+              <span class="job-where" data-i18n="exp5_company">Faculdade Santa Maria. Cajazeiras, PB</span>
+            </summary>
+            <p data-i18n="exp5_desc">Desenvolvi o sistema de atendimento aos alunos com Node.js, TypeScript, React, PostgreSQL e Docker. Implementei a plataforma de Plano Individual de Trabalho (PIT) dos docentes com Node.js, React e SQLite.</p>
+          </details>
+          <details class="job">
+            <summary>
+              <span class="job-when" data-i18n="exp6_period">Dez 2018 – dez 2021</span>
+              <span data-i18n="exp6_title">Desenvolvedor</span>
+              <span class="job-where" data-i18n="exp6_company">Loopis Jr, empresa júnior do IFPB. Cajazeiras, PB</span>
+            </summary>
+            <p data-i18n="exp6_desc">Desenvolvi sites e sistemas web para clientes com Python/Django e Node.js e participei da estruturação da empresa júnior.</p>
+          </details>
+        </div>
+      </div>
+
+      <div class="study">
+        <h2 data-i18n="tab_study">Formação</h2>
+        <article>
+          <div class="edu-top">
+            <strong data-i18n="edu2_degree">Pós-graduação lato sensu em inteligência artificial</strong>
+            <span class="done" data-i18n="edu_done">Concluído</span>
+          </div>
+          <span class="quiet">Faculdade Alcance, 2026, 640h</span>
+        </article>
+        <article>
+          <div class="edu-top">
+            <strong data-i18n="edu1_degree">Especialização em arquitetura de software</strong>
+            <span class="mark" data-i18n="edu_ongoing">Em andamento</span>
+          </div>
+          <span class="quiet">FAAL Educacional, 720h</span>
+        </article>
+        <article>
+          <div class="edu-top">
+            <strong data-i18n="edu3_degree">Especialização em segurança da informação</strong>
+            <span class="mark" data-i18n="edu_ongoing">Em andamento</span>
+          </div>
+          <span class="quiet">FAAL Educacional, 700h</span>
+        </article>
+        <article>
+          <div class="edu-top">
+            <strong data-i18n="edu4_degree">Tecnólogo em análise e desenvolvimento de sistemas</strong>
+            <span class="done" data-i18n="edu_done">Concluído</span>
+          </div>
+          <span class="quiet">IFPB, campus Cajazeiras, 2018–2023</span>
+          <span class="quiet" data-i18n="edu4_thesis">TCC: sistema de inventários históricos com Neo4j</span>
+        </article>
+        <article>
+          <div class="edu-top">
+            <strong data-i18n="edu5_degree">Técnico em informática integrado ao ensino médio</strong>
+            <span class="done" data-i18n="edu_done">Concluído</span>
+          </div>
+          <span class="quiet">IFPB, campus Cajazeiras, 2014–2018</span>
+        </article>
+        <h3 data-i18n="courses_title">Cursos</h3>
+        <ul class="stack-line">
+          <li translate="no">NLW Unite</li>
+          <li translate="no">Docker</li>
+          <li translate="no">Ada Tech</li>
+          <li translate="no">PYSTACK</li>
+          <li translate="no">Git</li>
+          <li translate="no">Neo4j Fundamentals</li>
+        </ul>
+        <p class="slides"><a href="apresentacao.html" data-i18n="hero_btn_slides">Ver apresentação</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2026 Glaymar Albuquerque de França, Cajazeiras, PB. <a href="mailto:glaymar2010@gmail.com">glaymar2010@gmail.com</a></p>
   </footer>
+
   <script>
-    // ══════════════════════════════════════════════════
-    //  i18n - DICIONÁRIO COMPLETO PT-BR / EN
-    // ══════════════════════════════════════════════════
     const i18n = {
       pt: {
-        // Nav
-        nav_stack: "Stack",
-        nav_experience: "Experiência",
-        nav_projects: "Projetos",
-        nav_education: "Formação",
-        nav_certifications: "Certificações",
-        nav_contact: "Contato",
-        nav_blog: "Artigos",
-        nav_about: "Sobre",
+        skip: "Pular para o conteúdo",
+        hero_label: "Desenvolvedor web full-stack. Especialista em inteligência artificial.",
+        hero_desc: "Bolsista no Procura.AÍ (FAPESQ / LAVID-UFPB) e fundador da AlttabCorp, onde o YGO / HUB está em produção. Cajazeiras, Paraíba. Aberto a trabalho remoto, CLT ou PJ.",
+        now_role: "Bolsa na FAPESQ / LAVID-UFPB",
+        now_meta: "Remoto, desde out 2024",
+        firm_role: "Produto da AlttabCorp",
+        firm_meta: "Cajazeiras, no ar",
+        firm_since: "Desde mai 2023",
+        open_to: "Aberto a trabalho remoto, CLT ou PJ.",
+        ygo_1: "Presença",
+        ygo_2: "Decks",
+        ygo_3: "Mercado de cartas",
+        ygo_4: "Ranking",
+        ygo_5: "Campeonatos",
+        ygo_6: "Painel admin",
+        ygo_access: "Entrada por e-mail, Google e Discord. O app pode ser instalado.",
+        p_1: "Autocadastro",
+        p_2: "Recuperação",
+        p_3: "API REST",
+        p_4: "Dashboard",
+        p_5: "Desktop",
+        p_6: "Mobile",
+        tcc_hook: "TCC de ADS, publicado no repositório do IFPB.",
+        t_1: "Pesquisa",
+        t_2: "API REST",
+        t_3: "Grafos no Neo4j",
+        t_4: "Repositório do IFPB",
+        courses_title: "Cursos",
+        hero_btn_cv: "Baixar currículo",
+        hero_btn_slides: "Ver apresentação",
+        act_whatsapp: "Falar no WhatsApp",
+        act_mail: "Enviar e-mail",
+        act_in: "Abrir o LinkedIn",
         nav_home: "Início",
-
-        // Hero
-        hero_status: "Disponível para novas oportunidades",
-        hero_label: "Desenvolvedor Web Full-Stack · Especialista em IA",
-        hero_role: '<strong>Desenvolvedor Web Full-Stack</strong> com experiência em<br>JavaScript, TypeScript, React e Node.js.',
-        hero_desc: 'Bolsista de desenvolvimento no Procura.AÍ (FAPESQ / LAVID-UFPB). Fundador da <strong style="color:var(--gold)">AlttabCorp</strong>, onde criei o YGO / HUB, plataforma em produção para a comunidade de Yu-Gi-Oh! da minha cidade. Cajazeiras, PB - disponível para trabalho remoto.',
-        hero_btn_cv: "Baixar Currículo",
-        hero_btn_slides: "Ver Apresentação",
-        hero_btn_contact: "Entrar em contato",
-
-        // Stats
-        stat_ceo: "AlttabCorp - fundador desde 2023",
-        stat_research: "Bolsista FAPESQ / LAVID-UFPB",
-        stat_rag: "Assistente de IA com RAG - servidor próprio",
-        stat_edu: "Especialista em IA · 2 especializações em andamento",
-
-        // Stack
-        stack_label: "Competências",
-        stack_title: "Stack Técnica",
-        stack_sub: "Tecnologias que uso nos projetos e empregos listados abaixo.",
-        stack_languages: "Linguagens",
-        stack_databases: "Banco de Dados",
-        stack_ai: "Inteligência Artificial",
-        stack_architecture: "Arquitetura & Práticas",
-        stack_tools: "Ferramentas",
-
-        // Experience
-        exp_label: "Histórico",
-        exp_title: "Experiência Profissional",
-        exp_sub: "Do desenvolvimento em empresa júnior a uma plataforma do Governo da Paraíba e a um produto próprio em produção.",
-
-        exp1_title: "Desenvolvedor Full-Stack - bolsista BLD-ADT/H",
-        exp1_period: "Out 2024 - Presente",
-        exp1_company: "FAPESQ / LAVID-UFPB - Projeto Procura.AÍ · Remoto · João Pessoa, PB",
-        exp1_desc: "Desenvolvo a aplicação web do Procura.AÍ, plataforma do Governo da Paraíba para autocadastro e recuperação de celulares, acessível em desktop e mobile. Implemento o backend, a API REST de integração e o dashboard administrativo com dados de acessos, cadastros e relatórios estatísticos. Faço manutenção corretiva e evolutiva e integro a plataforma a sistemas de segurança pública, como a Delegacia Online.",
-
-        exp2_title: "Fundador e Desenvolvedor Full-Stack",
-        exp2_period: "Mai 2023 - Presente",
-        exp2_desc: "Criei e opero o YGO / HUB, principal produto da empresa. Desenvolvi e publiquei o site institucional e outros sistemas web, como o orçamento de impressão 3D e o painel financeiro FinOps. Construí a API REST da Biblioteca CIEC (NestJS, JWT, Swagger, Docker), estruturei o repositório de documentação técnica com LaTeX e CI/CD no GitHub Actions e mantenho servidor próprio com IA local, n8n, PostgreSQL e Uptime Kuma.",
-
-        exp3_title: "Técnico de Suporte ao Usuário (N1/N2)",
-        exp3_period: "Jan 2025 - Presente",
-        exp3_company: "Life Tecnologia - Hospital Universitário Júlio Bandeira (HUJB/Ebserh) · Presencial · Cajazeiras, PB",
+        nav_about: "Sobre",
+        nav_blog: "Artigos",
+        nav_projects: "Projetos",
+        nav_whatsapp: "WhatsApp",
+        live: "Em produção",
+        tab_path: "Trajetória",
+        tab_study: "Formação",
+        work_tcc: "Inventários",
+        open_ygo: "Abrir o YGO / HUB",
+        open_tcc: "Abrir no repositório do IFPB",
+        no_public: "Este sistema não tem endereço público.",
+        ygo_hook: "12 pessoas usam a plataforma, e a comunidade se encontra todo sábado.",
+        procura_hook: "Aplicação do Governo da Paraíba para autocadastro e recuperação de celulares.",
+        procura_more: "Backend, API REST e dashboard administrativo, em desktop e mobile.",
+        courses: "Cursos:",
+        exp1_title: "Desenvolvedor full-stack, bolsista BLD-ADT/H",
+        exp1_period: "Out 2024 – presente",
+        exp1_company: "FAPESQ / LAVID-UFPB, projeto Procura.AÍ. Remoto. João Pessoa, PB",
+        exp1_desc: "Desenvolvo a aplicação web do Procura.AÍ, plataforma do Governo da Paraíba para autocadastro e recuperação de celulares, acessível em desktop e mobile. Implemento o backend, a API REST de integração e o dashboard administrativo.",
+        exp2_title: "Fundador e desenvolvedor full-stack",
+        exp2_period: "Mai 2023 – presente",
+        exp2_desc: "Criei e opero o YGO / HUB, principal produto da empresa, em produção para a comunidade de Yu-Gi-Oh! de Cajazeiras. Também publiquei o site institucional da AlttabCorp.",
+        exp3_title: "Técnico de suporte ao usuário (N1/N2)",
+        exp3_period: "Jan 2025 – presente",
+        exp3_company: "Life Tecnologia, Hospital Universitário Júlio Bandeira (HUJB/Ebserh). Presencial. Cajazeiras, PB",
         exp3_desc: "Service Desk no hospital universitário, em paralelo à bolsa de desenvolvimento.",
-
-        exp4_title: "Desenvolvedor Full-Stack - prestação de serviços",
-        exp4_period: "Fev 2022 - Set 2022",
-        exp4_company: "LOOP3 · Remoto · Itapema, SC",
+        exp4_title: "Desenvolvedor full-stack, prestação de serviços",
+        exp4_period: "Fev 2022 – set 2022",
+        exp4_company: "LOOP3. Remoto. Itapema, SC",
         exp4_desc: "Desenvolvi funcionalidades de sistema web com Node.js, Express e MongoDB, e interfaces em React e React Native. Integrei pagamentos pela API do Asaas com webhooks e mantive versionamento e CI/CD no Azure DevOps. Corrigi falhas durante o desenvolvimento e no período de garantia contratual.",
-
-        exp5_title: "Técnico em Informática",
-        exp5_period: "Set 2021 - Fev 2023",
-        exp5_company: "Faculdade Santa Maria · Cajazeiras, PB",
+        exp5_title: "Técnico em informática",
+        exp5_period: "Set 2021 – fev 2023",
+        exp5_company: "Faculdade Santa Maria. Cajazeiras, PB",
         exp5_desc: "Desenvolvi o sistema de atendimento aos alunos com Node.js, TypeScript, React, PostgreSQL e Docker. Implementei a plataforma de Plano Individual de Trabalho (PIT) dos docentes com Node.js, React e SQLite.",
-
         exp6_title: "Desenvolvedor",
-        exp6_period: "Dez 2018 - Dez 2021",
-        exp6_company: "Loopis Jr - Empresa Júnior do IFPB · Cajazeiras, PB",
+        exp6_period: "Dez 2018 – dez 2021",
+        exp6_company: "Loopis Jr, empresa júnior do IFPB. Cajazeiras, PB",
         exp6_desc: "Desenvolvi sites e sistemas web para clientes com Python/Django e Node.js e participei da estruturação da empresa júnior.",
-
-        // Projects
-        proj_label: "Portfólio",
-        proj_title: "Projetos em Destaque",
-        proj_sub: "Seleção de projetos com impacto real, disponíveis publicamente.",
-        proj_view_all: "Ver portfólio completo →",
-
-        proj1_name: "YGO / HUB - comunidade Yu-Gi-Oh! de Cajazeiras",
-        proj1_desc: "Plataforma em produção, com 12 usuários ativos e evento semanal aos sábados: confirmação de presença, decks, mercado de cartas, ranking, campeonatos com chaveamento e painel administrativo. Login por e-mail, Google e Discord, e app instalável (PWA).",
-
-        proj2_name: "Sistema de Inventários Históricos (TCC)",
-        proj2_desc: "Aplicação web para pesquisa em inventários históricos, com API REST e modelagem em grafos no Neo4j. Trabalho de conclusão do curso de ADS, publicado no repositório institucional do IFPB.",
-
-        proj3_name: "API Biblioteca CIEC",
-        proj3_desc: "API REST de acervo bibliográfico com arquitetura modular (Repository Pattern), autenticação JWT, documentação Swagger e execução em Docker Compose.",
-
-        proj4_name: "Assistente de IA com RAG - servidor próprio",
-        proj4_desc: "Busca semântica com embeddings em pgvector, LLM local no Ollama, transcrição de áudio com Whisper, bot no Telegram e interface Open WebUI, orquestrados com n8n.",
-
-        proj5_name: "Automação de Certificados IFPB",
-        proj5_desc: "Sistema para emissão de certificados institucionais do IFPB Campus Cajazeiras, com validação por QR Code.",
-
-        proj6_name: "Orçamento 3D Automatizado",
-        proj6_desc: "Sistema web que calcula em tempo real o orçamento de impressão 3D a partir dos parâmetros da peça.",
-
-        // Education
-        edu_label: "Formação",
-        edu_title: "Educação & Especialização",
-        edu_sub: "Tecnólogo em ADS pelo IFPB e especialista em Inteligência Artificial, com duas especializações em andamento.",
-        edu_ongoing: "Em andamento",
+        proj1_desc: "Presença, decks, mercado de cartas, ranking, campeonatos e um painel de administração. Login por e-mail, Google e Discord. O app pode ser instalado (PWA).",
+        proj2_name: "Inventários históricos",
+        proj2_desc: "Pesquisa em inventários históricos, com API REST e grafos no Neo4j. TCC de ADS publicado no repositório do IFPB.",
         edu_done: "Concluído",
-        edu1_degree: "Especialização em Arquitetura de Software",
-        edu2_degree: "Pós-graduação Lato Sensu em Inteligência Artificial",
-        edu3_degree: "Especialização em Segurança da Informação",
-        edu4_degree: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
-        edu4_thesis: "TCC: Sistema de Inventários Históricos com Neo4j",
-        edu5_degree: "Técnico em Informática Integrado ao Ensino Médio",
-        edu5_note: "Projeto J.A.R.V.I.S - 3ª Competição de Robótica do IFPB",
-
-        // Certifications
-        cert_label: "Certificações",
-        cert_title: "Certificações & Cursos",
-        cert_sub: "Cerca de 156 horas em 39 cursos e eventos, além da pós-graduação de 640 horas em IA. Os principais estão abaixo.",
-        cert1_name: "Docker - Conteinerização & DevOps",
-        cert2_issuer: "Neo4j GraphAcademy · 2023",
-        cert3_name: "Git e GitHub: do básico ao avançado",
-        cert4_name: "Gestão de Projetos - trilha PMI (11 cursos)",
-        cert5_name: "NLW Unite - 8 trilhas (Node.js, React, Java, C#, Python, DevOps...)",
-        cert6_name: "Trilha Digital Coders 24 - Back End",
-        cert7_name: "PYSTACK WEEK 11.0 - Python e Django",
-        cert8_name: "Análise e Ciência de Dados (4 cursos)",
-        cert9_name: "Faça a inovação acontecer em sua empresa",
-
-        // Contact
-        contact_label: "Contato",
-        contact_title: "Vamos Conversar?",
-        contact_sub: "Aberto a oportunidades remotas, parcerias e projetos desafiadores no Brasil e no exterior.",
-        contact_p1: "Se você procura um desenvolvedor full-stack que já colocou produto em produção, trabalha com backend, APIs e dashboards e tem formação em IA aplicada, fale comigo.",
-        contact_p2: "Disponível para regimes CLT, PJ e contratos internacionais.",
-        avail_title: "Disponibilidade",
-        avail1: "Trabalho remoto - Brasil e exterior",
-        avail2: "Regime CLT, PJ e contratos internacionais",
-        avail3: "Desenvolvedor Web Full-Stack",
-        avail5: "IA aplicada"
+        edu_ongoing: "Em andamento",
+        edu1_degree: "Especialização em arquitetura de software",
+        edu2_degree: "Pós-graduação lato sensu em inteligência artificial",
+        edu3_degree: "Especialização em segurança da informação",
+        edu4_degree: "Tecnólogo em análise e desenvolvimento de sistemas",
+        edu4_thesis: "TCC: sistema de inventários históricos com Neo4j",
+        edu5_degree: "Técnico em informática integrado ao ensino médio"
       },
-
-      // ══════════════════════════════════════════════════
-      //  ENGLISH
-      // ══════════════════════════════════════════════════
       en: {
-        // Nav
-        nav_stack: "Stack",
-        nav_experience: "Experience",
-        nav_projects: "Projects",
-        nav_education: "Education",
-        nav_certifications: "Certifications",
-        nav_contact: "Contact",
-        nav_blog: "Articles",
-        nav_about: "About",
+        skip: "Skip to content",
+        hero_label: "Full-stack web developer. Artificial intelligence specialist.",
+        hero_desc: "Grant holder on Procura.AÍ (FAPESQ / LAVID-UFPB) and founder of AlttabCorp, where YGO / HUB is in production. Cajazeiras, Paraíba. Open to remote work, CLT or PJ.",
+        now_role: "Grant at FAPESQ / LAVID-UFPB",
+        now_meta: "Remote, since Oct 2024",
+        firm_role: "AlttabCorp product",
+        firm_meta: "Cajazeiras, live",
+        firm_since: "Since May 2023",
+        open_to: "Open to remote work, CLT or PJ.",
+        ygo_1: "Attendance",
+        ygo_2: "Decks",
+        ygo_3: "Card market",
+        ygo_4: "Ranking",
+        ygo_5: "Tournaments",
+        ygo_6: "Admin panel",
+        ygo_access: "Sign-in with email, Google, and Discord. The app can be installed.",
+        p_1: "Self-registration",
+        p_2: "Recovery",
+        p_3: "REST API",
+        p_4: "Dashboard",
+        p_5: "Desktop",
+        p_6: "Mobile",
+        tcc_hook: "ADS thesis, published in the IFPB repository.",
+        t_1: "Research",
+        t_2: "REST API",
+        t_3: "Neo4j graphs",
+        t_4: "IFPB repository",
+        courses_title: "Courses",
+        hero_btn_cv: "Download CV",
+        hero_btn_slides: "View presentation",
+        act_whatsapp: "Message on WhatsApp",
+        act_mail: "Send email",
+        act_in: "Open LinkedIn",
         nav_home: "Home",
-
-        // Hero
-        hero_status: "Open to new opportunities",
-        hero_label: "Full-Stack Web Developer · AI Specialist",
-        hero_role: '<strong>Full-Stack Web Developer</strong> experienced in<br>JavaScript, TypeScript, React, and Node.js.',
-        hero_desc: 'Development grant holder at Procura.AÍ (FAPESQ / LAVID-UFPB). Founder of <strong style="color:var(--gold)">AlttabCorp</strong>, where I built YGO / HUB, a production platform for my city\'s Yu-Gi-Oh! community. Cajazeiras, PB, Brazil - available for remote work.',
-        hero_btn_cv: "Download Resume",
-        hero_btn_slides: "View Presentation",
-        hero_btn_contact: "Get in touch",
-
-        // Stats
-        stat_ceo: "AlttabCorp - founder since 2023",
-        stat_research: "FAPESQ / LAVID-UFPB grant holder",
-        stat_rag: "RAG AI assistant - self-hosted server",
-        stat_edu: "AI specialist · 2 specializations in progress",
-
-        // Stack
-        stack_label: "Skills",
-        stack_title: "Tech Stack",
-        stack_sub: "Technologies I use in the projects and jobs listed below.",
-        stack_languages: "Languages",
-        stack_databases: "Databases",
-        stack_ai: "Artificial Intelligence",
-        stack_architecture: "Architecture & Practices",
-        stack_tools: "Tooling",
-
-        // Experience
-        exp_label: "Background",
-        exp_title: "Professional Experience",
-        exp_sub: "From a junior enterprise to a Paraíba state government platform and my own product in production.",
-
-        exp1_title: "Full-Stack Developer - BLD-ADT/H grant holder",
-        exp1_period: "Oct 2024 - Present",
-        exp1_company: "FAPESQ / LAVID-UFPB - Procura.AÍ project · Remote · João Pessoa, PB",
-        exp1_desc: "I develop the Procura.AÍ web application, a Paraíba state government platform for self-registration and recovery of mobile phones, available on desktop and mobile. I build the backend, the integration REST API, and the admin dashboard with access, registration, and statistical reports. I handle corrective and evolutionary maintenance and integrate the platform with public safety systems such as Delegacia Online.",
-
-        exp2_title: "Founder and Full-Stack Developer",
-        exp2_period: "May 2023 - Present",
-        exp2_desc: "I built and run YGO / HUB, the company's main product. I developed and published the company website and other web systems, such as the 3D printing quote calculator and the FinOps finance dashboard. I built the CIEC Library REST API (NestJS, JWT, Swagger, Docker), set up the technical documentation repository with LaTeX and GitHub Actions CI/CD, and maintain a self-hosted server with local AI, n8n, PostgreSQL, and Uptime Kuma.",
-
-        exp3_title: "User Support Technician (N1/N2)",
-        exp3_period: "Jan 2025 - Present",
-        exp3_company: "Life Tecnologia - Hospital Universitário Júlio Bandeira (HUJB/Ebserh) · On-site · Cajazeiras, PB",
+        nav_about: "About",
+        nav_blog: "Articles",
+        nav_projects: "Projects",
+        nav_whatsapp: "WhatsApp",
+        live: "In production",
+        tab_path: "Path",
+        tab_study: "Education",
+        work_tcc: "Inventories",
+        open_ygo: "Open YGO / HUB",
+        open_tcc: "Open in the IFPB repository",
+        no_public: "This system has no public address.",
+        ygo_hook: "12 people use the platform, and the community meets every Saturday.",
+        procura_hook: "A Paraíba state application for self-registration and recovery of mobile phones.",
+        procura_more: "Backend, REST API, and admin dashboard, on desktop and mobile.",
+        courses: "Courses:",
+        exp1_title: "Full-stack developer, BLD-ADT/H grant holder",
+        exp1_period: "Oct 2024 – present",
+        exp1_company: "FAPESQ / LAVID-UFPB, Procura.AÍ project. Remote. João Pessoa, PB",
+        exp1_desc: "I develop the Procura.AÍ web application, a Paraíba state government platform for self-registration and recovery of mobile phones, on desktop and mobile. I build the backend, the REST API, and the admin dashboard.",
+        exp2_title: "Founder and full-stack developer",
+        exp2_period: "May 2023 – present",
+        exp2_desc: "I built and run YGO / HUB, the company's main product, in production for the Yu-Gi-Oh! community in Cajazeiras. I also published the AlttabCorp website.",
+        exp3_title: "User support technician (N1/N2)",
+        exp3_period: "Jan 2025 – present",
+        exp3_company: "Life Tecnologia, Hospital Universitário Júlio Bandeira (HUJB/Ebserh). On-site. Cajazeiras, PB",
         exp3_desc: "Service Desk at the university hospital, alongside the development grant.",
-
-        exp4_title: "Full-Stack Developer - contractor",
-        exp4_period: "Feb 2022 - Sep 2022",
-        exp4_company: "LOOP3 · Remote · Itapema, SC",
+        exp4_title: "Full-stack developer, contractor",
+        exp4_period: "Feb 2022 – Sep 2022",
+        exp4_company: "LOOP3. Remote. Itapema, SC",
         exp4_desc: "Built web system features with Node.js, Express, and MongoDB, and interfaces in React and React Native. Integrated payments through the Asaas API with webhooks and maintained version control and CI/CD on Azure DevOps. Fixed defects during development and throughout the contractual warranty period.",
-
-        exp5_title: "IT Technician",
-        exp5_period: "Sep 2021 - Feb 2023",
-        exp5_company: "Faculdade Santa Maria · Cajazeiras, PB",
+        exp5_title: "IT technician",
+        exp5_period: "Sep 2021 – Feb 2023",
+        exp5_company: "Faculdade Santa Maria. Cajazeiras, PB",
         exp5_desc: "Built the student service system with Node.js, TypeScript, React, PostgreSQL, and Docker. Implemented the faculty Individual Work Plan (PIT) platform with Node.js, React, and SQLite.",
-
         exp6_title: "Developer",
-        exp6_period: "Dec 2018 - Dec 2021",
-        exp6_company: "Loopis Jr - IFPB Junior Enterprise · Cajazeiras, PB",
+        exp6_period: "Dec 2018 – Dec 2021",
+        exp6_company: "Loopis Jr, IFPB junior enterprise. Cajazeiras, PB",
         exp6_desc: "Built websites and web systems for clients with Python/Django and Node.js, and helped structure the junior enterprise.",
-
-        // Projects
-        proj_label: "Portfolio",
-        proj_title: "Featured Projects",
-        proj_sub: "A selection of real-impact projects, publicly available.",
-        proj_view_all: "View full portfolio →",
-
-        proj1_name: "YGO / HUB - Cajazeiras Yu-Gi-Oh! community",
-        proj1_desc: "Production platform with 12 active users and a weekly Saturday event: attendance confirmation, decks, card marketplace, ranking, tournaments with brackets, and an admin panel. Sign-in with email, Google, and Discord, and an installable app (PWA).",
-
-        proj2_name: "Historical Inventory System (Thesis)",
-        proj2_desc: "Web application for research on historical inventories, with a REST API and graph modeling in Neo4j. Final project of the Systems Analysis and Development degree, published in the IFPB institutional repository.",
-
-        proj3_name: "CIEC Library API",
-        proj3_desc: "Library catalog REST API with modular architecture (Repository Pattern), JWT authentication, Swagger docs, and Docker Compose.",
-
-        proj4_name: "RAG AI Assistant - self-hosted server",
-        proj4_desc: "Semantic search with pgvector embeddings, local LLM on Ollama, Whisper audio transcription, a Telegram bot, and the Open WebUI interface, orchestrated with n8n.",
-
-        proj5_name: "IFPB Certificate Automation",
-        proj5_desc: "System for issuing institutional certificates for IFPB Campus Cajazeiras, with QR Code validation.",
-
-        proj6_name: "Automated 3D Quoting",
-        proj6_desc: "Web system that calculates 3D printing quotes in real time from the part's parameters.",
-
-        // Education
-        edu_label: "Education",
-        edu_title: "Education & Specialization",
-        edu_sub: "Systems Analysis and Development degree from IFPB and postgraduate specialist in Artificial Intelligence, with two more specializations in progress.",
-        edu_ongoing: "In Progress",
+        proj1_desc: "Attendance, decks, a card market, ranking, tournaments, and an admin panel. Sign-in with email, Google, and Discord. The app can be installed (PWA).",
+        proj2_name: "Historical inventories",
+        proj2_desc: "Research on historical inventories, with a REST API and Neo4j graphs. ADS thesis published in the IFPB repository.",
         edu_done: "Completed",
-        edu1_degree: "Postgraduate in Software Architecture",
-        edu2_degree: "Postgraduate Specialization in Artificial Intelligence",
-        edu3_degree: "Postgraduate in Information Security",
-        edu4_degree: "B.Tech in Systems Analysis and Development",
-        edu4_thesis: "Thesis: Historical Inventory System with Neo4j",
-        edu5_degree: "Integrated IT Technical High School Program",
-        edu5_note: "J.A.R.V.I.S project - 3rd IFPB Robotics Competition",
-
-        // Certifications
-        cert_label: "Certifications",
-        cert_title: "Certifications & Courses",
-        cert_sub: "About 156 hours across 39 courses and events, plus a 640-hour postgraduate degree in AI. Highlights below.",
-        cert1_name: "Docker - Containerization & DevOps",
-        cert2_issuer: "Neo4j GraphAcademy · 2023",
-        cert3_name: "Git and GitHub: from basics to advanced",
-        cert4_name: "Project Management - PMI track (11 courses)",
-        cert5_name: "NLW Unite - 8 tracks (Node.js, React, Java, C#, Python, DevOps...)",
-        cert6_name: "Digital Coders 24 Track - Back End",
-        cert7_name: "PYSTACK WEEK 11.0 - Python and Django",
-        cert8_name: "Data Analysis and Data Science (4 courses)",
-        cert9_name: "Make Innovation Happen in Your Company",
-
-        // Contact
-        contact_label: "Contact",
-        contact_title: "Let's Talk?",
-        contact_sub: "Open to remote opportunities, partnerships, and challenging projects in Brazil and abroad.",
-        contact_p1: "If you are looking for a full-stack developer who has shipped a product to production, works with backends, APIs, and dashboards, and has a background in applied AI, let's talk.",
-        contact_p2: "Available for CLT, PJ, and international contracts.",
-        avail_title: "Availability",
-        avail1: "Remote work - Brazil and worldwide",
-        avail2: "CLT, PJ & international contracts",
-        avail3: "Full-Stack Web Developer",
-        avail5: "Applied AI"
+        edu_ongoing: "In progress",
+        edu1_degree: "Postgraduate in software architecture",
+        edu2_degree: "Postgraduate specialization in artificial intelligence",
+        edu3_degree: "Postgraduate in information security",
+        edu4_degree: "Technologist degree in systems analysis and development",
+        edu4_thesis: "Thesis: historical inventory system with Neo4j",
+        edu5_degree: "Integrated IT technical high school program"
       }
     };
 
-    // ══════════════════════════════════════════════════
-    //  ENGINE - Aplica idioma selecionado
-    // ══════════════════════════════════════════════════
-    let currentLang = localStorage.getItem('lang') || 'pt';
+    let currentLang = localStorage.getItem("lang") || "pt";
 
     function setLang(lang) {
       currentLang = lang;
-      localStorage.setItem('lang', lang);
-      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
-
-      // Atualiza título da página
-      document.title = lang === 'pt'
-        ? 'Glaymar França - Desenvolvedor Web Full-Stack · Especialista em IA'
-        : 'Glaymar França - Full-Stack Web Developer · AI Specialist';
-
-      // Atualiza link de download do currículo
-      const btnCV = document.getElementById('btnDownloadCV');
-      if (btnCV) {
-        btnCV.href = 'assets/Curriculo.pdf';
-      }
-
-      // Aplica traduções em todos os elementos com data-i18n
+      localStorage.setItem("lang", lang);
+      document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+      document.title = lang === "pt"
+        ? "Glaymar França — Desenvolvedor web full-stack"
+        : "Glaymar França — Full-stack web developer";
       const dict = i18n[lang];
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (dict[key] !== undefined) {
-          el.innerHTML = dict[key];
-        }
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) el.textContent = dict[key];
       });
-
-      // Atualiza botões ativos do language switcher
-      document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.dataset.lang === lang);
+      document.querySelectorAll(".lang-btn").forEach((btn) => {
+        const on = btn.dataset.lang === lang;
+        btn.setAttribute("aria-pressed", on ? "true" : "false");
+        btn.classList.toggle("active", on);
       });
     }
 
-    // ══════════════════════════════════════════════════
-    //  EVENT LISTENERS
-    // ══════════════════════════════════════════════════
+    function bindTabs(list) {
+      const tabs = [...list.querySelectorAll('[role="tab"]')];
+      function select(tab, moveFocus, initial) {
+        const prevIndex = tabs.findIndex((item) => item.getAttribute("aria-selected") === "true");
+        const nextIndex = tabs.indexOf(tab);
+        tabs.forEach((item) => {
+          const on = item === tab;
+          item.setAttribute("aria-selected", on ? "true" : "false");
+          item.tabIndex = on ? 0 : -1;
+          const panel = document.getElementById(item.getAttribute("aria-controls"));
+          if (!panel) return;
+          panel.hidden = !on;
+          panel.classList.toggle("is-shown", on);
+        });
+        if (!initial) {
+          list.dispatchEvent(new CustomEvent("tabchange", {
+            bubbles: true,
+            detail: { tab, dir: nextIndex >= prevIndex ? 1 : -1 }
+          }));
+        }
+        if (moveFocus) tab.focus();
+      }
+      tabs.forEach((tab, index) => {
+        tab.addEventListener("click", () => select(tab, false));
+        tab.addEventListener("keydown", (event) => {
+          let target = index;
+          if (event.key === "ArrowRight") target = (index + 1) % tabs.length;
+          else if (event.key === "ArrowLeft") target = (index - 1 + tabs.length) % tabs.length;
+          else if (event.key === "Home") target = 0;
+          else if (event.key === "End") target = tabs.length - 1;
+          else return;
+          event.preventDefault();
+          select(tabs[target], true);
+        });
+      });
+      const current = tabs.find((item) => item.getAttribute("aria-selected") === "true") || tabs[0];
+      if (current) select(current, false, true);
+    }
 
-    // Language switcher (desktop + mobile)
-    document.querySelectorAll('.lang-btn').forEach(btn => {
-      btn.addEventListener('click', () => setLang(btn.dataset.lang));
+    document.querySelectorAll("[data-work]").forEach((block) => {
+      bindTabs(block.querySelector('[role="tablist"]'));
     });
-
-    // Nav scroll effect
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 30);
+    document.querySelectorAll(".lang-btn").forEach((btn) => {
+      btn.addEventListener("click", () => setLang(btn.dataset.lang));
     });
-
-    // Hamburger menu
-    const hamburger = document.getElementById('hamburger');
-    const mobileNav = document.getElementById('mobileNav');
-    hamburger.addEventListener('click', () => {
-      mobileNav.classList.toggle('open');
-    });
-    mobileNav.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => mobileNav.classList.remove('open'));
-    });
-
-    // Inicializa idioma salvo
     setLang(currentLang);
   </script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="assets/motion.js?v=1"></script>
+</body>
+
+</html>
